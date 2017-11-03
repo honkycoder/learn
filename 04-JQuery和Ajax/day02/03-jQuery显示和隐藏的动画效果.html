@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 400px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            $("button").eq(0).click(function () {
+                //让指定的div显示
+                //1s --> 1000 ms
+                $("div").show(1000,function () {
+                    console.log("显示动画执行完毕之后调用");
+                });
+            })
+
+            $("button:eq(1)").click(function () {
+                //让指定的div隐藏
+                $("div").hide(2000,function () {
+                    console.log("隐藏动画执行完毕之后调用");
+                });
+            })
+
+            $(".togT").click(function () {
+                //如果当前这个div隐藏了那么就显示出来,否则就隐藏
+//                $("div").toggle(3000,function () {
+//                    console.log("切换动画执行完毕之后调用");
+//                });
+
+                //可以把时间省略了,只写回调函数
+                $("div").toggle(function () {
+                    console.log("切换动画执行完毕之后调用");
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+<div></div>
+<button>显示</button>
+<button>隐藏</button>
+<button class="togT">切换</button>
+
+<!--
+    01 显示和隐藏动画的相关方法:hide() | show() |toggle()
+    02 方法的参数:
+        (1) 第一个参数:时间(速度)   [可以省略]
+        (2) 动画效果执行完毕之后的回调函数 [可以省略]
+-->
+</body>
+</html>

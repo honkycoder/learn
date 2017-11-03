@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+工厂模式: 大批量的生产同类型的产品
+需求: 生产香烟
+
+核心步骤:
+    1.提供一个父构造函数
+    2.给这个父构造函数设置原型对象方法
+    3.给这个父构造函数提供多个静态方法,用于定制合作伙伴
+    4.给这个父构造函数提供一个静态工厂方法,用于创建不同型号相同类型的产品
+    5.使用父构造函数的静态工厂方法生产产品
+
+<script>
+    // 1.提供一个父构造函数
+    function CigarettesMake() {
+
+    }
+
+    // 2.给这个父构造函数设置原型对象方法
+    CigarettesMake.prototype.logDes = function () {
+        console.log('我们的口号是:' + this.des);
+    };
+
+    // 3.给这个父构造函数提供多个静态方法,用于定制合作伙伴
+    CigarettesMake.china = function () {
+        this.des = '抽的不是烟,是寂寞';
+    };
+    CigarettesMake.more = function () {
+        this.des = '感受指尖薄荷的味道';
+    };
+
+    // 4.给这个父构造函数提供一个静态工厂方法,用于创建不同型号相同类型的产品
+    CigarettesMake.factory = function (str) {
+
+        // 1.接收型号名
+        var shopType = str;
+
+        // 2.判断是否支出生产
+        try {
+            // 可能会报错的代码
+            if (typeof CigarettesMake[shopType] != 'function') {
+                throw '不支持生产';
+            }
+        }
+        catch (e) {
+            console.log(e);
+            return false;
+        }
+
+        // 3.取出父构造函数的静态方法作为子构造函数,设置子构造函数的原型对象为父构造函数的实例化对象实现原型链继承
+        CigarettesMake[shopType].prototype = new CigarettesMake();
+
+        // 4.使用子构造函数实例化对象
+        var newShop = new CigarettesMake[shopType]();
+
+        // 5.返回创建好的对象
+        return newShop;
+    };
+
+    // 5.使用父构造函数的静态工厂方法生产产品
+    var china = CigarettesMake.factory('china');
+    var more = CigarettesMake.factory('more');
+
+    china.logDes();
+    more.logDes();
+
+</script>
+</body>
+</html>

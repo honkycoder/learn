@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+概念:
+    原型成员: 原型属性 | 原型方法
+    实例成员: 实例属性 | 实例方法
+
+#通过对象的动态特性操作原型
+<script>
+
+    function Person(name) {
+        this.name = name;
+    }
+
+    // 设置原型成员
+    Person.prototype.des = '我是一个人';
+    Person.prototype.logDes = function () {
+        console.log(this.des);
+    };
+
+    var p = new Person('zs');
+    p.logDes(); // 我是一个人
+
+    // 修改原型属性
+    Person.prototype.des = '嘿嘿,我是一个人';
+    p.logDes();
+
+    // 删除原型属性
+    // 注意点: 删除对象上面的属性,不会影响原型对象上的属性
+//    delete p.des; // 删除不了原型对象的属性
+//    console.log(p.des); // undefined | (嘿嘿,我是一个人)
+    // 1.找到构造函数的原型对象 2.删除构造函数原型对象的属性
+    delete Person.prototype.des;
+    console.log(p.des); // (undefined) | 嘿嘿,我是一个人
+
+
+</script>
+
+#使用字面量的方式操作原型对象
+
+<script>
+    function Person() {
+
+    }
+
+    // 使用字面量的方式操作原型对象,相当于替换了原型对象
+    Person.prototype = {
+        des: 'des',
+        logDes: function () {
+            console.log(this.des);
+        }
+    };
+
+    var p = new Person();
+    console.log(p.des); // des
+
+</script>
+</body>
+</html>

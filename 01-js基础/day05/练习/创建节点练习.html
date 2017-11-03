@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建节点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body id="box">
+<script>
+    window.onload=function () {
+        var list = document.createElement('ul');
+        var list1 = document.createElement('li');
+        var list2 = document.createTextNode('title');
+        var box = document.getElementById('box');
+        list. style.width='600px';
+        list. style.height='200px';
+        list. style.background='red';
+        list1. style.background='#ccc';
+        list1. style.width='200px';
+        list1. style.height='200px';
+        box.appendChild(list);
+        list.appendChild(list1);
+        list.appendChild(list2)
+
+    }
+</script>
+</body>
+</html>

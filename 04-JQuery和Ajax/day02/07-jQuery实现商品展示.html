@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            list-style: none;
+        }
+        .box{
+            width: 400px;
+            height: 300px;
+            border: 1px solid #000000;
+            margin: 60px auto;
+        }
+
+        ul{
+            overflow: hidden;
+        }
+        li{
+            width: 100px;
+            line-height: 40px;
+            float: left;
+            text-align: center;
+        }
+
+        p{
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            $("li:gt(3):not(:last)").hide();
+
+            $("p").click(function () {
+                //第一次点击的时候展开,第二次点击的时候要收起来
+                $("li:gt(3):not(:last)").slideToggle(2000);
+
+                if($(this).text() == "显示所有的品牌")
+                {
+                    $(this).text("隐藏")
+                }else {
+                    $(this).text("显示所有的品牌")
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>佳能</li>
+        <li>索尼</li>
+        <li>三星</li>
+        <li>尼康</li>
+        <li>松下</li>
+        <li>卡西欧</li>
+        <li>富士</li>
+        <li>可达</li>
+        <li>宾得</li>
+        <li>理光</li>
+        <li>奥林巴斯</li>
+        <li>明基</li>
+        <li>显示其它品牌</li>
+    </ul>
+    <p>显示所有的品牌</p>
+</div>
+</body>
+</html>

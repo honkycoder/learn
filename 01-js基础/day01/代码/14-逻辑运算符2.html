@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    var a = true&&false;
+//    var a = false&&true;
+    var a = ''&&true; // 把决定性的''赋值给a
+    var b = 'a'&&true; // 把决定性的''赋值给a
+    var b = 'a'&&'ddd'; // 把决定性的''赋值给a
+    if(b){
+        console.log('--------');
+    }
+
+    var a1 = ''||undefined;
+console.log(a1);
+
+    // 最短路径:
+    // ''&&true;
+
+//document.onload  = function (event) {
+//    event = event||window.event;
+//
+//}
+
+</script>
+</body>
+</html>

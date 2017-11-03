@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box{
+            width: 800px;
+            height: 410px;
+            border: 1px solid red;
+            margin: 20px auto;
+            background: url("slide_01_2000x410.jpg") no-repeat center center;
+
+            background-size:cover;
+
+        }
+        /*
+        - length
+            + 如 background-size: 100px 100px，将背景图固定到多大尺寸
+          - percentage
+            + 如 background-size: 90% 90%，以百分比的形式设置背景大小
+          - cover
+            + 1.背景图片等比例缩放
+            + 2.让背景图相对较小边放大到目标容器大小结束
+              * 如：一张100\*200的背景图放到一个300\*400的盒子中，最终背景图片的大小是300\*600
+              * 因为背景图的较小边为100，将100放大到目标容器300的宽度，放大了3倍，最终结果300\*600
+          - contain
+            + 1.背景图片等比例缩放
+            + 2.让背景图相对较大边放大到目标容器大小结束
+              * 如：一张100\*200的背景图放到一个300\*400的盒子中，最终背景图片的大小是200\*400
+              * 因为背景图的较大边为200，将200放大到目标容器400的高度，放大了2倍，最终结果200\*400
+        */
+    </style>
+</head>
+<body>
+    <div class="box">
+    </div>
+</body>
+</html>

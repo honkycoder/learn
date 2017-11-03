@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.2.4.js"></script>
+</head>
+<body>
+<!--
+    01 map方法的使用：
+        （1） $.map(对象，function(){//}) 参数和each方法是反的
+        （2） $().map(function(){//})     参数和each方法一致,修正了this,终止循环有区别
+    02 具体的作用和使用注意点
+        （1）遍历对象|数组|jQuery实例对象（伪数组），把键值对作为参数传递给回调函数
+        （2）收集每次遍历的返回值
+
+    03 对象和数组和伪数组的遍历操作
+        数组：for | for..in |forEach
+        对象：for..in
+        伪数组：for..in | for
+-->
+
+<div class="box">div1</div>
+<div>div2</div>
+<div>div3</div>
+
+<script>
+//    console.log($.map(["demo1", "demo2", "name", "wen"], function (value, index) {
+//        //if(index == 1) return false;
+//        console.log(index, value);
+//        //console.log(this);
+//        return value + "2B";
+//    }));
+
+
+    $("div").map(function (index, value) {
+        //console.log(this);
+        if(index == 1) return false;
+        console.log(index, value);
+        //return value + "2A";
+    });
+
+</script>
+
+<
+</body>
+</html>

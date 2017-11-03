@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div></div>
+    <!--注释-->
+    <div id="box2">
+        <button></button>
+    </div>
+    <div></div>
+</div>
+
+<script>
+   //node
+    // 1. 获取元素
+    var box = document.getElementById('box2');
+   // 2. 获取节点的父节点,通过parentNode来获取
+   // 3. 节点:元素节点,文本节点,...
+   // 4. 只有元素节点才有子节点,一个节点的父节点一定是元素节点
+   console.log(box.parentNode);
+
+
+</script>
+</body>
+</html>

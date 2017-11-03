@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box
+        {
+            width: 800px;
+            height: 240px;
+            border: 1px solid #dddddd;
+            margin: 100px auto;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+        #box_top
+        {
+            width: 800px;
+            height: 200px;
+            position: relative;
+        }
+        #ulTag
+        {
+            width: 1300px;
+            position: absolute;
+            left: 0;
+            top: 20px;
+        }
+        #ulTag li
+        {
+            float: left;
+        }
+        #box_bottom
+        {
+            width: 100%;
+            height: 25px;
+            background: #dddddd;
+            position: absolute;
+            left: 0;
+            bottom:0;
+        }
+        #mask
+        {
+            width: 150px;
+            height: 25px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: orangered;
+            border-radius:12px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <!--上面的商品滚动内容-->
+    <div id="box_top">
+        <ul id="ulTag">
+            <li><img src="images/img1.jpg" alt=""></li>
+            <li><img src="images/img2.jpg" alt=""></li>
+            <li><img src="images/img3.jpg" alt=""></li>
+            <li><img src="images/img4.jpg" alt=""></li>
+            <li><img src="images/img5.jpg" alt=""></li>
+            <li><img src="images/img6.jpg" alt=""></li>
+            <li><img src="images/img7.jpg" alt=""></li>
+            <li><img src="images/img8.jpg" alt=""></li>
+            <li><img src="images/img7.jpg" alt=""></li>
+            <li><img src="images/img8.jpg" alt=""></li>
+        </ul>
+    </div>
+    <!--下面的盒子-->
+    <div id="box_bottom">
+       <span id="mask"></span>
+    </div>
+</div>
+
+</body>
+</html>

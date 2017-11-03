@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="XMGQuery框架/XMGQuery.1.0.4.js"></script>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+</head>
+<body>
+
+<div>div1</div>
+<div class="class1">div2</div>
+<div class="class1" id="demoID">div3</div>
+
+<script>
+    //console.log($("div"));
+    //console.log($(".class1"));
+
+    //获取页面中所有的div标签
+    //console.log(document.getElementsByTagName("div"));
+    //console.log(document.getElementsByClassName("class1"));
+
+    //提供一个方法(函数)来封装
+    //function f(str) {
+        //判断当前传入的参数是标签|id|class|
+    //}
+
+    //f("div")
+    //f(".class1")
+
+    //作用:获取页面中指定的所有标签把这些标签中的第一个返回
+    //document.querySelector
+    //console.log(document.querySelector("#demoID"));
+    //作用:获取页面中指定的所有标签
+    //console.log(document.querySelectorAll("div"));
+
+    console.log($(".class1"));
+    console.log($("div"));
+    console.log($("#demoID"));
+</script>
+</body>
+</html>

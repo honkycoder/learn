@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.4.3.js"></script>
+</head>
+<body>
+<!--
+    01 尝试使用特定的方法,查看并记录该方法的使用
+    02 总结该方法的使用情况
+    03 分析应该如何实现
+    04 具体的代码实现
+    05 验证
+-->
+
+<div class="bbcc aa bb cc">div1</div>
+<div class="aa aabbcc bb xx">div2</div>
+<div>div3</div>
+
+<script>
+    //01 没有传递参数 所有的标签的class都清空 == removeClass
+    //console.log($("div").toggleClass());
+
+    //02 传递参数（单个class）
+    //如果选中的标签中存在该class那么就删除，如果不存在那么就添加
+    //console.log($("div").toggleClass("aa"));
+
+    //02 传递参数（多个class）
+    console.log($("div").toggleClass("aa bb"));
+
+    //hasClass方法不支持判断（检查）多个class
+    // console.log($("div").hasClass("aa xx"));
+
+</script>
+</body>
+</html>

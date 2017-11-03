@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = 3;
+    if (a > 2) {
+
+    }
+
+    // switch 语句
+    /*
+     * switch: 告诉系统这是一个switch语句
+     * ():比较条件,会和case 后的数,比较是否相等,如果相等就会执行:和break之间的语句
+     * 如果:和break之间的语句多余一条,最好用{}括起来,break放在{}里面的最后位置
+     * break: 终止执行,如果缺少break,就会造成贯穿
+     * break一定不要忘记写
+     * */
+    switch (a) {
+        case 3:
+            console.log(a);
+            break;
+        case 2:
+        {
+            console.log(a);
+            console.log(a);
+            console.log(a);
+            break;
+        }
+
+        default:
+
+            console.log(a);
+            break;
+
+    }
+
+    //通过switch 打印星期,0代表星期日....6代表星期六
+
+    var week = 6;
+    switch (week) {
+        case 0:
+            console.log(week);
+            break;
+        case 1:
+            console.log(week);
+
+            break;
+        case 2:
+            console.log(week);
+
+            break;
+        case 3:
+            console.log(week);
+
+            break;
+        case 4:
+            console.log(week);
+
+            break;
+        case 5:
+            console.log(week);
+
+            break;
+        case 6:
+            console.log('周六');
+
+            break;
+
+//        default:
+//                // 如果已经列出了所有的可能情况,则,default可以省略
+//            break;
+
+
+    }
+
+
+</script>
+</body>
+</html>

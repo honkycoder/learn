@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script>
+    /*
+    1.计数器初始为0
+    2.路径与射线逆时针相交-1，顺时针相交+1
+    3.计数器为0不填充，不为0填充
+    */
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 2.绘制内圆
+    ctx.arc(200,200,80,0,2*Math.PI,false);
+
+    // 3.绘制外圆
+    ctx.arc(200,200,100,0,2*Math.PI,true);
+
+    ctx.fillStyle = 'red';
+    ctx.fill();
+</script>
+</body>
+</html>

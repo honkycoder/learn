@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    // 2.监听鼠标按下的事件
+    canvas.onmousedown = function (e) {
+        //  清屏
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+//        canvas.width = 900;
+        //  开启路径
+        ctx.beginPath();
+        // 设置起点
+        ctx.moveTo(e.offsetX,e.offsetY);
+        // 监听鼠标移动设置终点
+        canvas.onmousemove = function (e) {
+            // 设置终点
+            ctx.lineTo(e.offsetX,e.offsetY);
+            // 绘制
+            ctx.stroke();
+        }
+
+        // 监听鼠标抬起清除事件
+        canvas.onmouseup = function () {
+            // 清除移动的事件
+            canvas.onmousemove = null;
+            // 清除鼠标抬起的事件
+            canvas.onmouseup = null;
+        }
+    }
+
+</script>
+</body>
+</html>

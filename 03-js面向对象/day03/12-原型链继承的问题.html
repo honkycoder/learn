@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+原型链继承存在的问题:
+        1.使用子构造函数创建对象时无法给父构造函数传参
+        2.使用原型链继承后,父构造函数创建出来的对象成为子构造函数的原型对象,那么子构造函数创建出来的对象的原型成员就是父构造函数创建出来的对象的实例成员,如果这个实例成员中有引用类型,那么通过子构造函数创建出来的对象就会共享这一块数据,修改其中一个就会影响另外一个
+
+<script>
+    function Person(name) {
+        this.name = name;
+        this.friends = ['小明'];
+    }
+
+    function Student(num) {
+        this.num = num;
+    }
+
+    // 实现原型链继承
+    Student.prototype = new Person();
+
+    // 修正构造器属性
+    Student.prototype.constructor = Student;
+
+    var stu = new Student(110);
+    console.log(stu.name); // undefined
+    stu.friends.push('小红');
+
+    var stu1 = new Student(120);
+    console.log(stu1.friends);
+
+
+</script>
+</body>
+</html>

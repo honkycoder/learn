@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    a1=true && true;  // t && t 结果为
+    a2=true && false ;     // t && f 结果为
+    a3=false && true ;     // f && t 结果为
+    a4=false && (3 == 4);  // f && f 结果为
+    a5="Cat" && "Dog";     // t && t 结果为 Dog
+    a6=false && "Cat" ;    // f && t 结果为
+    a7="Cat" && false ;    // t && f 结果为
+    o1=true || true  ;     // t || t 结果为
+    o2=false || true  ;    // f || t 结果为
+    o3=true || false  ;    // t || f 结果为
+    o4=false || (3 == 4);  // f || f 结果为
+    o5="Cat" || "Dog"   ;  // t || t 结果为
+    o6=false || "Cat"  ;   // f || t 结果为
+    o7="Cat" || false  ;   // t || f 结果为
+
+</script>
+</body>
+</html>

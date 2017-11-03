@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+Function构造函数的使用
+    1.函数声明
+    2.函数表达式
+    3.Function构造函数
+
+<script>
+    // 1.函数声明
+//    function 函数名() {
+//        // 函数体
+//    }
+
+    // 2.函数表达式
+    // 匿名函数表达式
+    var sum = function () {
+
+    };
+
+    // 命名函数表达式
+    var add = function fn() {
+
+    };
+
+    // Function构造函数
+//    var func = new Function(); // var func = function () {}
+    // 给Function构造函数传参,参数为字符串
+    // 1个参数: 函数体
+    // 多个参数: 最后一个参数是函数体,前面的参数依次为函数的形参
+
+//    var func = new Function('console.log(\'demo\')');
+    var func = new Function("console.log('demo')");
+    func();
+
+    var func1 = new Function('a','b','console.log(a + b)');
+    func1(1,2);
+
+
+</script>
+</body>
+</html>

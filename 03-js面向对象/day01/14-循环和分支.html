@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+循环:
+    for
+    for..in
+    while
+    do..while
+
+<script>
+    // for
+    for (var i = 0; i < 100; i++) {
+        // 循环体
+    }
+
+    // for..in: 用在遍历对象中的属性
+    var obj = {
+        name: 'zs',
+        age: 20
+    };
+    for (var k in obj) {
+        console.log(k, obj[k]);
+    }
+
+    // while: 先判断再执行循环体,有可能一次都不会执行
+//    var a = 10;
+//    while (a < 1) {
+//        // 循环体
+//        a--;
+//        console.log(a);
+//    }
+
+    // do..while: 先执行后判断,至少执行一次
+    var b = 20;
+    do {
+        // 循环体
+        console.log(b);
+    } while (b < 1);
+
+</script>
+
+分支:
+    if..else
+    switch..case
+
+<script>
+    // if..else
+//    if (true) {
+//
+//    } else {
+//
+//    }
+
+    // switch..case
+    var a = 1;
+    switch (a) {
+        case 1:
+            console.log(1);
+            break; // 防止case穿透
+        case 2:
+            console.log(2);
+            break;
+        default:
+            console.log('其他值');
+            break;
+    }
+
+</script>
+</body>
+</html>

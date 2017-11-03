@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+组合继承的基本写法
+    1.借用构造函数继承 -> 获取父构造函数的属性和方法
+    2.原型式继承 -> 获取父构造函数的原型对象中的成员
+
+    组合继承 = 借用构造函数继承 + 原型式继承
+
+    存在的问题: 子构造函数的原型对象与父构造函数的原型对象一致,共享同一份数据,互相有影响
+
+<script>
+    function Person(name) {
+        this.name = name;
+    }
+
+    Person.prototype.des = 'des';
+
+    function Student(num, name) {
+        this.num = num;
+
+        // 借用构造函数继承 | 经典继承 | 伪对象继承
+        Person.call(this, name)
+    }
+
+    // 原型式继承
+    Student.prototype = Person.prototype;
+
+    var stu = new Student(110,'zs');
+    console.log(stu);
+
+    console.log(stu.des);
+    Student.prototype.des = 'des-stu';
+
+    var p = new Person('ls');
+    console.log(p.des); // des | (des-stu)
+
+</script>
+</body>
+</html>

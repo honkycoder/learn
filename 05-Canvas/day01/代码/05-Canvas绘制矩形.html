@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 2.绘制矩形-第一种方式
+    /*
+    ctx.rect(200,200,200,100);
+    // 描边
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 10;
+    ctx.stroke();
+    // 填充
+    ctx.fillStyle = 'blue';
+    ctx.fill();
+    */
+
+    // 3.绘制矩形-第二种方式
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 10;
+    // 快速描边矩形：描述完路径后直接描边矩形
+    ctx.strokeRect(200,200,200,100);
+    ctx.fillStyle = 'blue';
+    // 快速填充矩形：描述完路径后直接填充矩形
+    ctx.fillRect(200,200,200,100);
+
+    // 4.清除矩形
+    ctx.clearRect(200,200,50,50);
+    // 5.清屏
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+</script>
+</body>
+</html>

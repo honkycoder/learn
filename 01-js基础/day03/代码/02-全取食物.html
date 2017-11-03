@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 130px;
+            height: 30px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background: url("foodChoose/down.gif") 7px 7px no-repeat;
+            line-height: 30px;
+            margin: 100px auto;
+        }
+
+        ul {
+            list-style: none;
+            display: none;
+            /*visibility: hidden;*/
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <p>选取食物</p>
+    <ul id="ule">
+        <li>食物1</li>
+        <li>食物2</li>
+        <li>食物3</li>
+        <li>食物4</li>
+        <li>食物5</li>
+    </ul>
+    <p>ceshi</p>
+</div>
+
+<script>
+    // 1. 获取元素
+    var box = document.getElementById('box');
+    var ule = document.getElementById('ule');
+    // 2.
+    box.onmouseover = function () {
+        // display:隐藏的更彻底,会从文档流中删除占用空间
+        ule.style.display = 'block';
+        // visibility:隐藏看不见
+//        ule.style.visibility = 'visible';
+        box.style.background = 'url("foodChoose/up.gif") 7px 7px no-repeat';
+    }
+    //3.
+    box.onmouseout = function () {
+        ule.style.display = 'none';
+//        ule.style.visibility = 'hidden';
+        box.style.background = 'url("foodChoose/down.gif") 7px 7px no-repeat';
+    }
+</script>
+</body>
+</html>

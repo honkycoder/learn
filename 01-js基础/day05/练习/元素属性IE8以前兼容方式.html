@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素属性的理解2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px !important;
+            background: red;
+            border: 1px solid #000;
+            margin: 100px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box" style="height: 300px;">我爱中国</div>
+
+<script>
+    var box = document.getElementById('box');
+    var style_E = box.currentStyle;  //currentStyle 只能用在ie8 以前
+    console.log(style_E.height);
+
+</script>
+</body>
+</html>

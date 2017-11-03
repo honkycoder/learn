@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.2.0.js"></script>
+</head>
+<body>
+<!--
+    原型对象上面的属性和方法：
+    jquery:版本号
+    length:默认的长度 0
+    selector:默认的选择器
+    toArray:把实例对象转换为数组
+    fist:
+    last:
+    get:获取指定的某一个DOM标签
+    eq:获取指定的某一个实例对象
+    each:
+    map:
+-->
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<script>
+    console.log($().jquery);
+    console.log($().length);
+    console.log($().selector);
+
+    console.log($("div"));
+    console.log($("div").toArray());
+
+    $().ready(function () {
+        console.log($("span"));
+    })
+
+    $(function () {
+        console.log($("span"));
+    })
+
+</script>
+
+<span></span>
+</body>
+</html>

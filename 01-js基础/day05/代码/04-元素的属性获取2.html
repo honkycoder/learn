@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px !important;
+            background: red;
+        }
+        /*div:before{*/
+            /**/
+            /**/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<div id="box" style="height: 300px;"></div>
+<script>
+    var box = document.getElementById('box');
+    // 利用getComputedStyle来获取元素的属性
+    // 获取的样式跟写在哪里没有关系,是最终应用的样式
+    var style_E = window.getComputedStyle(box,null);
+    console.log(style_E.height);
+
+
+</script>
+</body>
+</html>

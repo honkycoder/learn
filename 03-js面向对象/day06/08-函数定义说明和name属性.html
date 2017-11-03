@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    函数的定义:
+        1.函数声明
+        2.函数表达式
+        3.Function构造函数
+
+<script>
+    // 1.函数声明
+//    function 函数名() {
+//        函数体
+//    }
+
+    // 2.函数表达式
+    // 匿名函数表达式
+    var sum = function () {
+        console.log('demo+');
+    };
+
+    // 命名的函数表达式
+    var add = function func() {
+
+    };
+
+
+    // 获取函数名
+    // 函数的名字是以function后面的名字为准,如果没有指定名字,则是变量名
+    console.log(sum.name); // 空 | (sum)
+    console.log(add.name); // (func) | add
+
+    // 函数的名字不能修改
+    sum.name = 'demo';
+    console.log(sum.name); // demo | (sum)
+    console.log(Object.getOwnPropertyDescriptor(sum, 'name'));
+
+    Object.defineProperty(sum,'name',{
+        writable: true
+    });
+
+    sum.name = 'demo';
+    console.log(sum.name);
+//    demo();
+    sum();
+
+
+</script>
+</body>
+</html>

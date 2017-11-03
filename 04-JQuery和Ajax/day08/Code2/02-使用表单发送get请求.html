@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    GET:
+        (1) 提交参数-设置name属性
+        (2) 设置请求路径
+
+        请求路径:
+           http://127.0.0.1:8080/Code2/php_server/01-form_get.php?username=zs&password=1234\
+
+    POST:
+
+-->
+<form action="php_server/01-form_get.php" method="get">
+    <input type="text" placeholder="请输入用户名" name="username">
+    <input type="text" placeholder="请输入密码" name="password">
+    <input type="submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script src='js/Ball.js'></script>
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 2. 实例化小球
+    var ball1 = new Ball({x:200,y:200,r:50,fillColor:'red',speed:-1});
+    var ball2 = new Ball({x:200,y:400,r:80,fillColor:'blue',speed:2});
+
+    // 使用定时器让小球运动起来
+    setInterval(function () {
+        // 清屏
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        //  先更新
+        ball1.update();
+        ball2.update();
+
+        // 在绘制
+        ball1.render(ctx);
+        ball2.render(ctx);
+    },10);
+</script>
+</body>
+</html>

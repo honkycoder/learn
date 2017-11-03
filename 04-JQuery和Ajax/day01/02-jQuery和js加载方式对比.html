@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+
+        //(1) 调用的时机:等页面加载(所有的资源:CSS|js|DOM|图片)完毕才会执行
+        //(2) 多次调用：回调函数只会执行一次，后面的会把前面的覆盖
+        //(3) 简写:无
+//        window.onload = function () {
+//            //var oDiv = document.getElementsByTagName("div")[0];
+//            //console.log(oDiv);
+//            console.log("window.onload1");
+//        }
+//
+//        window.onload = function () {
+//            //var oDiv = document.getElementsByTagName("div")[0];
+//            //console.log(oDiv);
+//            console.log("window.onload2");
+//        }
+
+        //(1)调用的时机:DOM元素加载完就会调用
+        //(2) 多次调用:会执行多次回调函数
+//        $(document).ready(function () {
+//            console.log("readya");
+//        });
+
+//        $(document).ready(function () {
+//            console.log("readyb");
+//        });
+
+        //简写方式(1)
+        $().ready(function () {
+            console.log("readya");
+        });
+
+        //简写方式(2)
+        $(function () {
+            console.log("readyB");
+        });
+
+        console.log(jQuery == $);
+    </script>
+
+</head>
+<body>
+
+<div>测试的div</div>
+
+</body>
+</html>

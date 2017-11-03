@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+JS的执行:
+    1.将使用var声明的变量和使用function声明的函数提升到当前作用域的顶端
+    2.执行代码
+
+<script>
+    /*console.log(a); // 10 | (undefined)
+    var a = 10;
+    demo(); // demo
+    function demo() {
+        console.log('demo');
+    }*/
+
+    // 模拟提升
+    /*var a;
+    function demo() {
+        console.log('demo');
+    }
+    console.log(a); // 10 | (undefined)
+    a = 10;
+    demo(); // demo*/
+
+</script>
+
+#变量名和变量名相同: 后面定义的变量会覆盖前面的
+<script>
+    /*console.log(a); // undefined
+    var a = 10;
+    console.log(a); // 10
+    var a = 20;
+    console.log(a); // 20*/
+
+    // 模拟提升
+    /*var a;
+    var a;
+    console.log(a); // undefined
+    a = 10;
+    console.log(a); // 10
+    a = 20;
+    console.log(a); // 20*/
+</script>
+
+#函数名和函数名相同: 后面声明的函数会覆盖前面声明的函数
+<script>
+    /*demo(); // demo | (demo++)
+    function demo() {
+        console.log('demo');
+    }
+    demo(); // demo | (demo++)
+    function demo() {
+        console.log('demo++');
+    }
+    demo(); // demo | (demo++)*/
+
+    // 模拟提升
+    /*function demo() {
+        console.log('demo');
+    }
+    function demo() {
+        console.log('demo++');
+    }
+    demo(); // demo | (demo++)
+
+    demo(); // demo | (demo++)
+
+    demo(); // demo | (demo++)*/
+</script>
+
+#变量名和函数名相同: 只提升函数的声明,不提升变量的声明
+<script>
+    /*console.log(demo); // (函数) | undefined | demoStr
+    var demo = 'demoStr';
+    console.log(demo); // (demoStr)
+    function demo() {
+        console.log('函数');
+    }
+    console.log(demo); // 函数 | (demoStr)*/
+
+    // 模拟提升
+    /*var demo;
+    function demo() {
+        console.log('函数');
+    }
+    console.log(demo); // (函数) | undefined | demoStr
+    demo = 'demoStr';
+    console.log(demo); // demoStr
+
+    console.log(demo); // 函数 | (demoStr)*/
+</script>
+
+<script>
+    /*console.log(demo); // (函数) | demoStr | undefined
+    function demo() {
+        console.log('函数');
+    }
+    console.log(demo); // (函数) | undefined
+    var demo = 'demoStr';
+    console.log(demo);  // demoStr*/
+
+    // 模拟提升
+    function demo() {
+        console.log('函数');
+    }
+    console.log(demo); // (函数) | demoStr | undefined
+
+    console.log(demo); // (函数) | undefined
+    var demo = 'demoStr';
+    console.log(demo);  // demoStr
+
+</script>
+
+<script>
+    function demo() {
+        console.log('函数');
+    }
+    console.log(demo); // (函数) | undefined | demoStr
+    var demo = 'demoStr';
+    console.log(demo); // (demoStr)
+
+    console.log(demo); // 函数 | (demoStr)
+</script>
+</body>
+</html>

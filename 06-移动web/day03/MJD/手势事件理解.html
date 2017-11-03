@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Touch理解</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father{
+            width: 250px;
+            height: 250px;
+            background: lightblue;
+            margin: 0 auto;
+        }
+        .child{
+            width: 50px;
+            height: 150px;
+            background: palegreen;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="child"></div>
+    <a href="http://www.baidu.com">I want to baidu</a>
+</div>
+
+
+<script>
+window.onload = function () {
+    // 1.拿到标签
+    var father = document.getElementsByClassName('father')[0];
+    var child = father.getElementsByClassName('child')[0];
+
+    // 2.获取参数
+    var startX,movingX,changedX;
+    startX = 0;
+    movingX = 0;
+    changedX = 0;
+    var tempX;
+    // 用来保存child的transform值的参数
+    var childTranslateX = 0;
+
+
+    // touchstart 开始触摸
+    father.addEventListener('touchstart', function (e) {
+        console.log(e.touches[0].clientX);
+        startX = e.touches[0].clientX;
+    });
+    // touchstart 开始触摸
+    father.addEventListener('touchmove', function (e) {
+
+        // 一般是用来让move专注于当前的元素的方向上的与父元素相关的系统默认的效果禁止掉
+        movingX = e.touches[0].clientX;
+        changedX = movingX - startX;
+        if (Math.abs(changedX) > 0){
+            e.preventDefault();
+
+            console.log(changedX);
+            // curX + changedX;
+            tempX = childTranslateX + changedX;
+            child.style.transform = 'translateX(' + tempX + 'px)';
+        }
+    });
+    // touchend 结束触摸，一般要进行数据保留与 还原
+    father.addEventListener('touchend', function (e) {
+        console.log('touchend');
+
+        // 需要保留的是child的transform位置
+        childTranslateX = tempX;
+
+        // 需要还原的是一些记录性质的参数
+        startX = 0;
+        movingX = 0;
+        changedX = 0;
+        tempX = 0;
+    });
+}
+</script>
+</body>
+</html>

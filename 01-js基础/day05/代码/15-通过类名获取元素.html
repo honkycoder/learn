@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<button id="btn" class="btn"></button>
+<button class="btn"></button>
+<button class="btn"></button>
+<button class="btn"></button>
+<button class="btn"></button>
+<button class="btn"></button>
+<button class="btn"></button>
+<button class="btn"></button>
+<button class="btn"></button>
+<button class="btn"></button>
+
+<script>
+    //    var btn = document.getElementById('btn');
+    //    btn.childElementCount
+    //    document.getElementById()
+    //    document.getElementsByTagName()
+    // 在IE8之前没有这个方法
+//    console.log(document.getElementsByClassName('btn'));
+
+    function getElementWithClassName(E_className) {
+        if (document.getElementsByClassName) {
+            // 浏览器有相应的方法
+            return document.getElementsByClassName(E_className);
+        } else {
+            // 浏览器没有相应的方法
+            // * 统配符
+            //  document.getElementsByTagName('*') 可以获取到document中所有的标签
+            var allE = document.getElementsByTagName('*');
+//            var allE = document.children
+//            for(var i=0;i<document.childElementCount;i++){
+//
+//            }
+            var ells = [];
+            for (var i = 0; i < allE.length; i++) {
+                if (allE[i].className == E_className) {
+                    ells.push(allE[i]);
+                }
+//            }
+            }
+            return ells;
+        }
+    }
+
+    console.log(getElementWithClassName('btn'));
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body
+        {
+            background: pink;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        p{
+            text-align: center;
+            line-height: 40px;
+        }
+        span
+        {
+            width: 40px;
+            height: 40px;
+            background:url("images/top.png");
+            background-size: 100% 100%;
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<script src="js/MyFunc.js"></script>
+<span id="topBtn"></span>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<p>好好听课,不要打游戏</p>
+<script>
+    //1.获取标签
+    var topBtn =document.getElementById('topBtn');
+    //2.监测屏幕的滚动
+    window.onscroll = function () {
+       //3.获取屏幕滚动得到的距离顶部的偏移
+        var myScrollTop = scroll().top;
+        console.log(myScrollTop);
+        //4.判断span标签显示或者隐藏 (如果scrollTop如果大于0那么span应该显示否则span应该隐藏)
+        myScrollTop>0?show('topBtn'):hide('topBtn');
+
+        //6.将scrollTop的值传给缓动动画
+        beginY = myScrollTop;
+
+    };
+
+    //5.监听span的点击
+    var beginY =0;
+    var endY = 0;
+    var timer = null;
+    topBtn.onclick = function () {
+//        window.scrollTo()
+
+
+        //缓动动画
+        clearInterval(timer);
+        timer = setInterval(function () {
+             beginY = beginY+(endY-beginY)/20;
+            //滚动
+             window.scrollTo(0,beginY);
+        },20);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #main{
+            width: 600px;
+            height: 400px;
+            background-color: red;
+            margin: 20px auto;
+
+            /*flex布局*/
+            display: flex;
+
+            /*控制主轴的方向*/
+            flex-direction: row;
+
+        }
+
+        .test1{
+            background-color: blue;
+            flex:2;
+        }
+
+        .test2{
+            background-color: yellow;
+            flex:3;
+        }
+        .test3{
+            background-color: purple;
+            flex:1;
+        }
+        .test4{
+            background-color: green;
+            flex:1;
+        }
+    </style>
+</head>
+<body>
+   <div id="main">
+       <div class="test1">11111</div>
+       <div class="test2">22222</div>
+       <div class="test3">33333</div>
+       <div class="test4">44444</div>
+   </div>
+</body>
+</html>

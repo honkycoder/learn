@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+面向对象的三大特性:
+    封装
+    继承
+    多态
+
+#封装: 利用对象封装变量和函数
+<script>
+    // 使用变量来描述一部电影
+    // 存在的问题: 仅仅查看某一个代码,很难看出是一部电影,全局变量过多,会造成全局变量污染
+    var name = '功夫';
+    var actors = ['周星驰', '黄圣依', '林子聪', '元华'];
+    var showTime = '2004-12-23';
+    var type = '动作片';
+    var play = function () {
+        console.log('play');
+    };
+
+    // 利用对象封装的特性来描述这部电影
+    // 好处: 很明确就能够看出是一部电影,维护性好,隐蔽性好
+    var film = {
+        name: '功夫',
+        actors: ['周星驰', '黄圣依', '林子聪', '元华'],
+        showTime: '2004-12-23',
+        type: '动作片',
+        play: function () {
+            console.log('play');
+        }
+    };
+
+</script>
+
+#继承
+    现实生活中的继承: 一个人获得另外一个人的资源或者财富的一种方法
+    程序中的继承: 一个类(对象)获取另外一个类(对象)的属性和方法
+    面向对象的特点: 有没有类? (C++ JAVA)
+    JS中没有类,JS是支持面向对象的语言(基于对象的语言)
+
+<script>
+    var obj = {
+        name: 'zs',
+        age: 20,
+        friends: ['小明']
+    };
+
+    var o = {};
+
+    // 需求: 让o获取obj所有的属性和方法
+    // 实现: 遍历整个obj中的内容,赋值一份给o
+    // 混入式继承
+    // 存在的问题: 如果父对象中的属性是一个引用类型,那么继承过来的时候,赋值的是指向具体数据的内存地址,子对象和父对象共享整个数据,修改其中一个会影响另外
+    for (var k in obj) {
+        o[k] = obj[k];
+//        o['name'] = 'zs';
+//        o['age'] = 20;
+//        o['friends'] = 地址;
+    }
+
+    console.log(o);
+    o.friends.push('小红');
+    console.log(obj);
+
+</script>
+
+#多态
+    作用: 同一个操作作用于不同对象有不同的效果
+    实现: JS默认就带有多态的特性(JS弱类型语言)
+
+<script>
+    // 动物叫
+    // 狗叫: 旺旺
+    // 猫叫: 喵喵
+
+    function sound(fn) {
+        fn();
+    }
+
+    function dogSound() {
+        console.log('旺旺');
+    }
+
+    function catSound() {
+        console.log('喵喵');
+    }
+
+    sound(dogSound);
+    sound(catSound);
+
+</script>
+</body>
+</html>

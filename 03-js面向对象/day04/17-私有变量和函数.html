@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+私有变量和私有函数: 在构造函数内部创建出来的变量和函数就是私有变量和私有函数
+
+<script>
+    function Person() {
+        // 实例属性
+        this.name = '默认';
+        // 实例方法
+        this.showName = function () {
+            console.log(this.name);
+        };
+
+        // 私有变量
+        var num = 10;
+        // 私有函数
+        function showNum() {
+            console.log(num);
+        }
+
+        // 特权方法: 可以访问私有变量和私有函数的方法
+        this.getNum = function () {
+            return num;
+        }
+    }
+
+    var p = new Person();
+    console.log(p.getNum());
+</script>
+</body>
+</html>

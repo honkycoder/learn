@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+callee 和 caller
+    1.callee: 是arguments的属性,获取当前的函数,主要是用于递归调用
+    2.caller: 是Function.prototype的属性,获取调用函数的函数,必须是函数调用这个函数,caller才会有值
+
+<script>
+    function f1() {
+        console.log(arguments.callee); // f1
+        console.log(f1.caller); // f2
+    }
+
+    function f2() {
+        f1();
+    }
+
+    f2();
+    f1();
+</script>
+
+什么是递归调用?
+        自己调用自己,并且有退出条件
+<script>
+//    function f1() {
+//        f1();
+//    }
+//    f1();
+    
+    // 需求: 实现阶加
+    // 2 -> 1 + 2
+    // 3 ->  1 + 2 + 3
+    // 4 -> 1 + 2 + 3 + 4
+    // 5 -> 1 + 2 + 3 + 4 + 5
+    // n-1 -> 1 + 2 + 3 + 4 + 5 + ... + (n - 1) 
+    // n -> 1 + 2 + 3 + 4 + 5 + ... + (n - 1) + n
+    
+    function sum(n) {
+        if (n == 1) {
+            return 1;
+        }
+
+        return sum(n - 1) + n;
+    }
+
+    console.log(sum(10000));
+
+</script>
+
+使用即时调用函数实现阶加
+<script>
+    console.log((function (n) {
+        if (n == 1) {
+            return 1;
+        }
+        return arguments.callee(n - 1) + n;
+    })(100));
+    sum()
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 2.数据
+    var data = [
+        {name:'上海',color:'red',value:0.2},
+        {name:'北京',color:'blue',value:0.15},
+        {name:'广州',color:'pink',value:0.25},
+        {name:'杭州',color:'green',value:0.3},
+        {name:'苏州',color:'purple',value:0.1}
+    ];
+    // 圆心的坐标
+    var x0 = canvas.width * 0.5;
+    var y0 = canvas.height * 0.5;
+    // 半径
+    var r = 150;
+
+    // 开始的角度
+    var beginAngle = -90*Math.PI/180;
+
+    for (var i = 0; i < data.length; i++) {
+        // 开启路径
+        ctx.beginPath();
+        // 扇形的角度
+        var tempAngle = 360 * data[i].value * Math.PI / 180;
+        // 结束的角度
+        var endAngle = beginAngle + tempAngle;
+        //  设置起点
+        ctx.moveTo(x0,y0);
+        //  绘制圆弧
+        ctx.arc(x0,y0,r,beginAngle,endAngle);
+        // 绘制
+        ctx.fillStyle = data[i].color;
+        ctx.fill();
+
+        // 更新开始的角度
+        // 下一个扇形区域开始的角度是上一个扇区结束的角度
+        beginAngle = endAngle;
+    }
+
+</script>
+</body>
+</html>

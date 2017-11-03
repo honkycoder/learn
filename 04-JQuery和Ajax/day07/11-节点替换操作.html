@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+</head>
+<body>
+<div class="box">我是div</div>
+<span class="spanItem">我是span</span>
+
+<script>
+    $(function () {
+        //var tag = $("<h1>我是大标题</h1>");
+        //var tag = $("<span>我不是strong</span>");
+        //console.log(tag);
+
+        var oSpan = document.querySelector(".spanItem");
+
+        //使用大标题标签来替换掉整个div标签
+        //replaceWith方法的参数:标签
+        $(".box").replaceWith(oSpan);
+    })
+</script>
+</body>
+</html>

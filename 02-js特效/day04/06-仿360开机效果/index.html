@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        img
+        {
+            vertical-align: top;
+        }
+        #box
+        {
+            position: absolute;
+            right: 0px;
+            bottom: 0;
+        }
+        #close
+        {
+            width: 20px;
+            height: 20px;
+            background: red;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<script src="js/MyFunc1.js"></script>
+<div id="box">
+    <span id="close"></span>
+    <div id="topBox">
+        <img src="images/top.jpg" alt="">
+    </div>
+    <div id="bottomBox">
+        <img src="images/bottom.jpg" alt="">
+    </div>
+</div>
+<script>
+    //1.找对象
+    var box =document.getElementById('box');
+    var close = document.getElementById('close');
+    var bottomBox = document.getElementById('bottomBox');
+
+    //2.当鼠标在close上点击
+
+    //2.1.让bottomBox的高度变为0
+    //2.2.让整个大的box的宽度变为0
+    close.onclick = function () {
+        buffer(bottomBox,{'height':0},function () {
+             buffer(box,{'width':0});
+
+            //2.3.隐藏span的点击按钮
+            close.style.display = 'none';
+        });
+    }
+</script>
+</body>
+</html>

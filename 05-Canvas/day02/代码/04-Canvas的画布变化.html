@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas{
+            background: url("images/bg.png");
+        }
+    </style>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 2.缩放
+    /*
+    ctx.fillRect(0,0,100,100);
+
+    // 一旦设置缩放,缩放是整个画布,后面都有影响
+    ctx.scale(2,2);
+    ctx.fillStyle = 'red';
+    ctx.fillRect(100,0,100,100);
+
+    ctx.scale(0.5,0.5);
+    ctx.arc(100,100,100,0,2*Math.PI);
+    ctx.fill();
+    */
+
+    // 3. 位移
+    /*
+    ctx.fillRect(0,0,100,100);
+    // 位移整个画布
+    ctx.translate(100,100);
+    ctx.fillStyle = 'red';
+    ctx.fillRect(100,100,100,100);
+
+    //  回去
+    ctx.translate(-100,-100);
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(0,0,100,100);
+    */
+
+    // 4. 旋转
+    /*
+    ctx.fillRect(0,0,100,100);
+    ctx.rotate(20*Math.PI/180);
+
+    ctx.fillStyle = 'red';
+    ctx.fillRect(100,100,100,100);
+
+    ctx.rotate(-20*Math.PI/180);
+    */
+
+    // 5.保存和还原
+    //  第一个状态
+    ctx.fillRect(0,0,100,100);
+    ctx.save(); // 绘制状态的保存
+
+    // 第二个状态
+    ctx.translate(100,100);
+    ctx.rotate(20*Math.PI/180);
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0,0,100,100);
+
+    //  第三个状态
+    ctx.restore(); //  还原
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(0,0,100,100);
+</script>
+</body>
+</html>

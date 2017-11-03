@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 2.矩形
+//    ctx.fillStyle = 'red';
+//    ctx.fillRect(200,200,200,100);
+
+    var angle = 10;
+    // 定时器
+    setInterval(function () {
+        // 清屏
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        // 保存
+        ctx.save();
+        // 开启路径
+        ctx.beginPath();
+        // 位移
+        ctx.translate(300,250);
+        // 旋转
+        ctx.rotate(angle*Math.PI/180);
+        ctx.fillStyle = 'orange';
+        ctx.fillRect(-100,-50,200,100);
+        // 还原
+        ctx.restore();
+        // 累加角度
+        angle += 10;
+    },100);
+</script>
+</body>
+</html>

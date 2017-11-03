@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    // 1. for
+    // 2. while
+    // 3. do...while
+    // 4. for in
+
+    var dic = {name: 'zs', age: 12, height: 178, weight: 50} // 有10000个键值对,要求把每一个键对应的值取出来
+    // 字典取值
+    var name = dic['name'];
+    var age = dic['age'];
+    var height = dic['height'];
+    var weight = dic['weight'];
+
+//    for(var i=0;i<dic.length;i++){
+//
+//    }
+
+    // for in 循环 : 把in 后面的对象最为循环对象,一起把对象中的键值对取出,有多少个键值对就会循环多少次
+    // for :告诉系统是一个循环
+    // var key 定义一个变量,用来接收在每一循环中获取到的键值对的键
+    // dic 在哪一个字典中进行循环
+    /*for(var key in dic){
+
+
+    } */
+    for(var key in dic){
+        console.log('--------');
+        console.log(key);
+//        dic.key
+        var value = dic[key]
+        console.log(key +':'+ value);
+
+    }
+
+    // for in 循环能不能使用在数组中呢?
+    var arr = [1,5,6,'zs','lisi','ww'];
+    console.log(arr);
+    console.log(dic);
+    var i;
+    for(var index in arr){
+//        console.log(index);
+        console.log(index + ':' + arr[index]);
+//        arr[index] = 0;
+//        arr.push(23);
+    }
+
+    // for in 能过使用在字典里面,使用在数组里面来
+
+</script>
+</body>
+</html>

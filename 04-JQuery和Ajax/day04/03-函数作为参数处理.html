@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.0.8.js"></script>
+</head>
+<body>
+<script>
+    //$(function () {});
+    //$().ready(function () {})
+
+    window.onload = function () {
+        console.log("所有资源加载完毕");
+    }
+
+    function f() {
+        console.log("当DOM加载完毕就调用");
+    }
+
+    $(f)
+
+    //DOM加载的过程:
+
+    //使用addEventListener方法来监听DOM文档的加载
+    //第一个参数:要监听的是什么  DOM加载完毕(过程)
+    //第二个参数:当事件发生了该做什么
+    /*
+    document.addEventListener("DOMContentLoaded",function () {
+        console.log("DOM加载完毕");
+    })*/
+
+</script>
+
+<!--
+    01 函数作为$的参数的几种情况:
+        001 $(function () {//.....})
+        002 $().ready(function () {})
+
+    02 分析函数作为jQuery参数的情况(作用|特点)
+        001 该方法和window.onload方法的作用基本上是一样的
+        002 window.onlaod当所有的资源都加载完才会执行回调函数
+            $(function(){})当DOM加载完毕就调用,时间更短
+        003 思路:监听加载完毕,等加载完毕之后指定参数中的函数回调就行了
+            (1) 在init方法中判断参数是否是函数
+            (2) 如果是函数那么监听DOM加载完毕
+            (3) 等DOM加载完调用函数,调用selector =>selector();
+
+    03 问题的解决 => 监听DOM文档加载完毕
+        add Event Listener   ===>  监听DOM加载完毕
+
+    04 新的问题:addEventListener方法存在兼容性问题(ie)
+       报错:对象不支持“addEventListener”属性或方法
+        => attachEvent方法 监听DOM加载的(状态)
+        DOM文档加载的状态[4]:
+
+-->
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+原型链继承的注意点:
+        1.在实现原型链继承之后,再修正构造器属性
+        2.在实现原型链继承之后,再给原型对象添加属性和方法
+        3.在设置原型对象上的属性和方法时,只能通过对象的动态特性来设置,不能通过字面量的方式
+<script>
+    function Person() {
+
+    }
+
+    Person.prototype.des_person = 'des_person';
+
+    function Student() {
+
+    }
+
+
+
+    // 实现原型链继承
+    Student.prototype = new Person();
+
+    // 修正构造器属性
+    Student.prototype.constructor = Student;
+
+    Student.prototype.des = 'des';
+
+//    Student.prototype = {
+//        des: 'des'
+//    };
+
+    var stu = new Student();
+    console.log(stu.constructor);
+    console.log(stu.des);
+    console.log(stu.des_person);
+
+</script>
+</body>
+</html>

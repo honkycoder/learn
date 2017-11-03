@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+需求: 创建一个图书管理系统,实现增删改查功能
+    图书管理操作1:
+        存在的问题: 重复代码过多,冗余度高,无法复用
+    图书管理操作(函数封装01):
+        存在的问题: 重复代码过多,冗余度高
+
+<script>
+    // 1.创建一个数组用于存放所有的书,书用对象描述
+    var bookList = [
+        {
+            name: '西游记',
+            author: '吴承恩'
+        },
+        {
+            name: '三国演义',
+            author: '罗贯中'
+        },
+        {
+            name: '水浒传',
+            author: '施耐庵'
+        },
+        {
+            name: '红楼梦',
+            author: '曹雪芹'
+        }
+    ];
+
+    // 2.封装一个函数用于查询
+    function getBookByName(bookName) {
+        for (var i = 0; i < bookList.length; i++) {
+            var obj = bookList[i];
+            if (obj.name == bookName) {
+                return obj;
+            }
+        }
+    }
+
+    // 3.封装一个函数用于增加
+    function addBook(book) {
+        bookList.push(book);
+    }
+
+    // 4.封装一个函数用于修改
+    function setBook(bookName, bookAuthor) {
+        for (var i = 0; i < bookList.length; i++) {
+            var obj = bookList[i];
+            if (obj.name == bookName) {
+                obj.author = bookAuthor;
+                break;
+            }
+        }
+    }
+
+    // 5.封装一个函数用于删除
+    function removeBook(bookName) {
+        for (var i = 0; i < bookList.length; i++) {
+            var obj = bookList[i];
+            if (obj.name == bookName) {
+                // 从i位置开始删,删除1个
+                bookList.splice(i,1);
+                break;
+            }
+        }
+    }
+
+    // 查询
+    console.log(getBookByName('三国演义'));
+
+    // 添加
+    addBook({
+        name: '十万个为什么',
+        author: '不详'
+    });
+    console.log(bookList);
+
+    // 修改
+    setBook('十万个为什么', '张三');
+    console.log(bookList);
+
+    // 删除
+    removeBook('十万个为什么');
+    console.log(bookList);
+
+</script>
+</body>
+</html>

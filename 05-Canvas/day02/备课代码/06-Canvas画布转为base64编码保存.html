@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body style="padding: 100px">
+
+<canvas id="canvas" width="900" height="600" style="border: 1px solid #000"></canvas>
+
+<img id="icon" src="" alt="接受canvas的内容">
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    // 2.在画布上绘制一些图形
+    ctx.arc(canvas.width * 0.5,canvas.height * 0.5,100,0,2 * Math.PI);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+
+    // 绘制图片
+//    var img = new Image();
+//    img.src = "images/img_01.jpg";
+//    img.onload = function () {
+//        ctx.drawImage(img,200,200);
+//    }
+
+    // 3.将canvas内容转为base64编码格式
+    var dateUrl = canvas.toDataURL("image/png",1);
+    console.log(dateUrl);
+
+    // 4.接受canvas内容
+//    var image = document.getElementById("icon");
+//    image.src = dateUrl;
+
+    // 5.直接接受
+    var image1 = new Image();
+    image1.src = dateUrl;
+    document.body.appendChild(image1);
+
+
+</script>
+</body>
+</html>

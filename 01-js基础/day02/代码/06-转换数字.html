@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //parseInt()
+
+    var a = 12;
+    var b = +'12';
+    // 1.通过一元运算符开转换 +,- 可以把其他类型的数据数字转化
+    console.log(typeof b);
+    console.log(b);
+
+    // 2.parseInt(),把字符串变成数字
+    // 如果是单穿的数字字符串,就直接变成数字
+    var c = '12';
+    c=parseInt(c);
+    console.log(c);
+    //如果数字字符串后面还有字母,就把字母去掉
+    var d = '12a';
+    d=parseInt(d);
+    console.log(d);
+
+    //parseInt() 如果字符串,的第一个字母不是数字,则不能转化成数字,就会报NaN
+    // 如果数字字符串是小数,就直接去掉小数部分
+    var e = 'a12';
+    e=parseInt(e);
+    console.log(e);
+
+    console.log(parseFloat('102.88'));
+    console.log(parseInt('102.88'));
+
+
+</script>
+</body>
+</html>

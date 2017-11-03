@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+#　部分浏览器，如果多次发送GET网络请求请求的URL是一样的，那么会直接返回缓存文件
+    如果当前的接口需要实时的获取最新的数据，可以设置url，让url每次都不一样即可
+
+
+# 在请求路径后面跟上一个没有实际作用的参数，这个参数的值每次发送请求之前都会改变
+01-php-demo.php
+01-php-demo.php =》 123
+01-php-demo.php =》 123
+01-php-demo.php     123
+01-php-demo.php     456
+
+<script>
+    //01 创建请求对象(兼容性)
+    var xhr;
+    if(window.XMLHttpRequest)
+    {
+        xhr = new XMLHttpRequest();
+    }else
+    {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    //解决多次请求路径一样返回缓存数据问题：往URL后面再拼接一个随机数或者是时间戳
+    var count = Math.random();
+    //var timer = new Date().valueOf();
+    //console.log(timer);
+    var url = "php_server/06-ajax_get.php?t="+count;
+
+    //02 设置请求路径和方法
+    xhr.open("get",url,true);
+
+    //03 发送请求
+    xhr.send();
+
+    //04 监听网络状态
+    xhr.onreadystatechange = function () {
+        //判断是否完成
+        if(xhr.readyState == 4)
+        {
+            //虽然接收到服务器的响应，但是不知道是请求成功还是请求失败
+            //05 解析服务器返回的数据|
+            console.log(xhr.status);
+            if(xhr.status == 200)
+            {
+                console.log("请求成功：",xhr.responseText);
+            }else
+            {
+                console.log("请求失败！请检查参数！");
+            }
+        }
+    }
+</script>
+
+# http://127.0.0.1:8080/Code2/php_server/06-ajax_get.php?t=0.37068229055048896
+# http://127.0.0.1:8080/Code2/php_server/06-ajax_get.php?t=0.9381470789611037
+
+</body>
+</html>

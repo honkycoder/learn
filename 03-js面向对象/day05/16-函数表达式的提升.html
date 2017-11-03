@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+函数表达式的提升: 只提升变量的声明,不会去提升函数
+
+<script>
+    /*console.log(func); // 函数 | (undefined)
+
+    var func = function () {
+        console.log('函数');
+    };
+
+    console.log(func); // 函数
+    var func = '字符串';
+    console.log(func); // 字符串*/
+
+    // 模拟提升
+    var func;
+    var func;
+    console.log(func); // 函数 | (undefined)
+
+    func = function () {
+        console.log('函数');
+    };
+
+    console.log(func); // 函数
+    func = '字符串';
+    console.log(func); // 字符串
+</script>
+</body>
+</html>

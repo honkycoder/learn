@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        p
+        {
+            text-align: center;
+            line-height: 50px;
+        }
+        #box
+        {
+            position: absolute;
+            left: 0;
+            top: 150px;
+        }
+        #box img
+        {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="images/float.jpg" alt="">
+</div>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<p>好好听课,不要撸啊撸</p>
+<script src="js/Myfun.js"></script>
+<script>
+    //1.找对象
+    var box = document.getElementById('box');
+    //2.求出初始的距离顶部的位置
+    var myOffsetTop = box.offsetTop;
+
+    //3.监测屏幕的滚动
+    window.onscroll = function () {
+        //4.获取页面滚动距离顶部的偏移位置
+        var myScrollTop = scroll().top;
+//        console.log(myScrollTop);
+        endY = myScrollTop+myOffsetTop;
+    }
+
+    //5.缓动动画
+    var beginY = 0;
+    var endY = 0;
+    var timer = null;
+    timer = setInterval(function () {
+         //缓动动画公式
+        beginY = beginY+(endY-beginY)/20;
+        //让box做动画
+        box.style.top = beginY+'px';
+    },20);
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.1.1.js"></script>
+</head>
+<body>
+<button>添加</button>
+<button>查询</button>
+<button>修改</button>
+<button>删除</button>
+<button>清空</button>
+
+<script>
+    $(function () {
+
+        window.localStorage.setItem("age","18");
+        window.localStorage.setItem("des","我是拉拉");
+
+        $("button").eq(0).click(function () {
+            window.localStorage.setItem("name","wc");
+        })
+
+        $("button").eq(1).click(function () {
+            console.log(window.localStorage.getItem("name"));
+        })
+
+        $("button").eq(2).click(function () {
+            window.localStorage.setItem("name","XX");
+        })
+
+        $("button").eq(3).click(function () {
+           // window.sessionStorage.setItem("name","");
+            window.localStorage.removeItem("name");
+        })
+
+        $("button").eq(4).click(function () {
+            window.localStorage.clear();
+        })
+
+    });
+</script>
+</body>
+</html>

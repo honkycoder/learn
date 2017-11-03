@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.2.3.js"></script>
+</head>
+<body>
+<!--
+    01 each方法的使用：
+        （1） $.each(对象，function(){//})
+        （2） $().each(function(){//})
+    02 具体的作用和使用注意点
+        （1）遍历对象|数组|jQuery实例对象（伪数组），把键值对作为参数传递给回调函数
+        （2）中断循环
+        （3）回调函数中this - >value  需要手动的绑定（call|apply）
+
+    03 对象和数组和伪数组的遍历操作
+        数组：for | for..in |forEach
+        对象：for..in
+        伪数组：for..in | for
+-->
+
+<div class="box">div1</div>
+<div>div2</div>
+<div>div3</div>
+
+<script>
+    //01 遍历操作
+    $.each(["demo1","demo2","name","wen"],function (index,value) {
+        console.log(index, value);
+        if(value == "name") return false;
+        //console.log(this);
+    })
+
+    $("div").each(function (index,value) {
+        console.log(index, value);
+        console.log(this);
+    })
+
+    console.log("_________________");
+    /*
+    var str1 = "demo1";
+    var str2 = new String("demo1");
+    console.log(str1);
+    console.log(str2);*/
+</script>
+
+<script>
+    var arrT = ["demo1","a","b"];
+    arrT.forEach(function (value,index) {
+        console.log(index, value);
+    })
+
+    console.log("+++++++++");
+    var obj = {name:"zahnsgan"};
+    //对象没有forEach? 是否可以借用该方法?(NO)
+    //    [].forEach.call(obj,function (value,index) {
+    //        console.log(index, value);
+    //    })
+</script>
+<script>
+    console.log("_______________");
+    //for..in循环
+    //建议：在遍历数组的时候不建议使用for..in循环
+    //for..in循环在遍历的时候会把我们自己添加到原型对象上面的成员遍历出来
+    Array.prototype.des = "desARRAY";
+    var arrM = ["demo1","a","b"];
+    for(var i in arrM)
+    {
+        console.log(i, arrM[i]);
+    }
+    for(var i= 0;i<arrM.length;i++)
+    {
+        console.log(i, arrM[i]);
+    }
+</script>
+</body>
+</html>

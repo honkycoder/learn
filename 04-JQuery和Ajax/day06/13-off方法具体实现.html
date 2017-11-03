@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.5.0.js"></script>
+</head>
+<body>
+
+# off方法的使用和注意点
+    (1) $("button").off("click"); 批量的把页面中所有的按钮的click事件都移除
+    (2) $("button").off("click",callBack); 批量的把指定标签中回调为callBack.的click事件删除
+
+
+<button>我是按钮1</button>
+<button>我是按钮2</button>
+<button>我是按钮3</button>
+<span>我是span</span>
+
+<script>
+    function callBack() {
+        console.log("点击按钮.-----");
+    }
+    $("button").on("click",callBack);
+    $("button").off("click",callBack);
+
+    //批量移除按钮的点击事件
+    //$("button").off("click",callBack);
+
+    //01 获取页面中所有指定的标签
+    var btns = document.querySelectorAll("button");
+    //02 遍历所有的标签
+    for(var i= 0 ;i<btns.length;i++)
+    {
+        //03 给每个当前的标签添加事件
+        var btn = btns[i];
+        /*
+         btn[eventType] = function () {
+         console.log("点击了按钮");
+         }*/
+        //btn.addEventListener("click",callBack);
+        //removeEvent(btn,"click",callBack)
+    }
+    /*
+     * 第一个参数:要添加事件的标签
+     * 第二个参数:要添加的事件 ex:click事件
+     * 第三个参数:回调函数,当事件发生之后执行的回调函数
+     * */
+    /*
+    function removeEvent(dom,eventType,callBack){
+        if(dom.removeEventListener)
+        {
+            //第一个参数:要监听的事件
+            //第二个参数:事件发生后的回调函数
+            console.log(callBack);
+            dom.removeEventListener(eventType,callBack);
+        }else
+        {
+            console.log("++++");
+            //第一个参数:事件
+            //第二个参数:回调
+            dom.detachEvent("on" +eventType);
+        }
+    }*/
+</script>
+</body>
+</html>

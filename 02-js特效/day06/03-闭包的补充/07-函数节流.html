@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    window.onresize = function () {
+    //        console.log('打印了吗?');
+    //    };
+
+    //使用一次定时器进行节流
+    var timer = null;
+    window.onresize = function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            console.log('哈哈哈');
+        }, 1000);
+    };
+</script>
+</body>
+</html>

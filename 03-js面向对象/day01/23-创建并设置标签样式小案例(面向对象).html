@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div>第1个div</div>
+<div>第2个div</div>
+<div>第3个div</div>
+<div>第4个div</div>
+<div>第5个div</div>
+
+<p>第1个p</p>
+<p>第2个p</p>
+<p>第3个p</p>
+<p>第4个p</p>
+<p>第5个p</p>
+
+需求: 获取所有的div,设置每个div的边框"2px solid #fef"
+需求: 获取所有的p,设置每个p的边框"2px solid #fef"
+
+
+优点: 扩展性好, 维护性好,复用性好,结构性好
+<!--<script>-->
+
+    <!--// 提供一个对象-->
+    <!--// 给对象添加两个方法-->
+    <!--// 一个方法用于获取标签-->
+    <!--// 一个方法用于设置样式-->
+    <!--var $ = {-->
+        <!--// 获取标签-->
+        <!--getElements: function (eleName) {-->
+            <!--return document.getElementsByTagName(eleName);-->
+        <!--},-->
+        <!--setStyle: function (eles) {-->
+            <!--for (var i = 0; i < eles.length; i++) {-->
+                <!--eles[i].style.border = '2px solid #fef';-->
+            <!--}-->
+        <!--}-->
+    <!--};-->
+
+    <!--var divs = $.getElements('div');-->
+    <!--var ps = $.getElements('p');-->
+
+    <!--$.setStyle(divs);-->
+    <!--$.setStyle(ps);-->
+
+
+<!--</script>-->
+
+<script>
+
+    // 提供一个对象
+    // 给对象添加两个方法
+    // 一个方法用于获取标签
+    // 一个方法用于设置样式
+    var $ = {
+        // 获取标签
+        getElements: {
+            getElementsByTagName: function (eleName) {
+                return document.getElementsByTagName(eleName);
+            },
+            getElementsByClassName: function (className) {
+                return document.getElementsByClassName(className);
+            },
+            getElementById: function (id) {
+                return document.getElementById(id);
+            }
+        },
+        setStyle: {
+            setBorber: function (eles) {
+                for (var i = 0; i < eles.length; i++) {
+                    eles[i].style.border = '2px solid #fef';
+                }
+            },
+//            setSize
+//            setColr
+        }
+    };
+
+    var divs = $.getElements.getElementsByTagName('div');
+    var ps = $.getElements.getElementsByTagName('p');
+
+    $.setStyle.setBorber(divs);
+    $.setStyle.setBorber(ps);
+
+
+</script>
+</body>
+</html>

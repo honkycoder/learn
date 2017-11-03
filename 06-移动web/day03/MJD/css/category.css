@@ -1,0 +1,95 @@
+
+
+/* 主要内容 */
+.jd_category_main{
+    /* 高度需要动态的根据当前设备来设定 */
+    height: auto;
+}
+
+.jd_category_main .jd_category_left{
+    float: left;
+    width: 76px;
+    height: 100%;
+    overflow: hidden;
+}
+.jd_category_left ul.jd_category_left_con{
+
+}
+ul.jd_category_left_con li{
+    width: 75px;
+    height: 46px;
+    text-align: center;
+    line-height: 46px;
+    position: relative;
+}
+
+ul.jd_category_left_con li::before{
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: -1px;
+
+    width: 200%;
+    height: 200%;
+    /* 课后遇到不同方向的细边框的时候，只需要修改此处的border即可 */
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-left: none;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    /* 需要在放大情况下，根据position的left和top值，稍作调整 */
+    transform-origin: 1px 1px;
+    -webkit-transform-origin: 1px 1px;
+}
+
+
+ul.jd_category_left_con li.current a{
+    color: #f23030;
+}
+
+.jd_category_main .jd_category_right{
+    height: 100%;
+    overflow: hidden;
+    /*padding-left: 80px;*/
+    padding: 7px;
+    padding-left: 10px;
+}
+
+.jd_category_right .jd_category_third_promotion{
+
+}
+
+.jd_category_right .jd_category_third_promotion a{
+    display: block;
+}
+.jd_category_right .jd_category_third_promotion a>img{
+    width: 100%;
+}
+
+.jd_category_right .jd_category_div{
+    padding-top: 19px;
+ }
+.jd_category_right .jd_category_div>h4{
+    font-weight: normal;
+    color: #2d2d2d;
+
+}
+.jd_category_right .jd_category_div>ul{
+    padding: 7px;
+    background: #fff;
+    margin-top: 9px;
+}
+.jd_category_right .jd_category_div>ul li{
+    float: left;
+    width: 32.8%;
+    padding: 7px;
+    text-align: center;
+}
+.jd_category_right .jd_category_div>ul li a>img{
+    width: 100%;
+}
+
+
+
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    /*var foo = 1;
+    function bar() {
+        if(!foo)
+        {
+            var foo = 10;
+        }
+        alert(foo); // 报错 | 10
+    }
+    bar();*/
+
+    // 模拟提升
+    var foo;
+    function bar() {
+        var foo;
+        if(!foo)
+        {
+            foo = 10;
+        }
+        alert(foo); // 报错 | (10)
+    }
+    foo = 1;
+
+    bar();
+</script>
+</body>
+</html>

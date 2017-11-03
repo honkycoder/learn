@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .box {
+            width: 600px;
+            height: 200px;
+            border: 1px solid #1411ff;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box ul {
+            width: 1800px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .box ul li {
+            list-style: none;
+            float: left;
+        }
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            var index = $('li').length * $("li").width();
+            $('li:last').after($('li:lt(2)').clone(true));
+            var leftUl = 0;
+            var timer = 0;
+//                console.log($('li').length);
+//                console.log($("li").width());
+//                console.log(index);q
+            var setIn =function () {
+                timer = setInterval(function () {
+                    leftUl += 3;
+                    if (leftUl >= index) {
+                        leftUl = 0;
+                    }
+                    $("ul").css('left', -leftUl);
+                }, 50);
+            }
+                setIn();
+                $('li').hover(function () {
+                    clearInterval(timer);
+                    $(this).css('opacity',1).siblings().css('opacity',0.2);
+                },function () {
+                    setIn();
+                    $('li').css('opacity',1);
+                })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="fengtu/01.jpg" alt=""></li>
+        <li><img src="fengtu/02.jpg" alt=""></li>
+        <li><img src="fengtu/03.jpg" alt=""></li>
+        <li><img src="fengtu/04.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+Function构造函数参数过长的问题
+    需求: 打印下面4句话
+        多留汗水莫流泪
+        顶天立地要坚强
+        谁叫你是男子汉
+        再苦再累自己扛
+
+<script>
+    var func = new Function('console.log(\'多留汗水莫流泪\');console.log(\'顶天立地要坚强\');console.log(\'谁叫你是男子汉\');console.log(\'再苦再累自己扛\');');
+    func();
+</script>
+
+如何解决参数过长的问题:
+        1.+拼接字符串
+        2.使用反引号,tab键上面的那个键
+        3.JS模板
+<script>
+    console.log('111');
+    var func = new Function('console.log(\'多留汗水莫流泪\');' + 'console.log(\'顶天立地要坚强\');' + 'console.log(\'谁叫你是男子汉\');' + 'console.log(\'再苦再累自己扛\');');
+    func();
+
+</script>
+
+<script>
+    console.log('22');
+//    var func = new Function("console.log('多留汗水莫流泪');console.log('顶天立地要坚强');console.log('谁叫你是男子汉');console.log('再苦再累自己扛');");
+    var func = new Function(`console.log('多留汗水莫流泪');console.log('顶天立地要坚强');console.log('谁叫你是男子汉');console.log('再苦再累自己扛');`);
+    func();
+</script>
+
+<script type="text/template" id="demo">
+    console.log('多留汗水莫流泪');
+    console.log('顶天立地要坚强');
+    console.log('谁叫你是男子汉');
+    console.log('再苦再累自己扛');
+</script>
+<script>
+    console.log('33');
+    // 1.获取模板中的字符串
+    var str = document.getElementById('demo').innerHTML;
+
+    // 2.使用Function构造函数创建函数
+    var func = new Function(str);
+    func();
+</script>
+</body>
+</html>

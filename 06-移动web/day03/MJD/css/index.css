@@ -1,0 +1,481 @@
+
+
+.jd_viewport{
+    max-width: 640px;
+    min-width: 300px;
+
+    margin: 0 auto;
+    /*background: #000;*/
+    /*测试高度*/
+    /*height: 3333px;*/
+    margin-bottom: 64px;
+
+    position: relative;
+}
+
+/*头部标题*/
+.jd_viewport .jd_header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 44px;
+    /*background: red;*/
+
+    z-index: 999;
+}
+.jd_header .jd_topbar{
+    max-width: 640px;
+    min-width: 300px;
+
+    margin: 0 auto;
+    background: rgba(201, 21, 35, 0);
+    height: 100%;
+
+    position: relative;
+
+}
+
+.jd_topbar>form{
+    width: 100%;
+    height: 100%;
+    padding-left: 7px;
+    padding-right: 50px;
+    padding-top: 5px;
+}
+.jd_topbar .icon_logo{
+    position: absolute;
+    left: 15px;
+    top: 14px;
+
+    background-position: 0 0;
+
+    width: 20px;
+    height: 15px;
+ }
+.jd_topbar .icon_search{
+    position: absolute;
+    left: 40px;
+    top: 14px;
+
+    background-position: -80px 0;
+
+    width: 20px;
+    height: 15px;
+}
+
+.jd_topbar form>input{
+    width: 100%;
+    height: 34px;
+    padding-left: 70px;
+    border-radius: 17px;
+}
+
+.jd_topbar>a{
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 50px;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    font-size: 0.7rem;
+}
+
+
+/*底部tabbar*/
+.jd_viewport .jd_footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    background: #fff;
+    box-shadow: 0 -2px 2px #ccc;
+}
+/*iOS中，tabBar控件的默认高度是49*/
+.jd_footer ul{
+    width: 100%;
+}
+.jd_footer ul li{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+
+.jd_footer ul li a>img{
+    width: 65px;
+    height: 50px;
+}
+
+/*banner*/
+
+.jd_viewport .jd_banner{
+    overflow: hidden;
+    position: relative;
+}
+.jd_banner>ul{
+    width: 1000%;
+    -webkit-transform: translateX(-10%);
+    transform: translateX(-10%);
+}
+.jd_banner>ul li {
+    width: 10%;
+    float: left;
+}
+.jd_banner>ul li a>img{
+    width: 100%;
+}
+.jd_banner>ol{
+    position: absolute;
+    left: 50%;
+    bottom: 0.6rem;
+
+    /*background: #000;*/
+    width: 144px;
+    height: 6px;
+    margin-left: -72px;
+}
+.jd_banner>ol li{
+    float: left;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    margin: 0 6px;
+}
+.jd_banner>ol li.current{
+    background: #e0e0e0;
+}
+
+/*分类索引*/
+.jd_viewport .jd_categories{
+
+}
+
+.jd_categories>ul{
+    padding: 10px 0;
+}
+
+.jd_categories>ul li{
+    float: left;
+    width: 20%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.jd_categories>ul>li>a>img{
+    width: 1.5rem;
+}
+.jd_categories>ul>li>a>p{
+    font-size: 0.65rem;
+    color: #000;
+}
+
+/*产品中心*/
+.jd_viewport .jd_main{
+    
+}
+/*产品中心三部曲之一 秒杀*/
+.jd_main .jd_seckill{
+    /*test height*/
+    /*height: 300px;*/
+    background: #fff;
+}
+.jd_seckill .seckill_header{
+    height: 34px;
+    /*background: orange;*/
+}
+
+/*秒杀头部的左边*/
+.seckill_header a.seckill_header_left{
+    float: left;
+    width: 68%;
+    height: 100%;
+    line-height: 34px;
+    /*background: greenyellow;*/
+    font-size: 0;
+}
+
+.seckill_header_left>img{
+    float: left;
+    width: 69px;
+    height: 27px;
+    margin-top: 3px;
+}
+.seckill_header_left>strong{
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    font-size: 0.7rem;
+    color: #181818;
+    margin-left: 5px;
+}
+
+.seckill_header_left>strong>em{
+    /*让font的设置直接和爹一样*/
+    font: inherit;
+}
+.seckill_header_left div{
+    display: inline-block;
+}
+
+.seckill_header_left>.seckill_timer{
+    /*vertical-align: middle;*/
+    margin-left: 5px;
+}
+
+.seckill_header_left>.seckill_timer>.seckill_time{
+    width: 18px;
+    height: 17px;
+    line-height: 16px;
+    text-align: center;
+}
+.seckill_header_left>.seckill_timer>span.colon{
+    display: inline-block;
+    width: 6px;
+}
+
+.seckill_header_left>.seckill_timer span{
+    /*float: left;*/
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/*秒杀头部的右边*/
+.seckill_header a.seckill_header_right{
+    float: right;
+    width: 32%;
+    height: 100%;
+    line-height: 34px;
+    text-align: right;
+    padding-right: 22px;
+    color: #f23030;
+    font-size: 12px;
+
+    position: relative;
+}
+
+.seckill_header a.seckill_header_right::after{
+    content: "";
+
+    position: absolute;
+    right: 7px;
+    top: 11px;
+
+    background: url("../images/arrow_rt.png");
+    -webkit-background-size: 12px 12px;
+    background-size: 12px 12px;
+
+    width: 12px;
+    height: 12px;
+}
+
+/*秒杀内容*/
+.jd_seckill .seckill_con{
+
+}
+.seckill_con ul{
+    padding: 7px;
+}
+.seckill_con ul li{
+    float: left;
+    width: 33.33%;
+    text-align: center;
+}
+.seckill_con ul li a{
+    /* 课后自己抄细边框的做法 */
+    border-right: 1px solid #e0e0e0;
+
+}
+
+.seckill_con ul li:last-of-type a{
+    border-right: none;
+}
+
+.seckill_con ul li a>img{
+    width: 80%;
+}
+.seckill_con ul li>strong{
+    /* 0.8 * html的fz的大小 */
+    font-size: 0.8rem;
+    color: #f23030;
+    display: block;
+    height: 1rem;
+    line-height: 1rem;
+}
+.seckill_con ul li>span{
+    /* 0.8 * html的fz的大小 */
+    font-size: 0.65rem;
+    /*color: #f23030;*/
+    text-decoration: line-through;
+    display: block;
+    height: 1rem;
+    line-height: 1rem;
+}
+
+/*产品中心三部曲之二，主题类产品*/
+.jd_main .jd_topics{
+}
+.jd_main .jd_topics .jd_topic_products{
+    margin-top: 10px;
+    background: #fff;
+}
+
+/*主题产品标题*/
+.jd_topic_products>h3{
+    padding-left: 14px;
+    /*background: yellow;*/
+    border-bottom: 1px solid #e0e0e0;
+
+    height: 33px;
+    line-height: 33px;
+    font-weight: normal;
+    font-size: 0.75rem;
+
+    position: relative;
+}
+
+.jd_topic_products>h3::before{
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 3px;
+
+    background: #f23030;
+    width: 4px;
+    height: 27px;
+
+}
+/*主题产品内容*/
+.jd_topic_products>.topic_con{
+
+}
+.jd_topic_products>.topic_con li a img{
+    width: 100%;
+}
+/*回忆基础班的选择器拼接出样式*/
+.half_w{
+    width: 50%;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+/*后面这仨，回去画瓢成细边框*/
+.bdr{
+    border-right: 1px solid #e0e0e0;
+}
+.bdl{
+    border-left: 1px solid #e0e0e0;
+}
+.bdb{
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/*产品中心三部曲之三 为nin推荐*/
+.jd_main .jd_recommond{
+    margin-top: 10px;
+}
+.jd_recommond .recommond_header{
+    padding: 0 5px;
+}
+.recommond_header .recommond_header_con{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+
+    position: relative;
+}
+.recommond_header .recommond_header_con::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 1px;
+    width: 100%;
+    background: #cbcbcb;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+}
+
+.recommond_header_con>span{
+    font-size: 0.7rem;
+    padding-left: 33px;
+    padding-right: 10px;
+    background: #f5f5f5;
+    color: #848689;
+    z-index: 10;
+
+    position: relative;
+}
+
+.recommond_header_con>span::before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 4px;
+
+    width: 13px;
+    height: 13px;
+    background: url("../images/intro_arrow.png") no-repeat;
+    -webkit-background-size:13px 13px;
+    background-size:13px 13px;
+}
+/*推荐内容*/
+.jd_recommond .recommond_con{
+
+}
+
+.recommond_con ul{
+
+}
+.recommond_con ul li{
+    float: left;
+    width: 49%;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.recommond_con ul li:nth-child(2n){
+    float: right;
+}
+.recommond_con ul li>a{
+
+}
+.recommond_con ul li>a>img{
+    width: 100%;
+}
+.recommond_con ul li>a>span{
+    /* 移动端要实现超出文字部分用...代替，不止要设置text-overflow，还需要设置-webkit-box相应的一些属性，eg.line-clamp */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+
+    height: 1.5rem;
+    line-height: 0.7rem;
+    overflow: hidden;
+    padding: 2px 3px;
+    /*text-overflow: ellipsis;*/
+}
+
+
+.recommond_con ul li>.recommend_con_bottom{
+    padding: 7px;
+}
+.recommend_con_bottom strong.pro_price{
+    color: #f23030;
+    font-size: 0.8rem;
+}
+.recommend_con_bottom a.find_like{
+    float: right;
+    padding: 3px 7px;
+}

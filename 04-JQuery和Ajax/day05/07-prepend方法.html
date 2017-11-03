@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.3.5.js"></script>
+</head>
+<body>
+<div class="box">div1</div>
+<div class="box">div2</div>
+<div>div3</div>
+
+<ul>
+    <li class="liItem">li1</li>
+    <li>li2</li>
+    <li>li3</li>
+    <li>li4</li>
+</ul>
+
+<script>
+   //01 使用:把所有的div标签都添加到li标签内容的前面
+
+   //参数：
+   //(1) jQuery实例对象
+   //(2) DOM标签
+
+   //(3) 选择器（字符串）  把参数拼接在所有指定标签内容的前面
+   //(4) 124|true 操作的事HTML
+   //(5) 没有参数    返回自己
+
+   //console.log($("li").prepend($("div")));
+
+   //== $("div").appendTo($("li"));
+   var oDiv = document.createElement("div");
+   oDiv.innerText = "我是divc";
+   document.body.appendChild(oDiv);
+   $("li").prepend(oDiv);
+
+   //$("li").prepend(".box");
+   //$("li").prepend(12345);
+   //$("li").prepend("<h1>我是大标题又来了</h1>");
+
+   //console.log($("li").prepend());
+</script>
+</body>
+</html>

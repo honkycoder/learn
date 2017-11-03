@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 算术运算符: +,-,*,/,%,++,--,-=,+=,....
+    // ++:自增:不需要通过其他运算符,只++就可以改变自己的值
+    // 前增/前减:在取变量值的时候进行+1或者-1;
+    // 后增/后减: 在取变量值之后,也就是说在a++,a-- 当时是不会改变a的值
+    var a = 0;
+
+//    console.log(++a);// 先取值0,马上自己加1
+//    console.log(a);
+//    console.log(--a);//先取值1,马上自己减1
+//    console.log(a);
+
+    // 后增/后减
+    var b = 2;
+//    console.log(b++); //b的值不会马上增加,要执行完b++之后才会加
+//    console.log(b);
+
+    var c=5;
+//    console.log((c++) + c); // 5+6
+
+    var d = 11;
+//    console.log(d--);
+//    console.log(d);
+// 3+15-11+10
+    var sum = ++b+(c++)*b-(d--)+(d++);
+    console.log(sum);
+
+    // 2.-=,+=,*=./=
+    var e = 12;
+    e -=1; // -=相当于e=e-1;
+    console.log(e);
+    e+=1;// +=相当于e=e+1;
+    console.log(e);
+    e*=2;// *= 相当于e=e*2;
+    console.log(e);
+
+</script>
+</body>
+</html>

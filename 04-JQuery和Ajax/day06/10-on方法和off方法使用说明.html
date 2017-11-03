@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+    <script>
+        $(function () {
+            function callBack() {
+                console.log("点击了按钮-A");
+            }
+            $("button").on("click",callBack)
+
+            $("button").on("click",function () {
+                console.log("点击了按钮-B");
+            })
+
+            $("button").click(function () {
+                console.log("点击了按钮-C");
+            })
+
+            //$("button").off("click");
+            $("button").off("click",callBack);
+        })
+    </script>
+</head>
+<body>
+
+# on方法的使用和注意点
+    批量为指定的标签添加事件(点击|鼠标),事件发生就会执行回调函数
+    注意点:如果给标签添加了多个事件,那么并不会覆盖,而是执行多次回调函数
+
+# off方法的使用和注意点
+    (1) $("button").off("click"); 批量的把页面中所有的按钮的click事件都移除
+    (2) $("button").off("click",callBack); 批量的把指定标签中回调为callBack.的click事件删除
+
+<button>我是按钮1</button>
+<button>我是按钮2</button>
+<button>我是按钮3</button>
+</body>
+</html>

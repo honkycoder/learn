@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+作用域链:
+    1.函数可以创建作用域
+    2.函数中可以创建函数
+    3.函数中的函数也可以创建函数
+    以上就形成了一个作用域链
+
+<script>
+    function f1() {
+        function f2() {
+
+        }
+    }
+
+    var a = 20;
+
+    function f3() {
+        function f4() {
+
+        }
+    }
+
+</script>
+</body>
+</html>

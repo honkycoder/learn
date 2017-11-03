@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    /*var a = {}, b = Object.prototype;
+    console.log([a.prototype === b, Object.getPrototypeOf(a) === b]);
+
+//    console.log(a.__proto__ == Object.getPrototypeOf(a));
+
+    //A [false true] 正确
+    //B [false false]
+    //C [true  true]
+    //D [true false]*/
+
+</script>
+
+<script>
+
+    /*function f() {}
+    var a = f.prototype;
+    var b = Object.getPrototypeOf(f);
+    console.log(a === b);   // (false) | true
+
+//    console.log(f.prototype); // Object对象
+//    console.log(Object.getPrototypeOf(f)); 空函数
+
+    console.log((b == f)); // (false) | true*/
+
+</script>
+<script>
+
+    /*// 默认情况下,函数的名字不能修改
+    function foo() { }
+    var oldName = foo.name;
+    foo.name = "bar";
+
+    console.log(oldName); // undefined | (foo)
+    console.log(foo.name); // bar | (foo)
+
+    console.log(oldName === foo.name); // false | (true)
+    console.log([oldName, foo.name]); //  | (foo foo)*/
+</script>
+<script>
+
+    function f() {}
+    var parent = Object.getPrototypeOf(f);
+
+    console.log(f.name);                    // ? f
+    console.log(parent.name);               // ? undefined | (empty)
+
+    //A "f", "Empty"
+    //B "f", undefined
+</script>
+</body>
+</html>

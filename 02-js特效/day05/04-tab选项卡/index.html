@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body
+        {
+            padding: 30px;
+        }
+        #tab
+        {
+            border: 1px solid #000;
+            width: 498px;
+            height: 150px;
+
+
+            overflow:hidden;
+        }
+        #tab_header
+        {
+           height: 38px;
+            background: lightgray;
+            position: relative;
+
+        }
+       #tab_header ul
+        {
+         /*强制设置ul的宽度*/
+           width: 501px;
+           position: absolute;
+           left: -1px;
+
+       }
+        #tab_header ul li
+        {
+            float: left;
+            line-height: 38px;
+            width: 98px;
+            height: 38px;
+            text-align: center;
+            /*background: red;*/
+
+            /*先占位*/
+            padding: 0 1px;
+
+            border-bottom:1px solid #666;
+        }
+
+        #tab_header ul li.selected
+        {
+            border-bottom:none;
+            background: #ffffff;
+
+            /*先将通用的写法*/
+            border-left:1px solid #666666;
+            border-right:1px solid #666666;
+
+            /*放不下了,释放之前的padding*/
+            padding: 0;
+        }
+        #tab_content
+        {
+            
+        }
+        #tab_content ul 
+        {
+            
+        }
+        #tab_content ul li
+        {
+            float: left;
+            /*background: red;*/
+            /*margin:15px 10px 5px 5px;*/
+            margin: 10px;
+
+        }
+        #tab_content ul li a
+        {
+           display: inline-block;
+            width: 220px;
+            /*height: 50px;*/
+            line-height: 30px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #000000;
+        }
+        #tab_content ul li a:hover
+        {
+            color: orangered;
+        }
+
+        #tab_content .dom
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="tab">
+    <!--头部-->
+    <div id="tab_header">
+        <ul id="ulTag">
+            <li class="selected">公告</li>
+            <li>论坛</li>
+            <li>规则</li>
+            <li>安全</li>
+            <li>公益</li>
+        </ul>
+    </div>
+    <div id="tab_content">
+        <div class="dom" style="display: block">
+            <ul>
+                <li>
+                    <a href="#">数据七夕:金牛爱送玫瑰</a>
+                </li>
+                <li>
+                    <a href="#">阿里打造"互联网监管"</a>
+                </li>
+                <li>
+                    <a href="#">10万家店60万新品</a>
+                </li>
+                <li>
+                    <a href="#">全球最大网上时装周</a>
+                </li>
+            </ul>
+        </div>
+        <div class="dom">
+            <ul>
+                <li>
+                    <a href="#">“全额返现”要管控啦</a>
+                </li>
+                <li>
+                    <a href="#">淘宝新规发布汇总(7月)</a>
+                </li>
+                <li>
+                    <a href="#">炒信规则调整意见反馈</a>
+                </li>
+                <li>
+                    <a href="#">质量相关规则近期变更</a>
+                </li>
+            </ul>
+        </div>
+        <div class="dom">
+            <ul>
+                <li>
+                    <a href="#">阿里建商家全链路服务</a>
+                </li>
+                <li>
+                    <a href="#">个性化的消费时代来临</a>
+                </li>
+                <li>
+                    <a href="#">跨境贸易是中小企业机</a>
+                </li>
+                <li>
+                    <a href="#">美妆行业虚假信息管控</a>
+                </li>
+            </ul>
+        </div>
+        <div class="dom">
+            <ul>
+                <li>
+                    <a href="#">接次文件，毁了一家店</a>
+                </li>
+                <li>
+                    <a href="#">账号安全神器阿里钱盾</a>
+                </li>
+                <li>
+                    <a href="#">新版阿里110上线了</a>
+                </li>
+                <li>
+                    <a href="#">卖家学违禁避免被处罚</a>
+                </li>
+            </ul>
+        </div>
+        <div class="dom">
+            <ul>
+                <li>
+                    <a href="#">为了公益high起来</a>
+                </li>
+                <li>
+                    <a href="#">魔豆妈妈在线申请</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    //1.找对象
+     var ulTag =document.getElementById('ulTag');
+     var allLis = ulTag.children;
+
+
+    var allDoms = document.getElementsByClassName('dom');
+
+    //2.监听鼠标在头部所有的li的鼠标进入事件
+    for(var i=0;i<allLis.length;i++)
+    {
+        //2.1.取出单个的li
+        var li = allLis[i];
+        //2.5.给所有的li绑定一个索引值
+        li.index = i;
+        //2.2.监听鼠标在li的移动
+        li.onmouseover = function () {
+            //2.4.让其他的干掉
+            for(var i=0;i<allLis.length;i++)
+            {
+                allLis[i].className = '';
+
+                //2.7.让其他的隐藏
+                allDoms[i].style.display = 'none';
+            }
+            //2.3.让当前变色
+            this.className = 'selected';
+
+            //2.6.让下面的doms内容区域跟着一起变化
+            allDoms[this.index].style.display ='block';
+        };
+    }
+
+</script>
+</body>
+</html>

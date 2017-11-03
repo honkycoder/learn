@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+安全的扩展内置对象
+    步骤:
+        1.提供一个构造函数
+        2.设置这个构造函数的原型对象是内置构造函数的实例化对象
+        3.修正构造器属性
+        4.给这个构造函数的原型对象添加属性和方法
+
+<script>
+    // 1.提供一个构造函数
+    function MyArray() {
+
+    }
+
+    // 2.设置这个构造函数的原型对象是内置构造函数的实例化对象
+    MyArray.prototype = new Array();
+
+    // 3.修正构造器属性
+    MyArray.prototype.constructor = MyArray
+
+    // 4.给这个构造函数的原型对象添加属性和方法
+    MyArray.prototype.des = '我是一个数组';
+    MyArray.prototype.logDes = function () {
+        console.log(this.des);
+    };
+
+    var myArray = new MyArray();
+    myArray.logDes();
+    myArray.push(123);
+    console.log(myArray);
+
+    // 张三
+    function OtherArray() {
+
+    }
+    OtherArray.prototype = new Array();
+    OtherArray.prototype.constructor = OtherArray;
+    OtherArray.prototype.des = '哈哈,我是一个数组';
+    OtherArray.prototype.logDes = function () {
+        console.log(this.des);
+    };
+
+    myArray.logDes(); // 哈哈,我是一个数组 | (我是一个数组)
+
+
+</script>
+</body>
+</html>

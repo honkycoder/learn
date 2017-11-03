@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var a = 2;
+    if (a >= 2) {
+
+        console.log(a);
+        console.log('此次打印成功');
+
+    }
+
+    var b = 4;
+    if (b >= 2) {
+
+        console.log(b);
+        console.log('此次打印成功');
+
+    }
+
+    var c = 6;
+    if (c >= 2) {
+
+        console.log(c);
+        console.log('此次打印成功');
+
+    }
+
+    // 函数意义:抽取相同的代码,重复利用
+    //1. 定义函数,function
+    // function:声明是一个函数
+    //funcName:函数名字,使用函数时候用
+    // 函数体:函数调用的时候,执行
+    // ()中放一个或者多个参数,参数之间用逗号(,)分割
+//    function funcName(参数列表) {
+//        // 函数体
+//    }
+
+    function printNum(num) {
+        console.log('函数执行成功');
+        if (num >= 2) {
+
+            console.log(c);
+            console.log('此次打印成功');
+
+        }
+    }
+    //2. 使用函数,函数的调用:函数名();
+        printNum(23);
+
+
+</script>
+
+</body>
+</html>

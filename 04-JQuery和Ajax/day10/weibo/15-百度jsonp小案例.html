@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <style>
+        input{
+            width: 200px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<input type="text">
+<script>
+    function callBack(obj) {
+       //01 获取数据
+        var arrT = obj["s"];
+
+        //02 创建ul标签
+        var oUl = document.querySelector("ul") ||document.createElement("ul");
+        oUl.innerHTML = "";
+
+        //03 遍历数组，创建li标签
+        for(var i = 0;i<arrT.length;i++)
+        {
+            var oLi = document.createElement("li");
+            oLi.innerText = arrT[i];
+            oUl.appendChild(oLi);
+        }
+        document.body.appendChild(oUl);
+    }
+</script>
+<script>
+
+    //https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=as&cb=callBack
+    $(function () {
+
+        //01 监听文本框的输入事件
+        var oText = document.querySelector("input");
+        oText.onkeyup = function () {
+            //console.log(oText.value);
+
+            var temp = document.querySelector("#jsonP");
+            if(temp) document.body.removeChild(temp);
+
+            //02 创建一个script标签
+            var oScript =  document.createElement("script");
+            oScript.setAttribute("id","jsonP");
+
+            //03 设置src资源路径，加载数据
+            var url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+oText.value+"&cb=callBack";
+            oScript.setAttribute("src",url);
+            //04 把标签添加到页面中
+            document.body.appendChild(oScript);
+        }
+    })
+</script>
+
+<!--<script>-->
+    <!--callBack({q:"as",p:false,s:["async","ascii码表","asmr","ascii","阿森纳","asp.net","asp","as ssd benchmark","asos","asus"]});-->
+<!--</script>-->
+</body>
+</html>

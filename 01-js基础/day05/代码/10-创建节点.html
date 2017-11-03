@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+
+<script>
+    //    document.getElementsByTagName('li')
+    // 1.创建节点:创建出来的节点不会马上添加进文档
+    // 需要添加的元素,调用appendChild方法的时候才会添加
+    var newElement = document.createElement('div');
+    var newElement = document.createTextNode('title');
+    // 2.添加节点到界面显示
+    var box = document.getElementById('box');
+    newElement.style.width = 100 + 'px';
+    newElement.style.height = 100 + 'px';
+    newElement.style.background = 'red';
+//    newElement.className
+    box.appendChild(newElement);
+
+
+</script>
+</body>
+</html>

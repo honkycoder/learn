@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/GET01.js"></script>
+</head>
+<body>
+
+<button id="btn1">GET1</button>
+<button id="btn2">GET2</button>
+<script>
+
+    //01 获取指定按钮添加点击事件
+    var oBtn1 = document.getElementById("btn1");
+    oBtn1.onclick = function () {
+        function success(){
+            console.log("请求成功：我们在一起吧");
+        }
+        function error(){
+            console.log("请求失败：对不起，你呼叫的用户已把你拉黑！");
+        }
+        GET("php_server/07-ajax-btn1.php",success,error);
+    }
+
+    var oBtn2 = document.getElementById("btn2");
+    oBtn2.onclick = function () {
+        GET("php_server/07-ajax-btn2.php",function () {
+            console.log("请求成功：我不管");
+        },function () {
+            console.log("请求失败：没关系，我也不喜欢你！");
+        });
+    }
+</script>
+</body>
+</html>

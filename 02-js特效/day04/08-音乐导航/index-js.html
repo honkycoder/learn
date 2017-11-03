@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐导航-html6</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box
+        {
+            width: 900px;
+            height: 40px;
+            border: 1px solid #dddddd;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        #ulTag
+        {
+            width: 910px;
+        }
+        #ulTag li
+        {
+            float: left;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background:url("images/_r1_c1.png") no-repeat 0 0;
+            border-right:1px dashed #cccccc;
+            position: relative;
+        }
+        #ulTag li a
+        {
+            text-decoration: none;
+            font-size: 13px;
+            color: #000;
+        }
+        span
+        {
+            width: 100px;
+            height: 40px;
+            background: deepskyblue;
+            position: absolute;
+            left: 0;
+            top: 40px;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="ulTag">
+        <li>
+            <a href="#">音乐导航</a>
+            <span></span>
+            <audio src="source/a1.mp3"></audio>
+        </li>
+        <li>
+            <a href="#">音乐导航</a>
+            <span></span>
+            <audio src="source/a2.mp3"></audio>
+        </li>
+        <li>
+            <a href="#">音乐导航</a>
+            <span></span>
+            <audio src="source/a3.mp3"></audio>
+        </li>
+        <li>
+            <a href="#">音乐导航</a>
+            <span></span>
+            <audio src="source/a4.mp3"></audio>
+        </li>
+        <li>
+            <a href="#">音乐导航</a>
+            <span></span>
+            <audio src="source/a5.mp3"></audio>
+        </li>
+        <li>
+            <a href="#">音乐导航</a>
+            <span></span>
+            <audio src="source/a6.mp3"></audio>
+        </li>
+        <li>
+            <a href="#">音乐导航</a>
+            <span></span>
+            <audio src="source/a7.mp3"></audio>
+        </li>
+        <li>
+            <a href="#">音乐导航</a>
+            <span></span>
+            <audio src="source/a8.mp3"></audio>
+        </li>
+        <li>
+            <a href="#">音乐导航</a>
+            <span></span>
+            <audio src="source/a9.mp3"></audio>
+        </li>
+
+    </ul>
+</div>
+<script src="js/MyFunc1.js"></script>
+<script>
+    //1.找对象
+
+    var ulTag = document.getElementById('ulTag');
+    var allLis = ulTag.children;
+    //2.遍历
+
+    for(var i=0;i<allLis.length;i++)
+    {
+        //3.给ul中的每一个li设置位置
+        allLis[i].style.backgroundPosition = '0px '+(i*-40)+'px';
+
+        //4.当鼠标进入每一个li
+        var li = allLis[i];
+        li.onmouseover = function () {
+           //4.1.让span出来
+            buffer(this.children[1],{'top':0});
+
+            //4.2.让音乐响起来
+            this.children[2].play();
+
+            //6.5.保证短时间连续按下两次相同键盘播放音频的间隔时间
+            this.children[2].currentTime = 0;
+        };
+
+        //5.当鼠标离开的时候让span回去
+        li.onmouseout = function () {
+            buffer(this.children[1],{'top':40});
+        };
+    }
+
+
+    //6.键盘事件
+    window.onkeydown = function (event) {
+//        console.log('键盘敲击了');
+//        console.log(event.keyCode);
+
+//        var myCode = event.keyCode-48;
+        //6.1.获取物理键盘上的每一个手指编码  // 键盘上0在最后的位置   但是我们的体验,肯定是希望按下键盘的第一个键那么就去找标签中的第一个,那么此时键盘的上的第一个编码是49,我们需要将49-49 = 0
+        var myCode = event.keyCode-49;
+//        console.log(myCode);
+
+        //6.2.让span出来  响起音乐
+        buffer(allLis[myCode].children[1],{'top':0},function () {
+          // 6.4.当键盘抬起的时候,让span回去
+            buffer(allLis[myCode].children[1],{'top':40});
+        });
+        //6.3让音乐响起
+        allLis[myCode].children[2].play();
+
+
+        //6.6.保证短时间连续按下两次相同键盘播放音频的间隔时间
+        allLis[myCode].children[2].currentTime = 0;
+
+    };
+
+
+
+</script>
+</body>
+</html>

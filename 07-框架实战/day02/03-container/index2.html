@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .container{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 20px auto;
+
+            display: none;
+        }
+
+        /*媒体查询*/
+        @media screen  and (min-width: 1200px){  /* 大屏幕 */
+            .visible-lg-block{
+                display: block;
+            }
+
+            .visible-lg-inline{
+                display: inline;
+            }
+
+            .visible-lg-inline-block{
+                display: inline-block;
+            }
+        }
+
+
+        @media screen and (min-width:992px) and (max-width: 1200px){  /* 大屏幕 */
+            .visible-md-block{
+                display: block;
+            }
+
+            .visible-md-inline{
+                display: inline;
+            }
+
+            .visible-md-inline-block{
+                display: inline-block;
+            }
+        }
+
+
+        @media screen and (min-width:768px) and (max-width: 992px){  /* 大屏幕 */
+            .visible-sm-block{
+                display: block;
+            }
+
+            .visible-sm-inline{
+                display: inline;
+            }
+
+            .visible-sm-inline-block{
+                display: inline-block;
+            }
+        }
+
+        @media screen and (max-width:768px) {  /* 大屏幕 */
+            .visible-xs-block{
+                display: block;
+            }
+
+            .visible-xs-inline{
+                display: inline;
+            }
+
+            .visible-xs-inline-block{
+                display: inline-block;
+            }
+        }
+
+    </style>
+</head>
+<body>
+   <div class="container visible-xs-block">111</div>
+</body>
+</html>
+
+<!--
+    .visible-*-block
+    .visible-*-inline
+    .visible-*-inline-block
+-->

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 80px;
+            height: 200px;
+            background: red;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        span{
+            width: 80px;
+            height: 200px;
+            background: #000;
+            opacity: 0.6;
+            position: absolute;
+            left: 0;
+            top: 200px;
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"><span id="coverS"></span></div>
+
+<script>
+    var box = document.getElementById('box');
+    var coverS = document.getElementById('coverS');
+    var timer = 0;
+    var topV = 200;
+    // 绑定事件
+    box.onmouseover = function () {
+        //coverS.style.top = 0;
+        clearInterval(timer);
+        timer = setInterval(function () {
+            topV-=5;
+            //topV<=0?0:topV
+            if (topV<=0){
+                topV=0;
+                clearInterval(timer);
+            }
+            coverS.style.top = topV+'px';
+        },100)
+
+    }
+    box.onmouseout= function () {
+        //coverS.style.top = 0;
+        clearInterval(timer);
+        timer = setInterval(function () {
+            topV+=5;
+            //topV<=0?0:topV
+            if (topV>=200){
+                topV=200;
+                clearInterval(timer);
+            }
+            coverS.style.top = topV+'px';
+        },100)
+
+    }
+</script>
+</body>
+</html>

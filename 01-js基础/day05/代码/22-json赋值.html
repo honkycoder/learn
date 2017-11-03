@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+
+    var objc = {};// 空对象
+    var objc2 = {
+        'name': 'zs',
+        'age': 13,
+        "sex": 'nv',
+        firstName: '张'
+    }
+    // 1.数组是json的一种格式
+    var arr = ['a', 12, true];
+    arr[0];// 数组的取值
+    arr[0] = 12; // 数组的赋值
+    //2.字典有没有类似的方式?
+    console.log(objc2['name']);  // 字典也可以通过中括号[]来进行取值,[]中不是下标,是键(名字)
+    objc2['name'] = '李宇春';   // 字典可以通过中括号进行赋值
+    console.log(objc2);
+
+    //3. 用字典中没有的键,取值和赋值有什么作用
+    console.log(objc2['dog']); // 取不存在的键所对应的值是undefined
+    objc2['dog'] = '旺财'; // 如果字典中没有某一个键,但是通过这个键进行赋值,会直接增加一个键值对
+    console.log(objc2);
+
+    // 4.字典能不能通过.获取和设置值呢?
+    console.log(objc2.dog);  // 字典可以通过点.键名字,来获取值
+    objc2.cat = '阿芳';  //  也可以通过.(.键名)给字典赋值
+    console.log(objc2);
+
+    // 5. 如果键,的名字通过变量保存,还能不能使用以上方法 ?
+    var key = 'phoneNumber';
+    // 5.1 通过.
+    objc2.key = 110; // 通过.给字典进行赋值的时候,.后面的不能是变量,
+
+    console.log(objc2);
+    // 5.2 通过中括号
+    var key2 = 'phoneNumber';
+    objc2[key2] = 120; // 在给字典进行赋值的时候,[]中可以是变量,把变量所代表的值作为key
+    console.log(objc2);
+
+    console.log(objc2[key2]);;
+
+    // 通过.进行取值和赋值,key不能是变量
+    // 通过[]进行取值和赋值,可以是变量,也可以是可以转化为字符串
+
+    // xml
+</script>
+</body>
+</html>

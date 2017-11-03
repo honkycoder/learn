@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 格式  (funciton(){})()   小闭包(封闭作用域)
+     * */
+
+
+
+    //使用小闭包(封闭作用域)
+
+    //可以将变量的作用域限制起来,保证就在闭包之内
+
+    //小闭包的 作用就是将全局变量私有化
+    //匿名函数自调(自己调用自己)
+//    (function () {
+//        var a = 10;
+//        alert(a);
+//    })();
+//
+//    (function () {
+//        var a = 20;
+//        alert(a);
+//    })();
+//
+//    (function () {
+//        var a = 30;
+//        alert(a);
+//    })();
+
+//    ;(function () {
+//       var a = 20;
+//       alert(a);
+//    })()
+//    +(function () {
+//        var a = 10;
+//        alert(a);
+//    })()
+    -(function () {
+       var a = 20;
+        alert(a);
+    })()
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<button>按钮</button>
+<script>
+    window.onload = function () {
+        var btn = document.querySelector("button");
+        function f() {
+            console.log("点击了按钮");
+        }
+        btn.addEventListener("click",f);
+        btn.removeEventListener("click",f);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        body{
+            background: #000000;
+        }
+
+        .box{
+            width: 600px;
+            height: 200px;
+            border: 1px solid red;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .box ul{
+            width: 9999px;
+            height: 200px;
+            position: absolute;
+        }
+
+        .box ul li{
+            float: left;
+        }
+
+    </style>
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="fengtu/01.jpg"></li>
+        <li><img src="fengtu/02.jpg"></li>
+        <li><img src="fengtu/03.jpg"></li>
+        <li><img src="fengtu/04.jpg"></li>
+        <li><img src="fengtu/01.jpg"></li>
+        <li><img src="fengtu/02.jpg"></li>
+    </ul>
+</div>
+<script>
+    $(function () {
+
+        //01 设置让图片往左边滚动(设置ul的left)
+        var leftX = 0;
+        setInterval(function () {
+            leftX += 3;
+            if(leftX >=1200)
+            {
+                leftX = 0;
+            }
+            $("ul").css("left",-leftX);
+        },30);
+    })
+</script>
+</body>
+</html>

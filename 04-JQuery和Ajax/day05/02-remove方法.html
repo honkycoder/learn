@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.3.1.js"></script>
+</head>
+<body>
+<div>div1</div>
+<div class="box">div2</div>
+<div>div3</div>
+
+<script>
+    //(1) remove方法的作用:删除当前的标签
+    //(2) 分析如何实现:遍历实例对象中所有的标签,把这些标签全部删掉
+
+    //$(".box").remove();
+    $("div").remove();
+
+    //var oDiv = document.querySelector(".box");
+    //如何删除第一个div标签?
+    //oDiv.remove();
+
+    //document.body.removeChild(oDiv);
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!--在移动端，设备如果不禁止缩放的话，网页可以进行一些缩放来回拉的一些操作，我们在移动web开发中，通常需要禁止用户缩放-->
+    <!--若不禁止缩放,移动端浏览器(iPhone)会对所有的click事件有一个大约300ms的执行延迟,可以通过vp的禁止缩放来解决一部分这个问题,有的iPhone需要我们具体再设置-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <title>探究click</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father{
+            width: 250px;
+            height: 250px;
+            background: lightblue;
+            margin: 0 auto;
+        }
+        .child{
+            width: 50px;
+            height: 150px;
+            background: palegreen;
+            margin: 0 auto;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="father">
+    <div class="child"></div>
+</div>
+
+<script>
+
+
+    window.onload = function () {
+/* 1.只要'touchmove'触发，click就不会触发
+* 2.如果 'touchmove'不触发，但是 'touchend'与'touchstart'之间的间隔时间过长(超过600~700之间的某个ms值)，也会不触发click
+* */
+
+//        1.拿到标签
+        var father = document.getElementsByClassName('father')[0];
+        var child = father.getElementsByClassName('child')[0];
+
+
+        var startTimescamp = 0;
+        var endTimescamp = 0;
+        var isMoved = false;
+
+        father.addEventListener('click', function () {
+            console.log('2th father addEventListener click');
+
+        });
+
+        father.addEventListener('touchstart', function (e) {
+            console.log('touchstart');
+            startTimescamp = Date.now();
+            console.log(Date.now());
+        });
+        father.addEventListener('touchmove', function (e) {
+            console.log('touchmove');
+            isMoved = true;
+        });
+        father.addEventListener('touchend', function (e) {
+            console.log('touchend');
+            endTimescamp = Date.now();
+            console.log(Date.now());
+            console.log(Date.now() - startTimescamp);
+
+            if (isMoved == false && duration < xxx){
+                callback(e);
+            }
+
+            startTimescamp = 0;
+            endTimescamp = 0;
+            isMoved = false;
+        });
+
+
+
+    }
+
+</script>
+</body>
+</html>

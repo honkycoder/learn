@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script>
+    //1.找对象
+    var btn = document.getElementById('btn');
+
+
+    //2.使用闭包的第一种
+    (function () {
+         var btn1 = document.getElementById('btn');
+        var  btn2 = document.getElementById('btn');
+        var btn3 = document.getElementById('btn');
+    })();
+
+    //3.使用闭包的第二种
+    (function () {
+        var btn = document;
+        var btn1 = btn.getElementById('btn');
+        var btn2 = btn.getElementById('btn');
+        var btn3 = btn.getElementById('btn');
+    })();
+
+    //4.使用闭包的第三种写法
+
+    //第一个参数是形参  第一个参数是实参
+    (function (document) {
+        var btn = document.getElementById('btn');
+        var btn2 = document.getElementById('btn');
+        var btn3 = document.getElementById('btn');
+    })(document)
+</script>
+</body>
+</html>

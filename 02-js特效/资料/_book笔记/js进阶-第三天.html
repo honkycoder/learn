@@ -1,0 +1,547 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>js进阶-第三天 | JS进阶-网页特效</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="./js进阶-第四天.html" />
+    
+    
+    <link rel="prev" href="./js进阶-第二天.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="3" data-basepath="." data-revision="1496211118956">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         JS进阶-开篇
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="chapter1.html">
+            
+                
+                    <a href="./chapter1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         js进阶-第一天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="js进阶-第二天.html">
+            
+                
+                    <a href="./js进阶-第二天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         js进阶-第二天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="3" data-path="js进阶-第三天.html">
+            
+                
+                    <a href="./js进阶-第三天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         js进阶-第三天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="js进阶-第四天.html">
+            
+                
+                    <a href="./js进阶-第四天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         js进阶-第四天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="js进阶-第五天.html">
+            
+                
+                    <a href="./js进阶-第五天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         js进阶-第五天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="js进阶-第六天.html">
+            
+                
+                    <a href="./js进阶-第六天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         js进阶-第六天
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >JS进阶-网页特效</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_1190">
+                    
+                        <h1 id="js---day3">js特效 - Day3</h1>
+<h2 id="client">一、client家族</h2>
+<h3 id="11-clientwidthclientheight">1.1 clientWidth和clientHeight</h3>
+<ul>
+<li><p>网页可见区域宽： document.body.clientWidth;</p>
+</li>
+<li><p>网页可见区域高： document.body.clientHeight;</p>
+</li>
+</ul>
+<h3 id="12-clientleftclienttop">1.2 clientLeft和clientTop</h3>
+<ul>
+<li><p><strong>clientLeft，clientTop</strong></p>
+<ul>
+<li><p>返回的是元素边框的borderWidth，</p>
+</li>
+<li><p>如果不指定一个边框或者不定位改元素，其值就为0</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="13-offsetclientscroll">1.3 offset、client和scroll的区别分析</h3>
+<ul>
+<li><p><strong>left和top分析：</strong></p>
+<ul>
+<li><p>clientLeft: 左边边框的宽度；clientTop: 上边边框的宽度</p>
+</li>
+<li><p>offsetLeft: 当前元素距离有定位的父盒子左边的距离；offsetTop: 当前元素距离有定位的父盒子上边的距离</p>
+</li>
+<li><p>scrollLeft: 左边滚动的长度; scrollTop: 上边滚动的长度;</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>width和height分析</strong></p>
+<ul>
+<li><p>clientWidth\/Height: 内容 + 内边距</p>
+</li>
+<li><p>offsetWidth\/Height: 内容 + 内边距 + 边框</p>
+</li>
+<li><p>scrollWidth\/Height: 滚动内容的宽度和高度</p>
+<p><img src="images/Snip20161128_1.png" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="">二、获取屏幕的可视区域</h2>
+<ul>
+<li><p>ie9及其以上的版本、最新浏览器</p>
+<pre><code class="lang-js"><span class="hljs-built_in">window</span>.innerWidth, <span class="hljs-built_in">window</span>.innerHeight
+</code></pre>
+</li>
+<li><p>标准模式浏览器</p>
+<pre><code>document.documentElement.clientWidth, document.documentElement.clientHeight
+</code></pre></li>
+<li><p>怪异模式</p>
+<pre><code>document.body.clientWidth, document.body.clientHeight
+</code></pre></li>
+<li><p>通用写法</p>
+<pre><code>function client() {
+       if(window.innerWidth){ // ie9及其以上的版本
+           return{
+               width: window.innerWidth,
+               height:  window.innerHeight
+           }
+       }else if(document.compatMode != &#39;CSS1Compat&#39;){  // 怪异模式
+           return{
+               width: document.body.clientWidth,
+               height: document.body.clientHeight
+           }
+       }
+       // 标准
+       return{
+             width: document.documentElement.clientWidth,
+             height: document.documentElement.clientHeight
+       }
+}
+</code></pre></li>
+</ul>
+<h3 id="-onresize">三、常用窗口事件-onresize</h3>
+<ul>
+<li><p>当窗口或框架的大小发生改变的时候就会调用；</p>
+</li>
+<li><p>onresize一般被运用于自适应页面布局等多屏幕适配场景；</p>
+</li>
+<li><p>应用：当屏幕的宽度&gt;=960时，页面的背景颜色为红色；当屏幕的宽度&gt;=640时，页面的背景颜色为蓝色；当屏幕的宽度&lt;640时，页面的背景颜色为绿色？</p>
+</li>
+<li><p>补充：获取屏幕的分辨率：<strong>window</strong>.<strong>screen</strong>.<strong>width   </strong> <strong>window</strong>.<strong>screen</strong>.<strong>height</strong></p>
+</li>
+</ul>
+<h3 id="js">四、JS的事件传递机制</h3>
+<p><img src="images/paopao.png" alt=""></p>
+<h3 id="41-">4.1 冒泡机制</h3>
+<p>  <img src="images/maopao.png" alt="">;</p>
+<ul>
+<li><p>气泡从水底开始往上升，由深到浅，升到最上面。在上升的过程中，气泡会经过不同深度层次的水。相对应地：<strong>这个气泡就相当于我们这里的事件，而水则相当于我们的整个dom树；事件从dom 树的底层，层层往上传递，直至传递到dom的根节点。</strong></p>
+<p><img src="images/12.jpg" alt=""></p>
+</li>
+</ul>
+<ul>
+<li><p>IE 6 7 8:</p>
+<ul>
+<li>div -&gt; body -&gt; html -&gt; document</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>其他浏览器:</p>
+<ul>
+<li>div -&gt; body -&gt; html -&gt; document -&gt; window</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>注意：不是所有的事件都能冒泡，以下事件不冒泡：blur、focus、load、unload</li>
+</ul>
+<h3 id="42--">4.2  阻止冒泡的方法</h3>
+<ul>
+<li>标准浏览器 和 ie浏览器</li>
+</ul>
+<blockquote>
+<p>早期的说法:</p>
+</blockquote>
+<ul>
+<li><p>w3c：event.stopPropagation()        <strong>proPagation 传播 传递</strong></p>
+</li>
+<li><p>IE：event.cancelBubble = true       <strong> bubble 冒泡  cancel 取消    默认值:false(允许冒泡) </strong></p>
+</li>
+</ul>
+<blockquote>
+<p>最新的结论:</p>
+</blockquote>
+<ul>
+<li>新版的谷歌、火狐以及ie的高版本也支持cancelBubble</li>
+</ul>
+<blockquote>
+<p>兼容的写法(早期版)</p>
+</blockquote>
+<pre><code>  if(event &amp;&amp; event.stopPropagation){ // w3c标准
+      event.stopPropagation();
+  }else{ // IE系列 IE 678
+      event.cancelBubble = true;
+  }
+</code></pre><blockquote>
+<p>现在已经新版浏览器不存在兼容问题</p>
+</blockquote>
+<h3 id="43-">4.3 获取当前操作对象</h3>
+<ul>
+<li>开发中，当执行一个事件时需要去知道触发这个事件的对象是谁？那么，如何获取：</li>
+</ul>
+<blockquote>
+<p> 早期版本</p>
+</blockquote>
+<ul>
+<li><p>火狐、谷歌   event.target</p>
+</li>
+<li><p>ie 678    event.srcElement</p>
+</li>
+</ul>
+<blockquote>
+<p>最新的结论:</p>
+</blockquote>
+<ul>
+<li>event.target在火狐和谷歌以及ie9以上支持</li>
+</ul>
+<ul>
+<li>event.srcElement在谷歌也支持,但是火狐不支持,ie的所有版本都支持</li>
+</ul>
+<ul>
+<li>一般是获取这个对象的id，兼容的写法如下：<pre><code> var targetId = event.target ? event.target.id : event.srcElement.id;
+</code></pre></li>
+</ul>
+<h3 id="44-documentsection-">4.4 document.section-获取用户选中的内容</h3>
+<blockquote>
+<p>document.section对象，他们不是w3c标准，只是一些主流浏览器提供的API。</p>
+<p>selection 对象代表了当前激活选中区，即高亮文本块，或文档中用户可执行某些操作的其它元素。selection   对象的典型用途是作为用户的输入，以便识别正在对文档的哪一部分正在处理，或者作为某一操作的结果输出给用户。</p>
+<p>用户和脚本都可以创建选中区。用户创建选中区的办法是拖曳文档的一部分。脚本创建选中区的办法是在文本区域或类似对象上调用 select 方法。要获取当前选中区，请对document对象应用selection关键字。要对选中区执行操作，请先用createRange方法从选中区创建一个文本区域对象。document.selection.createRange() 根据当前文字选择返回 TextRange 对象，或根据控件选择返回 ControlRange 对象。</p>
+</blockquote>
+<ul>
+<li>标准浏览器(谷歌，火狐等浏览器)</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>window.getSelection()</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>ie浏览器</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>document.selection.createRange().text;</p>
+</blockquote>
+</blockquote>
+<ul>
+<li><p>兼容性的写法</p>
+<pre><code>var selectedText;
+if(window.getSelection){ // 标准模式 获取选中的文字
+   selectedText = window.getSelection().toString();
+}else{ // IE 系列
+   selectedText = document.selection.createRange().text;
+}
+</code></pre></li>
+</ul>
+<h3 id="45">4.5.拖动的时候取消处于选中状态的文字</h3>
+<ul>
+<li>document.selection.empty(); IE9以下使用</li>
+</ul>
+<ul>
+<li>window.getSelection().removeAllRanges(); 其他浏览器使用</li>
+</ul>
+<ul>
+<li>兼容性的写法</li>
+</ul>
+<pre><code class="lang-javascript">
+<span class="hljs-built_in">window</span>.getSelection()?<span class="hljs-built_in">window</span>.getSelection().removeAllRanges():<span class="hljs-built_in">document</span>.selection.empty();
+</code></pre>
+<h3 id="46window">4.6.window的使用</h3>
+<ul>
+<li><p>所有全局的变量都是window的属性</p>
+</li>
+<li><p>所有全局的函数都是window的方法</p>
+</li>
+<li><p>动态跳转(window.location.href) 必须加上http</p>
+</li>
+</ul>
+<ul>
+<li>微博分享<pre><code>http://v.t.sina.com.cn/share/share.php?searchPic=false&amp;title=&#39; + shareText + &#39;&amp;url=https://github.com/xuanzhihua&#39;
+</code></pre></li>
+</ul>
+<h3 id="">五、综合动画函数封装</h3>
+<ul>
+<li><p>在开发过程中，会接触到很多动画，比如：帧动画，核心动画，转场动画......，各种复杂的动画都是由简单的动画封装而成的，那么，动画的基本原理是：<strong>盒子的offsetLeft + 步长。</strong></p>
+</li>
+<li><p>匀速动画函数封装：</p>
+<pre><code>// 匀速动画函数
+function animate(obj, target, speed) {
+    // 1.清除定时器
+    clearInterval(obj.timer);
+    // 2. 判断方向
+    var dir = target &gt; obj.offsetLeft ? speed : -speed;
+    obj.timer  = setInterval(function () {
+        obj.style.left = obj.offsetLeft + dir + &#39;px&#39;;
+        // 2.1 清除定时器 --&gt; offsetLeft == 目标值
+        if (Math.abs(target - obj.offsetLeft) &lt;= speed) {
+            clearInterval(obj.timer);
+            // 处理偏差情况
+            obj.style.left = target + &#39;px&#39;;
+        }
+     }, 10)；
+}
+</code></pre></li>
+</ul>
+<h3 id="">六、无缝轮播图</h3>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./js进阶-第二天.html" class="navigation navigation-prev " aria-label="Previous page: js进阶-第二天"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./js进阶-第四天.html" class="navigation navigation-next " aria-label="Next page: js进阶-第四天"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

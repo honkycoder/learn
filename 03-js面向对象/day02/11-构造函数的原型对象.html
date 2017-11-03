@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+1.什么是原型对象?
+    在一个构造函数创建出来的时候,系统默认会创建一个对象与之相关联,这个对象就是这个构造函数的原型对象
+
+2.原型对象的作用?
+    当构造函数创建一个对象后,这个对象默认情况下可以访问这个构造函数原型对象的属性和方法
+
+3.如何访问原型对象?
+    构造函数.prototype
+
+4.如何设置原型对象?
+    1.原型对象也是一个对象,可以使用对象的动态特性给这个原型对象设置属性和方法
+    2.使用字面量的方式来设置
+
+5.说法的约定: 对象构造函数的原型对象
+    构造函数的原型对象
+    构造函数的原型
+    对象的原型对象
+    对象的原型
+    以上说都是一个意思,都是指对象构造函数的原型对象
+
+<script>
+    function Person() {
+
+    }
+
+    // 设置原型对象的属性和方法
+    Person.prototype.des = 'des';
+    Person.prototype.logDes = function () {
+        console.log(this.des);
+    };
+
+    var p = new Person();
+    console.log(p.des);
+
+</script>
+</body>
+</html>

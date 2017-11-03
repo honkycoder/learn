@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box{
+            width: 320px;
+            height: 210px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            margin: 50px auto;
+            text-indent: 10px;
+        }
+
+        .first>li{
+            line-height: 34px;
+            border-bottom: 1px solid #cccccc;
+        }
+        
+        span{
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background: url("images/arrow_right.png");
+            float: right;
+            top:10px;
+            right: 5px;
+            position: relative;
+        }
+
+        .second{
+            background: #2d2c41;
+            color: #ffffff;
+            display: none;
+        }
+        .second>li{
+            border-bottom: 1px solid #909EAB;
+        }
+
+        .second>li:hover{
+            background: #C12C3E;
+        }
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul class="first">
+        <li><span></span>我是一级菜单1
+        <ul class="second">
+            <li>我是二级菜单1</li>
+            <li>我是二级菜单2</li>
+            <li>我是二级菜单3</li>
+            <li>我是二级菜单4</li>
+            <li>我是二级菜单5</li>
+        </ul>
+        </li>
+        <li><span></span>我是一级菜单2
+            <ul class="second">
+                <li>我是二级菜单1</li>
+                <li>我是二级菜单2</li>
+                <li>我是二级菜单3</li>
+                <li>我是二级菜单4</li>
+                <li>我是二级菜单5</li>
+            </ul>
+        </li>
+        <li><span></span>我是一级菜单3
+            <ul class="second">
+                <li>我是二级菜单1</li>
+                <li>我是二级菜单2</li>
+                <li>我是二级菜单3</li>
+                <li>我是二级菜单4</li>
+                <li>我是二级菜单5</li>
+            </ul>
+        </li>
+        <li><span></span>我是一级菜单4
+            <ul class="second">
+                <li>我是二级菜单1</li>
+                <li>我是二级菜单2</li>
+                <li>我是二级菜单3</li>
+                <li>我是二级菜单4</li>
+                <li>我是二级菜单5</li>
+            </ul>
+        </li>
+        <li><span></span>我是一级菜单5
+            <ul class="second">
+                <li>我是二级菜单1</li>
+                <li>我是二级菜单2</li>
+                <li>我是二级菜单3</li>
+                <li>我是二级菜单4</li>
+                <li>我是二级菜单5</li>
+            </ul>
+        </li>
+        <li><span></span>我是一级菜单6
+            <ul class="second">
+                <li>我是二级菜单1</li>
+                <li>我是二级菜单2</li>
+                <li>我是二级菜单3</li>
+                <li>我是二级菜单4</li>
+                <li>我是二级菜单5</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

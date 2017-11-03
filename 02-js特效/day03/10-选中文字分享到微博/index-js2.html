@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #word1 {
+            width: 300px;
+            height: 300px;
+            margin-left: 100px;
+            margin-top: 50px;
+        }
+
+        #word2 {
+            width: 300px;
+            height: 300px;
+            margin-left: 100px;
+            margin-top: 20px;
+        }
+
+        #share_text {
+            width: 200px;
+            background: deepskyblue;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: orangered;
+
+            display: none;
+        }
+
+        #share_weibo {
+            width: 15px;
+            height: 15px;
+            background: url("images/share.gif");
+            background-size: 100% 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<p id="word1">
+    尤雨溪是Vue.js的作者，HTML5版Clear的打造人。他认为，未来App的趋势是轻量化和细化，能解决问题的应用就是好应用。而在移动互联网时代大的背景下，个人开发者的机遇在门槛低，成本低，跨设备和多平台四个方面。
+</p>
+
+<p id="word2">
+    Node.js是一个Javascript运行环境(runtime)。实际上它是对Google V8引擎进行了封装。V8引
+    擎执行Javascript的速度非常快，性能非常好。Node.js对一些特殊用例进行了优化，提供了替代的API，使得V8在非浏览器环境下运行得更好。
+</p>
+
+<div id="share_text">
+</div>
+
+<span id="share_weibo">
+
+</span>
+<script>
+    //1.找对象
+    var word1 = document.getElementById('word1');
+    var word2 = document.getElementById('word2');
+    var share_text = document.getElementById('share_text');
+
+    var share_weibo = document.getElementById('share_weibo');
+
+    //2.当鼠标在word1上抬起的时候
+
+
+    var selectText = '';
+    word1.onmouseup = function (event) {
+        var myEvent = event || window.event;
+
+        //1.判断提取文字的方法兼容问题
+        if (window.getSelection) {
+            selectText = window.getSelection().toString();
+        }
+        else {
+            selectText = document.selection.createRange().text;
+        }
+//    alert(selectText);
+
+        // //2.将选中的文字赋值给share_text
+        share_text.innerHTML = selectText;
+
+
+        //3.让share_Text面板出来
+
+        //5.判断选取的文字不为空的时候
+        if (selectText != '') {
+            share_text.style.display = 'block';
+            //4.将鼠标抬起的位置设置给share_text
+            share_text.style.left = myEvent.clientX + 'px';
+            share_text.style.top = myEvent.clientY + 'px';
+        }
+
+
+    };
+
+
+
+
+    //6.当鼠标在document上点击的时候
+
+    //让share_text面板消失(但是要排除share_text面板)
+
+    document.onmousedown = function (event) {
+        //6.1.接收event事件对象
+        var myEvent = event || window.event;
+        //6.2.获取兼容的tagret事件对象
+        var target = myEvent.target ? myEvent.target : myEvent.srcElement;
+
+        //6.3.从兼容的target中取出id用来判断是否是点击了share_text
+        if (target.id != 'share_text') {
+            //6.4.隐藏share_text
+            share_text.style.display = 'none';
+        }
+
+
+        //8.判断微博的微博
+        //8.1.如果点击了非share_weibo的话,那么应该让share_weibo隐藏
+        //8.2.如果点击了share_weibo的话,那么应该去跳转发布微博
+        if (target.id!='share_weibo')
+        {
+            share_weibo.style.display = 'none';
+        }
+        else
+
+        {
+//            window.location.href = 'http://www.baidu.com';
+
+
+            window.location.href = '  http://v.t.sina.com.cn/share/share.php?searchPic=false&title=' + selectText + '&url=http://www.baidu.com';
+
+        }
+    }
+
+
+
+
+
+    //7.选中文字发布到微博
+    word2.onmouseup = function (event) {
+        var myEvent = event || window.event;
+
+        //7.1.判断提取文字的方法兼容问题
+        if (window.getSelection)
+        {
+            selectText = window.getSelection().toString();
+        }
+        else {
+            selectText = document.selection.createRange().text;
+        }
+//    alert(selectText);
+
+        // //7.2.将选中的文字赋值给share_text
+//        share_text.innerHTML = selectText;
+
+
+        //7.3.让share_Text面板出来
+
+        //7.4.判断选取的文字不为空的时候
+        if (selectText != '') {
+            share_weibo.style.display = 'block';
+            //4.将鼠标抬起的位置设置给share_text
+            share_weibo.style.left = myEvent.clientX + 'px';
+            share_weibo.style.top = myEvent.clientY + 'px';
+        }
+
+
+    };
+
+
+
+
+</script>
+</body>
+</html>

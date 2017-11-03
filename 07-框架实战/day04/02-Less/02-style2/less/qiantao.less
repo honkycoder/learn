@@ -1,0 +1,30 @@
+@width: 100px;
+@height: 200px;
+@color: red;
+@childColor: yellow;
+
+
+
+#box{
+    width: @width * 2;
+    height: @height + 50px;
+    background-color: @color;
+
+    .test1{
+       width: @width;
+       height: @height - 50px;
+       background-color: @childColor;
+
+       .test3{
+           width: 50px;
+           height: 30px;
+           background-color: green;
+       }
+    }
+
+    .test2{
+      width: @width / 2;
+      height: @height - 50px;
+      background-color: purple;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*position: absolute;*/
+            /*left: 100px;*/
+            /*top:20px;*/
+            /*padding: 10px;*/
+            /*border: 10px solid #ccc;*/
+        }
+        .content{
+            width: 200px;
+            height: 200px;
+            background: yellow;
+            border: 1px solid #ccc;
+            margin: 100px;
+            /*position: relative;*/
+        }
+
+    </style>
+</head>
+<body>
+<div class="content">
+    <div id="box"></div>
+
+</div>
+
+
+<script>
+    var box = document.getElementById('box');
+    // offsetHeight 元素的内容+内边距+边框
+    console.log(box.offsetHeight);
+    // offsetHeight 元素的内容+内边距+边框
+    console.log(box.offsetWidth);
+    // offsetLeft值:参考祖先元素中最近的有定位的那个元素的左侧,如果祖先元素中没有定位,就依据body元素
+    console.log(box.offsetLeft);
+    // offsetTop:参考祖先元素中最近的有定位的那个元素的上侧,如果祖先元素中没有定位,就依据body元素
+    console.log(box.offsetTop);
+    console.log(box.offsetParent);
+
+</script>
+</body>
+</html>

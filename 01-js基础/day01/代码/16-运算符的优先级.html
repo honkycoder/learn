@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = 2+4>5||3+10;// 6>5||13  -->true||13
+//    console.log(a);
+
+    var b = ++a-12*3||8<2&&a--*2; // 2-12*3||8<2&&2*2  ->2-36||8<2&&4 ->-34||8<2&&4 ->-34||false&&4
+    console.log(b);
+
+    // 运算符的连写问题
+    //算数运算符 :1+2-3
+    //逻辑运算符: 1||2&&true
+    //关系运算符: 5>4>3 :严禁连写
+
+</script>
+</body>
+</html>

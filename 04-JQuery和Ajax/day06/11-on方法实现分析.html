@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script>
+        window.onload = function () {
+            //01 获取页面中所有指定的标签
+            var btns = document.querySelectorAll("button");
+            //02 遍历所有的标签
+            for(var i= 0 ;i<btns.length;i++)
+            {
+                //03 给每个当前的标签添加事件
+                var btn = btns[i];
+                /*
+                 btn[eventType] = function () {
+                 console.log("点击了按钮");
+                 }*/
+
+                addEvent(btn,"mouseenter",function () {
+                    console.log("按钮的点击事件");
+                });
+            }
+
+            /*
+             * 第一个参数:要添加事件的标签
+             * 第二个参数:要添加的事件 ex:click事件
+             * 第三个参数:回调函数,当事件发生之后执行的回调函数
+             * */
+            function addEvent(dom,eventType,callBack){
+                if(dom.addEventListener)
+                {
+                    //第一个参数:要监听的事件
+                    //第二个参数:事件发生后的回调函数
+                    dom.addEventListener(eventType,callBack);
+                }else
+                {
+                    console.log("++++");
+                    //第一个参数:事件
+                    //第二个参数:回调
+                    dom.attachEvent("on" +eventType,callBack);
+                }
+            }
+            addEvent(document.querySelector("span"),"click",function () {
+                console.log("点击spsn-A");
+            })
+            addEvent(document.querySelector("span"),"click",function () {
+                console.log("点击spsn-B");
+            })
+
+        }
+
+    </script>
+</head>
+<body>
+# on方法的使用和注意点
+    批量为指定的标签添加事件(点击|鼠标),事件发生就会执行回调函数
+    注意点:如果给标签添加了多个事件,那么并不会覆盖,而是执行多次回调函数
+    兼容性处理:ie9-不支持addEventListener方法==> attachEvent方法
+
+<button>我是按钮1</button>
+<button>我是按钮2</button>
+<button>我是按钮3</button>
+
+<span>我是span</span>
+</body>
+</html>

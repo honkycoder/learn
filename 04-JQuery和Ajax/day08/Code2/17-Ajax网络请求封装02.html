@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/Ajax.js"></script>
+</head>
+<body>
+<button id="get">GET</button>
+<button id="post">POST</button>
+<script>
+    var oBtn1 = document.getElementById("get");
+    oBtn1.onclick = function () {
+        /*
+        GET("php_server/09-ajax-post.php",
+            {"name":"rose","type":"女神"},
+            function (res) {
+                console.log("请求成功" + res);
+            },
+            function (code) {
+                console.log("请求失败" + code);
+            },
+            1000
+        )*/
+
+        ajax("get","php_server/09-ajax-post.php",
+            {"name":"rose","type":"女神"},
+            function (res) {
+                console.log("请求成功" + res);
+            },
+            function (code) {
+                console.log("请求失败" + code);
+            },
+            1000
+        )
+
+        ajax("get","	http://gw.api.taobao.com/router/rest",
+            {"method":"taobao.alitrip.flightchange.add","type":"女神"},
+            function (res) {
+                console.log("请求成功" + res);
+            },
+            function (code) {
+                console.log("请求失败" + code);
+            },
+            1000
+        )
+    }
+
+    var oBtn2 = document.getElementById("post");
+    oBtn2.onclick = function () {
+        /*
+        POST("php_server/09-ajax-post.php",
+            {"name":"rose","type":"女神"},
+            function (res) {
+                console.log("请求成功" + res);
+            },
+            function (code) {
+                console.log("请求失败" + code);
+            },
+            1000
+        )*/
+
+        ajax("post","php_server/09-ajax-post.php",
+            {"name":"rose","type":"女神"},
+            function (res) {
+                console.log("请求成功" + res);
+            },
+            function (code) {
+                console.log("请求失败" + code);
+            },
+            1000
+        )
+    }
+</script>
+</body>
+</html>

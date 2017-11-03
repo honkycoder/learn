@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+扩展内置对象
+
+<script>
+    // 需求: 让arr1有一个属性des来描述这个数组,还有一个方法logDes来打印这个数组的描述信息
+    // 可以采用对象的动态特性给这个数组添加属性和方法
+    var arr1 = [1,2,3];
+    arr1.des = '我是一个数组';
+    arr1.logDes = function () {
+        console.log(this.des);
+    };
+    arr1.logDes();
+
+    // 需求: 让arr2有一个属性des来描述这个数组,还有一个方法logDes来打印这个数组的描述信息
+    var arr2 = [4,5,6];
+    arr2.des = '我是一个数组';
+    arr2.logDes = function () {
+        console.log(this.des);
+    };
+    arr2.logDes();
+
+    // 存在的问题: 上面的方式虽然可以满足需求,功能相同,重复代码代码过多,冗余度高
+
+</script>
+
+需求: 让所有的数组都由一个des属性来描述这个数组,都有一个logDes方法来打印这个数组的描述信息
+实现: 给数组构造函数原型对象添加属性和方法
+<script>
+    Array.prototype.des = '我是一个数组';
+    Array.prototype.logDes = function () {
+        console.log(this.des);
+    };
+
+    var arr = [1,2,3];
+    arr.logDes();
+
+    /*
+        总结:
+            1.虽然上面的方式可以实现扩展内置对象的需要,但是不推荐这样使用
+            2.因为在公司开发中,一个项目可能有多人开发,项目代码量很多
+            3.如果都像这样去扩展内置对象,会造成日后难以维护,还会造成覆盖的问题
+     */
+
+    // 张三
+    Array.prototype.des = '哈哈,我是一个数组';
+    Array.prototype.logDes = function () {
+        console.log(this.des);
+    };
+
+    arr.logDes(); // 哈哈,我是一个数组
+
+</script>
+</body>
+</html>

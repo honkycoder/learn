@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+严格模式也是分作用域的:
+    1.script标签中
+    2.函数中
+    3.代码块
+注意点:
+    1.必须要写在当前作用域的顶端
+    2.写在script标签中,只会这个script标签中的所有内容有效,对其他的无效
+    3.写在函数内,仅仅是对函数中的所有内容有效
+    4.写在代码块中,只会代码块中的内容有效
+<script>
+    "use strict";
+//    a = 10;
+//
+//    console.log(a);
+
+</script>
+
+<script>
+//    b = 10;
+//    console.log(b);
+</script>
+
+<script>
+//    "use strict";
+//    "use strict";
+
+//    function foo() {
+////        "use strict";
+//
+//        a = 10;
+//        console.log(a);
+//    }
+
+//    if (true) {
+//        "use strict";
+//    }
+
+{
+    "use strict";
+}
+
+    function foo1() {
+        b = 20;
+        console.log(b);
+    }
+
+//    foo();
+    foo1();
+</script>
+</body>
+</html>

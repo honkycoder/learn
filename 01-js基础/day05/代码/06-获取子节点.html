@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div></div>
+    <!--注释-->
+    <div>
+        <button></button>
+    </div>
+    <div></div>
+</div>
+
+<script>
+   //node
+    // 1. 获取元素
+    var box = document.getElementById('box');
+    // 2. 获取子节点
+   // 节点包含元素,元素是节点,但是 节点不都是元素
+   // 子节点不包含孙子节点和重孙子节点
+   // 换行是文本节点
+   // 文本节点(普通文本,换行,空格,注释)
+   console.log(box.childNodes);
+</script>
+</body>
+</html>

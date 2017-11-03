@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+    </script>
+</head>
+<body>
+<!--
+    01 成员:     属性 + 方法
+    02 静态成员: 直接添加在构造函数自己身上的属性和方法
+    03 实例成员: 构造函数的实例化对象身上的属性和方法
+    04 原型成员: 构造函数的prototype对象上面的属性和方法,可以被实例对象访问
+
+    05 实例对象:使用构造函数创建出来的对象被称为该构造函数的实例对象
+    06 实例化:使用构造函数创建具体对象的过程
+
+    注意:
+        (1) 实例对象不能访问构造函数的静态成员
+        (2) 构造函数的静态方法内部无法访问实例成员
+
+    工具方法的处理:把这些常用的工具方法添加到(jQuery)对象上面统一管理
+        (1) 直接添加到jQuery上面           $.isString()
+        (2) 添加到jQuery的原型对象上面     $().isString  | $("div").each
+        建议:如果该工具方法和实例对象无关那么就添加到jQuery上面,否则就添加到jQuery的原型对象上面
+
+-->
+
+<script>
+    function Person() {
+        this.name = "zs";
+        this.showName = function () {
+            console.log(this.name);
+        }
+    }
+
+    Person.prototype.show = function () {
+        console.log("name:" + this.name);
+    }
+    Person.showDes = function () {
+        console.log("我是Person的静态方法"+this.name);
+    }
+    Person.des = "des";
+
+    var p1 = new Person();
+    p1.show();
+    p1.showName();
+    //p1.showDes();
+    //console.log(p1.des);
+    Person.showDes(); //?
+
+    function demo() {}
+    console.log(demo.name);
+
+    /*
+    $("li").each(function () {
+
+    })
+
+    $.each(arrT,function () {
+
+    })*/
+</script>
+</body>
+</html>

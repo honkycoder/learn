@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/animate.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box{
+            width: 800px;
+            margin: 20px auto;
+            /*background-color: blue;*/
+
+            overflow: hidden;
+        }
+
+        .box>div{
+            width: 350px;
+            height: 400px;
+            background-color: red;
+        }
+
+        .box>div:nth-child(1){
+            float: left;
+        }
+
+        .box>div:nth-child(2){
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow bounceInLeft">1</div>
+        <div class="wow bounceInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow bounceInLeft">1</div>
+        <div class="wow bounceInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+<script src=js/wow.js></script>
+<script>
+    window.onload = function () {
+        // 实例化wow
+        var wow = new WOW({
+            boxClass: 'wow', // 动画元素的CSS类（默认类名wow）
+            animateClass:'animated', // 动画CSS类 （默认类名animated）
+            offset: 400, // 距离可视区域多少开始执行动画（默认为0）
+            mobile: true // 是否在移动设备上执行动画 （默认是true）
+        });
+        wow.init();
+    }
+</script>
+</body>
+</html>

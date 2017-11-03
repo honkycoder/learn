@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+变量的提升是分作用域的
+    1.如果这个变量在函数中声明的,那么只会声明到当前函数的顶端
+    2.如果这个变量在全局作用域声明的,就会声明到全局作用域的顶端
+
+<script>
+    var a;
+    function test1() {
+        var a;
+        console.log(a); // 10 | 20 | (undefined) -> undefined
+        a = 20;
+    }
+
+    function test2() {
+        var a;
+        var a;
+        console.log(a); // undefined
+        a = 30;
+        console.log(a); // 30
+        test1();
+        console.log(a); // 30
+        a = 40;
+    }
+    a = 10;
+
+    test1();
+    test2();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    创建对象的方式:
+        1.字面量 {}
+        2.内置构造函数 var obj = new Object();
+        3.自定义构造函数
+        function Person() {}
+        var p = new Person()
+        4.工厂函数
+            1.提供一个工厂函数
+            2.在内部创建对象
+            3.设置对象的属性和方法
+            4.返回创建好的对象
+
+<script>
+    function createPerson(name, age) {
+        // 原料: name + age + obj
+        var obj = new Object();
+
+        // 加工产品
+        obj.name = name;
+        obj.age = age;
+
+        // 出厂
+        return obj;
+    }
+    var p = createPerson('zs', 20);
+    console.log(p);
+
+
+</script>
+</body>
+</html>

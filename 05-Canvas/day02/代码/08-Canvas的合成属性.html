@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 2.目标和源的合成关系
+    //  矩形(目标)
+    ctx.fillStyle = 'skyblue';
+    ctx.fillRect(200,200,200,100);
+
+    /*
+     1.source-over:这是默认值，他表示绘制的图形将画在现有画布之上
+     2.destination-over:目标在源之上
+     3.source-atop:源在目标上,绘制与目标重叠的区域的源,不重叠的区域透明
+     4.destination-atop:目标在源上,绘制与源重叠区域的目标,不重叠的区域透明
+     5.source-in:只绘制源,绘制与目标重叠区域的源,其他的都是透明的
+     6.destination-in:只绘制目标,绘制与源重叠区域的目标,其他的都是透明的
+     7.source-out:只绘制源,绘制与目标不重叠区域的源,其他的都是透明的
+     8.destination-out:只绘制目标,绘制与源不重叠区域的目标,其他的都是透明的
+     */
+
+    //  设置合成关系
+    ctx.globalCompositeOperation = 'destination-out';
+
+    // 圆(源)
+    ctx.beginPath();
+    ctx.arc(400,300,100,0,2*Math.PI);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+</script>
+</body>
+</html>

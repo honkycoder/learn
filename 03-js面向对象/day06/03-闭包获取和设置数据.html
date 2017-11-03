@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+闭包:
+    获取数据
+    设置数据
+
+<script>
+//    function fn() {
+//        var name = 'zs';
+//        var age = 20;
+//        return {
+//            getName: function (newName) {
+//                if (newName != undefined) {
+//                    name = newName;
+//                }
+//
+//                return name;
+//            },
+//            getAge: function (newAge) {
+//                if (newAge != undefined) {
+//                    age = newAge;
+//                }
+//                return age;
+//            }
+//        };
+//    }
+//
+//    var obj = fn();
+//    console.log(obj.getName());
+//    console.log(obj.getAge());
+//    obj.getName('ls');
+//    console.log(obj.getName());
+//    obj.getAge(30);
+//    console.log(obj.getAge());
+
+</script>
+
+<script>
+    function fn() {
+        var name = 'zs';
+        var age = 20;
+        return {
+            getName: function () {
+                 return name;
+            },
+            getAge: function () {
+                return age;
+            },
+            setName: function (newName) {
+                if (newName != undefined) {
+                    name = newName;
+                }
+            },
+            setAge: function (newAge) {
+                if (newAge != undefined) {
+                    age = newAge;
+                }
+            }
+        };
+    }
+
+    var obj = fn();
+    console.log(obj.getName());
+    console.log(obj.getAge());
+    obj.setAge(30);
+    obj.setName('ls');
+    console.log(obj.getName());
+    console.log(obj.getAge());
+
+
+</script>
+</body>
+</html>

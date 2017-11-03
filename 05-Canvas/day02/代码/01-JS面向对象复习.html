@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*1.面向对象和面向过程
+    相同点:都是解决问题的一种思想
+    不同点:面向过程关注是解决问题一个一个的步骤
+           面向对象关注是解决问题所需要的对象
+    */
+    /*2.创建对象的方式*/
+    // 2.1字面量的方式
+    // 缺点:不能作为模板使用
+    // 数据传输 JSON数据 [] {}->数据模型对象
+    var p1 = {name:'zs',age:20};
+    var p2 = {name:'ls',age:21};
+    console.log(typeof p1);
+
+    // 2.2内置的构造函数
+    var obj = new Object();
+    obj.name = 'zs';
+    obj.age = 30;
+    console.log(typeof obj);
+
+//    var image = new Image();
+    // 2.3 工厂函数
+    function creatPerson(name,age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        return obj;
+    }
+    function creatDog(name,age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        return obj;
+    }
+    var p3 = creatPerson('baobao',34);
+    var d1 = creatDog('wc',11);
+    console.log(typeof p3, typeof d1);
+
+    // 2.4 自定义构造函数
+    // 优点:可以作为模板使用
+    function Person(option) {
+
+        this._init(option);
+    }
+
+    Person.prototype = {
+        constructor : Person,
+        // 初始化的方法
+        _init : function (option) {
+            this.name = option.name;
+            this.age = option.age;
+        },
+        eat : function (something) {
+            console.log(this.name + '在吃' + something);
+        }
+    };
+
+    var person = new Person({name:'zs',age:20});
+    var person1 = new Person({name:'ls',age:20});
+    person.eat('麻辣烫');
+    person1.eat('饭');
+
+    // 2.5类->面向对象
+    //  框架 JQ Prototype.js->中大型的项目->设计模式( MVC  MVVM 中介者模式)
+
+    //  3.继承
+    /*
+        1.属性拷贝(浅拷贝,深拷贝)
+        2.原型式继承
+            a, Person.prototype.des = 'des';
+            b, Person.prototype = {};
+            c, Student.prototype = Person.prototype;->获取原型属性
+        3.原型链继承
+            Student.prototype = new Person();
+        4. 借用构造函数继承  call | apply  -> 获取实例属性
+        5.组合继承   原型式继承 + 借用构造函数继承
+    */
+
+    // 4.this
+    function Dog() {
+        console.log(this);
+    }
+
+    Dog(); // this->window
+    new Dog(); // this-> 构造函数内部新创建的对象
+    /*
+    函数的调用方式:
+    1.普通的方式调用     window
+    2.作为对象的方法调用    当前的对象
+    3.new 构造函数   构造函数内部新创建的对象
+    4.函数上下文  call|apply  第一个参数
+    * */
+</script>
+</body>
+</html>

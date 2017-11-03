@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        .demo{
+            width: 30px;
+            height: 40px;
+            background: chartreuse;
+        }
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+//            $(".box").mouseenter(function () {
+//                //鼠标移入
+//                console.log("鼠标移入");
+//            })
+//            $(".box").mouseleave(function () {
+//                //鼠标移除
+//                console.log("鼠标移除");
+//
+//            })
+
+//            $(".box").mouseover(function () {
+//                console.log("鼠标移入");
+//            })
+//
+//            $(".box").mouseout(function () {
+//                console.log("鼠标移除");
+//            })
+
+            $(".box").hover(function () {
+                console.log("鼠标移入|");
+            });
+        })
+
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="demo"></div>
+</div>
+
+<!--
+    mouseenter - mouseleave  :子标签不会有任何的影响  hover基于这对方法
+    mouseover - mouseout  :子标签会有影响
+--
+
+</body>
+</html>

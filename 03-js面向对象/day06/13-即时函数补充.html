@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+即时调用函数：
+    组成：一个函数 + 2个小括号
+    函数：(参数 + 返回值)
+    第一个小括号: 将函数包裹起来
+    第二个小括号: 执行第一个小括号中的函数
+
+<script>
+    (function () {
+        console.log('第一种写法');
+    })();
+
+    (function () {
+        console.log('第二种写法');
+    }());
+
+    +function () {
+        console.log('第三种写法');
+    }();
+
+    -function () {
+        console.log('第四种写法');
+    }();
+
+    !function () {
+        console.log('第五种写法');
+    }();
+
+    !!function () {
+        console.log('第六种写法');
+    }();
+</script>
+</body>
+</html>

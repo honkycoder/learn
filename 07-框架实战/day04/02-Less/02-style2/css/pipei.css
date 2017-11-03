@@ -1,0 +1,39 @@
+div {
+  width: 200px;
+  height: 200px;
+  background-color: #0000ff;
+}
+div:hover {
+  background-color: rgba(0, 0, 255, 0.5);
+}
+/*
+div:hover{
+    background-color: fadeout(@color, 50%);
+}
+*/
+div {
+  width: 200px;
+  height: 100px;
+  background-color: #0000ff;
+  border-radius: 30px;
+  border: 10px solid #ff0000;
+}
+p {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  border-radius: 50%;
+  border: 2px solid #ff0000;
+}
+/*
+  这个注释是会被编译的
+*/
+div {
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  background-color: #ff0000;
+}
+.test1 {
+  border-top-left-radius: 30px;
+}

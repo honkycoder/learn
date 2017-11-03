@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /*17.使用if语句 计算梯度电价
+     商业用电,200度以内 1.5元,超出200度,超出的部分2.0元
+     居民用电,200度以内 0.7元,超出200度,超出部分1.0元
+     提示：使用isBusiness表示是否时商业用电，求出所有可能情况下的总点价
+
+     */
+    var isBusiness = true;
+    var powerDeg = 230;
+    var money = 0;
+    if (isBusiness) {
+        // 商业用电
+        if (powerDeg > 200) {
+            // 计算超出的价钱
+            var overP = powerDeg - 200;
+            money = overP * 2;
+            // 计算200以内的钱数
+            money = money + 200 * 1.5;
+        } else {
+            // 没有超出200
+            money = powerDeg * 1.5;
+        }
+
+    } else {
+        if (powerDeg > 200) {
+            // 计算超出的价钱
+            var overP = powerDeg - 200;
+            money = overP * 1;
+            // 计算200以内的钱数
+            money = money + 200 * 0.7;
+        } else {
+            // 没有超出200
+            money = powerDeg * 0.7;
+        }
+
+    }
+
+
+    // 400 度,多少钱
+    function allMoney(powerDeg, isBusiness) {
+        var money = 0;
+        if (isBusiness) {
+            // 商业用电
+            if (powerDeg > 200) {
+                // 计算超出的价钱
+                var overP = powerDeg - 200;
+                money = overP * 2;
+                // 计算200以内的钱数
+                money = money + 200 * 1.5;
+            } else {
+                // 没有超出200
+                money = powerDeg * 1.5;
+            }
+
+        } else {
+            if (powerDeg > 200) {
+                // 计算超出的价钱
+                var overP = powerDeg - 200;
+                money = overP * 1;
+                // 计算200以内的钱数
+                money = money + 200 * 0.7;
+            } else {
+                // 没有超出200
+                money = powerDeg * 0.7;
+            }
+
+        }
+        console.log(money);
+    }
+
+    allMoney(400, false);
+    allMoney(100, true);
+
+</script>
+</body>
+</html>

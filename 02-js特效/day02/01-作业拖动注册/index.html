@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>小码哥登录界面</title>
+    <!--导入外部css-->
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+<!--面板-->
+<div id="panel">
+    <!--面板的头部-->
+    <div class="panel-header" id="panel_header">
+        <h2>SeeMyGo教育系统</h2>
+    </div>
+    <!--面板的中间内容-->
+    <div class="panel-content">
+        <!--账号输入框-->
+        <div class="user-pwd">
+            <img src="images/icon_people.png">
+            <input placeholder="请输入用户名/手机号" name="user">
+        </div>
+        <!--密码输入框-->
+        <div class="user-pwd">
+            <img src="images/icon_password.png">
+            <input placeholder="请输入密码" type="password" name="pwd">
+        </div>
+        <!--默认的设置-->
+        <div class="setting">
+            <a href="#"><input type="checkbox"> 下次自动登录</a>
+            <a href="#" class="pull-right">忘记密码?</a>
+        </div>
+        <!--登录按钮-->
+        <button class="login-btn">登&nbsp;录</button>
+        <!--立即注册-->
+        <div class="reg">
+            还没账号?&nbsp;&nbsp;<a href="#">立即注册</a>
+        </div>
+    </div>
+    <!--面板的尾部-->
+    <div class="panel-footer">
+        <span>社交账号登录:  </span>
+        <img src="images/sina.png">
+        <img src="images/weixin.png">
+        <img src="images/qq.png">
+    </div>
+</div>
+
+<script>
+    //1.找对象
+    var panel_header = document.getElementById('panel_header');
+    var panel = document.getElementById('panel');
+    //2.监测鼠标在头部上按下的事件
+    panel_header.onmousedown = function (event) {
+        //获取一个兼容事件对象
+        var myEvent = event || window.event;
+        //3.求出鼠标按下的初始位置
+        var beginX = myEvent.clientX - this.offsetParent.offsetLeft;
+        var beginY = myEvent.clientY - this.offsetParent.offsetTop;
+
+        //4.当鼠标拖动的时候
+        document.onmousemove = function (event) {
+            //获取一个兼容事件对象
+            var myEvent = event || window.event;
+
+            //5.获取拖动的最新位置
+            var endX = myEvent.clientX - beginX;
+            var endY = myEvent.clientY - beginY;
+
+            //6.让panel面板走起来
+            panel.style.left = endX + 'px';
+            panel.style.top = endY + 'px';
+        }
+
+        //7.当鼠标抬起的时候,清空move事件和自身(onmouseup)
+        document.onmouseup = function () {
+            document.onmousemove =  null;
+            document.onmouseup = null;
+        }
+    }
+</script>
+</body>
+</html>

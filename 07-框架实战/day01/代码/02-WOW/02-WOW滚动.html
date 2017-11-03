@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/animate.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box{
+            width: 800px;
+            margin: 20px auto;
+            /*background-color: blue;*/
+
+            overflow: hidden;
+        }
+
+        .box>div{
+            width: 350px;
+            height: 400px;
+            background-color: red;
+        }
+
+        .box>div:nth-child(1){
+            float: left;
+        }
+
+        .box>div:nth-child(2){
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="wow slideInLeft" data-wow-iteration="5">1</div>
+        <div class="wow slideInRight" data-wow-iteration="5">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft" data-wow-duration="4s">1</div>
+        <div class="wow slideInRight" data-wow-duration="4s">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft" data-wow-delay="2s">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow bounceInLeft">1</div>
+        <div class="wow bounceInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+<script src=js/wow.js></script>
+<script>
+    window.onload = function () {
+        // 实例化wow
+        new WOW().init();
+    }
+</script>
+</body>
+</html>

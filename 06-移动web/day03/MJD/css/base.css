@@ -1,0 +1,209 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /*清除移动端设备默认的点击高亮效果*/
+    -webkit-tap-highlight-color: transparent;
+}
+
+html{
+    /*rem知识点：可以联想一下h系列标签的em单位*/
+    /*此处设置的fz，可以作为其他地方的rem单位使用，通常测试字体大小为了方便，20px，因为chrome显示的最小字高度是12px*/
+    font-size: 20px;
+}
+
+body{
+    font-size: 0.6rem;
+    color: #000;
+    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif;
+    background: #f5f5f5;
+}
+
+a{
+    text-decoration: none;
+    color: #666;
+}
+
+input, textarea{
+    outline: none;
+    /*去除iOS默认的一些非扁平化控件效果(风格不符合不如不要)*/
+    -webkit-appearance: none;
+}
+
+ul, ol{
+    list-style: none;
+}
+ul>li>a{
+    display: inline-block;
+    width: 100%;
+}
+
+.clearfix::before,
+.clearfix::after{
+    content: "";
+    display: block;
+    height: 0;
+    /*去除所有浮动*/
+    clear: both;
+    /*隐藏显示，但是保留占位*/
+    visibility: hidden;
+    /*optional*/
+    overflow: hidden;
+}
+
+[class ^= "icon_"]{
+    background: url("../images/sprites.png") no-repeat;
+    -webkit-background-size: 200px 200px;
+    background-size: 200px 200px;
+}
+
+.light_border{
+    position: relative;
+}
+
+.light_border::before{
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: -1px;
+
+    width: 200%;
+    height: 200%;
+    /* 课后遇到不同方向的细边框的时候，只需要修改此处的border即可 */
+    border: 1px solid #e0e0e0;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    /* 需要在放大情况下，根据position的left和top值，稍作调整 */
+    transform-origin: 1px 1px;
+    -webkit-transform-origin: 1px 1px;
+}
+
+/* 通用头部 */
+.jd_base_header{
+
+}
+
+.jd_base_header .jd_topbar{
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: url("../images/header-bg.png") repeat-x;
+    -webkit-background-size: 100% 44px;
+    background-size: 100% 44px;
+
+    border-bottom: 1px solid #e0e0e0;
+
+    position: relative;
+}
+.jd_topbar .icon_back{
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 38px;
+    height: 44px;
+
+    background-position: -20px 0;
+    padding: 12px 9px;
+    -webkit-background-clip: content-box;
+    background-clip: content-box;
+    -webkit-background-origin: content-box;
+    background-origin: content-box;
+}
+.jd_topbar .icon_shortcut{
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 40px;
+    height: 44px;
+
+    background-position: -60px 0;
+    padding: 12px 10px;
+    -webkit-background-clip: content-box;
+    background-clip: content-box;
+    -webkit-background-origin: content-box;
+    background-origin: content-box;
+}
+.jd_topbar .icon_search{
+    position: absolute;
+    left: 40px;
+    top: 2px;
+
+    width: 38px;
+    height: 44px;
+
+    background-position: -80px 0;
+    padding: 12px 9px;
+    -webkit-background-clip: content-box;
+    background-clip: content-box;
+    -webkit-background-origin: content-box;
+    background-origin: content-box;
+}
+
+.jd_topbar>span.title{
+    font-size: 14px;
+}
+
+.jd_topbar>form{
+    width: 100%;
+    height: 100%;
+    padding: 0 40px;
+    /* 抽取完代码之后，再进行详细设置 */
+    /*padding-right: 50px;*/
+}
+.jd_topbar>form input{
+    margin-top: 5px;
+    width: 100%;
+    height: 34px;
+    border: 1px solid #e0e0e0;
+    border-radius: 17px;
+    padding-left: 30px;
+}
+
+.jd_base_header ul.jd_shortcut{
+    display: table;
+    width: 100%;
+    height: 57px;
+    background: #404042;
+}
+ul.jd_shortcut li{
+    width: 25%;
+    display: table-cell;
+    text-align: center;
+    padding-top: 6px;
+    font-size: 0;
+}
+ul.jd_shortcut li.current{
+    background: #2d2d2d;
+}
+
+ul.jd_shortcut li>a{
+
+}
+ul.jd_shortcut li>a>span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+
+}
+ul.jd_shortcut .icon_home{
+    background-position: -30px -27px;
+}
+ul.jd_shortcut .icon_category{
+    background-position: -60px -27px;
+}
+ul.jd_shortcut .icon_cart{
+    background-position: -90px -27px;
+}
+ul.jd_shortcut .icon_me{
+    background-position: -120px -27px;
+}
+
+ul.jd_shortcut li>a>p{
+    color: #fff;
+    font-weight: 400;
+    font-size: 12px;
+}

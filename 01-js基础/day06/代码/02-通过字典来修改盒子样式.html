@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /*border: 1px solid #ccc;*/
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+    // 1.获取盒子
+    var box = document.getElementById('box');
+    // 2. 字典数据
+    var dic = {width:'200px',height:'200px',background:'red',border: '1px solid #ccc'}
+    // 3. 平时怎么设置盒子属性
+//    box.style.width  = 200+'px';
+//    box.style.width  = dic['width']+'px';
+
+    // 使用for in 循环获取字典中的值
+    for(var key in dic){
+        box.style[key] = dic[key];
+        // box.style.width = dic[key]
+    }
+
+</script>
+</body>
+</html>

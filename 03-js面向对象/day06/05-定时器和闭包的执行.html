@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+定时器:
+    setTimeout: 只会执行一次(延迟执行函数)
+    setInterval: 每隔一段时间执行一次
+
+    参数:
+        参数1: 回调函数
+        参数2: 间隔时间(ms), 1s == 1000ms
+
+<script>
+    /*console.log(new Date());
+    setTimeout(function () {
+        console.log('只会执行一次');
+        console.log(new Date());
+    }, 1000);*/
+
+    /*console.log(new Date())
+    setInterval(function () {
+        console.log('每隔一段时间执行一次');
+        console.log(new Date())
+    }, 2000);*/
+
+</script>
+
+<script>
+//    for (var i = 0; i < 10; i++) {
+//        setTimeout(function () {
+//            console.log(i); // 0~9 | (10)
+//        }, 100)
+//    }
+</script>
+
+JS执行的任务:
+    1.渲染任务: 在文档中编写的代码,运行在浏览器中所看到的效果
+    2.JS主要任务: for循环
+    3.事件型任务: 点击任务,定时器任务
+
+JS执行任务的特点:
+    JS是单线程
+
+    进程: 一个正在运行的应用程序(正在运行的webStorm),没有运行的不是
+
+    线程: 在进程中执行任务的(一个进程想要执行任务(酷狗下载音乐,迅雷下载电影),必须要有一个线程)
+
+    串行执行: 在线程中执行任务是串行的,执行多个任务需要按照顺序一个一个的执行,同一时间只能执行一个任务
+
+    多线程: 在进程中开启多条线程,每条线程可以执行不同任务
+
+    多线程原理:
+        CPU同一时间只能处理一个线程,同一时间只有一个线程在工作
+
+        多线程并发(同时)执行: CPU快速的在多个线程之间来回调度,如果速度足够快,就会达到多线程并发的假象 1s --> 1万个0.0001s
+
+<script>
+    for (var i = 0; i < 3; i++) {
+
+//        function fn(i) {
+//            setTimeout(function () {
+//                console.log(i); // 0~9 | (10)
+//            }, 100)
+//        }
+//
+//        fn(i);
+        (function fn(i) {
+            setTimeout(function () {
+                console.log(i); // 0~9 | (10)
+            }, 100)
+        }(i))
+
+    }
+</script>
+</body>
+</html>

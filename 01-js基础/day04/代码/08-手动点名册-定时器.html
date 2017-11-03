@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">开始点名</button>
+<button id="btn2">停止点名</button>
+<h1 id="title">Luck</h1>
+<script>
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var title = document.getElementById('title');
+    var names = ['张三', '李四', '王五', '赵六', '王八', '路飞', '鸣人', '孙悟空', '曹老师'];
+    // 绑定事件
+    var index = 0;
+    var timer = null;
+    btn1.onclick = function () {
+        // 清空定时器
+        clearInterval(timer);
+        // 从数组中取值
+        // 开启多次定时器
+        timer = setInterval(function () {
+            var name = names[parseInt(Math.random() * 9)];
+            title.innerHTML = name;
+        }, 50)
+    }
+
+    btn2.onclick = function () {
+        clearInterval(timer);
+    }
+</script>
+</body>
+</html>

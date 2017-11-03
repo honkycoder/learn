@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+<body>
+<div><img src="img/competition.jpg" alt="">
+    <h2>低价1000元</h2>
+    <button id="btn"> 点击拍卖</button>
+</div>
+
+<script>
+    //    // 不点击确定或者取消就不往下执行,
+    //  var result =  prompt('你好');
+    //
+    //  console.log(result);
+    //  获取元素
+    function $(elID) {
+        return document.getElementById(elID);
+    }
+    var btn = $('btn');
+    btn.onclick = function () {
+
+        var result =  prompt('请输入你的竞拍价格,抱得美人归');
+        var isNum = parseInt(result);
+
+        if (isNum){
+            // 是数字
+            if (result>10000){
+                alert('抱走');
+
+            }else {
+                alert('钱太少');
+
+            }
+        }else {
+            alert('请输入合法的金额');
+        }
+    }
+</script>
+</body>
+</html>

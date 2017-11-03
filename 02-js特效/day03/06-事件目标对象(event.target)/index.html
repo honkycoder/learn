@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script>
+ //1.获取button
+    var btn = document.getElementById('btn');
+    btn.onclick = function (event) {
+        var myEvent = event||window.event;
+//        console.log(myEvent.target);
+//        console.log(myEvent.target.id);
+
+        //1.event.target在谷歌 火狐 以及ie9+以上可以支持 ie7 8 不支持
+
+
+
+        //2.event.srcElement在ie 7 8中支持  在新版的谷歌支持,但是火狐不支持
+//        console.log(myEvent.srcElement);
+//        console.log(myEvent.srcElement.id);
+
+
+        var targetId = myEvent.target ? myEvent.target.id : myEvent.srcElement.id;
+
+        console.log(targetId);
+    };
+</script>
+</body>
+</html>

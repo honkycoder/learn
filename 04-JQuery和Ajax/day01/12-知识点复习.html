@@ -1,0 +1,79 @@
+01 jQuery简单介绍
+    001 js框架(CSS|DOM|Ajax)
+    002 入口函数(监听)
+        $(document).ready(function(){//.......})
+        $().ready(function(){//.......})
+        $(function(){})
+    003 解决冲突: var xx = $.noConflict(); 注意点(位置)
+    004 DOM($(DOM标签)) <-> jQuery转换([0]|get(0))   |eq()获得的是实例对象
+
+02 常见操作
+    001 CSS:
+        (1) $("div").css("属性","值")
+        (2) $("div").css("属性","值").css("属性2","值").css("属性","值")
+        (3) $("div").css({"属性":"值","key":"value"})
+        (4) 补充:$("div").css("属性");  //获取得到的所有指定标签中的第一个标签的属性对应的值\
+
+    002 class
+        (1) hasClass 判断是否拥有(true|false)
+        (2) addClass 添加
+        (3) removeClass 删除
+        (4) toggleClass 切换(如果有就删除,如果没有就添加)
+        (5) 补充:链式编程 $("div").addClass("class1").addClass("class2")
+                 $("div").addClass("class1 class2");
+
+    003 标签的位置
+        offset:相对于窗口(浏览器)
+        position:父标签
+
+    004 操作内容:
+        参数:如果不传递参数表示获取内容,传递了参数表示替换.
+        html()  --- innerHTML
+        text()  --- innerText
+
+
+03 选择器
+    001 基本选择器
+        (1) id选择器  $("#id")
+        (2) 类选择器  $(".class")
+        (3) 标签选择器 $("p")
+        (4) 并集选择器 $("#id,p")
+    002 层级选择器
+        (1) 后代选择器  标签 后代标签   .class1 div
+        (2) 直接后代选择器  .class1>div
+        (3) 下一个弟弟      .class+div
+        (4) 后面所有的弟弟  .class~div
+
+    003 属性选择器
+        01 是否拥有某个属性  $("a[属性]")
+        02 单个属性
+            (1) 属性值相等   $("a[属性='具体的值']")
+            (2) 属性值不相等 $("a[属性!='具体的值']")
+            (3) 特定的开头 $("a[属性^='值']")
+            (4) 特定的结尾 $("a[属性$='值']")
+            (5) 特定的子串 $("a[属性*='值']")
+        03 多个属性 $("a[属性1][属性2]")
+
+    004 筛选选择器
+        (1) 第一个  first
+        (2) 最后一个 last
+        (3) 排除 not(:///)
+        (4) 奇数 odd
+        (5) 偶数 even
+        (6) 大于 gt
+        (7) 小于 lt
+        (8) 等于 eq
+    005 父子选择器
+        (1) parent() 父节点
+        (2) parents() 所有的祖先节点
+        (3) parentsUntil() 所有的祖先节点(到某个节点为止)
+        (4) children  子节点
+        (5) siblings  兄弟节点   (排它)
+    006 移入和移出
+
+    移入          移出
+    mouseenter - mouseleave  :子标签不会有任何的影响  hover基于这对方法
+    mouseover - mouseout  :子标签会有影响
+
+    007 下标
+var index = $(this).index()

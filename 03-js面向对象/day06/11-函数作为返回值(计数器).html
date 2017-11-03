@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+函数作为返回值
+    实现计数器功能
+
+<script>
+    /*function sum() {
+        var a = 0;
+        return function () {
+            return ++a;
+        }
+    }
+
+    var func = sum();
+
+    console.log(func());
+    console.log(func());
+    console.log(func());
+    console.log(func());
+    console.log(func());*/
+
+
+</script>
+
+<script>
+    function sum() {
+        var a = 0;
+
+        setInterval(function () {
+            a++;
+        }, 500);
+
+        return function () {
+            return a;
+        }
+    }
+
+    var func = sum();
+
+    document.onclick = function () {
+        console.log(func()); //
+    }
+
+
+</script>
+</body>
+</html>

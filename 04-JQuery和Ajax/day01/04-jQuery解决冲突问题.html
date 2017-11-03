@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        var xx = $.noConflict();
+        var $ = "123";
+
+        //在页面中引入和使用jQuery框架之前,$符号可能已经被占用了.
+        //可以给jQuery换个名字:var xx = $.noConflict();
+        //注意点:设置的位置(在$符号被声明和使用之前设置)
+
+        xx(function () {
+            console.log("啦啦啦");
+        });
+
+        console.log(xx == jQuery);
+
+    </script>
+
+    <script src="js/demo.js"></script>
+    <script>
+        f();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

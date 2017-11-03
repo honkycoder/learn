@@ -1,0 +1,87 @@
+
+1.函数的隐藏参数
+    arguments: 函数调用时会将实参保存到arguments中,这个是类似于数组的对象(Arguments)
+        1.实参的个数 > 形参的个数, 多余的实参可以通过arguments获取
+        2.实参的个数 < 形参的个数, 会依次给形参赋值,多余的形参为undefined
+
+    length:
+        获取实参的个数: arguments.length
+        获取形参的个数: 函数名.length
+
+    this的指向: 函数内部this指向的对象
+        1.函数作为对象的方法: this -> 这个对象
+        2.函数作为普通函数调用: this -> window
+        3.函数作为构造函数调用: this -> 内部创建的对象
+        4.(call | apply): this -> 第一参数
+
+2.callee和caller
+    callee: 是arguments的属性,获取当前的函数,主要用于递归调用
+        递归调用: 自己调用自己,有退出条件
+    caller: Function.prototype的属性,获取调用函数的函数,这个函数必须是被其他函数调用
+
+3.Function的小应用
+    数组去重:
+        1.创建一个空数组
+        2.遍历所有的实参
+        3.判断这个数组中是否有这个实参,如果没有,就将这个参数添加到这个数组中
+            数组.indexOf(实参),如果数组中有这个实参,返回这个值再数组中的下标,如果没有,返回-1
+        4.返回这个数组
+
+    求最大值:
+        1.创建一个变量,将第0个实参赋值给这个变量
+        2.遍历所有的实参
+        3.判断这个实参的值是否大于这个变量的值,如果大于则赋值给这个变量
+        4.返回这个变量
+
+4.eval的简单使用
+    作用:
+        1.将字符串转为JS代码,立即执行
+        2.将JSON转为对象
+
+    Function构造函数和eval函数的区别
+        1.都可以将字符串转为JS代码,Function构造函数创建出来的函数需要调用,eval不需要调用,直接执行
+        2.eval可以将JSON转为对象
+
+    JSON: JavaScript Object Notation, JS对象标记,是一种轻量级的数据交换格式
+    JSON和对象的区别:
+        JSON本质是字符串
+        JSON的格式: "{\"name\": \"zs\", \"age\": 20}"
+        对象的格式: {name: 'zs', age: 20}
+
+    eval的建议: 不推荐使用,因为JS是词法(静态)作用域,代码在编写过程中就确定了变量的作用域,eval会破坏词法作用域,程序运行的时候不会对eval中的字符串优化,性能也不好
+
+    使用eval将JSON转为对象: 必须是表达式
+    var o = eval("({\"name\": \"zs\", \"age\": 20})");
+    eval("var o = {\"name\": \"zs\", \"age\": 20}");
+
+    JSON转为对象: JSON.parse
+    对象转为JSON: JSON.stringify
+
+5.Object和Function的关系
+    1.JS中所有的对象都是由Object创建的
+    2.Object和Function互为对方的实例
+
+6.this的丢失: 对象的方法,函数中的this原本指向这个对应,由于调用方式不同,this指向了window,这个就是this的丢失
+    解决方案: 将函数取出来赋值给一个变量,当这个变量使用这个函数的时候,保证函数中的this还是之前的对象
+
+    var getDiv = (function (func) {
+                    return function () {
+                        return func.apply(document,arguments);
+                    }
+                })(document.getElementById)
+    getDiv('id');
+
+7.with的简单说明: 将对象的作用域引申到{}中
+        注意点:
+            1.可以使用省略前缀的方式访问或设置属性和方法
+            2.不能使用省略前缀的方式,增加属性和方法
+            3.内部的this指向的window
+            4.严格模式下禁止使用
+
+        如何达到省略代码的功能?
+        (function (t) {
+                t.width = '200px'
+        })(div.style)
+
+8.私有变量和函数: 定义在构造函数内部的变量和函数就是这个构造函数的私有变量和私有函数
+    特权方法: 可以通过特权方法来访问私有变量和私有函数

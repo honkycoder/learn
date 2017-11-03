@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+需求: 创建一个图书管理系统,实现增删改查功能
+    图书管理操作1:
+        存在的问题: 重复代码过多,冗余度高,无法复用
+
+<script>
+    // 1.创建一个数组用于存放所有的书,书用对象描述
+    var bookList = [
+        {
+            name: '西游记',
+            author: '吴承恩'
+        },
+        {
+            name: '三国演义',
+            author: '罗贯中'
+        },
+        {
+            name: '水浒传',
+            author: '施耐庵'
+        },
+        {
+            name: '红楼梦',
+            author: '曹雪芹'
+        }
+    ];
+
+    // 2.查询(三国演义)
+    for (var i = 0; i < bookList.length; i++) {
+        var obj = bookList[i];
+        if (obj.name == '三国演义') {
+            console.log(obj);
+            break;
+        }
+    }
+
+    // 3.增加
+    bookList.push({
+        name: '悟空传',
+        author: '今何在'
+    });
+    console.log(bookList);
+
+    // 4.修改
+    for (var i = 0; i < bookList.length; i++) {
+        var obj = bookList[i];
+        if (obj.name == '悟空传') {
+            obj.author = '孙悟空';
+            break;
+        }
+    }
+    console.log(bookList);
+
+    // 5.删除
+    for (var i = 0; i < bookList.length; i++) {
+        var obj = bookList[i];
+        if (obj.name == '悟空传') {
+            // 从i位置开始删,删除1个
+            bookList.splice(i,1);
+            break;
+        }
+    }
+    console.log(bookList);
+
+</script>
+</body>
+</html>

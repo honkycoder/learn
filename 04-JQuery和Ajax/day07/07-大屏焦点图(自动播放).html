@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .box{
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .box ul{
+            width: 500%;
+            height: 300px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .box ul li{
+            width: 20%;
+            height: 300px;
+            float: left;
+
+        }
+
+        .box ul li img{
+            width: 100%;
+            height: 300px;
+        }
+
+        .box p{
+            width: 80%;
+            height: 100px;
+            /*background: red;*/
+            position: absolute;
+            left: 50%;
+            margin-left: -40%;
+            margin-top: 130px;
+            z-index: 2;
+        }
+
+        .box p span{
+            font-size: 100px;
+            line-height: 100px;
+            color: #ffffff;
+        }
+
+        .box p span:nth-child(2)
+        {
+            float: right;
+        }
+    </style>
+
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+</head>
+<body>
+<div class="box">
+    <p><span>&lt;</span><span>&gt;</span></p>
+    <ul>
+        <li><img src="images/01.png"></li>
+        <li><img src="images/02.png"></li>
+        <li><img src="images/03.png"></li>
+        <li><img src="images/04.png"></li>
+    </ul>
+</div>
+<script>
+    $(function () {
+
+        $("li:first").clone(true).appendTo($("ul"));
+
+        //var leftX = 0;
+        var index = 0;
+        var length = $("li").length;
+        //01 当DOM加载完毕之后自动播放下一张图片
+        setInterval(function () {
+            index ++;
+            if(index == length)
+            {
+                index = 1;
+                $("ul").css("left",0);
+            }
+
+            //-100%
+            //-200%
+            //-300%
+            console.log(-(index * 100) + "%");
+            $("ul").animate({
+                "left":-(index * 100) + "%"
+            })
+        },2000);
+    })
+</script>
+</body>
+</html>

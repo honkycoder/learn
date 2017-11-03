@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas{
+            background: url("images/p_1.jpg");
+        }
+    </style>
+</head>
+<body style="padding: 100px">
+
+<canvas id="canvas" width="320" height="160" style="border: 1px solid #000"></canvas>
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    // 2.绘制灰色的蒙板
+    ctx.fillStyle = "#ccc";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    // 设置合成关系:只保留目标,保留与源不重叠的目标,重叠的部分透明
+    ctx.globalCompositeOperation = "destination-out";
+
+    // 3.绘制圆
+    // 鼠标按下
+    canvas.onmousedown = function () {
+        // 鼠标移动
+        canvas.onmousemove = function (e) {
+            // 开启路径
+            ctx.beginPath();
+            ctx.arc(e.offsetX,e.offsetY,20,0,Math.PI*2);
+//            ctx.fillStyle = 'red';
+            ctx.fill();
+
+            // 鼠标抬起
+            canvas.onmouseup = function () {
+                canvas.onmousemove = null;
+                canvas.onmouseup = null;
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

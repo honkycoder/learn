@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+严格模式:
+    在JS中默认可以设置2个模式： 严格模式 | 非严格模式
+    严格模式会做更严格的检查，提高编译器效率，在非严格模式下可以运行的代码或者不会出错的代码，在严格模式下，可能直接报错
+
+    优点：严格模式会对代码做更严格的检查，提高编译器效率，为未来JS版本做准备，建议以后都使用严格模式
+
+如何设置严格模式：
+    "use strict";
+
+严格模式的兼容性问题:
+    ES5出来的，向前兼容的，支持严格模式的引擎会开启严格模式，不支持严格模式则会当做普通的字符串处理
+
+严格模式的注意点：
+    1.必须使用var声明变量
+    2.不能删除使用var声明的变量
+    3.对象的属性名不能一样
+    4.函数参数名必须唯一
+    5.禁止使用八进制
+    6.禁止使用caller和callee,一个返回调用函数的函数，返回当前函数
+    7.禁止使用with
+    8.禁止使用arguments和eval作为标识符（变量名）
+    9.if语句中不能声明函数
+    10.修正了this的指向
+    11.在严格模式下，arguments的使用不一样
+
+<script>
+    /*"use strict";*/
+
+    // 1.必须使用var声明变量，如果不使用var声明变量，在严格模式下，直接报错
+    /*a = 10;
+    console.log(a);*/
+
+    // 2.不能删除使用var声明
+    /*var b = 10;
+    console.log(delete b); // 非严格模式下(false) | 严格模式下直接报错
+    console.log(b);*/
+
+    // 3.对象中的属性名不能一样,在严格模式下会有错误警告，虽然可以运行，但是不推荐这样写
+    /*var obj = {
+        name: 'zs',
+        age: 20,
+        name: 'ls'
+    }
+    console.log(obj.name);*/
+
+    // 4.函数中形参名必须唯一
+    // 在非严格模式下，相同名字的形参后面的会覆盖前面的
+    // 在严格模式下，有相同名字的形参直接报错
+    /*function foo(a, b, a) {
+        /!*a = 1;
+        b = 2;
+        a = 3;*!/
+        console.log(a + b + a); // 3 + 2 + 3 = 8
+    }
+    foo(1,2,3);*/
+
+    // 5.禁止使用八进制
+    // 严格模式下直接报错
+    /*console.log(012); // 1 * 8 ^ 1 + 2 * 8 ^ 0 = 8 + 2 = 10
+    console.log(018); // 18*/
+
+    // 6.禁止使用caller和callee,caller:返回调用函数的函数;callee: 返回当前函数
+    // 在严格模式下，直接报错
+    /*function f1() {
+        console.log(f1.caller); // f2
+        console.log(arguments.callee); // f1
+    }
+    function f2() {
+        f1();
+    }
+    f2();*/
+
+    // 7.禁止使用with
+    // 严格模式下，直接报错
+    /*var obj = {
+        name: 'zs',
+        age: 20
+    };
+    with (obj) {
+        name = 'ls';
+        age = 30;
+    }
+    console.log(obj);*/
+
+    // 8.禁止使用arguments和eval作为标识符（变量名）
+    /*var arguments = 10;
+    var eval = 'demo';
+    console.log(arguments, eval);*/
+</script>
+</body>
+</html>

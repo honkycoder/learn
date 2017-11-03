@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+<script>
+    var box = document.getElementById('box');
+    box.onmousedown = function (event) {
+            // 按下去是鼠标相对于红色的盒子在什么位置,过程中相对位置不变
+        event = event||window.event;
+        var distanceX = event.clientX-box.offsetLeft;
+        var distanceY = event.clientY-box.offsetTop;
+        box.onmousemove = function (event) {
+            event = event||window.event;
+            var leftValue = event.clientX-distanceX;
+            var topValue = event.clientY-distanceY;
+            console.log(topValue);
+            box.style.left = leftValue+'px';
+            box.style.top = topValue+'px';
+        }
+        document.onmouseup = function () {
+            box.onmousemove  =null;
+            document.onmouseup = null;
+        }
+
+    }
+
+
+
+</script>
+</body>
+</html>

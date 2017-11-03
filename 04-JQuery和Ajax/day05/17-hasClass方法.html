@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.4.0.js"></script>
+</head>
+<body>
+
+<div class="aa bb cc"></div>
+<div class="aabbcc aaa bbb"></div>
+
+<!--
+    01 检查指定标签中是否存在特定的class,如果某一个标签中存在那么就返回true
+-->
+<script>
+    console.log($("div").hasClass("bbcc"));
+
+    //aa bb cc
+    //字符串匹配
+
+    var str = " aaaa bb wwcc cc ssd ";
+    var temp = "wc";
+
+    var arrT = ["aa","bb","cc"];
+    //判断数组中是否存在指定的元素?
+    //(1)遍历然后比较
+    //(2)indexOf 获取指定元素对应的索引,如果没有找到那么返回-1
+    //console.log(arrT.indexOf("ccc"));
+    //console.log(str.indexOf("bbb"));
+
+    //重点:字符串匹配
+    //console.log(str.indexOf(" wc "));
+    //console.log(str.indexOf(" aaaa "));
+</script>
+</body>
+</html>

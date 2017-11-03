@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+        .container{
+            height: 50px;
+            background-color: red;
+            margin: 0 auto;
+        }
+
+
+        /*媒体查询*/
+        @media screen and (max-width: 750px) {
+            .container{
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: 750px) and (max-width: 970px) {
+            .container{
+                width: 750px;
+            }
+        }
+
+        @media screen and (min-width: 970px) and (max-width: 1170px) {
+            .container{
+                width: 970px;
+            }
+        }
+
+        @media screen and (min-width: 1170px){
+            .container{
+                width: 1170px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+   <div class="container"></div>
+
+<script>
+    /*
+    window.onload = function () {
+        // 1. 获取标签
+        var container = document.querySelector('.container');
+        var clientW = 0;
+
+        resize();
+
+        // 2. 监听窗口大小的改变
+        window.addEventListener('resize', resize);
+        function resize() {
+            // 2.1 获取窗口宽度
+            clientW = window.innerWidth;
+
+            // 2.2 判断
+            if(clientW >= 1170){ // 大屏幕  >1170
+                container.style.width = 1170 + 'px';
+            }else if(clientW >= 970){ // [970, 1170)
+                container.style.width = 970 + 'px';
+            }else if(clientW >= 750){ // [750, 970)
+                container.style.width = 750 + 'px';
+            }else {
+                container.style.width = '100%';
+            }
+        }
+    }
+    */
+</script>
+</body>
+</html>
+
+<!--
+   四个档位 1170 970 750 100%
+-->

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+使用惰性函数实现单例模式(改进版)
+    核心步骤:
+        1.提供一个构造函数
+        2.在构造函数内定义一个私有变量(instance)用于保存对象
+        3.让这个构造函数自我更新
+        4.在新的构造函数内判断instance是否有值,如果有值直接返回
+        5.将this赋值给instance
+        6.设置新构造函数的原型对象,为父构造函数的原型对象
+        7.给this设置属性和方法
+
+<script>
+    // 1.提供一个构造函数
+    function Person() {
+        // 2.在构造函数内定义一个私有变量(instance)用于保存对象
+        var instance;
+
+        // 3.让这个构造函数自我更新
+        Person = function () {
+            // 4.在新的构造函数内判断instance是否有值,如果有值直接返回
+            if (instance != undefined) {
+                return instance;
+            }
+        };
+
+        // 5.将this赋值给instance
+        instance = this;
+
+        // 6.设置新构造函数的原型对象,为父构造函数的原型对象
+//        Person.prototype = this.__proto__; // 不推荐使用,因为__proto__非标准
+        Person.prototype = Object.getPrototypeOf(this);
+
+        // 6.1设置新构造函数的__proto__是旧构造函数
+//        Person.__proto__ = this.constructor; // 不推荐使用,因为__proto__非标准
+
+        Person.demo = 'demo1';
+
+        // 7.设置this的属性和方法
+        this.name = 'zs';
+        this.showName = function () {
+            console.log(this.name);
+        }
+    }
+
+    // 尽量避免在构造函数外定义构造函数静态成员
+//    Person.demo = 'demo';
+
+    Person.prototype.des = 'des';
+    var p1 = new Person();
+    var p2 = new Person();
+    console.log(p1 == p2);
+    console.log(Person.prototype.des);
+    console.log(Person.demo); // demo1 | undefined
+
+</script>
+</body>
+</html>

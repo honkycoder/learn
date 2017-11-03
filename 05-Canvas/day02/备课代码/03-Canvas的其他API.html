@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="padding: 100px">
+
+<canvas id="canvas" width="900" height="600" style="border: 1px solid #000"></canvas>
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    // 2.绘制线性渐变
+    // 创建一个线性渐变对象
+//    var grd = ctx.createLinearGradient(200,200,400,300);
+//
+//    // 添加渐变颜色
+//    grd.addColorStop(0,"red");
+//    grd.addColorStop(0.2,"blue");
+//    grd.addColorStop(0.5,"yellow");
+//    grd.addColorStop(1,"pink");
+//    ctx.fillStyle = grd;
+//    ctx.fillRect(200,200,200,100);
+
+    // 3.绘制径向渐变
+//    ctx.beginPath();
+//    // 创建一个径向渐变对象
+//    var rlg = ctx.createRadialGradient(300,450,0,300,450,100);
+//    // 添加渐变颜色
+//    rlg.addColorStop(0,"red")
+//    rlg.addColorStop(0.2,"blue");
+//    rlg.addColorStop(0.4,"green");
+//    rlg.addColorStop(0.6,"pink");
+//    rlg.addColorStop(0.8,"yellow");
+//    rlg.addColorStop(1,"orange");
+
+    // 重点语句
+//    ctx.fillStyle = rlg;
+//    ctx.arc(300,450,100,0,2 * Math.PI);
+//    ctx.fill();
+
+    // 4.绘制背景
+    ctx.beginPath();
+
+    // 创建图片对象
+    var image = new Image();
+    image.src = "images/bg.jpg";
+
+    image.onload = function () {
+        // 创建背景对象
+        var pat = ctx.createPattern(image,'repeat');
+
+        // 把背景对象设置为填充样式
+        ctx.fillStyle = pat;
+
+        ctx.fillRect(100,100,300,200);
+    };
+
+
+
+
+</script>
+</body>
+</html>

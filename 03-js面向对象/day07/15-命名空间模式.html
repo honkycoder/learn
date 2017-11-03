@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+如果全局变量过多,容易被覆盖,会造成全局变量污染
+
+可以通过命名空间模式解决全局变量污染
+
+命名空间名字的定义: 一般是项目名,一般是简写,一般大写
+
+能够实现命名空间: 对象 | 函数
+    将所有的变量写在命名空间中,作为对象的属性或方法
+<script>
+    var a = 10;
+    var obj = {};
+    var func = function () {
+     }
+</script>
+
+<script>
+    var MOMO = {};
+    MOMO.a = 10;
+    MOMO.obj = {};
+    MOMO.func = function () {
+
+    }
+</script>
+
+在给命名空间设置属性和方法时,先判断有没有对应的属性和方法
+<script>
+    var MOMO = MOMO || {};
+    MOMO.a = MOMO.a || 10;
+    MOMO.obj = MOMO.obj || {};
+    MOMO.func = MOMO.func || function () {
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box
+
+        {
+            width: 200px;
+            height: 200px;
+            background: red;
+            padding: 10px;
+            border: 30px solid #000;
+        }
+        p{
+            line-height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+</div>
+<script>
+    var box = document.getElementById('box');
+
+    //1.width和height
+    //offsetWidth/height = 内容(宽度或高度)+pading+border 不包括margin
+//    console.log(box.offsetWidth,box.offsetHeight);
+//
+//
+//    ///heigscrollWidthht = 超出的内容部分(高度/宽度)
+//
+//    console.log(box.scrollWidth,box.scrollHeight);
+//
+//
+//    //clientWidth/height = 内容+padding
+//    console.log(box.clientWidth,box.clientHeight);
+
+
+
+    //2.left和top
+    //offsetLeft和offsetTop代表的是当前盒子距离他最近的一个带有定位的父盒子,如果父盒子没有定位,那么会一级级的往上找,如果都没有,那么会以body为准
+    console.log(box.offsetLeft,box.offsetTop);
+
+    //scrollLeft和scrollTop代表的是页面滚动,距离顶部或者左边的偏移高度
+    console.log(box.scrollLeft,box.scrollTop);
+
+    //clientLeft和clientTop分别代表的是当前盒子的左边框和上边框
+    console.log(box.clientLeft,box.clientTop);
+</script>
+</body>
+</html>

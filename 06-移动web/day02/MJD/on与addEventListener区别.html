@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!--在移动端，设备如果不禁止缩放的话，网页可以进行一些缩放来回拉的一些操作，我们在移动web开发中，通常需要禁止用户缩放-->
+    <!--若不禁止缩放,移动端浏览器(iPhone)会对所有的click事件有一个大约300ms的执行延迟,可以通过vp的禁止缩放来解决一部分这个问题,有的iPhone需要我们具体再设置-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <title>addEventListener</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father{
+            width: 250px;
+            height: 250px;
+            background: lightblue;
+            margin: 0 auto;
+        }
+        .child{
+            width: 50px;
+            height: 150px;
+            background: palegreen;
+            margin: 0 auto;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="father">
+    <div class="child"></div>
+</div>
+
+<script>
+
+
+    window.onload = function () {
+/*一。onclick， addEventListener('click ，这俩同时加到一个标签上的时候，他俩是谁先写，谁先调用
+*二。onclick给同一标签添加多次的话，会被覆盖，只会执行，最后一次添加的效果
+* addEventListener('click 给同一个标签添加多次的话，不会被覆盖，可以多次执行，执行的是冒泡规则，从孙子-》祖宗方向执行,但是，事件的捕获顺序恰恰相反
+*
+*
+* */
+
+//        1.拿到标签
+        var father = document.getElementsByClassName('father')[0];
+        var child = father.getElementsByClassName('child')[0];
+
+//        father.addEventListener('click', function () {
+//            console.log('father addEventListener click');
+//        });
+//        father.addEventListener('click', function () {
+//            console.log('2th father addEventListener click');
+//        });
+//        father.onclick = function () {
+//            console.log('father onclick!');
+//        }
+//        father.onclick = function () {
+//            console.log('2th father onclick!');
+//        }
+
+//        father.addEventListener('click', function () {
+//            console.log('1th father addEventListener click');
+//        });
+//        child.addEventListener('click', function () {
+//            console.log('2th child addEventListener click');
+//        });
+
+
+
+        child.addEventListener('click', function () {
+            console.log('1th child addEventListener click');
+        }, true);
+        father.addEventListener('click', function () {
+            console.log('2th father addEventListener click');
+        }, true);
+
+
+    }
+
+</script>
+</body>
+</html>

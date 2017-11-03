@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.1.1.js"></script>
+</head>
+<body>
+<button>点击我发送网络请求</button>
+
+
+<script>
+    $("button").click(function () {
+
+        //01 如何发送GET请求
+        //第一个参数：请求路径
+        //第二个参数：提交给服务器的参数
+        //第三个参数：请求成功的回调
+        $.get("server/02-jq_ajax.php",{"name":"zs"},function (res) {
+            console.log("成功1" + res);
+        });
+
+        $.post("server/02-jq_ajax.php",{"name":"wc"},function (res) {
+            console.log("成功2" + res);
+        });
+
+        //02
+        //第一个参数：请求路径
+        //第二个参数：对象（请求的方法|请求提交的参数|请求成功的回调）
+//        $.ajax("server/02-jq_ajax.php",{
+//            "type":"GET",
+//            "data":{name:"zhangsan"},
+//            "success":function (res) {
+//                console.log("成功" + res);
+//            }
+//        });
+
+//        $.ajax("server/02-jq_ajax.php",{
+//            "type":"GET",
+//            "data":"name=zhangsan&type=person",
+//            "success":function (res) {
+//                console.log("成功" + res);
+//            }
+//        });
+
+         $.ajax({
+            "url":"server/02-jq_ajax.php",
+            "type":"GET",
+            "data":"name=zhangsan&type=person",
+            "success":function (res) {
+                console.log("成功" + res);
+            },
+             "complete":function (xhr,code) {
+                 console.log("_________");
+                 console.log(xhr.responseText);
+                 console.log(code,"++++");
+             },
+             "beforeSend":function () {
+                 console.log("正在使出吃奶的力气来发送网络请求！");
+             },
+             error:function () {
+                 console.log("请求失败");
+             }
+        });
+
+    });
+</script>
+</body>
+</html>

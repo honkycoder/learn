@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="XMGQuery框架/XMGQuery.1.0.1.js"></script>-->
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+</head>
+<body>
+<div>div1</div>
+<div class="box">div2</div>
+<div id="divID">div3</div>
+
+<script>
+    //01 条件判断为假:返回空的jQuery实例对象
+    //"" null undefined 0 false NaN等
+    /*console.log($(""));
+    console.log($(undefined));
+    console.log($(null));
+    console.log($(0));
+    console.log($(false));*/
+
+    //02 传递选择器:获取页面中指定的标签并且把这些标签保存到实例对象中返回
+    //作为实例对象中key为0.1.2.3..对应的value值保存
+    console.log($("div"));           //获取页面中的三个div
+    console.log($(".box"));          //获取第二个div
+    console.log($("#divID"));
+
+    //03 传递代码片段:把代码片段中所有的一级标签保存到实例对象中返回
+    //作为实例对象中key为0.1.2.3..对应的value值保存
+    //console.log($("<div>我是最好的div</div>"));
+    //console.log($("<div>我是最好的div</div><span>我是span</span>"));
+    //console.log($("<div>我是最好的div<a>我是a</a></div><span>我是span</span>"));
+
+    //04 传递数组:把数组中的所有元素依次取出来存入到jQUery实例对象中返回
+    console.log($([1, 2, 3, 6, 8]));
+
+    //05 传递伪数组:把伪数组中的所有元素依次取出来存入到jQUery实例对象中返回
+    //伪数组的定义
+    /*
+    * (1) 本身是对象并非是真正的数组
+    * (2) 正常来说 它的key从0开始递增 也允许存在其他的key
+    * (3) 该对象中拥有length属性,记录的是键值对的个数
+    * (4) 拥有length-1这个键值对
+    * */
+    var objT1 = {0:"name",1:"age",2:"color",length:3};     //伪数组
+    var objT2 = {0:"name",1:"age",2:"color",length:4};     //不是伪数组
+    var objT3 = {0:"name",1:"age",2:"color",length:3,"sex":"男"};    //伪数组,在遍历的时候,sex这个属性会被忽略
+
+    console.log($(objT3));
+    //06 普通对象:把传入的参数作为key为0对应的value值保存到实例对象中返回
+    console.log($({name: "张三", age: 23}));
+    //07 DOM标签对象:把传入的参数作为key为0对应的value值保存到实例对象中返回
+    var oDiv = document.createElement("div");
+    console.log($(oDiv));
+    //08 非0的数值|ture
+    console.log($(123));
+    console.log($(true));
+
+    //09 函数(!)
+
+</script>
+<!--
+入口函数传递参数的情况
+    01 条件判断为假
+    02 选择器
+    03 代码片段
+    04 数组
+    05 伪数组
+    06 对象
+    07 DOM对象
+    08 非零的值|true
+    09 函数
+
+总结:
+    01 条件判断为假
+    02 字符串(代码片段|选择器)
+    03 数组和伪数组
+    04 其他情况:对象|DOM|基本值(非0)|true
+    05 函数(!)
+
+-->
+</body>
+</html>

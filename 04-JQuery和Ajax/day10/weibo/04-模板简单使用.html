@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/template-web.js"></script>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script type="text/html" id="demoT">
+        <ul>
+            <% for(var i = 0;i< data.length ;i++){ %>
+                <li><%=data[i]%></li>
+            <%}%>
+        </ul>
+    </script>
+</head>
+<body>
+<!--
+    01 下载相关的仓库，获取框架
+    02 导入框架
+    03 提供一个script标签，把具体的要作为模板来处理的代码放在里面
+    04 具体使用,调用template方法来传递参数（id,对象）
+
+-->
+<script>
+    var obj = {
+        data:["A","B","C","D","E"]
+    }
+
+    //第一个参数：标签id
+    //第二个参数：
+    var html = template("demoT",obj);
+    console.log(html);
+    document.body.innerHTML = html;
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.2.2.js"></script>
+</head>
+<body>
+
+<div class="box">div1</div>
+<div>div2</div>
+<div>div3</div>
+
+<script>
+    //eq方法的作用：获取实例对象中指定的标签并且包装成实例对象返回
+    //注意点：
+    //(1) 如果没有传递参数，返回空的实例化对象 $()
+    //(2) eq(n) n>=0 获取第n+1个
+    //(3) eq(n) n<0  获取倒数第n个
+    console.log("__________");
+    //console.log($("div").get(1));
+    console.log($("div").eq());
+    //console.log($("div"));
+
+</script>
+</body>
+</html>

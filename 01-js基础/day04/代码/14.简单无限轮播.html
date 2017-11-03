@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 600px;
+            height: 210px;
+            border: 1px solid red;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 2400px;
+            position: absolute;
+
+        }
+
+        ul li {
+            float: left;
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn">移动</button>
+<div>
+    <ul id="list">
+        <li><img src="imge/01.jpg" alt=""></li>
+        <li><img src="imge/02.jpg" alt=""></li>
+        <li><img src="imge/03.jpg" alt=""></li>
+        <li><img src="imge/04.jpg" alt=""></li>
+        <li><img src="imge/01.jpg" alt=""></li>
+        <li><img src="imge/02.jpg" alt=""></li>
+    </ul>
+</div>
+
+
+<script>
+    //1. 获取元素
+    var list = document.getElementById('list');
+    var btn = document.getElementById('btn');
+    // 3.定义一个变量用来保存left的值
+    var leftValue = 0;
+    //2. 开启定时器(多次定时器),最终修改ul的left值,运动
+    setInterval(function () {
+        leftValue-=10;
+        //6. 判断超出去的图片是否达到4张
+        // leftView<=-1200 代表出去了4张
+        if(leftValue<=-1200){
+            leftValue=0;
+        }
+        //4.修改list的位置
+        list.style.left =leftValue+'px';
+    },100)
+
+
+//    // 5.使用按钮分析位置
+//    btn.onclick = function () {
+//        leftValue-=80;
+//        //4.修改list的位置
+//        list.style.left =leftValue+'px';
+//
+//    }
+</script>
+</body>
+</html>

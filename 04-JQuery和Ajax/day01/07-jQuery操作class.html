@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .class1{
+            width: 100px;
+            height: 50px;
+            background: red;
+        }
+
+        .test{
+            width: 200px;
+            height: 200px;
+            background: darkorange;
+        }
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            //01 得到按钮，监听按钮的点击事件
+            //console.log($("button"));
+            //console.log($("button").eq(0));  //实例对象
+            //console.log($("button").get(0)); //DOM
+            //$("button").get(0).onclick =function () {
+                //alert("aaa");
+            //}
+            $("button").eq(0).click(function () {
+                //alert("aaa");
+                console.log($("div").hasClass("class1"));   //返回值：true|false
+            })
+            $("button").eq(1).click(function () {
+
+                //操作多个class
+                //(1) 一个接着一个的处理
+                /*
+                $("div").addClass("class1");
+                $("div").addClass("test");
+                */
+
+                //(2) 链式编程
+                //$("div").addClass("class1").addClass("test");
+
+                //(3) 用空格隔开多个class即可
+                $("div").addClass("class1 test");
+            })
+            $("button:eq(2)").click(function () {
+                console.log($("div").removeClass("class1"));
+            })
+            $("button:eq(3)").click(function () {
+                console.log($("div").toggleClass("class1"));
+            })
+        });
+    </script>
+
+</head>
+<body>
+<!--
+    操作class的方法：
+        (1) 查询 hasClass
+        (2) 添加 addClass
+        (3) 删除 removeClass
+        (4) 切换 toggleClass :如果这个class已经存在了，那么就删除，如果不存在那么就添加
+-->
+<div class="box">demo</div><br>
+<button>查询</button><br>
+<button>添加</button><br>
+<button>删除</button><br>
+<button>切换</button><br>
+</body>
+</html>

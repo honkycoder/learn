@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+1.Object.preventExtensions: 设置这个对象不能扩展,不能添加属性和方法,其他都可以
+<script>
+    var obj = {
+        name: 'zs',
+        age: 20
+    };
+
+    // 设置这个对象那个不能扩展
+    Object.preventExtensions(obj);
+
+    // 遍历对象中的所有属性名 -> 可以
+    for (var k in obj) {
+        console.log(k);
+    }
+
+    // 修改 -> 可以
+    obj.name = 'ls';
+    console.log(obj);
+
+    // 删除 -> 可以
+    console.log(delete obj.name);
+    console.log(obj);
+
+    // 添加属性或方法 -> 失败,因为这个对象不能扩展
+    obj.des = 'des';
+    obj.logDes = function () {
+        console.log(this.des);
+    };
+    console.log(obj);
+
+</script>
+
+2.Object.seal: 密封,设置这个对象密封,不能添加和删除属性和方法
+<script>
+    var obj = {
+        name: 'zs',
+        age: 20
+    };
+
+    // 设置密封
+    Object.seal(obj);
+
+    // 遍历 -> 可以
+    for (var k in obj) {
+        console.log(k);
+    }
+
+    // 修改 -> 可以
+    obj.name = 'ls';
+    console.log(obj);
+
+    // 删除 -> 失败,因为这个对象密封了
+    console.log(delete obj.name); // false
+    console.log(obj);
+
+    // 添加 -> 失败,因为这个对象密封了
+    obj.des = 'des';
+    console.log(obj);
+
+</script>
+
+3.Object.freeze: 冻结,设置这个对象冻结,除了能够遍历,啥都干不了
+<script>
+    var obj = {
+        name: 'zs',
+        age: 20
+    };
+
+    // 冻结这个对象
+    Object.freeze(obj);
+
+    // 遍历
+    for (var k in obj) {
+        console.log(k);
+    }
+
+    // 修改 -> 失败,因为这个对象冻结了
+    obj.name = 'ls';
+    console.log(obj);
+
+    // 删除 -> 失败,因为这个对象冻结了
+    console.log(delete obj.name);
+    console.log(obj);
+
+    // 添加 -> 失败,因为这个对象冻结了
+    obj.des = 'des';
+    console.log(obj);
+
+</script>
+
+4.Object.isExtensible: 判断是否能扩展
+<script>
+    var obj = {name: 'zs'};
+    Object.preventExtensions(obj);
+    console.log(Object.isExtensible(obj)); // true | (false)
+</script>
+5.Object.isSealed: 判断对象是否密封
+<script>
+    var obj = {name: 'zs'};
+    Object.seal(obj);
+    console.log(Object.isSealed(obj)); // true
+</script>
+6.Object.isFrozen: 判断对象是否冻结了
+<script>
+    var obj = {name: 'zs'};
+    Object.freeze(obj);
+    console.log(Object.isFrozen(obj)); // true
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div></div>
+    <!--注释--><div id="box2">
+        <button></button>
+    </div><div></div>
+</div>
+
+<script>
+   //node
+    // 1. 获取元素
+    var box2 = document.getElementById('box2');
+    // 2.后面的兄弟:nextSibling
+   //Sibling:姊弟
+   console.log(box2.nextSibling);
+   // 3.前面的兄弟:previousSibling
+   console.log(box2.previousSibling);
+
+
+</script>
+</body>
+</html>

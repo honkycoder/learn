@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.    用来比较两个数值的关系,总是返回布尔值
+    // 一般是用来比较数字的
+    // >,<.==,===(绝对等于),!=,>=,<=
+
+    //    var a = 12>10;
+    //    var a = 12 < 10;
+    //    var a = 12 == 10;
+    //    var a = 12 != 10;
+    //    var a = 12 >= 10;
+    var a = 12 <= 10;
+    console.log(a);
+    // 2. ==和===
+    // == 在比较的时候,如果有需要就会进行数值的转换,只要转换完成之后相等,就认为相等
+    // === 进行比较的时候,是比较原始值,原始值一样就认为相等
+    var b = '';
+    var c = 0;
+    console.log(b == c);
+    console.log( b=== c);
+
+    // 3.其他关系运算符会进行转换数据吗
+    var d = '0';
+    console.log(d == c);
+
+    var e = '12a';
+    console.log(e < 15);
+
+    //4.NaN和NaN不相等
+    console.log(NaN == 12);
+    var f = NaN;
+    console.log(f != f);
+
+</script>
+</body>
+</html>

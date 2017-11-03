@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+        }
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            $("button:eq(0)").click(function () {
+                $("div").animate({width:800},2000)
+                        .animate({height:200},2000)
+                        .animate({height:100},2000)
+                        .delay(1000)
+                        .animate({width:100},1000);
+            })
+
+            $("button:eq(1)").click(function () {
+                //(1) 当前的动画马上停止(并没有达成目标),继续执行后面的动画
+                //$("div").stop();
+                //$("div").stop(false);
+                //$("div").stop(false,false);
+
+                //(2) 停止所有的动画
+                //$("div").stop(true);
+                //$("div").stop(true,false);
+
+                //(3) 马上结束当前的动画,后面的动画不再执行
+                //$("div").stop(true,true);
+
+                //结束:达成目标
+                //停止:相当于取消,并没有达成目标
+
+                //(4) 马上结束当前的动画,继续执行后面的动画
+                //$("div").stop(false,true);
+            })
+        })
+
+    </script>
+</head>
+<body>
+<div></div>
+<button>开始动画</button>
+<button>停止动画</button>
+</body>
+</html>

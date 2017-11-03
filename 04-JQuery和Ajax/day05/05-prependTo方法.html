@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.3.4.js"></script>
+</head>
+<body>
+<div class="box">div1</div>
+<div class="box">div2</div>
+<div>div3</div>
+
+<ul>
+    <li class="liItem">li1</li>
+    <li>li2</li>
+    <li>li3</li>
+    <li>li4</li>
+</ul>
+
+<script>
+    //01 分析使用方法:把所有的li标签都添加到div标签内容的前面
+    //$("li").prependTo($("div"));
+    console.log($("li").prependTo(".box"));
+
+    var oDiv = document.createElement("div");
+    oDiv.innerText = "我是divc";
+    //document.body.appendChild(oDiv);
+    //$("li").prependTo(oDiv);
+
+    //没有传递参数，返回空的实例对象
+    //console.log($("li").prependTo());;
+</script>
+</body>
+</html>

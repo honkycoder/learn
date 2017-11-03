@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+步骤:
+    1.提供一个命名空间对象
+    2.提供一个命名空间函数用于给这个对象创建多个属性
+        namespace('MOMO.a') -> 打印MOMO -> a{}
+        namespace('a') -> 打印MOMO -> a{}
+        namespace('MOMO.a.b.c') -> 打印MOMO -> a{b{c{}}}
+
+
+<script>
+    // 1.提供一个命名空间对象
+    var MOMO = MOMO || {};
+
+    // 2.提供一个命名空间函数用于给这个对象创建多个属性
+    function namespace(str) {
+
+        // 'MOMO.a.b.c'
+        // 1.接收传入的参数
+        var strType = str;
+
+        // 2.用.对字符串进行分割成一个数组
+        var strArray = strType.split('.');
+
+        // 3.判断第0个元素是否是'MOMO',如果是则直接移除
+        if (strArray[0] == 'MOMO') {
+            strArray.splice(0,1);
+        }
+
+        // 4.取出父节点
+        var parent = MOMO;
+
+        // [a,b,c]
+        // a{}
+        // a{b{}}
+        // a{b{c{}}}
+        // 5.遍历数组中所有的元素,将这些元素作为MOMO的属性,并赋值为一个空对象
+        for (var i = 0; i < strArray.length; i++) {
+            var name = strArray[i];
+            if (parent[name] == undefined) { // 如果没有这个属性才需要添加
+                parent[name] = {};
+            }
+
+            // 更新父节点
+            parent = parent[name];
+
+        }
+    }
+
+    namespace('MOMO.a.h.f.ew.w.s.f');
+    console.log(MOMO);
+    namespace('a.w');
+
+</script>
+</body>
+</html>

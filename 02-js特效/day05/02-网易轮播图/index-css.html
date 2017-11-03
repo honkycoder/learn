@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img
+        {
+            vertical-align: top;
+        }
+        #slider
+        {
+            width: 310px;
+            height: 260px;
+            margin: 100px auto;
+            position: relative;
+            background: pink;
+        }
+        #slider_scroll
+        {
+            width: 310px;
+            height: 220px;
+        }
+        #slider_main
+        {
+            width: 620px;
+            height: 220px;
+            background: purple;
+        }
+        .slider_main_img
+        {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .slider_main_img img
+        {
+            width: 100%;
+            height: 100%;
+        }
+
+        #slider_control{
+           text-align:center;
+            padding: 5px;
+
+        }
+        .control_pre,.control_next
+        {
+            width: 20px;
+            height: 34px;
+            position: absolute;
+            margin-top: -35px;
+            top: 50%;
+
+        }
+        .control_pre
+        {
+            left: 5px;
+            background: url("images/icon.png") no-repeat;
+        }
+        .control_next
+        {
+            right: 5px;
+            background: url("images/icon.png") no-repeat  -9px -45px;
+
+        }
+        .control_icon
+        {
+            width: 24px;
+            height: 5px;
+            background: url("images/icon.png") no-repeat -24px -790px;
+            display: inline-block;
+            margin: 3px;
+        }
+        .current
+        {
+            background-position: 0 -770px;
+        }
+
+    </style>
+</head>
+<body>
+<!--网易轮播图-->
+<div id="slider">
+    <!--上面的区域-->
+    <div id="slider_scroll">
+        <!--二倍宽度-->
+        <div id="slider_main">
+            <!--里面的图片-->
+            <div class="slider_main_img">
+                <a href="#">
+                    <img src="images/1.jpeg" alt="">
+                </a>
+            </div>
+            <!--里面的图片-->
+            <div class="slider_main_img">
+                <a href="#">
+                    <img src="images/2.jpeg" alt="">
+                </a>
+            </div>
+            <!--里面的图片-->
+            <div class="slider_main_img">
+                <a href="#">
+                    <img src="images/3.jpeg" alt="">
+                </a>
+            </div>
+            <!--里面的图片-->
+            <div class="slider_main_img">
+                <a href="#">
+                    <img src="images/4.jpeg" alt="">
+                </a>
+            </div>
+            <!--里面的图片-->
+            <div class="slider_main_img">
+                <a href="#">
+                    <img src="images/5.jpeg" alt="">
+                </a>
+            </div>
+            <!--里面的图片-->
+            <div class="slider_main_img">
+                <a href="#">
+                    <img src="images/6.jpeg" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--下面控制区域-->
+    <div id="slider_control">
+        <!--左边点击-->
+        <span class="control_pre"></span>
+        <!--底部控制-->
+        <!--<span class="control_icon current"></span>-->
+        <!--<span class="control_icon"></span>-->
+        <!--<span class="control_icon"></span>-->
+        <!--<span class="control_icon"></span>-->
+        <!--<span class="control_icon"></span>-->
+        <!--<span class="control_icon"></span>-->
+        <!--右边-->
+        <span class="control_next"></span>
+    </div>
+</div>
+</body>
+</html>

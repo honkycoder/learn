@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<button id="btn"> 点击开启一次定时器</button>
+<button id="btn1"> 点击开启多次定时器</button>
+<script>
+    var btn = document.getElementById('btn');
+    var btn1 = document.getElementById('btn1');
+    // 1.一次性定时器,设置超时
+    //setTimeout(func,ms);
+    // func 当定时器执行的时候,调用的方法,ms:毫秒 1s==1000ms,隔多少毫秒执行
+    btn.onclick = function () {
+        setTimeout(function () {
+            console.log('-----');
+        },1000)
+    }
+    //2.多次定时器
+    btn1.onclick = function () {
+        // setInterval(func,ms);
+        setInterval(function () {
+            console.log('-----');
+        },1000);
+    }
+</script>
+</body>
+</html>

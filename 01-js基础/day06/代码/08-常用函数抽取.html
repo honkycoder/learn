@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    //
+
+    function $(elementID) {
+        return document.getElementById('elementID');
+    }
+    function $_tag(tagName) {
+        return document.getElementsByTagName(tagName)
+    }
+
+    var funcDic = {
+        $:function (elementID) {
+            return document.getElementById('elementID');
+        },
+        $_tag:function (tagName) {
+            return document.getElementsByTagName(tagName)
+        }
+    }
+    funcDic.$('box');
+</script>
+</body>
+</html>

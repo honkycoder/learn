@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border:0;
+        }
+
+        .box{
+            width: 1000px;
+            margin: 50px auto;
+        }
+
+        .nav{
+            width: 400px;
+            height: 44px;
+            border: 1px solid #cccccc;
+            border-bottom: none;
+            background: #ffffff;
+            top:1px;
+            position: relative;
+        }
+        .content{
+            width: 1000px;
+            height: 475px;
+            border:1px solid #cccccc;
+
+        }
+
+
+        li{
+            float: left;
+            line-height: 43px;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        img{
+            width: 1000px;
+            display: none;
+        }
+
+        .cur{
+            display: block;
+        }
+
+        .active{
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            $("li").mouseenter(function () {
+                //01 更改当前的li标签
+                $(this).addClass("active").siblings().removeClass("active");
+                //02 获取脚标
+                var index = $(this).index();
+                //03 切换图片
+                $("img").eq(index).addClass("cur").siblings().removeClass("cur");
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="nav">
+        <ul>
+            <li class="active">h5学院</li>
+            <li>ios学院</li>
+            <li>java学院</li>
+            <li>ui学院</li>
+        </ul>
+    </div>
+    <div class="content">
+        <img class="cur" src="images/01.png">
+        <img src="images/02.png">
+        <img src="images/03.png">
+        <img src="images/04.png">
+    </div>
+</div>
+</body>
+</html>

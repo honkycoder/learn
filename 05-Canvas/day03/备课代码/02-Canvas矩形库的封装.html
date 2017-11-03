@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="padding: 100px">
+
+<canvas id="canvas" width="900" height="600" style="border: 1px solid #000"></canvas>
+<script src = 'js/ZHCRect2.js'></script>
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    // 2.实例化矩形
+    /*
+    var rect1 = new ZHCRect({
+        x : 100,
+        y : 100,
+        width : 100,
+        height : 100,
+        strokeColor : 'red',
+        strokeWidth : 5,
+        scaleX : 1.5,
+        scaleY : 1.5,
+        angle : 20,
+        translateX : 100,
+        translateY : 100
+    });
+
+    // 绘制矩形
+    rect1.renderStroke(ctx);*/
+
+    // 3.实例化矩形
+    var rect1 = new ZHCRect({
+        x : 100,
+        y : 100,
+        width : 200,
+        height : 150,
+        fillColor :'blue',
+        scaleX : 1.5,
+        scaleY : 1.5,
+        angle : 20,
+        translateX : 100,
+        translateY : 50
+    });
+    // 填充矩形
+    rect1.renderFill(ctx);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            $("button").eq(1).click(function () {
+                var h1 = "<h1>我是标题</h1>";
+                $("div").html(h1);    //使用h1的内容去替换原有的标签内容（HTML）
+            });
+
+            $("button").eq(3).click(function () {
+                var h1 = "<h1>我是标题</h1>";
+                $("div").text(h1);    //使用h1的内容去替换原有的标签内容（text）
+            });
+
+
+            $("button").eq(0).click(function () {
+                console.log($("div").html());
+            });
+
+
+            $("button").eq(2).click(function () {
+                $("div").text();
+            });
+
+            //html -- innerHTML
+            //text --innerText
+            //如果传递了参数那么表示替换，没有传递参数表示获取内容
+        })
+    </script>
+</head>
+<body>
+
+<div></div>
+<button>获取html</button><br>
+<button>设置html</button><br>
+<button>获取text</button><br>
+<button>设置text</button><br>
+</body>
+</html>

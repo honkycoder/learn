@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            //append方法：把指定的DOM标签添加到特定标签内容的后面
+            //prependd方法：把指定的DOM标签添加到特定标签内容的前面
+            $("button").click(function () {
+                //$("li").appendTo($(".box1"));   //把所有的li标签添加到class为box1的div
+                //$(".box1").append($("li"));       //把所有的li标签添加到class为box1的div
+
+                /***************************************/
+                //$(".box1").prepend($("li"));
+                //$("li").prependTo($(".box1"));
+
+                //创建节点
+                var h1 = $("<h1>我是一个标题</h1>");
+                $(".box1").append(h1);
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div class="box1">div1</div>
+<div class="box2">div2</div>
+<div>
+    <ul>
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <li>我是第5个li</li>
+    </ul>
+</div>
+<button>点击我</button>
+</body>
+</html>

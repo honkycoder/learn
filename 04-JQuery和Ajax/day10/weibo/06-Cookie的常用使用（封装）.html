@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/Cookie.js"></script>
+</head>
+<body>
+<button>添加数据</button>
+<button>查询数据</button>
+<button>修改数据</button>
+<button>删除数据</button>
+<script>
+    $("button:eq(0)").click(function () {
+        //addCookie("name","xiaoqiang");
+        addCookie("color","yellow",7);
+        console.log(document.cookie);
+    })
+    $("button:eq(1)").click(function () {
+        console.log(getCookie("color"));
+    })
+    $("button:eq(2)").click(function () {
+        addCookie("name","hahahahha");
+        console.log(getCookie("name"));
+    })
+    $("button:eq(3)").click(function () {
+        removeCookie("color")
+    })
+
+</script>
+</body>
+</html>

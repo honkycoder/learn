@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.2.2.js"></script>
+</head>
+<body>
+
+<div class="box">div1</div>
+<div>div2</div>
+<div>div3</div>
+
+<script>
+    //sort
+    //push
+
+    var obj1 = {
+        name:"老王",
+        showName:function () {
+            console.log(this.name);
+        }
+    }
+
+    var obj2 = {
+        name:"旺财"
+    }
+
+    obj1.showName();
+    obj1.showName.call(obj2);
+
+    obj2.showName = obj1.showName;
+    obj2.showName();
+
+    console.log("_______________________");
+    var objT = {0:"name",1:"age",2:"color",length:3};
+    console.log([].push.apply(objT, ["aaaa"]));
+    console.log(objT);
+
+    //伪数组可以直接给自己添加push方法
+    objT.push = [].push;
+    objT.push("bbb");
+    console.log(objT);
+
+//    function f() {}
+//    f.push = [].push;
+//    f.push('ss');
+//    console.log(f);
+
+//    var obj = {};
+//    obj.push = [].push;
+//    obj.push("sadadsad");
+//    console.log(obj);
+</script>
+</body>
+</html>

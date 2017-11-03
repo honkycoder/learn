@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div>第一个</div>
+    <div id="div2">
+        <button></button>
+    </div>
+    <div>第三个</div>
+</div>
+<script>
+    var box = document.getElementById('box');
+    var div2 = document.getElementById('div2');
+    // 1.获取子元素:children返回的是一个包含子元素的数组
+    var children = box.children;
+    console.log(children);
+    // 2.兄弟元素
+    console.log(div2.nextElementSibling);
+    console.log(div2.previousElementSibling);
+    // 3.第一个元素
+    console.log(box.firstElementChild);
+    // 4.最后一个元素
+    console.log(box.lastElementChild);
+    // 5.获取元素的父元素,就使用获取父节点方法
+    //
+
+
+</script>
+</body>
+</html>

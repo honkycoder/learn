@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+即时 对象 初始化
+    好处: 不会创建全局变量,减少了全局变量污染的问题
+<script>
+    /*var obj = {
+        name: 'zs',
+        age: 20,
+        getName: function () {
+            return this.name;
+        },
+        getAge: function () {
+            return this.age;
+        },
+        init: function () {
+            console.log(this.getName());
+            console.log(this.getAge());
+        }
+    };
+
+    obj.init();*/
+</script>
+
+<script>
+    /*({
+        name: 'zs',
+        age: 20,
+        getName: function () {
+            return this.name;
+        },
+        getAge: function () {
+            return this.age;
+        },
+        init: function () {
+            console.log(this.getName());
+            console.log(this.getAge());
+        }
+    }).init();*/
+
+    ({
+        name: 'zs',
+        age: 20,
+        getName: function () {
+            return this.name;
+        },
+        getAge: function () {
+            return this.age;
+        },
+        init: function () {
+            console.log(this.getName());
+            console.log(this.getAge());
+        }
+    }.init());
+
+
+</script>
+</body>
+</html>

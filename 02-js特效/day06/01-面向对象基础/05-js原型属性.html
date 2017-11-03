@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //定义一个对象
+    var arr1 = [1,2];
+//    arr1.eat = function () {
+//        console.log('数组会吃饭');
+//    };
+//
+//
+    //
+
+
+
+
+    //一般写法
+    Array.prototype.eat = function () {
+    console.log('数组真的会吃饭吗?');
+    };
+
+
+    arr1.eat();
+
+
+    var arr2 = new Array();
+//    arr2.eat();
+
+    arr2.eat();
+
+
+    alert(arr1.eat==arr2.eat);
+
+
+    //通过原型属性虽然可以让多个对象之间共用一个方法,但是多个对象本身还是不一样,也就是说原型属性并不能改变对象在内存中的位置
+</script>
+</body>
+</html>

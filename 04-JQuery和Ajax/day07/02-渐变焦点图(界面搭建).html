@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .box{
+            width: 500px;
+            height: 200px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .box ul li img{
+            width: 500px;
+            height: 200px;
+        }
+
+        .box ul{
+            position: relative;
+            z-index: 1;
+        }
+        .box ul li{
+            position: absolute;
+        }
+
+        .box ol{
+            position:absolute;
+            z-index: 2;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .box ol li{
+            background: #cccccc;
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin: 2px;
+            text-align: center;
+        }
+
+        .box .cur{
+            background: #C12C3E;
+            color: #ffffff;
+        }
+    </style>
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+
+</head>
+<body>
+<div class="box">
+    <ol>
+        <li class="cur">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+    <ul>
+        <li><img src="images/01.png"></li>
+        <li><img src="images/02.png"></li>
+        <li><img src="images/03.png"></li>
+        <li><img src="images/04.png"></li>
+    </ul>
+</div>
+<script>
+    $(function () {
+
+        //00 默认显示第一张图片
+        $("ul li:first").css({
+            "z-index":1
+        })
+    })
+</script>
+</body>
+</html>

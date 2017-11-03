@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+    使用表单把数据提交给php文件
+    使用表单发送GET请求:
+        (1) 设置请求方法(省略) 默认发送的就是GET请求
+        (2) 如果要提交数据,客户端需要以key-value的形式提交
+            usernmae -- zhangsan
+            password -- 123456
+        (3) 需要指定key,通过name属性节点
+-->
+<form action="02-form-get.php" method="get">
+    <input type="text" placeholder="请输入用户名" name="username">
+    <input type="text" placeholder="请输入密码" name="password">
+    <input type="submit">
+</form>
+</body>
+</html>

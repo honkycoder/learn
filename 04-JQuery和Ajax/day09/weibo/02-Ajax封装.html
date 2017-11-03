@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/AjaxT.js"></script>
+</head>
+<body>
+<button>点击我发送网络请求</button>
+
+# 参数的顺序是固定的，因为参数数量太多，不方便记忆容易搞混出错
+# 参数不能被省略
+# =====》方法优化 ====》 使用对象来管理所有的参数
+
+<script>
+    var oBtn = document.querySelector("button");
+    oBtn.onclick = function () {
+
+        var obj = {
+            "type":"get",
+            "url":"server/01-ajax.php",
+            "data":{"name":"wc"},
+            "successCallBack":function (res) {
+                console.log("成功" + res);
+            },
+            "errorCallBack":function (code) {
+                console.log("失败" + code);
+            },
+            "timeOut":1000
+        }
+
+        var obj2 = {
+            "url":"server/01-ajax.php",
+            "data":{"name":"wc"},
+            "successCallBack":function (res) {
+                console.log("成功" + res);
+            },
+            "errorCallBack":function (code) {
+                console.log("失败" + code);
+            },
+        }
+        //ajax(obj2);
+
+        ajax({
+            url:"server/01-ajax.php",
+            data:{"name":"wc"},
+            successCallBack:function (res) {
+                console.log("success" + res);
+            },
+            errorCallBack:function (code) {
+                console.log("error" + code);
+            }
+        })
+
+        /*
+        ajax("get","server/01-ajax.php",{"name":"zs"},function (res) {
+            console.log("成功" + res);
+        },function (code) {
+            console.log("失败" + code);
+        });*/
+        /*
+        ajax("post","server/01-ajax.php",{"name":"zs"},function (res) {
+            console.log("成功" + res);
+        },function (code) {
+            console.log("失败" + code);
+        });*/
+    }
+</script>
+</body>
+</html>

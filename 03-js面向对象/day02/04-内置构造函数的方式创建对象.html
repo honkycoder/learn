@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+使用内置构造函数的方式创建对象
+    内置构造函数: Object Array Function..  String Number Boolean
+    适合创建这个类型比较少对象
+<script>
+    // 1.创建一个空对象
+    var stu1 = new Object(); // var stu1 = {};
+
+    // 2.对象的动态特性添加属性和方法
+    stu1.name = 'zs';
+    stu1.age = 20;
+    stu1.num = 110;
+    stu1.className = '葵花宝典班';
+    stu1.study = function () {
+        console.log('学习');
+    };
+
+    var stu2 = new Object();
+    stu2.name = 'ls';
+    stu2.age = 26;
+    stu2.num = 120;
+    stu2.className = '暴雨梨花针班';
+    stu2.study = function () {
+        console.log('学习');
+    };
+
+    var stu3 = new Object();
+    stu3.name = '宝宝';
+    stu3.age = 17;
+    stu3.num = 119;
+    stu3.className = '如何快速成为好媳妇班';
+    stu3.study = function () {
+        console.log('学习');
+    };
+
+    /*
+        总结: 字面量的方式创建对象和内置构造函数创建对象,都有以下问题
+            创建同类型的对象,代码无法复用,重复代码过多,冗余度高
+
+        思考: 创建多个同类型的对象,能不能把创建对象的过程封装起来? -> 函数
+     */
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+@import "hanshu";
+@import "hunhe";
+
+@w: 200px;
+@h: 100px;
+@bgColor: red;
+
+.radius(@radius: 10px){
+  border-radius: @radius;
+}
+
+.radius(l_t, @radius: 10px){
+  border-top-left-radius: @radius;
+}
+
+.radius(l_b, @radius: 10px){
+  border-bottom-left-radius: @radius;
+}
+
+.radius(r_t, @radius: 10px){
+  border-top-right-radius: @radius;
+}
+
+.radius(r_b, @radius: 10px){
+  border-bottom-right-radius: @radius;
+}
+
+// 这个注释是不会被编译的
+/*
+  这个注释是会被编译的
+*/
+div{
+    width: @w;
+    height: @h;
+    margin: 10px;
+    background-color: @bgColor;
+    //.radius()
+}
+
+.test1{
+    .radius(l_t, 30px);
+}

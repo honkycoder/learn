@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+替换原型的注意点:
+    1.替换原型对象前后创建的对象,他们的原型对象不是同一个
+        建议: 替换原型对象之后,再去创建对象
+    2.替换原型对象前,原型对象的constructor属性的值是Person,替换原型对象之后原型对象的constructor的值是Object
+        解决这个问题: 修正constructor指向Person
+<!--<script>-->
+    <!--function Person() {-->
+
+    <!--}-->
+
+    <!--var p1 = new Person();-->
+
+    <!--// 替换原型-->
+    <!--Person.prototype = {-->
+        <!--des: '嘿嘿'-->
+    <!--};-->
+
+    <!--// var obj = {}; == var obj = new Object();-->
+
+    <!--var p2 = new Person();-->
+
+    <!--console.log(p1.des); // 嘿嘿 | (undefined)-->
+    <!--console.log(p2.des); // 嘿嘿-->
+
+    <!--// 明确一点: constructor是原型对象的属性-->
+    <!--console.log(p1.constructor); // Person-->
+    <!--console.log(p2.constructor); // Object-->
+
+<!--</script>-->
+
+<script>
+    function Person() {
+
+    }
+
+    var p1 = new Person();
+
+    // 替换原型
+    Person.prototype = {
+        des: '嘿嘿',
+        constructor: Person // 修正
+    };
+
+    // var obj = {}; == var obj = new Object();
+
+    var p2 = new Person();
+
+    console.log(p1.des); // 嘿嘿 | (undefined)
+    console.log(p2.des); // 嘿嘿
+
+    // 明确一点: constructor是原型对象的属性
+    console.log(p1.constructor); // Person
+    console.log(p2.constructor); // Person
+    console.log(p1.constructor == p2.constructor); // true
+
+</script>
+</body>
+</html>

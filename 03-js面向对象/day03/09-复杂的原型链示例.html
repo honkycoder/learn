@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+复杂的原型链实例:
+    动物(毛发的颜色,跑) -> 人(姓名,使用工具) -> 学生(学号,学习) -> 男同学(性别,打游戏)
+
+    步骤:
+        1.提供4个构造函数
+        2.实现原型链继承
+        3.修正构造器属性
+        4.设置构造函数内部的属性和方法
+            建议: 属性写在函数内,方法写在构造函数的原型对象上(为了避免资源浪费)
+
+<script>
+    function Animal() {
+        this.color = '黑色';
+    }
+
+    Animal.prototype.run = function () {
+        console.log('run');
+    };
+
+    function Person() {
+        this.name = '默认';
+    }
+
+    Person.prototype = new Animal();
+    Person.prototype.constructor = Person;
+    Person.prototype.useTool = function () {
+        console.log('使用工具');
+    };
+
+    function Student() {
+        this.num = 110;
+    }
+
+    Student.prototype = new Person();
+    Student.prototype.constructor = Student;
+    Student.prototype.study = function () {
+        console.log('学习');
+    };
+
+    function Boy() {
+        this.sex = '男';
+    }
+
+    Boy.prototype = new Student();
+    Boy.prototype.constructor = Boy;
+    Boy.prototype.playGame = function () {
+        console.log('lol');
+    };
+
+    var b = new Boy();
+    console.log(b);
+
+    console.log(Object.prototype == Animal.prototype.__proto__); // true
+
+    console.log(Object.prototype.__proto__);
+
+</script>
+</body>
+</html>

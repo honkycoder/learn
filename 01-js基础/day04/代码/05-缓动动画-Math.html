@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .boxB {
+            position: relative;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn"> 开始移动</button>
+<button id="btn1"> 停止移动</button>
+<div class="boxB">
+    <div id="box"></div>
+</div>
+
+
+<script>
+    var btn = document.getElementById('btn');
+    var btn1 = document.getElementById('btn1');
+    var box = document.getElementById('box');
+    var leftV = 0;
+    var timer = null;
+    var speed = 0;
+    var maxL = 800;
+    var leftV = 0;
+    btn.onclick = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            speed = Math.ceil((maxL - leftV) * 0.4);
+            leftV += speed;
+            if (leftV >= maxL) {
+                leftV = maxL;
+                clearInterval(timer);
+            }
+            box.style.left = leftV + 'px';
+
+        }, 1000)
+    }
+    btn1.onclick = function () {
+        clearInterval(timer);
+    }
+
+
+</script>
+</body>
+</html>

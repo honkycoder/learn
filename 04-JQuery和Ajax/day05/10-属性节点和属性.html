@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div class="box" title="我是div">我是div的内容</div>
+
+<!--
+    属性节点和属性区别:
+    属性节点:
+        只有DOM标签才有属性节点,属性节点保存在attributes属性里面
+    属性:
+        只有是对象都可以拥有属性,属性保存到对象身上.
+        DOM标签也可以拥有或者是操作属性.
+
+    基本的操作:
+    (1) 对属性节点的操作:
+        增加|修改(设置):setAttribute()
+            oDiv.setAttribute("demo","demoValue");
+        查询:getAttribute()
+            oDiv.getAttribute("title")
+        删除:removeAttribute()
+            oDiv.removeAttribute("demo");
+
+    (2) 对属性的操作
+        有两种方式来操作:点语法 | []
+
+-->
+
+<script>
+    var obj = {
+        name:"za"
+    }
+    obj.age = 23;
+    obj.age = 99;
+    delete obj.age;
+    console.log(obj);
+
+
+    var oDiv = document.querySelector("div");
+    console.log(oDiv);
+    oDiv.des = "默认的描述信息";
+    console.log(oDiv.des);
+
+    //第一个参数:属性节点的名称
+    //第二个参数:属性节点对应的值
+    oDiv.setAttribute("demo","demoValue");
+    oDiv.setAttribute("demo","demoValueT");
+
+    //获取某个属性节点对应的值
+    //console.log(oDiv.getAttribute("title"));
+//    oDiv.removeAttribute("demo");
+</script>
+</body>
+</html>

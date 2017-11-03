@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div>第一个</div>
+    <!--注释-->
+    <div id="box2">
+        <button></button>
+    </div>
+    <div>最后一个</div>
+</div>
+
+<script>
+    //node
+    // 1. 获取元素
+    var box = document.getElementById('box');
+    // 2.nodeType: 节点的类型,1:代表元素节点;3:文本节点;8:注释节点
+    var child = box.childNodes;
+    // 3. 把子节点中所有事元素节点的节点放在一个数组中
+    var arr = [];
+    for (var i = 0; i < child.length; i++) {
+//        console.log(child[i].nodeType);
+        if (child[i].nodeType == 1) {// 元素节点
+            // 存放到数组中
+            arr.push(child[i]);
+        }
+    }
+    console.log(arr);
+
+</script>
+</body>
+</html>

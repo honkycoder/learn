@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*
+           calc: 让css的属性具备简单的运算功能 + - * /
+        */
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+        .test1{
+            background-color: red;
+            width: 400px;
+            height: 100px;
+        }
+
+        .test2{
+            background-color: green;
+            width: calc(400px - 100px);
+            height: calc(40px * 2);
+        }
+
+        .test3{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+   <div class="test1">1</div>
+   <div class="test2">2</div>
+   <div class="test3">3</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兼容</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background:red;
+        }
+    </style>
+    <script src="func.js"></script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script>
+    window.onload=function () {
+        var box = document.getElementById('box');
+        /*function style_(element) {
+            if(element.currentStyle){
+                return element.currentStyle;
+            }else {
+                return window.getComputedStyle(element);
+            }
+        }*/
+     var sy= style_(box);
+        console.log(sy.height);
+    }
+</script>
+</html>

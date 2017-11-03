@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.5.0.js"></script>
+</head>
+<body>
+# on方法的使用和注意点
+    批量为指定的标签添加事件(点击|鼠标),事件发生就会执行回调函数
+    注意点:如果给标签添加了多个事件,那么并不会覆盖,而是执行多次回调函数
+    兼容性处理:ie9-不支持addEventListener方法==> attachEvent方法
+
+<button>我是按钮1</button>
+<button>我是按钮2</button>
+<button>我是按钮3</button>
+
+<span>我是span</span>
+
+<script>
+    var obj = {name:"wc"};
+    var oSpan = document.querySelector("span");
+    console.log(obj);
+    console.log(oSpan);
+
+    $("button").on("click",function () {
+        console.log("点击了按钮-A");
+    })
+
+    $("button").on("click",function () {
+        console.log("点击了按钮-B");
+    })
+
+    $("button").on("mouseenter",function () {
+        console.log("鼠标移入事件------");
+    })
+
+    $("button").click(function () {
+        console.log("click");
+    })
+</script>
+</body>
+</html>

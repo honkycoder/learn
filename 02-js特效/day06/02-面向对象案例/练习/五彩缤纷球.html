@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>球</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #main {
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+</body>
+<script src="js/Underscore-min.js"></script>
+<script>
+    var arr = new Array();
+
+    function Box(option) {
+        this._init(option);
+    }
+    Box.prototype = {
+        _init: function (option) {
+            //判断是否传入了json
+            var option = option || {};
+            //设置父标签
+            this.parent = option.parent;
+
+            this.r = 60;
+            this.x = option.x;
+            this.y = option.y;
+            this.background = option.background;
+
+            //变化的属性
+            this.dx = _.random(-5, 5);
+            this.dy = _.random(-5, 5);
+            this.dr = _.random(1, 3);
+
+            arr.push(this);
+        },
+        render: function () {
+            //在父元素中添加对象
+
+            var parent = document.getElementById(this.parent);
+            var ball = document.createElement('div');
+            parent.style.position = 'relative';
+            ball.style.position = 'absolute';
+            ball.style.left = this.x + 'px';
+            ball.style.top = this.y + 'px';
+            ball.style.width = this.r + 'px';
+            ball.style.height = this.r + 'px';
+            ball.style.background = this.background;
+            ball.style.borderRadius = '50%';
+            parent.appendChild(ball);
+        },
+        // 跟新球的大小及位置变化
+        update: function () {
+            this.x += this.dx;
+            this.y += this.dy;
+            this.r -= this.dr;
+            if (this.r < 0) {
+                this.r = 0;
+                _.without(arr, this);
+            }
+        }
+    };
+    var box = document.getElementById('main');
+    var color = ['red', 'green', 'blue', 'yellow', 'pink', 'orange', 'purple', 'pink'];
+
+    box.onmousemove = function (event) {
+        var Event = event || window.event;
+
+        var boxBall = new Box({
+            parent: 'main',
+            x: Event.clientX,
+            y: Event.clientY,
+            background: color[_.random(0, color.length - 1)]
+        });
+//        alert(boxBall);
+        boxBall.render();
+        boxBall.update();
+    };
+    var timer = null;
+    timer = setInterval(function () {
+//        console.log('===');
+        for(var j = 0; j < box.children.length; j++){
+            box.removeChild(box.children[j]);
+        };
+        for (var i = 0; i < arr.length; i++) {
+            arr[i].render();
+            arr[i].update();
+        };
+    }, 20);
+</script>
+</html>

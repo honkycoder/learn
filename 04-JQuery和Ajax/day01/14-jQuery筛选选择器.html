@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            $("button").eq(0).click(function () {
+                $("li").css("background","green");
+            })
+
+            $("button").eq(1).click(function () {
+                //$("li").eq(0).css("background","green");
+                //$("li:eq(0)").css("background","green");
+                $("li:first").css("background","green");
+            })
+
+            $("button").eq(2).click(function () {
+                //$("li").eq(-2).css("background","green");
+                $("li:last").css("background","green");
+            })
+
+            $("button").eq(3).click(function () {
+                $("li:not(:last)").css("background","green");
+            })
+
+            $("button").eq(4).click(function () {
+                $("li:not(:eq(2))").css("background","green");
+            })
+
+            $("button").eq(5).click(function () {
+                $("li:odd").css("background","green");
+            })
+
+            $("button").eq(6).click(function () {
+                $("li:even").css("background","green");
+            })
+
+            $("button").eq(7).click(function () {
+                $("li:eq(2)").css("background","green");
+            })
+
+            $("button").eq(8).click(function () {
+                //获取索引大于4的所有的标签
+                $("li:gt(4)").css("background","green");
+            })
+
+            $("button").eq(9).click(function () {
+                //获取索引大于4的所有的标签
+                $("li:lt(4)").css("background","green");
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div>
+    <ul>
+        <li>我是第1个li标签</li>
+        <li>我是第2个li标签</li>
+        <li>我是第3个li标签</li>
+        <li>我是第4个li标签</li>
+        <li>我是第5个li标签</li>
+        <li>我是第6个li标签</li>
+        <li>我是第7个li标签</li>
+        <li>我是第8个li标签</li>
+        <li>我是第9个li标签</li>
+        <li>我是第10个li标签</li>
+    </ul>
+</div>
+
+<button>获取所有的li</button><br>
+<button>获取第1个li</button><br>
+<button>获取最后1个li</button><br>
+<button>获取所有的li除了最后一个</button><br>
+<button>获取所有的li除了第三个</button><br>
+<button>获取所有编号为奇数</button><br>
+<button>获取所有编号为偶数</button><br>
+<button>获取指定的某个索引</button><br>
+<button>获取指定的某个索引后面的所有标签</button><br>
+<button>获取指定的某个索引前面的所有标签</button><br>
+</body>
+</html>

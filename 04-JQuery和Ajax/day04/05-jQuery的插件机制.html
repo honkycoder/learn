@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <!--<script src="XMGQuery框架/XMGQuery.1.1.1.js"></script>-->
+
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+    <script src="jQuery框架/jQuery.Tool.js"></script>
+</head>
+<body>
+
+
+<script>
+    //使用isString方法
+    //console.log(jQuery.isString("demo"));
+    //console.log(jQuery.isGoodMan("好人"));  错误的演示
+    //console.log(jQuery.prototype.isGoodMan("好人"));
+    //console.log(jQuery().isGoodMan("好人"));
+
+    //jQuery的插件机制：
+    //作用：提供了一些实用的或者是炫酷的功能|效果。插件就是对jQuery框架进行的扩展。
+    //我们在进行扩展的时候不会修改框架的源码
+    //我们会自己写一个对应的插件，该插件是一个单独的文件，需要依赖jQuery而已
+    //命名：jQuery.插件的名字.js
+
+    console.log($.isString("demo"));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<script src="js/Underscore-min.js"></script>
+<script>
+
+    function Box(option) {
+        this._init(option);
+    }
+    Box.prototype = {
+        _init: function (option) {
+            //判断是否传入了json
+            var option = option || {};
+            this.r = 60;
+            this.background = option.background;
+            //设置父标签
+            this.parent = option.parent;
+//            arr.push(this);
+        },
+        render: function () {
+            //在父元素中添加对象
+            var parent1 = document.getElementById('main');
+            var mybox = document.createElement('div');
+
+//            parent.style.position = 'relative';
+//            ball.style.position = 'absolute';
+            mybox.style.width = this.r + 'px';
+            mybox.style.height = this.r + 'px';
+            mybox.style.background = this.background;
+            mybox.style.borderRadius = '50%';
+
+            parent1.appendChild(mybox);
+        }
+    };
+
+    var box=new Box({parent:'main',background:'red'});
+    console.log(box);
+</script>
+</body>
+</html>

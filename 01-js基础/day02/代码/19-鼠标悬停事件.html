@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 400px;
+            height: 600px;
+            background: url("img/mouseMove/mingren.jpg") no-repeat;
+
+        }
+    </style>
+</head>
+<body>
+<!--div#box-->
+<div id="box"></div>
+<script>
+    // 1.获取元素,
+    var box = document.getElementById('box');
+    // 2. 给盒子绑定鼠标移动上去的事件
+    box.onmouseover = function () {
+        // 2.1 改变盒子的背景图片
+        box.style.background = 'url("img/mouseMove/lufi.jpg") no-repeat';
+        box.style.backgroundSize = '100% 100%';
+    }
+    // 3. 给盒子绑定鼠标移除事件
+    box.onmouseout = function () {
+        box.style.background = 'url("img/mouseMove/mingren.jpg") no-repeat';
+        box.style.backgroundSize = '100% 100%';
+    }
+
+</script>
+</body>
+</html>

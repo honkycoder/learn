@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<p id="word">
+    尤雨溪是Vue.js的作者，HTML5版Clear的打造人。他认为，未来App的趋势是轻量化和细化，能解决问题的应用就是好应用。而在移动互联网时代大的背景下，个人开发者的机遇在门槛低，成本低，跨设备和多平台四个方面。
+</p>
+<script>
+    //1.获取标签
+    var word = document.getElementById('word');
+
+
+    var selectText = '';
+    //2.监听鼠标在word上抬起
+    word.onmouseup = function () {
+        //判断
+
+        //标准浏览器
+        if (window.getSelection) {
+            selectText = window.getSelection().toString();
+        }
+        //ie系列
+        else {
+            selectText = document.selection.createRange().text;
+        }
+
+        alert(selectText);
+    };
+</script>
+</body>
+</html>

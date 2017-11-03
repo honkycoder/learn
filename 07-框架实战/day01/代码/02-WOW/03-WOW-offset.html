@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/animate.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box{
+            width: 800px;
+            margin: 20px auto;
+            /*background-color: blue;*/
+
+            overflow: hidden;
+        }
+
+        .box>div{
+            width: 350px;
+            height: 400px;
+            background-color: red;
+        }
+
+        .box>div:nth-child(1){
+            float: left;
+        }
+
+        .box>div:nth-child(2){
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div id="test" class="wow slideInLeft" data-wow-offset="500">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow bounceInLeft">1</div>
+        <div class="wow bounceInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+    <div class="box">
+        <div class="wow slideInLeft">1</div>
+        <div class="wow slideInRight">2</div>
+    </div>
+<script src=js/jquery-3.2.1.min.js></script>
+<script src=js/wow.js></script>
+<script>
+   $(function () {
+       // 1. 实例化wow
+       new WOW().init();
+
+       // 2. 定义变量
+       var vHeight = 0, vScrollH = 0, vOffsetTopH = 0, dataWowOffset = 0;
+
+       // 3. 监听页面的滚动
+       $(window).on('scroll', function () {
+           // 3.1 求出可视区域的高度
+           vHeight = $(window).height();
+           // console.log(vHeight);
+
+           // 3.2 求出滚动的距离
+           vScrollH = $(window).scrollTop();
+           // console.log(vScrollH);
+
+           // 3.3 求出头部的偏移量
+           vOffsetTopH = $('#test').offset().top;
+           // console.log(vOffsetTopH);
+
+           dataWowOffset = (vHeight + vScrollH) - vOffsetTopH;
+           console.log(dataWowOffset);
+       });
+   })
+</script>
+</body>
+</html>

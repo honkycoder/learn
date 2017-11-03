@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box
+        {
+            width: 200px;
+            height: 200px;
+            background: deepskyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始动画</button>
+<div id="box">
+
+</div>
+<script>
+    //1.找对象
+    var btn = document.getElementById('btn');
+    var box =document.getElementById('box');
+    var timer = null;
+    var target = 600;
+
+
+    //2.点击按钮开始
+    btn.onclick = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            var begin = box.offsetLeft;
+            var speed = (target-box.offsetLeft)/20;
+            box.style.left = begin+speed+'px';
+
+            //用begin值和target目标值做对比
+            if(begin==target)
+            {
+                alert(0);
+                //清除定时器
+                clearInterval(timer);
+            }
+        },20);
+    }
+</script>
+</body>
+</html>

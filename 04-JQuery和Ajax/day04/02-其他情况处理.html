@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.0.7.js"></script>
+</head>
+<body>
+<script>
+    //01 对象
+    var obj =  {name:"张三",age:23};
+    console.log($(obj));
+
+    //02 DOM标签
+    var oDiv = document.createElement("div");
+    oDiv.innerText = "我是临时的div";
+    console.log($(oDiv));
+
+    //03 数字|true
+    console.log($(123456));
+    console.log($(true));
+
+    //总结:把传入的参数整体作为key为0对应的value值保存到实例对象中,并且设置length的值
+
+</script>
+</body>
+</html>

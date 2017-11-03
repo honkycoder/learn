@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+</head>
+<body>
+<div class="box">
+    <span class="spanItem">我是第一个span</span>
+    <button>我是按钮</button>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</div>
+
+#　事件委托：通过别的标签来告诉指定的标签他被注册了事件
+
+<script>
+
+//    $("button").click(function () {
+//        console.log("点击了按钮");
+//    })
+
+    //click的点击事件作用在button上面
+    //    $(".box").on("click","button",function () {
+    //        console.log("点击了box");
+    //    })
+
+
+    //    $("span").click(function () {
+    //        console.log("点击了span");
+    //    });
+
+        //$(".box").on("click","span:first",function () {
+        $(".box").on("click",".spanItem",function () {
+            console.log("点击了span");
+        });
+
+    //? 为什么要使用事件委托？
+    // 事件委托主要用在要添加事件的标签还没有被创建这种情况
+    $("<span>我是span标签</span>").appendTo($(".box"));
+
+    //$(".box").on("click","li",function () {})
+    //$("li").click(function () {})
+
+</script>
+</body>
+</html>

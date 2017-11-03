@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*margin: 100px auto;*/
+        }
+
+    </style>
+</head>
+<body>
+<div id="bigbox">
+    <div id="box"></div>
+</div>
+
+
+<script>
+
+    var box = document.getElementById('box');
+    // 事件的一个冒泡机制
+    var bigbox = document.getElementById('bigbox');
+
+    box.onclick = function (event) {
+        console.log('----');
+        event.stopPropagation();
+    }
+
+    document.onclick = function () {
+        console.log('++++++++');
+    }
+bigbox.onclick = function () {
+    console.log('======');
+}
+  // 事件的捕获机制
+
+</script>
+</body>
+</html>

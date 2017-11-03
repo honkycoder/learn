@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+观察者模式实现(多个发布者)
+    核心步骤:
+        1.提供一个父发布者对象(存放一些发布者共用的内容)
+        2.提供一个函数,用于将父发布者所有的内容赋值一份给子发布者
+        3.通过这个函数创建子发布者
+        4.提供观察者对象
+        5.发布者对象注册观察者对象
+        6.发布者对象发布信息
+
+    人物:
+        女1号: rose 女2号: wml
+        男1号: jack 男2号: tom
+
+<script>
+    // 1.提供一个父发布者对象(存放一些发布者共用的内容)
+    var publisher = {
+        // 添加观察者
+        addUser: function (fn, type) {
+
+            type = type || 'eat';
+
+            // 校验处理
+            try {
+                if (typeof fn != 'function') {
+                    throw '不支持'
+                }
+            }
+            catch (e) {
+                console.log(e);
+                return false;
+            }
+
+            // 判断users对象是否有type这个属性
+            if (this.users[type] == undefined) {
+                this.users[type] = [];
+
+                if (this[type] == undefined) {
+                    this[type] = function () {
+                        this.publish(type);
+                    }
+                }
+
+            }
+
+            // 将观察者添加到观察者数组中
+            this.users[type].push(fn);
+        },
+        // 移除观察者
+        removeUser: function (fn, type) {
+            type = type || 'eat';
+            this.publish(type,fn);
+        },
+        // 发布者发布信息
+        publish: function (type, fn) {
+            for (var i = 0; i < this.users[type].length; i++) {
+                if (typeof fn == 'function') { // 删除
+                    for (var i = 0; i < this.users[type].length; i++) {
+                        if (this.users[type][i] == fn) {
+                            this.users[type].splice(i,1);
+                            break;
+                        }
+                    }
+                } else {
+                    this.users[type][i]();
+                }
+
+            }
+        }
+    };
+
+    // 2.提供一个函数,用于将父发布者所有的内容(实例方法)赋值一份给子发布者
+    function makePublisher(obj) {
+
+        // 校验处理
+        if (typeof obj != 'object') {
+            return false;
+        }
+
+        // 遍历父对象中所有的内容
+        for (var k in publisher) {
+
+            // 只拷贝实例方法
+            // 1.判断是否是实例成员 2.是否是方法
+            if (publisher.hasOwnProperty(k) && typeof publisher[k] == 'function') {
+                obj[k] = publisher[k];
+            }
+        }
+
+        // 观察者对象
+        obj.users = {
+//            eat: [],
+//            sleep: [],
+//            run: []
+        }
+    }
+
+    // 3.通过这个函数创建子发布者
+    var rose = {
+//        eat: function () {
+//            this.publish('eat');
+//        },
+//        sleep: function () {
+//            this.publish('sleep');
+//        },
+//        run: function () {
+//            this.publish('run');
+//        }
+    };
+    var wml = {
+//        eat: function () {
+//            this.publish('eat');
+//        },
+//        sleep: function () {
+//            this.publish('sleep');
+//        }
+    };
+    makePublisher(rose);
+    makePublisher(wml);
+
+    // 4.提供观察者对象
+    var jack = {
+        eat_jack: function () {
+            console.log('邀请女神吃麻辣烫-jack');
+        },
+        sleep_jack: function () {
+            console.log('我们去看星星吧-jack');
+        },
+        run_jack: function () {
+            console.log('我们去天河公园吧');
+        }
+    };
+    var tom = {
+        eat_tom: function () {
+            console.log('邀请女神吃牛排-rose');
+        },
+        sleep_tom: function () {
+            console.log('晚安,好梦- tom');
+        }
+    };
+
+    // 5.发布者对象注册观察者对象
+    rose.addUser(jack.eat_jack, 'eat');
+    rose.addUser(tom.eat_tom, 'eat');
+
+    rose.addUser(jack.sleep_jack, 'sleep');
+
+    wml.addUser(jack.eat_jack);
+//    rose.addUser(jack.run_jack, 'run');
+
+    // 6.发布者对象发布信息
+//    rose.publish('eat');
+//    rose.publish('sleep');
+
+    rose.eat();
+    rose.sleep();
+    console.log('---');
+    wml.eat();
+//    rose.run();
+
+
+
+</script>
+</body>
+</html>

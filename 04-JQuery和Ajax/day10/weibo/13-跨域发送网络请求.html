@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("get","https://www.baidu.com/",true);
+    xhr.send();
+    xhr.onreadystatechange = getData;
+
+
+    //http://127.0.0.1:8080/Code4/weibo/13-demo.html
+    //https://www.baidu.com/
+    //http://127.0.0.1:8080/Code4/weibo/php/01-phpdemo.php
+    function getData() {
+        if(xhr.readyState == 4)
+        {
+            if(xhr.status == 200)
+            {
+                console.log(xhr.responseText);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        #main{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+
+</div>
+<script>
+    var main = document.getElementById('main');
+    function Box(option) {
+        this._init(option);
+    }
+    Box.prototype={
+        _init:function (option) {
+            this.width=option.width;
+            this.height=option.height;
+            this.background=option.background;
+        },
+        render:function () {
+            var parentNode=document.getElementById('main');
+            var div=document.createElement('div');
+            div.style.width=this.width+'px';
+            div.style.height=this.height+'px';
+            div.style.background=this.background;
+            parentNode.appendChild(div);
+        }
+    }
+    var box= new Box({width:'400',height:'200',background:'red' });
+    box.render();
+    var box1= new Box({width:'300',height:'400',background:'pink' });
+    box1.render();
+
+</script>
+</body>
+</html>

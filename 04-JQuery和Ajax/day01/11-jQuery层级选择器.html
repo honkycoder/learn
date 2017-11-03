@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            //01 获取某个标签指定的所有后代标签    .class1 div
+            $("button").eq(0).click(function () {
+                $(".class1 div").css("background","red");
+            })
+
+            //02 获取某个标签指定的直接后代标签    .class1>div
+            $("button").eq(1).click(function () {
+                $(".class1>div").css("background","red");
+            })
+
+            //03 获取当前标签(后面)下一个兄弟节点  .class1+div
+            $("button").eq(2).click(function () {
+                $(".class2+div").css("background","red");
+            })
+
+            //04 获取当前标签(后面)所有的兄弟节点  .class1~div
+            $("button").eq(3).click(function () {
+                $(".class2~div").css("background","red");
+            })
+        })
+    </script>
+</head>
+<body>
+<div>
+    <div class="class1">
+        <div>第0个div</div>
+        <div class="class2">第1个div
+            <div>demo</div>
+            <strong>I am strong</strong>
+        </div>
+        <div>第2个div</div>
+        <div>第3个div</div>
+    </div>
+</div>
+<!--
+    01 获取某个标签指定的所有后代标签    .class1 div
+    02 获取某个标签指定的直接后代标签    .class1>div
+    03 获取当前标签(后面)下一个兄弟节点  .class1+div
+    04 获取当前标签(后面)所有的兄弟节点  .class1~div
+-->
+
+<button>所有的后代</button>
+<button>直接后代</button>
+<button>下一个兄弟</button>
+<button>后面的所有兄弟</button>
+</body>
+</html>

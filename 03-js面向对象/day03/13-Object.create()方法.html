@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+Object.create: 创建对象并设置原型对象,返回创建好的对象
+兼容性问题: ES5 ie8不支持
+
+<script>
+    var obj = {name: 'zs'};
+
+//    var o = Object.create(obj);
+//
+//    console.log(obj.isPrototypeOf(o)); // true
+
+</script>
+
+处理兼容性问题:
+        步骤:
+            1.判断Object.create是不是一个函数
+            2.如果是则使用Object.create方法创建对象
+            3.如果不是则使用普通方式来创建对象
+                    1.创建一个构造函数
+                    2.设置构造函数的原型对象是obj
+                    3.使用这个构造函数来创建对象
+
+        存在的问题: 复用性不好
+<script>
+    var obj = {name: 'zs'};
+    if (typeof Object.create == 'function') {
+        var o = Object.create(obj);
+    } else {
+        function F() {
+
+        }
+        F.prototype = obj;
+        var o = new F();
+    };
+
+    console.log(obj.isPrototypeOf(o));
+
+</script>
+
+解决复用的问题方式一: 函数封装
+
+<script>
+    function createObj(obj) {
+        if (typeof Object.create == 'function') {
+            return Object.create(obj);
+        } else {
+            function F() {
+
+            }
+            F.prototype = obj;
+            return new F();
+        }
+    }
+
+    var obj = {name: 'zs'};
+
+    var o = createObj(obj);
+    console.log('--');
+    console.log(obj.isPrototypeOf(o));
+
+</script>
+
+解决复用方式二:
+        步骤:
+            1.判断Object.create是否是一个函数
+            2.如果不是则动态给Object加一个create方法
+<script>
+    if (typeof Object.create != 'function') {
+        Object.create = function (obj) {
+            function F() {
+
+            }
+            F.prototype = obj;
+            return new F();
+        }
+    }
+
+    var obj = {name: 'zs'};
+    var o = Object.create(obj);
+    console.log('==');
+    console.log(obj.isPrototypeOf(o));
+
+</script>
+</body>
+</html>

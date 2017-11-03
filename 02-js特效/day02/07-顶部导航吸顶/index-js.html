@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img
+        {
+            /**
+            去掉图片之间的缝隙
+            */
+            vertical-align: top;
+
+            /*
+            做屏幕自适应适配的一种方案
+            **/
+            width: 100%;
+        }
+        section
+        {
+            width: 70%;
+            margin: 0 auto;
+        }
+        .current
+        {
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="images/top.png" alt="">
+</header>
+<nav id="navTag">
+    <img src="images/nav.png" alt="">
+</nav>
+<section>
+    <img src="images/body01.png" alt="">
+    <img src="images/body02.png" alt="">
+</section>
+<script src="js/Myfun.js"></script>
+<script>
+    //1.找对象
+    var navTag = $('navTag');
+
+    //2.取出nav距离顶的距离
+    var navTagOffsetTop = navTag.offsetTop;
+
+    //2.监测屏幕的滚动
+    window.onscroll = function () {
+        //3.获取网页距离顶部的偏移高度
+        var myScrollTop = scroll().top;
+        //4.判断网页距离顶部的偏移高度是否大于等于nav距离顶的距离
+        if(myScrollTop>=navTagOffsetTop)
+        {
+           //5.让nav定住
+            navTag.className = 'current';
+
+        }
+        else
+        {
+            //6.如果不是大于等于,那么就应该让nav正常显示
+            navTag.className = '';
+        }
+    }
+</script>
+</body>
+</html>

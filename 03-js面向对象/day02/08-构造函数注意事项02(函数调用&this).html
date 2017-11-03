@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+直接调用构造函数和使用new关键调用构造函数的区别
+
+new: 创建对象,返回对象
+构造函数: 会做一些初始化操作
+    1.使用new 构造函数,内部默认会创建一个新的对象,并将这个对象赋值给this,最终返回这个对象
+    2.直接调用构造函数,内部的this指向window,初始化的时候,会给window动态的添加属性和方法,会造成全局变量污染
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    var p1 = new Person('zs', 20);
+    console.log(p1);
+
+    var p2 = Person('ls', 30); // 虽然可以这样调用,但是不推荐这样做
+    console.log(p2); // undefined
+
+    console.log(name);
+    console.log(age);
+
+</script>
+
+需求: 不管使用new还是不使用new调用函数,都能创建对象
+    步骤:
+        1.判断this是否是由Person创建的 instanceof
+        2.如果为true,设置this的属性和方法
+        3.如果为false, 返回使用new 构造函数创建对象
+<script>
+    function Person(name, age) {
+        if (this instanceof Person) {
+            this.name = name;
+            this.age = age;
+        } else {
+            return new Person(name,age);
+        }
+    }
+
+    var p1 = new Person('zs', 24);
+    console.log(p1);
+    var p2 = Person('ls', 23); // 虽然内部可以做容错处理,但是不推荐这么做
+    console.log(p2);
+</script>
+</body>
+</html>

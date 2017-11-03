@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/GET03.js"></script>
+</head>
+<body>
+
+# 给定发送请求的时间（10s）,如果在这个时间段内没有拿到服务器返回的数据，那么就直接做请求失败处理。
+
+<button id="btn1">GET</button>
+
+<script>
+
+    //01 获取指定按钮添加点击事件
+    var oBtn1 = document.getElementById("btn1");
+    oBtn1.onclick = function () {
+        GET("php_server/08-ajax-btn1.php",
+            {"type":"dog","color":"green","age":12},
+            function (responseText) {
+
+                //在请求成功的回调中解析服务器返回的数据
+                console.log("成功：" + responseText);
+            },
+            function (errorCode) {
+                console.log("失败:" + errorCode);
+            },
+            1000
+            );
+    }
+
+</script>
+</body>
+</html>

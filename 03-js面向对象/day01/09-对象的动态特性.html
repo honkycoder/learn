@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+对象的动态特性:
+    一个对象被创建出来之后,可以执行的操作: 增加 | 修改 | 删除
+
+操作属性或者方法的语法:
+    1.点语法
+    2.[]语法: 中括号里面字符串
+
+总结:
+    1.给对象的某个属性赋值,如果这个对象有这个属性就是修改,如果这个对象没有这个属性那么就是添加
+    2.使用点语法去访问和设置对象的属性更加方便,一般推荐使用点语法,一般情况下不能够使用点语法,属性有空格 first name,必须使用中括号语法
+<!--<script>-->
+    <!--// 1.创建对象-->
+    <!--var obj = {-->
+        <!--name: 'zs'-->
+    <!--};-->
+
+    <!--// 2.添加属性-->
+    <!--obj.age = 20;-->
+    <!--console.log(obj);-->
+
+    <!--// 3.添加方法-->
+    <!--obj.run = function () {-->
+        <!--console.log('run');-->
+    <!--};-->
+    <!--obj.run();-->
+
+    <!--// 4.修改属性-->
+    <!--obj.name = 'ls';-->
+    <!--console.log(obj);-->
+
+    <!--// 5.删除属性-->
+    <!--delete obj.name;-->
+    <!--console.log(obj);-->
+<!--</script>-->
+
+<script>
+    // 1.创建对象
+    var obj = {
+        name: 'zs'
+    };
+
+    // 2.添加属性
+    obj['age'] = 20;
+    console.log(obj);
+
+    // 3.添加方法
+    obj['run'] = function () {
+        console.log('run');
+    };
+    obj['run']();
+
+    // 4.修改属性
+    obj['name'] = 'ls';
+    console.log(obj);
+
+    // 5.删除属性
+    delete obj['name'];
+    console.log(obj);
+
+//    obj.first name = '123'; // 错误写法
+    obj['first name'] = '123';
+    console.log(obj);
+</script>
+</body>
+</html>

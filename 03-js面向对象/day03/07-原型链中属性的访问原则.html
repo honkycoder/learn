@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+原型链中属性的访问原则:
+    1.当使用对象.属性去访问这个属性值的时候,先在自身上查找有没有这个属性,如果有就返回对应的值
+    2.如果没有,就到这个对象的原型对象上去查找有没有这个属性,如果有就返回对应的值
+    3.如果没有,就到这个对象的原型对象的原型对象上去查找有没有这个属性,如果有就返回对应的值
+    4.如果没有,就继续上面的操作,直到Object.prototype上查找有没有这个属性,如果有就返回对应的值
+    5.如果没有就返回undefined,或者报错
+
+<script>
+    var obj = {};
+//    console.log(obj.a); // undefined
+    obj.b(); // 报错
+</script>
+</body>
+</html>

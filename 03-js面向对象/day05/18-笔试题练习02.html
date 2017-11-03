@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    /*var scope = "global";
+
+    foo();
+
+    function foo() {
+
+        console.log(scope); // local | (undefined) | global
+        var scope = "local";
+        console.log(scope); // local
+    }*/
+
+    // 模拟提升
+    var scope;
+    function foo() {
+        var scope;
+        console.log(scope); // local | (undefined) | global
+        scope = "local";
+        console.log(scope); // local
+    }
+    scope = "global";
+
+    foo();
+
+
+</script>
+</body>
+</html>

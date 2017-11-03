@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+= 赋值: 把右边存储的信息复制一份给左边
+== 等于: 判断右边的存储的信息是否等于左边的数据
+=== 全等 : 除了判断右边的数据是否等于左边的数据,还会判断类型
+
+!=
+!==
+
+<script>
+    var str = '123';
+    var num = 123;
+    console.log(str == num); // true
+    console.log(str === num); // false
+
+    var arr1 = [1,2,3];
+    var arr2 = [1,2,3];
+    console.log(arr1 == arr2); // true | (false)
+    console.log(arr1 === arr2); // true | (false)
+
+    console.log(null == undefined); // (true) | false
+    console.log(null === undefined); // true | (false)
+
+    var obj = new Object('123');
+    console.log(num == obj); // true
+
+    // null和undefined的区别?
+    // null: 表示"空对象",此处不该有值
+    // undefined: 表示"缺少值", 此处应该有值,但是没有定义
+    // null和undefined最终都是无值,所以相等
+    // null和undefined类型不同,所以不全等
+
+    // 什么时候变量的值为null?
+    // 任何时候,变量的值都不可能为null,除非手动设置这个变量的值为null
+
+    // 什么时候需要设置一个变量的值为null?
+    // 当这个变量不再使用的时候,让系统回收这个变量所占的内存空间,在前端开发有垃圾回收机制,所以不需要我们去管理内存,一般情况下不会设置变量的值为null,在后端开发的时候才需要关系(Node.js)
+
+</script>
+</body>
+</html>

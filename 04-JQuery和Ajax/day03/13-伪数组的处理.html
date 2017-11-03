@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="XMGQuery框架/XMGQuery.1.0.6.js"></script>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+</head>
+<body>
+
+<!--<iframe src="http://www.baidu.com"></iframe>-->
+<!--<iframe src="http://www.jd.com"></iframe>-->
+<script>
+    //伪数组的定义
+    /*
+     * (1) 本身是对象并非是真正的数组
+     * (2) 正常来说 它的key从0开始递增 也允许存在其他的key
+     * (3) 该对象中拥有length属性,记录的是键值对的个数
+     * (4) 拥有length-1这个键值对
+     * */
+
+    //判断某个对象是否是数组:
+    //(1) 是对象  typeof obj == "object"
+    //(2) 拥有length属性
+    //(3) 拥有length-1的属性
+
+    //var obj =  {"length":2};
+    //console.log("length" in obj);
+
+    /*
+    var obj = {
+        showName:function () {
+            return "zhansgan";
+        },
+        showAge:function () {
+            return 23;
+        },
+        show:function () {
+            console.log(this.showName());;
+            console.log(this.showAge());;
+        }
+    }
+
+    obj.show();
+
+    */
+
+    //window的length属性
+    //window的length属性：iframe标签的个数
+    //window["1"] = "123";
+    //console.log(window["1"],"_________");
+    //console.log("window.length",window.length);
+
+    //console.log({} == window.window);
+
+    /**************************/
+    var objT1 = {0:"name",1:"age",2:"color",length:3};     //伪数组
+    var objT2 = {0:"name",1:"age",2:"color",length:4};     //不是伪数组
+    var objT3 = {0:"name",1:"age",2:"color",length:3,"sex":"男"};    //伪数组
+
+    console.log($(objT1));
+    console.log($(objT2));
+    console.log($(objT3));
+</script>
+</body>
+</html>

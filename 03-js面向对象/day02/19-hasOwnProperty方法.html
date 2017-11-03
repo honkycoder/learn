@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+hasOwnProperty: 判断对象中是否有某个属性(实例属性)
+    语法: 对象.hasOwnProperty(属性名)
+in: 判断对象中是否有某个属性(实例属性 + 原型属性)
+    语法: 属性名 in 对象
+
+
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.des = 'des';
+    Person.prototype.age = 30;
+
+    var p = new Person('zs', 20);
+    console.log('name' in p); // true
+    console.log('age' in p); // true
+    console.log('des' in p); // true
+
+    console.log(p.hasOwnProperty('name')); // (true) | false
+    console.log(p.hasOwnProperty('age')); // true
+    console.log(p.hasOwnProperty('des')); // false
+
+    // 需求: 判断这个属性是否是原型对象的属性,并且仅仅是原型对象的属性
+    // 1.是原型对象的属性 2.不是实例对象的属性
+    function isPrototypeProperty(name, obj) {
+        return name in obj && !obj.hasOwnProperty(name);
+    }
+
+    console.log(isPrototypeProperty('name', p)); // false
+    console.log(isPrototypeProperty('age', p)); // false
+    console.log(isPrototypeProperty('des', p)); //  true
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 200px;
+            background-color: red;
+            display: none;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li>选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+        <li>选项4</li>
+        <li>选项5</li>
+    </ul>
+
+</div>
+
+<script>
+    var box = document.getElementById('box');
+    // oncontextmenu:鼠标右键的事件
+    document.oncontextmenu = function (event) {
+        event = event||window.event;
+       var leftValue = event.clientX;
+        var topValue = event.clientY;
+        // 设置位置
+        box.style.left = leftValue+'px';
+        box.style.top = topValue+'px';
+        box.style.display = 'block';
+
+        return false;
+    }
+
+</script>
+</body>
+</html>

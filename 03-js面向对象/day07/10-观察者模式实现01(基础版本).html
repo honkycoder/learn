@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    观察者模式实现(基础版本)
+        核心步骤:
+            1.提供一个发布者对象
+            2.提供一个观察者对象
+            3.发布者对象注册观察者对象
+            4.发布者对象发布信息
+
+    人物:
+        女神: rose
+        男1号: jack 男2号: tom
+
+    思考: 有2个发布者
+    存在的问题: 创建多个发布者中有很多重复的代码,无法复用
+<script>
+    // 1.提供一个发布者对象
+    var rose = {
+        // 观察者数组
+        users: [],
+        // 添加观察者
+        addUser: function (fn) {
+            // 校验处理,判断fn是否是一个函数
+            try {
+                if (typeof fn != 'function') {
+                    throw '不支持';
+                }
+            }
+            catch (e) {
+                console.log(e);
+                return false;
+            }
+
+            // 将观察者添加到数组中
+            this.users.push(fn);
+
+        },
+        // 移除观察者
+        removeUser: function (fn) {
+            for (var i = 0; i < this.users.length; i++) {
+                if (this.users[i] == fn) {
+                    this.users.splice(i,1);
+                    break;
+                }
+
+            }
+        },
+        // 发布者发布信息(饿了)
+        eat: function () {
+            for (var i = 0; i < this.users.length; i++) {
+                this.users[i]();
+            }
+        }
+    };
+
+    var wml = {
+        // 观察者数组
+        users: [],
+        // 添加观察者
+        addUser: function (fn) {
+            // 校验处理,判断fn是否是一个函数
+            try {
+                if (typeof fn != 'function') {
+                    throw '不支持';
+                }
+            }
+            catch (e) {
+                console.log(e);
+                return false;
+            }
+
+            // 将观察者添加到数组中
+            this.users.push(fn);
+
+        },
+        // 移除观察者
+        removeUser: function (fn) {
+            for (var i = 0; i < this.users.length; i++) {
+                if (this.users[i] == fn) {
+                    this.users.splice(i,1);
+                    break;
+                }
+
+            }
+        },
+        // 发布者发布信息(饿了)
+        eat: function () {
+            for (var i = 0; i < this.users.length; i++) {
+                this.users[i]();
+            }
+        }
+    };
+
+    // 2.提供一个观察者对象
+    var jack = {
+        eat_jack: function () {
+            console.log('邀请女神吃麻辣烫-jack');
+        }
+    };
+
+    var tom = {
+        eat_tom: function () {
+            console.log('邀请女神吃牛排-tom');
+        }
+    };
+
+    // 3.发布者对象注册观察者对象
+    rose.addUser(jack.eat_jack);
+    rose.addUser(tom.eat_tom);
+
+    wml.addUser(jack.eat_jack);
+
+    // 4.发布者对象发布信息
+    rose.eat();
+
+    rose.removeUser(jack.eat_jack);
+    console.log('==');
+    rose.eat();
+
+    console.log('---');
+    wml.eat();
+
+</script>
+</body>
+</html>

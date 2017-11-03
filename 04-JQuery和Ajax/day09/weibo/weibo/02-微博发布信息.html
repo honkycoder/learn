@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style/weibo.css" rel="stylesheet" />
+    <script src="js/jquery-3.1.1.js"></script>
+</head>
+<body>
+<div class="xmgArea">
+    <!--留言-->
+    <div class="takeComment">
+        <textarea name="textarea" class="takeTextField" id="submitText"></textarea>
+        <div class="takeSbmComment">
+            <input id="btn_send" type="button" class="inputs" value="" />
+            <span>(可按 Enter 回复)</span>
+        </div>
+    </div>
+    <!--预留-->
+    <div class="commentOn">
+        <!--<div class="noContent">暂无留言</div>-->
+        <div id="messList" class="messList">
+            <!--<div class="reply">
+                <p class="replyContent">卫士，新款卫士将推出总共14种车身式样。其中， XS旅行款车型售价为32295英镑(约33.6万元)。</p>
+                <p class="operation">
+                    <span class="replyTime">2011-09-08 16:37:60</span>
+                    <span class="handle">
+                        <a href="javascript:;" class="top">0</a>
+                        <a href="javascript:;" class="down_icon">0</a>
+                        <a href="javascript:;" class="cut">删除</a>
+                    </span>
+                </p>
+            </div>-->
+        </div>
+        <div id="page" class="page">
+
+        	<a href="javascript:;" class="active">1</a>
+        	<a href="javascript:;">2</a>
+        	<a href="javascript:;">3</a>
+
+        </div>
+    </div>
+</div>
+<script>
+    //01 获取页面中指定的标签：文本输入框 + 按钮
+    //02 给按钮添加点击事件
+    //03 监听按钮的点击，当点击事件发生，获取文本输入框的内容作为参数发送请求给服务器端
+    //04 获取服务器返回的数据（请求成功）
+    //05 更新UI
+
+    var oText = $("#submitText");
+    var oBtn = $("#btn_send");
+
+    oBtn.click(function () {
+        //(1) 获取文本输入框的内容
+        var contentText = oText.val();
+        console.log(contentText);
+
+        //(2) 发送请求
+        //weibo.php?act=add&content=xxx	添加一条
+        //返回：{error:0, id: 新添加内容的ID, time: 添加时间}
+        $.ajax({
+            "url":"weibo.php?act=add&content="+ contentText,
+            //"data":{"act":"add","content":contentText},
+            "type":"GET",
+            "success":function (res) {
+                //console.log(res);
+                //服务器返回的数据格式是JSON：{error: 0, id: 3, time: 1498979101}
+            }
+
+        })
+
+    })
+
+
+</script>
+</body>
+</html>

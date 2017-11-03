@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .container{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 20px auto;
+        }
+
+        @media screen and (max-width: 768px){
+            .hidden-xs{
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 992px){
+            .hidden-sm{
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 992px) and (max-width: 1200px){
+            .hidden-md{
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .hidden-lg{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+   <div class="container hidden-sm hidden-xs hidden-md">111</div>
+</body>
+</html>
+
+<!--
+.hidden-xs  < 768
+.hidden-sm  [768, 992)
+.hidden-md  [992, 1200)
+.hidden-lg  >= 1200
+-->

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //闭包
+
+    //说明:作用域链条问题
+
+    //结论:先去递归遍历作用域,去找对应的变量,如果在离他最近的作用域中有这个,那么就直接使用,如果没有,那么会一层层的往上找
+
+    //不能往下找
+    var a = 30;
+    (function () {
+        var a = 10;
+        (function () {
+            var age = 50;
+             var a = 20;
+             alert(a);
+        })();
+        alert(age);
+    })();
+
+    //递归:就是一层层的for遍历,非常消耗性能
+
+    //推荐的结论:1.少用全局变量  2.作用域的链条不要太多
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            width: 600px;
+            height: 600px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            /*text-align: center;*/
+        }
+        textarea{
+            width: 400px;
+            height: 40px;
+        }
+        ul{
+            width: 400px;
+            margin-left: 70px;
+        }
+        li{
+            list-style: none;
+            /*background: red;*/
+            /*margin-left: 70px;*/
+            border-bottom: 1px dashed #ccc;
+
+        }
+        a{
+            float: right;
+            color: red;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content" class="content">
+   发布微博
+    <textarea id="text_input"></textarea><button id="publish">发布</button>
+
+</div>
+<script>
+     // 点击发布,把内容列在最下面
+    // 1.获取必要的元素
+    var publishBtn = document.getElementById('publish');
+    var text_input = document.getElementById('text_input');
+    var content = document.getElementById('content');
+     // 创建ul只需要创建一次
+     // 3.显示出来发布的内容-->ul-->li
+     // 3.1 创建ul
+     var new_ul = document.createElement('ul');
+     // 3.2 添加ul到盒子中去
+     content.appendChild(new_ul);
+    publishBtn.onclick =function () {
+        //2. 获取输入的内容
+        var inputText = text_input.value;
+        console.log(inputText);
+        //4.创建li
+        var new_li = document.createElement('li');
+        new_li.innerHTML = inputText+'<a>删除</a>';
+        //4.添加到ul中去
+//        new_ul.appendChild(new_li);
+        new_ul.insertBefore(new_li,new_ul.firstElementChild);
+
+        // 5.点击删除.删除掉文字
+        var dele_a = new_li.lastElementChild;
+        dele_a.onclick = function () {
+            new_ul.removeChild(dele_a.parentNode);
+        }
+
+    // 6.清空输入板
+        text_input.value = '';
+
+    }
+</script>
+</body>
+</html>

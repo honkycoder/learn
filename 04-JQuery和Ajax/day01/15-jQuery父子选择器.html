@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                //01 得到class为cur的标签
+                var oDiv = $(".cur");
+                //02 获取父标签 class为demo的这个div
+                //oDiv.parent().css("background","red");
+                //03 获取祖先节点 class为demo的这个div
+                //oDiv.parent().parent().css("background","red");
+                //04 获取所有祖先节点 class为demo的这个div
+                //oDiv.parents().css("background","red");
+                //05 获取祖先节点(到某个为止)
+//                oDiv.parentsUntil(".box").css("background","red");
+
+                /*
+                * parent() 直接父节点
+                * parents() 所有的祖先节点
+                * parentsUntil() 到某个祖先节点为止(不包含)
+                * children()  子节点
+                * siblings()  兄弟节点
+                * */
+
+
+                //06 获取class为demo的div的子节点
+                //$(".demo").children().css("background","red");
+
+                //07 获取所有的兄弟节点(排除自己)
+                $(".cur").siblings(".xx").css("background","red")
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div class="box">
+    <div class="demo">
+        <div>当前的div</div>
+        <div class="cur">当前的div</div>
+        <div>当前的div</div>
+        <div class="xx">当前的div</div>
+    </div>
+    <div>来打我啊</div>
+</div>
+<button>点击我</button>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+with的简单使用
+    作用: 将对象的作用域引申到{}中,主要用于减少代码量
+
+    注意点:
+        1.可以省略前缀修改和访问属性和方法
+        2.不能通过省略前缀的方式添加属性和方法
+        3.内部的this指向的是window
+        4.严格模式下禁止使用
+
+应用场景: 主要是用于设置深层次的对象的属性(对象.属性.属性),减少代码量
+<script>
+    var obj = {
+        name: 'zs',
+        age: 20
+    };
+
+////    obj.name = 'ls';
+
+    with (obj) {
+        name = 'ls';
+//        des = 'des';
+        obj.des = 'des';
+        console.log(this);
+    }
+
+    console.log(obj);
+//    console.log(des);
+
+</script>
+
+<div id="demo"></div>
+<script>
+    var div = document.getElementById('demo');
+//    div.style.background = 'red';
+//    div.style.width = '200px';
+//    div.style.height = '200px';
+
+//    with (div.style) {
+//        background = 'red';
+//        width = '200px';
+//        height = '200px';
+//    }
+
+    // 即时调用函数实现减少代码量
+    (function (t) {
+        t.background = 'red';
+        t.width = '200px';
+        t.height = '300px';
+    })(div.style)
+
+</script>
+</body>
+</html>

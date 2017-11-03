@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box" ></div>
+
+<script>
+    // 1.获取元素
+    var box = document.getElementById('box');
+//    box.setAttribute('title','小网夜');
+//    console.log(box.title);
+    //    box.style.width  = 200+'px';
+//    box.style['height']  = 200+'px';
+//    box.style.background = 'red';
+//    document.title = '小网页';
+//    document.
+    // 通过box.className = 'box';,设置之后,系统做了其他事情
+//    box.className = 'box';
+    // 使用setAttribute('className','box'),第一个参数一定要和标签内部的属性名称一样
+    box.setAttribute('class','box');
+
+
+</script>
+</body>
+</html>

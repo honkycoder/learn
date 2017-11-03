@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="XMGQuery框架/XMGQuery.1.0.6.js"></script>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+</head>
+<body>
+
+<script>
+    //传递数组:把数组中的所有元素依次取出来存入到jQuery实例对象中返回
+    //console.log($([1, 2, 3, 6, 8]));
+
+    //isArray方法存在兼容性问题,在ES5推出
+    var arrT = ["a","c","b"];
+    console.log(Array.isArray(arrT));
+
+    //自己如何判断某个对象是否是数组
+    var obj = {};
+    //[object Object]       [对象类型 构造函数]
+    console.log(obj.toString());
+    console.log(typeof obj);
+    console.log(arrT.toString());
+
+    //[object Array]
+    console.log(Object.prototype.toString.call(arrT));
+    console.log("______________");
+
+    console.log($([1, 2, 3, 6, 8]));
+    console.log($(["a","b","c"]));
+</script>
+</body>
+</html>

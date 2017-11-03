@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="900" height="600" style="border: 1px solid #000;">
+</canvas>
+<script src="js/ZLHRect.js"></script>
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext('2d');
+    //实例化矩形对象
+    /*
+
+     this.x = option.x;
+     //y坐标
+     this.y = option.y;
+     //矩形宽高
+     this.width = option.width;
+     this.height = option.height;
+     //矩形的填充颜色
+     this.fillStyle =option.fillStyle;
+     //矩形的宽度
+     this.lineWidth = option.lineWidth;
+     //描边的颜色
+     this.strokeColor = option.strokeColor;
+     */
+    var rect = new Rect({
+        x: 200,
+        y: 200,
+        width:400,
+        height:300,
+        fillStyle:"red",
+        lineWidth:"3",
+        strokeColor:"pink",
+        translateX:20,
+        translateY:10,
+        scaleX:0.5,
+        scaleY:0.5,
+        rotate:30
+    })
+//        rect.render(ctx)
+        rect.renderFill(ctx);
+    var rect1 = new Rect({
+        x:0,
+        y:0
+    });
+    rect1.render(ctx);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("img/changeSkin/1.jpg") no-repeat;
+            background-size:cover ;
+        }
+        div{
+            height: 150px;
+            background: dodgerblue;
+            text-align: center;
+
+        }
+        div img{
+            width: 100px;
+            margin: 20px;
+        }
+
+    </style>
+</head>
+<body id="bd">
+<!--div>img[src='img/computer$.jpg']*5-->
+<div>
+    <img id="img1" src="img/changeSkin/1.jpg" alt="">
+    <img id="img2" src="img/changeSkin/2.jpg" alt="">
+    <img id="img3" src="img/changeSkin/3.jpg" alt="">
+    <img id="img4" src="img/changeSkin/4.jpg" alt="">
+    <img id="img5" src="img/changeSkin/5.jpg" alt="">
+</div>
+
+<script>
+    // 1.获取需要绑定事件的元素
+    var img1 = document.getElementById('img1');
+    var img2 = document.getElementById('img2');
+    var img3 = document.getElementById('img3');
+    var img4 = document.getElementById('img4');
+    var img5 = document.getElementById('img5');
+
+    var bd = document.getElementById('bd');
+    // 2.绑定事件
+    img1.onclick = function () {
+       // 改变body的背景图片
+        bd.style.background = 'url("img/changeSkin/1.jpg") no-repeat';
+        bd.style.backgroundSize = 'cover';
+    }
+    img2.onclick = function () {
+        bd.style.background = 'url("img/changeSkin/2.jpg") no-repeat';
+        bd.style.backgroundSize = 'cover';
+    }
+    img3.onclick = function () {
+        bd.style.background = 'url("img/changeSkin/3.jpg") no-repeat';
+        bd.style.backgroundSize = 'cover';
+    }
+    img4.onclick = function () {
+        bd.style.background = 'url("img/changeSkin/4.jpg") no-repeat';
+        bd.style.backgroundSize = 'cover';
+    }
+    img5.onclick = function () {
+        bd.style.background = 'url("img/changeSkin/5.jpg") no-repeat';
+        bd.style.backgroundSize = 'cover';
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: red;
+            border: 1px solid transparent;
+            /*font-size: 1px;*/
+            /* chrome浏览器在100%状态下，显示的字体大小最小为12px，再小就无效了。当标签放大到n倍，字的大小，最大也是视觉效果的12*12 */
+            font-size: 14px;
+        }
+
+        .light_border{
+
+            /*font-size: 10px;*/
+            width: 100px;
+            height: 100px;
+            background: greenyellow;
+            /*border: 1px solid blue;*/
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .light_border::before{
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: -1px;
+
+            width: 200%;
+            height: 200%;
+            border: 1px solid blue;
+            transform: scale(0.5);
+            /* 需要在放大情况下，根据position的left和top值，稍作调整 */
+            transform-origin: 1px 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="father">测试字体大小
+    <h1>222</h1>
+    <div class="light_border">测试字体大小</div>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>

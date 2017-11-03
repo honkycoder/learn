@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<script>
+    // 获取所有的按钮
+    var allBtn = document.getElementsByTagName('button');
+    // 利用for循环给每一个按钮绑定事件
+    for (var i=0;i<allBtn.length;i++){
+        console.log( i );
+        allBtn[i].onclick = function () {
+            // 拿到所有的按钮
+           for (var j=0;j<allBtn.length;j++){
+                allBtn[j].style.background = 'gray';
+
+            }
+            // this:在哪个函数里面,就代表这个函数的调用者
+//            console.log(this);
+            this.style.background = 'red';
+        }
+
+    }
+</script>
+</body>
+</html>

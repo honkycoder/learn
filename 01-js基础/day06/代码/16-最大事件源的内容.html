@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    // 最大时间源
+    console.log(document);
+    console.log(document.documentElement);
+    console.log(document.head);
+    console.log(document.body);
+    // 往document里面增加东西
+//    document.innerHTML = 'yyyy';
+    console.log(document);
+    document.write('yyy');
+    // innerHTML 代表元素全部的内容,通过innerHTML进行赋值的时候,会把原来所有的内容覆盖掉
+    document.body.innerHTML = '<h>我是一个标题</h>';
+    //document.write 赋值的时候,只会把内用增加到body的末尾
+    document.write('<h1>我也是一个标题</h1>');
+
+</script>
+</body>
+</html>

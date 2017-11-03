@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 640px;
+            height: 290px;
+            margin: 100px auto;
+            border: 1px solid red;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+
+        ul {
+            width: 3840px;
+            height: 270px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+        }
+
+        span {
+            width: 40px;
+            height: 40px;
+            background: yellow;
+            position: absolute;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        span:nth-of-type(1) {
+            left: 0;
+            top: 50%;
+            margin-top: -20px;
+
+        }
+
+        span:nth-of-type(2) {
+            right: 0;
+            top: 50%;
+            margin-top: -20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div>
+    <ul id="list">
+        <li><img src="scanImg/01.jpg" alt=""></li>
+        <li><img src="scanImg/02.jpg" alt=""></li>
+        <li><img src="scanImg/03.jpg" alt=""></li>
+        <li><img src="scanImg/04.jpg" alt=""></li>
+        <li><img src="scanImg/05.jpg" alt=""></li>
+        <li><img src="scanImg/01.jpg" alt=""></li>
+    </ul>
+    <span id="left_S"> < </span><span id="right_S"> > </span>
+</div>
+
+<script>
+    //1.获取元素
+    var left_S = document.getElementById('left_S');
+    var right_S = document.getElementById('right_S');
+    var list = document.getElementById('list');
+    // 4.设置保存左侧值的变量
+    var leftValue = 0;
+    // 5.设置保存点击次数的变量
+    var count = 0;
+    // 9.设置保存定时器的变量
+    var timer = 0;
+    //13 设置一个变量,记录是否正在运动
+    var isScroll = false;
+    //2.给左箭头标签绑定事件
+    left_S.onclick = function () {
+        // 14 判断是否正在滚动
+        if (isScroll){
+            return;
+        }
+        //15. 现在处于滚动状态,记录
+        isScroll = true;
+        // 12.清空定时器
+        clearInterval(timer);
+        //7. 更新点击次数
+        count--;
+//        leftValue -=640;
+        // 8.使用定时器,微调leftValue,知道leftValue==-640*count
+        if (count==-1){
+            console.log('-----');
+            count=4;
+            leftValue= -640*5;
+        }
+        timer = setInterval(function () {
+            //10 微调leftValue
+            leftValue +=10;
+            // 11.判断是否移动了一张图片的宽度
+            if(leftValue>=-640*count){
+                clearInterval(timer);
+                leftValue=-640*count
+                // 16.更改为没有滚动
+                isScroll = false;
+            }
+            list.style.left = leftValue+'px';
+        },10)
+
+
+    }
+    //3.给右箭头标签绑定事件
+   /* right_S.onclick = function () {
+        // 14 判断是否正在滚动
+        if (isScroll){
+            return;
+        }
+        //15. 现在处于滚动状态,记录
+        isScroll = true;
+        // 12.清空定时器
+        clearInterval(timer);
+        //7. 更新点击次数
+        count++;
+//        leftValue -=640;
+        // 8.使用定时器,微调leftValue,知道leftValue==-640*count
+        timer = setInterval(function () {
+            //10 微调leftValue
+            leftValue -=10;
+            // 11.判断是否移动了一张图片的宽度
+            if(leftValue<=-640*count){
+                clearInterval(timer);
+                leftValue=-640*count
+                // 16.更改为没有滚动
+                isScroll = false;
+            }
+            list.style.left = leftValue+'px';
+        },10)
+        if (count==6){
+            leftValue=0;
+            count=1;
+        }
+
+    }*/
+
+</script>
+</body>
+</html>

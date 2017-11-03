@@ -1,0 +1,89 @@
+01 jQuery基本介绍
+    001 是javascript的库,里面封装操作CSS|DOM|内容|Ajax方法.
+    002 如何使用:$()|jQuery()
+    003 加载函数:
+        window.onload
+        (1) 调用的时机:需要等页面中所有资源加载完毕(DOM|css|img)
+        (2) 调用次数:只会执行一次(覆盖)
+            $(document).ready(function(){})
+        (1) 调用的时机:等DOM加载完毕就会执行
+        (2) 调用次数:调用多次
+        (3) 简写方式:
+            $(document).ready(function(){})
+            $().ready(function(){})
+            $(function(){})
+    004 冲突处理:在引入jQuery的时候代码中已经使用了$符号
+        起个别名:var jq = $.noCoflict();
+        注意点:位置(在$定义之前)
+    005 对象的转换
+        JS对象 -->jQuery  $(oDiv)
+        jQuery -->JS对象  $(selector)[0]|$(selector).get(0)|(x) eq
+
+02 jQuery常见的操作
+    001 操作CSS
+        (1) $(selector).css("属性","属性值");
+        (2) $(selector).css("属性1","属性值").css("属性2","属性值");链式遍历
+        (3) $(selector).css({"属性1":"属性值","属性2":"属性值"})
+        (4) $(selector).css("属性")
+
+    002 操作Class
+        (1) hasClass 检查是否拥有这个class  |true|false
+        (2) addClass 添加
+            $(selector).addClass("class1").addClass("class2")
+            $(selector).addClass("class1 class2");
+        (3) removeClass 删除
+        (4) toggleClass 切换:如果有那么就删除,没有就添加
+
+    003 操作内容
+        (1) text()   innerText
+        (2) html()   innerHTML(标签)
+        (!) 传递参数表示替换,不传递参数表示获取
+
+    004 操作位置
+        (1) $(selector).offset().top    距离窗口的位置
+        (2) $(selector).position().top  距离父标签的位置
+        (!) $(selector).width()|height()  传递参数表示设置样式
+
+03 jQuery选择器
+    001 基本选择器
+        (1) id选择器  $("#id")
+        (2) 类选择器  $(".class")
+        (3) 标签选择器 $("div")
+        (4) 并集选择器 $("#id,p");
+
+    002 层级选择器
+        (1) 直接后代  div>span
+        (2) 所有的后代 div span
+        (3) 后面的第一个兄弟 div + p
+        (4) 后面的所有兄弟    div ~ p
+
+    003 属性选择器
+        (1) 是否有这个属性   $("selector[title]")
+        (2) 匹配属性
+            ① 是否相等   $("selector[title='指定值']")
+            ② 不等   $("selector[title!='指定值']")
+            ③ 开头   $("selector[title^='指定值']")
+            ④ 结尾   $("selector[title$='指定值']")
+            ⑤ 子串   $("selector[title*='指定值']")
+        (2) 多个属性  $("selector[title][src]")
+
+    004 筛选选择器
+        (1) 第一个|最后一个   $("li:first") | $("li:last")
+        (2) 排除   $("li:not(:eq(2))")
+        (3) 奇数和偶数 even | odd
+        (4) 相等  eq
+        (5) 大于|小于  gt()|lt()
+
+    005 父子选择器
+        (1) 直接父节点  $(selector).parent()
+        (2) 祖先节点   $(selector).parents()
+        (3) 获取祖先节点到指定节点为止  $(selector).parentUntil("body")
+        (4) 子节点     $(selector).children()
+        (5) 兄弟节点   $(selector).siblings();
+
+
+04 鼠标移入
+    mouseenter - mouseleave   ==> hover
+    mouseover  - mouseout
+    $(selector).hover(function(){//移入},function(){//移出})
+    补充:角标   var index = $(selector).index();

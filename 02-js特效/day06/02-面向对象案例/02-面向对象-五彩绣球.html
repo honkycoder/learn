@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main
+        {
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+        html,body
+        {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<script src="js/Underscore-min.js"></script>
+<script src="js/index.js"></script>
+<div id="main">
+
+</div>
+<script>
+    //1.找对象
+    var mainBox = document.getElementById('main');
+
+    var ballArr = new Array();
+    var colorArr =['red','green','blue','yellow','pink','orange','purple'];
+    //2.监听鼠标在mainBox的移动
+    mainBox.onmousemove =function (event) {
+        var myEvent = event||window.event;
+
+        //3.创建球对象
+        var myBall = new ColorBall({
+            parentId:'main',
+            x:myEvent.clientX,
+            y:myEvent.clientY,
+            background:colorArr[_.random(0,colorArr.length-1)]
+        });
+//        alert(myBall);
+    }
+
+    //4.球是慢慢慢慢的出来和消失
+    var timer = setInterval(function () {
+
+
+        //当鼠标每次在main的父容器上移动的时候,都会创建球对象,然后创建出来的对象(clildren标签)都会添加在main中,所以说会不断叠加
+
+        for(var i=0;i<mainBox.children.length;i++)
+        {
+            mainBox.removeChild(mainBox.children[i]);
+        }
+
+       for(var i=0;i<ballArr.length;i++)
+       {
+           //开始渲染
+           ballArr[i].render();
+           //更新布局
+           ballArr[i].update();
+       }
+    },50);
+
+</script>
+</body>
+</html>

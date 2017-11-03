@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<button id="jumpBtn">将在5秒后跳转网页</button>
+
+<script>
+    // 1.获取元素
+    var jumpBtn = document.getElementById('jumpBtn');
+    var count = 5;
+    var timer = 0;
+    var jumpFucn = function () {
+        // arguments: 包含函数的参数个一些特定的属性
+        // arguments.callee 代表函数本身,等同于函数名
+        console.log(arguments.callee);
+        // 清空定时器
+        clearTimeout(timer)
+        count--;
+        jumpBtn.innerHTML = '将在' + count + '秒后跳转网页';
+        if (count == 0) {
+            clearTimeout(timer)
+//            window.location.href = 'http://www.baidu.com';
+        } else {
+            timer = setTimeout(arguments.callee, 1000)
+        }
+    }
+    timer = setTimeout(jumpFucn, 1000)
+
+
+//    function aaa(a,b) {
+//        console.log(arguments);
+//        console.log(arguments.callee);
+//    }
+//    aaa(19,12);
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    // var a;
+    // 在函数定义的时候,形参不需要var
+    function sum(a, b) {
+        a = a||0;
+        b = b||0;
+        console.log(a);
+        console.log(b);
+        return a + b;
+    }
+    //    sum(1,3);
+
+
+    // 1.形参个数>实参个数
+    // 按顺序给形参赋值,没有赋值的,形参值为undefined
+
+    console.log(sum(3));
+
+    // 2.形参个数<实参个数
+    // 多出来的实参,没有作用
+//    sum(1, 3, 4);
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            border: 1px solid #000;
+            background: #666;
+
+        }
+        .cur
+        {
+            background: orangered;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="cur"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    //1.找对象
+    var allLis =document.getElementsByTagName('li');
+
+
+    //定义一个变量记录上一次鼠标移动的
+    var lastIndex = 0;
+    //2.遍历所有的li
+    for(var i=0;i<allLis.length;i++)
+    {
+//        //3.监听鼠标在每一个li的移动
+//        allLis[i].onmouseover =function () {
+//            //5.让其他的干掉
+//            for(var i=0;i<allLis.length;i++)
+//            {
+//                allLis[i].className = '';
+//            }
+//           //4.让当前的选中
+//            this.className ='cur';
+//        };
+        //index是形参 i是实参
+        (function (index) {
+             allLis[i].onmouseover =function () {
+                 //清空之前的样式
+               allLis[lastIndex].className ='';
+                 //让当前的变色
+               this.className = 'cur';
+                 //用闭包的参数(拿到每一个li对应的索引)来更新lastIndex
+               lastIndex = index;
+             };
+        })(i);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+JS中实现继承的方式:
+    1.属性拷贝(混入式继承)
+    2.原型式继承
+    3.原型链继承
+    4.借用构造函数实现继承
+    5.组合继承
+    6.完全拷贝
+
+#属性拷贝(混入式继承)
+<script>
+
+    var obj = {
+        name: 'zs',
+        age: 20,
+        friends: ['小明']
+    };
+
+    var o = {};
+
+    // 需求: 让o有用obj的所有属性和方法
+    for (var k in obj) {
+        o[k] = obj[k];
+    }
+    console.log(o);
+
+    o.friends.push('小红');
+
+    console.log(obj);
+
+    // 存在的问题: 属性拷贝是将父对象的所有内容赋值一份给子对象,如果父对象中的某个属性的值是引用类型,那么赋值过来的是内存地址,子对象的这个属性和父对象的这个属性,共享同一份数据,修改一个会影响另外一个
+
+</script>
+
+Object.assign: 快速的拷贝对象中的属性和方法
+<script>
+    var obj1 = {name: 'ls'};
+    var obj2 = {age: 20};
+    var obj3 = {friends: ['小明']};
+
+    var o = {};
+
+    // 参数1: 需要拷贝的对象
+    // 后面的参数: 依次是被拷贝的对象
+    Object.assign(o,obj1,obj2,obj3);
+
+    console.log(o);
+    o.friends.push('宝宝');
+
+    console.log(obj3);
+
+    // 存在的问题: 属性拷贝是将父对象的所有内容赋值一份给子对象,如果父对象中的某个属性的值是引用类型,那么赋值过来的是内存地址,子对象的这个属性和父对象的这个属性,共享同一份数据,修改一个会影响另外一个
+
+</script>
+</body>
+</html>

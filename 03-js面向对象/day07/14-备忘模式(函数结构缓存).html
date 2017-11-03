@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    备忘模式：有时候调用一个函数传入一个参数，内部需要经过耗时的操作才能得到结果，下次传入相同的参数依旧要经过的操作，但是结果都是一样 的，这个时候就可以将结果缓存起来，下次如果还是这个参数，那么直接返回该值，不需要再执行耗时操作了
+    fn('123') -> 1s  "qwer"
+    fn('123') -> 1s  "qwer"
+
+    步骤：
+        1.提供一个缓存对象（cache），用于保存得出的结果
+        2.函数内判断缓存对象中是否有对应的数据，如果有则直接返回
+        3.如果没有则进行耗时操作，得出结果
+        4.将结果保存到缓存对象中
+        5.返回结果
+    存在的问题: 缓存对象是全局变量,在任何地方都能修改,修改之后,所有的缓存内容都没了
+
+<script>
+//    //  1.提供一个缓存对象（cache），用于保存得出的结果
+//    var cache = {};
+//
+//    function fn(str) {
+//        // 2.函数内判断缓存对象中是否有对应的数据，如果有则直接返回
+//        if (cache[str] != undefined) {
+//            console.log('有缓存数据，直接返回');
+//            return cache[str];
+//        }
+//
+//        // 3.如果没有则进行耗时操作，得出结果
+//        var newStr = str + '哈哈';
+//
+//        // 4.将结果保存到缓存对象中
+//        cache[str] = newStr;
+//
+//         // 5.返回结果
+//        console.log('没有数据，执行耗时操作');
+//        return newStr;
+//    }
+//
+//    console.log(fn('123'));
+//    console.log(fn('123'));
+//    console.log(fn('123'));
+//
+//    cache = 'demo';
+//    console.log(fn('123'));
+//    console.log(fn('123'));
+//    console.log(fn('123'));
+
+</script>
+
+    解决: 让缓存对象成为函数的静态睡醒
+<script>
+
+    function fn(str) {
+        //  1.提供一个缓存对象（cache）为函数的静态睡醒，用于保存得出的结果
+        fn.cache = fn.cache || {};
+        // 2.函数内判断缓存对象中是否有对应的数据，如果有则直接返回
+        if (fn.cache[str] != undefined) {
+            console.log('有缓存数据，直接返回');
+            return fn.cache[str];
+        }
+
+        // 3.如果没有则进行耗时操作，得出结果
+        var newStr = str + '哈哈';
+
+        // 4.将结果保存到缓存对象中
+        fn.cache[str] = newStr;
+
+        // 5.返回结果
+        console.log('没有数据，执行耗时操作');
+        return newStr;
+    }
+
+    console.log(fn('123'));
+    console.log(fn('123'));
+    console.log(fn('123'));
+
+    console.log(fn('123'));
+    console.log(fn('123'));
+    console.log(fn('123'));
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="padding: 100px">
+
+<canvas id="canvas" width="400" height="300" style="border: 1px solid #000"></canvas>
+
+<canvas id="canvas1" width="600" height="400" style="border: 1px solid #000"></canvas>
+
+
+<script>
+    // 1.获取标签和上下文
+    // 小画布
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    // 大画布
+    var canvas1 = document.getElementById("canvas1");
+    var ctx1 = canvas1.getContext("2d");
+
+    // 2.在小画布上绘制内容
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0,0,100,100);
+    ctx.fillRect(canvas.width - 100,canvas.height - 100,100,100);
+
+    // 3.将小画布整体绘制到大画布中
+    ctx1.drawImage(canvas,0,0);
+
+    // 4.在大画布中继续绘制内容
+    ctx1.beginPath();
+    ctx1.arc(canvas1.width*0.5,canvas1.height*0.5,100,0,2*Math.PI);
+    ctx1.fill();
+
+</script>
+</body>
+</html>

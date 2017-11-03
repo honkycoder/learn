@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img
+{
+    /*去掉图片之间的缝隙*/
+    vertical-align: top;
+}
+#main
+{
+    position: relative;
+}
+
+.box
+{
+    /*background: red;*/
+    float: left;
+    padding: 10px 0 0 10px;
+}
+.pic
+{
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ddd;
+    background: #ffffff;
+}
+.pic img
+{
+    width: 160px;
+}

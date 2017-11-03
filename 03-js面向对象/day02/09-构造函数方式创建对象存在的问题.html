@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+构造函数创建对象存在的问题: 使用构造函数创建多次对象,对于方法的函数来说会创建多次,会造成资源浪费的问题
+    this: 函数作为对象的方法调用,函数内部的this -> 这个对象
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.showName = function () {
+            console.log(this.name);
+        }
+    }
+
+    var p1 = new Person('zs', 19);
+    var p2 = new Person('ls', 23);
+    p1.showName(); // zs
+    p2.showName(); // ls
+
+    console.log(p1.showName == p2.showName); // false
+
+</script>
+
+如何解决资源浪费的问题: 保证无论创建多少次对象,方法的函数只会创建一次(函数放在外面)
+        存在的问题:
+                1.将函数放在外面,会造成全局变量污染
+                2.破坏了封装性
+                3.结构性不好
+<script>
+
+    function showName() {
+        console.log(this.name);
+    }
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.showName = showName;
+    }
+
+    var p1 = new Person('zs', 20);
+    var p2 = new Person('ls', 30);
+    p1.showName(); // zs
+    p2.showName(); // ls
+
+    console.log(p1.showName == p2.showName); // true
+
+</script>
+</body>
+</html>

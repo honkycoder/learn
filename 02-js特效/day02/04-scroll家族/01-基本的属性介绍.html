@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        #box
+        {
+            width: 200px;
+            height: 200px;
+            /*height: 2000px;*/
+            background: red;
+            padding: 20px;
+            border: 10px;
+            margin: 20px;
+
+        }
+        body
+        {
+            height: 3000px;
+        }
+        p{
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+    <p>我是MT</p>
+</div>
+<script>
+    //scroll家族
+    /**
+     *  1.scrollWidth
+     *  
+     *  
+     *  2.scrollHeight
+     *  
+     *  
+     *  3.scrollTop
+     *  
+     *  
+     *  4.scrollLeft
+     *
+     * 
+     * scrollTop在开发中重点去使用  scrollLeft基本不用
+     */
+    
+    
+    //1.找对象
+    //scrollWidth = 标签的宽度+padding 不包括边框也不包括margin
+    var box = document.getElementById('box');
+//    console.log(box.scrollWidth);
+//    console.log(box.scrollHeight);
+//
+    // 滚动内容偏头部和左边的距离
+    console.log(box.scrollLeft, box.scrollTop);
+
+
+
+    //通过一个事件来监测页面是否滚动了
+//    window.onload ={};
+
+//    window.onscroll = function () {
+//        console.log('页面开始滚动了````');
+//    }
+
+
+
+    //获取scrollTop
+//    window.onscroll = function () {
+//        //    console.log(box.scrollLeft);
+////    console.log(box.scrollTop);
+//
+//        console.log(document.body.scrollTop);
+//    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body
+        {
+            height: 3000px;
+            /*width: 3000px;*/
+        }
+        </style>
+</head>
+<body>
+<script>
+    window.onscroll = function () {
+        //1.document.body.scrollTop兼容谷歌  不兼容火狐  也是不兼容ie
+//        console.log(document.body.scrollTop);
+//        console.log(document.body.scrollLeft);
+
+
+
+        //2.兼容火狐 (在谷歌中不可以   在ie7,8,9支持)
+//        console.log(document.documentElement.scrollTop);
+
+        //3.最新浏览器 (兼容谷歌 也可以兼容火狐 在ie9支持  ie8不支持 ie7不支持)
+
+//        console.log(window.pageYOffset);
+
+
+        //既然不同的方法在不同浏览器不一样,那么就需要统一
+        var myScrollTop = window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop;
+
+        console.log(myScrollTop);
+    };
+</script>
+</body>
+</html>

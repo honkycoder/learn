@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div>第1个div</div>
+<div>第2个div</div>
+<div>第3个div</div>
+<div>第4个div</div>
+<div>第5个div</div>
+
+<script>
+    /*var divs = document.getElementsByTagName('div');
+    for (var i = 0; i < divs.length; i++) {
+        divs[i].onclick = function () {
+            console.log(i);
+        }
+    }*/
+
+    var divs = document.getElementsByTagName('div');
+    for (var i = 0; i < divs.length; i++) {
+
+        (function fn(j) {
+            divs[j].onclick = function () {
+                console.log(j);
+            }
+        })(i);
+
+
+    }
+</script>
+</body>
+</html>

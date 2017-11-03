@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+闭包:
+    闭: 关闭,封闭的意思,对外不开发
+    包: 包裹
+
+闭包技术:
+    1.内部作用域可以访问外部作用域,而反过来不行
+    2.但是有时我们想要访问内部作用域中的数据(外部作用域去访问内部作用域)
+    3.闭包技术就是可以间接的访问内部作用域私有数据的一种方式
+
+    外部作用域通过一定方式去访问内部作用域中的私有数据,并且这个数据最终是被函数包装起来的,这个就是闭包技术
+
+
+如何获取内部作用域中的私有数据?
+    1.return具体的数据
+    2.闭包: 对return的数据进行包装(函数)
+
+    注意: 在内存的管理原则中,如果函数1中返回了函数2,函数2中引用了函数1中的变量,那么这个变量不会被销毁,直到函数2被销毁
+
+
+
+#return值类型数据
+<script>
+    function fn() {
+        var a = 10;
+        return a;
+    }
+
+    var a1 = fn();
+    var a2 = fn();
+
+    // 多次调用函数,获取的数据不是同一份
+
+</script>
+
+#return引用类型数据
+<script>
+    function fn() {
+        var obj = {name: 'zs'};
+        return obj;
+    }
+
+    var obj1 = fn();
+    var obj2 = fn();
+
+    console.log(obj1 == obj2); // false
+    // 多次调用函数,获取的数据不是同一份
+</script>
+
+#闭包
+<script>
+    function fn() {
+        var obj = {name: 'zs'};
+        var func = function () {
+            return obj;
+        };
+        return func;
+    }
+
+    var func = fn();
+
+    var obj1 = func();
+    var obj2 = func();
+
+    console.log(obj1 == obj2); // true
+</script>
+
+#闭包的一般写法
+<script>
+    function fn() {
+        var obj = {name: 'zs'};
+        return function () {
+            var ob1 = obj;
+            return obj;
+        }
+    }
+
+    var func = fn();
+    var obj1 = func();
+    var obj2 = func();
+    console.log(obj1 == obj2); // true
+</script>
+
+#使用闭包返回多个值(一)
+<script>
+    function fn() {
+        var name = 'zs';
+        var age = 20;
+        return function () {
+            return [name,age];
+        }
+    }
+
+    var func = fn();
+
+    console.log(func()[0]);
+    console.log(func()[1]);
+
+</script>
+
+#使用闭包返回多个值(二)
+<script>
+    function fn() {
+        var name = 'ls';
+        var age = 30;
+        return [
+            function () {
+                return name;
+            },
+            function () {
+                return age;
+            }
+        ];
+    }
+
+    var arr = fn();
+    console.log(arr[0]());
+    console.log(arr[1]());
+
+</script>
+
+#闭包的一般写法
+<script>
+    function fn() {
+        var name = 'zs';
+        var age = 25;
+        return {
+            getName: function () {
+                return name;
+            },
+            getAge: function () {
+                return age;
+            }
+        };
+    }
+
+    var obj = fn();
+    console.log(obj.getName());
+    console.log(obj.getAge());
+
+</script>
+
+即时调用函数实现闭包
+<script>
+    var obj = (function fn() {
+        var name = 'zs';
+        var age = 25;
+        return {
+            getName: function () {
+                return name;
+            },
+            getAge: function () {
+                return age;
+            }
+        };
+    })()
+
+    console.log(obj.getName());
+    console.log(obj.getAge());
+
+</script>
+</body>
+</html>

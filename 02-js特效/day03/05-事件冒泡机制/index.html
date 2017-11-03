@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button, p,div{
+            border: 1px solid #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="yeye">
+    <p id="p1">
+        <button id="btn">按钮</button>
+    </p>
+</div>
+
+
+<script>
+    var btn = document.getElementById('btn');
+    var p1 = document.getElementById('p1');
+    var yeye = document.getElementById('yeye');
+    btn.onclick = function (event) {
+        var myEvent = event||window.event;
+
+        //早期版本
+//        if(myEvent&&myEvent.stopPropagation)
+//        {
+//
+//            //stopPropagation 兼容ie9+ 火狐 谷歌
+//            myEvent.stopPropagation();
+//        }
+//        else
+//        {
+        //cancelBubble 默认是false允许冒泡，如果需要阻止冒泡,那么设置为true
+//            myEvent.cancelBubble = true;
+//        }
+
+
+        //新版的谷歌、火狐以及ie的高版本也支持cancelBubble
+        //myEvent.cancelBubble = true;
+        alert('按钮被点击了');
+    };
+    p1.onclick = function () {
+        alert('老爸被点击了');
+    };
+    yeye.onclick = function () {
+       alert('爷爷被点击了');
+    };
+
+    document.body.onclick = function () {
+        alert('body被点击了');
+    }
+
+    document.onclick = function () {
+         alert('document被点击了');
+    }
+
+    window.onclick = function () {
+       alert('window被点击了');
+    };
+
+    //1.谷歌 火狐 标签->body->document->window
+
+
+    //2.ie9 标签->body->window
+      //  ie7 8  标签->body
+</script>
+</body>
+</html>

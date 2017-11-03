@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+一.如何访问原型对象的属性?
+    1.构造函数.prototype.属性
+    2.对象.属性
+
+二.对象属性的访问(读取)原则
+    当一个对象要获取一个属性的值的时候,现在自身查找有没有这个属性(实例属性),如果有返回对应的值;如果没有就去对象的原型对象上去查找这个属性(原型属性),如果有就返回对应的值,没有就返回undefined,或者报错
+
+三.如何去修改原型对象上的属性的值
+    1.给一个属性赋值,如果这个对象有这个属性就是修改,如果没有这个属性就是添加
+    2.修改原型对象上的属性的值,有2种方式:
+            1.构造函数.prototype.属性进行修改
+            2.如果是对象类型
+                1.对象.属性.属性进行修改
+                2.构造函数.prototype.属性.属性进行修改
+
+<script>
+    function Person() {
+
+    }
+
+    Person.prototype.des = '我是一个人';
+
+    var p = new Person();
+    console.log(p.des);
+    console.log(Person.prototype.des);
+
+//    p.a(); 方法会报错
+
+</script>
+
+<script>
+    function Person(des) {
+        this.des = des;
+    }
+
+    Person.prototype.des = '哈哈';
+    Person.prototype.logDes = '111';
+
+    var p = new Person('我是一个人');
+
+    // 修改对象的属性的值,不会影响原型对象上属性的值
+    // 给对象上的属性赋值的时候,先查看自身有没有,如果没有直接添加
+    p.logDes = 'logDes';
+
+    Person.prototype.des = '嘿嘿';
+
+    console.log(p.des); // 我是一个人
+    console.log(p.logDes); // logDes
+
+    console.log(Person.prototype.des); // 哈哈| (嘿嘿)
+    console.log(Person.prototype.logDes); // logDes | (111)
+
+</script>
+
+<script>
+    function Person() {
+
+    }
+
+    Person.prototype.dog = {
+        name: '旺财',
+        age : 5
+    };
+
+    var p = new Person();
+
+    // 1.找dog对象; 2: 给dog的属性赋值
+//    p.dog.name = '宝宝';
+
+    Person.prototype.dog.name = '宝宝';
+
+    console.log(Person.prototype.dog);
+
+
+</script>
+</body>
+</html>

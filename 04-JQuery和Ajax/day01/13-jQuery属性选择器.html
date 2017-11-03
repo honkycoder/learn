@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            $("button").eq(0).click(function () {
+                $("a[href]").css("background","red");
+            })
+
+            $("button").eq(1).click(function () {
+                $("a[href='www.baidu.com']").css("background","red");
+            })
+
+            $("button").eq(2).click(function () {
+                $("a[href!='www.baidu.com']").css("background","red");
+            })
+
+            $("button").eq(3).click(function () {
+                $("a[href^='www']").css("background","red");
+            })
+
+            $("button").eq(4).click(function () {
+                $("a[href$='cn']").css("background","red");
+            })
+
+            $("button").eq(5).click(function () {
+                $("a[href*='jd']").css("background","red");
+            })
+
+            $("button").eq(6).click(function () {
+                $("a[href*='520'][title]").css("background","red");
+            })
+        })
+    </script>
+</head>
+<body>
+<div>
+    <a href="www.baidu.com">www.baidu.com</a><br>
+    <a href="www.jd.com">www.jd.com</a><br>
+    <a href="www.520it.com">www.520it.com</a><br>
+    <a href="www.520it.cn">www.520it.cn</a><br>
+    <a href="jquery.com">jquery.com</a><br>
+    <a>www.baidu.com</a><br>
+    <a href="jquery.com" title="demo">拥有href+title</a><br>
+    <a href="520it" title="test">拥有href+title</a><br>
+</div>
+
+<button>获取拥有href属性的标签</button><br>
+<button>href属性的值为www.baidu.com</button><br>
+<button>href属性的值不为www.baidu.com</button><br>
+<button>href属性的值是否以www开头</button><br>
+<button>href属性的值是否以com结尾</button><br>
+<button>href属性的值中是否拥有520it这个字符串</button><br>
+<button>拥有href+title</button><br>
+
+<!--
+    01 是否拥有某个属性  $("a[属性]")
+    02 单个属性
+        (1) 属性值相等   $("a[属性='具体的值']")
+        (2) 属性值不相等 $("a[属性!='具体的值']")
+        (3) 特定的开头 $("a[属性^='值']")
+        (4) 特定的结尾 $("a[属性$='值']")
+        (5) 特定的子串 $("a[属性*='值']")
+    03 多个属性 $("a[属性1][属性2]")
+
+ -->
+</body>
+</html>

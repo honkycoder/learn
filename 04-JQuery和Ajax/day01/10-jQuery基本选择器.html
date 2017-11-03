@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .demo{
+            width: 100px;
+            height: 50px;
+            background: red;
+        }
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            //ID选择器：#id
+            $("button:eq(0)").click(function () {
+                $("#divID").addClass("demo");
+            })
+
+            //类选择器：.类名
+            $("button:eq(1)").click(function () {
+                //$(".class1").addClass("demo");
+                $(".class2").addClass("demo");
+            })
+
+            //标签选择器：标签名
+            $("button:eq(2)").click(function () {
+                //$(".class1").addClass("demo");
+                $("p").addClass("demo");
+            })
+
+            //并集选择器：
+            $("button:eq(3)").click(function () {
+
+                //获取页面中所有的div和p标签
+                //$("p,div").addClass("demo");
+                $("#divID,.class2").addClass("demo");
+            })
+
+        })
+    </script>
+</head>
+<body>
+<div id="divID">我是有id的div</div>
+<div class="class1">我是class为class1的div</div>
+<div class="class1">我是class为class1的div</div>
+<div class="class2">我是class为class2的div</div>
+<div class="class2">我是class为class2的div</div>
+<div class="class1 class2">我是class为class1的div</div>
+<p>我是段落</p>
+<div>没人要我</div>
+
+<button>id选择器</button>
+<button>class选择器</button>
+<button>标签选择器</button>
+<button>并集选择器</button>
+</body>
+</html>

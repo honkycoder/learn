@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: relative;
+        }
+
+        div button {
+            width: 50px;
+            height: 50px;
+            background: red;
+            /*position: absolute;*/
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">每行3列</button>
+<button id="btn2">每行4列</button>
+<div id="box">
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+</div>
+
+
+<script>
+    // 获取元素
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var box = document.getElementById('box');
+    var btns = box.getElementsByTagName('button');
+
+    //　绑定
+    btn1.onclick = function () {
+        changeLines(3);
+    }
+    btn2.onclick = function () {
+        changeLines(4);
+    }
+
+    function changeLines(lines) {
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].style.position = 'absolute';
+            // 计算当前第i个元素,应该放在第几行,第几列
+            var col = i % lines;
+            var row = parseInt(i / lines);
+            // 计算left和top值
+            var leftValue = col * (50 + 10);
+            var topValue = row * (50 + 10);
+            //
+            btns[i].style.left = leftValue + 'px';
+            btns[i].style.top = topValue + 'px';
+
+        }
+    }
+</script>
+</body>
+</html>

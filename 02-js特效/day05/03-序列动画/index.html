@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul
+        {
+            width: 600px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+        /*body*/
+        /*{*/
+            /*padding:80px;*/
+        /*}*/
+        ul li
+        {
+            width: 100px;
+            height: 100px;
+            background: url("images/pic.jpg");
+            float: left;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script src="js/MyFunc.js"></script>
+<script>
+    //1.找对象
+    var allLis = document.getElementsByTagName('li');
+
+    //2.遍历所有的li
+    for(var i=0;i<allLis.length;i++)
+    {
+        //3.给每一个li设置一个九宫格的标准坐标
+//        var row = parseInt(i/6);
+//        var cols = parseInt(i%6);
+
+        allLis[i].row = parseInt(i/6);
+        allLis[i].cols = parseInt(i%6);
+
+        //4.赋值
+//        allLis[i].innerHTML = '('+ allLis[i].row+','+allLis[i].cols+')';
+        allLis[i].style.backgroundPosition = allLis[i].cols*-100+'px '+allLis[i].row*-100+'px'
+    }
+
+    //5.序列动画
+
+    //调用函数
+//    a1();
+
+    var as ={
+        a0:function () {
+            //5.1.遍历所有的li
+            for(var i=0;i<allLis.length;i++)
+            {
+                //5.2.给每一个li设置一个初始的位置
+                allLis[i].style.left = -600 +'px';
+                allLis[i].style.top  = -300+'px';
+                allLis[i].style.opacity = 0;
+
+                //5.3开始做动画
+
+                //闭包 一个特殊的函数
+
+                //闭包的格式:(funciton(形参){})(实参)
+                (function (index) {
+                    setTimeout(function () {
+                        //执行缓动动画
+                        buffer(allLis[index],{'left':0,'top':0,'opacity':1});
+                    },index*100);
+                })(i);
+            }
+        },
+        a1:function () {
+            //5.1.遍历所有的li
+            for(var i=0;i<allLis.length;i++)
+            {
+                //5.2.给每一个li设置一个初始的位置
+//            allLis[i].style.left = -600 +'px';
+                allLis[i].style.top  = -600+'px';
+                allLis[i].style.opacity = 0;
+                //5.3开始做动画
+                //闭包 一个特殊的函数
+                //闭包的格式:(funciton(形参){})(实参)
+                (function (index) {
+                    setTimeout(function () {
+                        //执行缓动动画
+                        buffer(allLis[index],{'left':0,'top':0,'opacity':1});
+                    },index*100);
+                })(i);
+            }
+        },
+        a2:function () {
+            //5.1.遍历所有的li
+            for(var i=0;i<allLis.length;i++)
+            {
+                //5.2.给每一个li设置一个初始的位置
+//            allLis[i].style.left = -600 +'px';
+                allLis[i].style.top  = 600+'px';
+                allLis[i].style.opacity = 0;
+                //5.3开始做动画
+                //闭包 一个特殊的函数
+                //闭包的格式:(funciton(形参){})(实参)
+                (function (index) {
+                    setTimeout(function () {
+                        //执行缓动动画
+                        buffer(allLis[index],{'left':0,'top':0,'opacity':1});
+                    },index*100);
+                })(i);
+            }
+        }
+    }
+
+
+    //循环动画
+    var num =0;
+    setInterval(function () {
+        num++;
+        num%=3;
+        as['a'+num]();
+    },4000);
+
+
+</script>
+</body>
+</html>

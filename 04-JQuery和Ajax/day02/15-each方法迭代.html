@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            //01 遍历数组
+            var arrM = ["a","c","b"];
+//            function f(index,value) {
+//     每遍历一次arrM的时候,就会把当前的key和vlaue作为实参传递给第二个参数(回调函数)
+//            }
+            $.each(arrM, function (index,value) {
+                //每遍历一次arrM的时候,就会把当前的key和vlaue作为实参传递给第二个参数(回调函数)
+                console.log(index, value);
+                console.log(this);   //正常情况下this应该指向widnow,在这里this->value
+            });
+
+            console.log("________________");
+            //02 遍历对象
+            var obj = {"name":"wc",age:23}
+            $.each(obj,function (key,value) {
+                console.log(key, value);
+            })
+
+            console.log("___________");
+            //03 遍历jQuery实例对象(节点)
+            //console.log($("div"));
+
+            //使用方式1
+            $.each($("div"),function (index,ele) {
+                //console.log(index, ele);
+                //console.log($(ele).text());
+            })
+
+
+            //使用方式2
+            //$("div").each(function (index,ele) {
+                //console.log($(ele).text());
+                //console.log(this);
+            //})
+            $("div").each(function () {
+                console.log($(this).text());
+            })
+
+
+            //演示中断循环
+            var arrT = ["a","c","b","demo1","dmeo2","test1"];
+            $.each(arrT,function () {
+                //如果满足终止循环的条件那么就返回false,通过返回false来告诉这个方法终止循环
+                //if(this == "demo1") return false;
+                console.log(this);
+            })
+        })
+    </script>
+</head>
+<body>
+<!--
+    each方法:
+        使用方式1:$.each(对象,function(){//........})
+        使用方式2:$(selector).each(function(){//.....})
+    作用:
+        (1) 迭代(遍历) 数组|对象|jQuery对象
+        (2) this 的指向 在回调中this指向的是value
+            ① 函数普通调用  this - >window
+            ② 对象的方法    this - >对象
+            ③ 构造函数      this -> 内部新创建的对象
+            ④ apply|call    this -> 绑定给它的第一个参数
+        (3) 中断遍历
+-->
+<div>我是第1个div</div>
+<div>我是第2个div</div>
+<div>我是第3个div</div>
+<div>我是第4个div</div>
+<div>我是第5个div</div>
+<div>我是第6个div</div>
+<div>我是第7个div</div>
+<div>我是第8个div</div>
+<div>我是第9个div</div>
+<div>我是第10个div</div>
+
+</body>
+</html>

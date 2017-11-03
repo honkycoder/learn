@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+   // 函数是一个特殊的数据类型,是一个对象
+  // 函数的第二种定义方式
+   // 没有函数名的函数,匿名函数
+  /* function () {
+
+   }*/
+
+   // func 相当于是后面匿名函数的函数名
+    var func = function () {
+
+   }
+
+   function fucName() {
+       console.log('-------');
+   }
+    // 函数调用
+    func();
+    fucName(2);// console.log(2);
+
+    // 函数和语句的区别
+    // 语句:写在哪里就在哪里执行
+    // 函数定义在哪里不一定在哪里执行,在调用的时候执行
+
+    // 函数执行的时候,实际是执行函数体里面的代码,
+
+    // 函数的调用:函数名();
+   console.log(fucName);
+    fucName();
+
+
+//    fucName2();
+
+
+//   function (a) {
+//       console.log(a);
+//   }(12);
+
+   // 函数的第二种调用方式,作为了解,闭包
+   ( function (a) {
+       console.log(a);
+   })(12);
+
+
+</script>
+
+</body>
+</html>

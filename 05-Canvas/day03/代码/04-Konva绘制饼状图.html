@@ -1,0 +1,64 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Title</title>
+ </head>
+ <body>
+ <!--存放舞台的容器-->
+ <div id='containerId'></div>
+ <script src='js/konva.js'></script>
+ <script src='js/PieChart.js'></script>
+
+ <script>
+     // 1.创建舞台
+     var stage = new Konva.Stage({
+         width: window.innerWidth,
+         height: window.innerHeight,
+         container: 'containerId'
+     });
+
+     // 2.创建层
+     var layer = new Konva.Layer();
+     stage.add(layer);
+
+     // 3.数据
+     var dataArray = [
+         {name:'上海',color:'red',value:0.2},
+         {name:'北京',color:'blue',value:0.25},
+         {name:'广州',color:'green',value:0.15},
+         {name:'杭州',color:'pink',value:0.3},
+         {name:'苏州',color:'purple',value:0.1}
+     ];
+
+     // 4.常量
+     // 圆心的坐标
+     var circleX = stage.width()*0.5,circleY = stage.height()*0.5;
+     // 半径
+     var outer_circle_r = 180,inner_circle_r = 150;
+
+     // 5.实例化对象
+     var pie = new PieChart({
+         x : circleX,
+         y : circleY,
+         innerRadius :inner_circle_r,
+         outerRadius : outer_circle_r,
+         outerColor : '#ccc',
+         outerWidth : 5,
+         dataArray : dataArray
+     });
+     pie.render(layer);
+
+     // 6.绘制层
+     layer.draw();
+
+     // 7.绑定事件
+     // contentClick:点击了舞台
+     stage.on('contentClick',function () {
+        pie.update();
+     })
+
+
+ </script>
+ </body>
+ </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas{
+            border: 1px solid #000;
+            /*不要通过css去修改画布的宽高*/
+            /*width: 900px;*/
+            /*height: 600px;*/
+        }
+    </style>
+</head>
+<body>
+<canvas  id='canvas' width='900' height='600'>
+    你的浏览器不支持canvas，请升级浏览器.浏览器不支持，显示此行文本
+</canvas>
+
+<script>
+     // 1.获取 canvas 标签
+    var canvas = document.getElementById('canvas');
+    // 2.获取上下文
+    var ctx = canvas.getContext('2d');
+//     ctx.beginPath();
+    //  3.设置起点
+    ctx.moveTo(100,100);
+    // 4.设置终点
+     ctx.lineTo(300,100);
+    // 5.绘制
+     //  设置线条的颜色
+     ctx.strokeStyle = 'red';
+     // 设置线条的宽度
+     ctx.lineWidth = 10;
+//     ctx.closePath();
+     ctx.stroke();
+
+     //   开启路径
+     // 作用：会开启一条新的路径
+     //  默认情况下会沿用之前的路径
+     // 开启新的路径以后会和之前的路径隔离开，方便对当前的路径进行一些设置
+     ctx.beginPath();
+     ctx.moveTo(200,10);
+     ctx.lineTo(200,210);
+     ctx.lineTo(300,250);
+     ctx.strokeStyle = 'blue';
+     //  关闭路径: 默认会把路径头和路径尾连接起来形成一个封闭的空间
+//     ctx.closePath();
+     ctx.stroke();
+</script>
+</body>
+</html>

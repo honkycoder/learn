@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+原型式继承
+
+A
+<script>
+    function A() {
+
+    }
+
+    A.prototype.des = 'des';
+
+    // 如果使用构造函数创建对象,如果不传参,小括号可以省略
+    var a = new A;
+
+    console.log(a.des); // des
+
+    // 结论: 使用构造函数创建出来的对象,默认可以访问构造函数原型对象上的属性和方法
+</script>
+
+B
+<script>
+    function A() {
+
+    }
+
+    A.prototype = {
+        des: 'des',
+        constructor: A
+    };
+
+    var a = new A();
+    console.log(a.constructor);
+
+    // 结论: 替换原型对象后,通过构造函数创建出来的对象,访问constructor属性的值是新原型对象constructor的值,需要进行修正
+
+</script>
+
+原型式继承: 子构造函数的原型对象等于父构造函数的原型对象
+    步骤:
+        1.提供子构造函数和父构造函数
+        2.设置子构造函数的原型对象等于父构造函数的原型对象
+        3.修正构造器属性
+
+    存在的问题:
+        1.使用子构造函数创建对象,无法创建父构造函数中的属性和方法
+        2.使用子构造函数创建出来的对象,使用这个对象去访问constructor的值是父构造函数
+        3.子构造函数的原型对象和父构造的原型对象是同一个,共享同一份数据,修改其中一个会影响另外一个
+<script>
+    function A() {
+        this.name = '默认';
+    }
+
+    A.prototype.des = 'des';
+
+    function B() {
+
+    }
+
+    // 实现原型式继承
+    B.prototype = A.prototype;
+
+    // 修正构造属性
+    B.prototype.constructor = B;
+
+    var b = new B();
+
+    console.log(b.name); // 默认 | (undefined)
+    console.log(b.des); // des
+
+    console.log(b.constructor);
+
+    var a = new A();
+    console.log(a.constructor);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第一个网页</title>
+</head>
+<body>
+<script>
+    /**
+     *
+     * 内置对象
+     *
+     * 1.document(文档对象)
+     *
+     *
+     * 2.window
+     * //2.1.所有的全局变量都是window的属性
+     *
+     * //2.2.所有的全局函数都是window的方法
+     *
+     *
+     * //2.3.window.location.href 动态跳转
+     *
+     *
+     *
+     * */
+
+    //1.获取body身体部分
+//    console.log(document.body);
+
+    //2.获取头部
+//    console.log(document.head);
+
+    //3.获取title
+//    console.log(document.title);
+//
+//    //document.tile方法既可以获取还是可以设置
+//    document.title = '我是打酱油的哈';
+//
+//    console.log(document.title);
+
+    //获取整个HTML网页
+    //错误的写法,压根不存在
+//    console.log(document.html);
+//    console.log(document.documentElement);
+
+//    window.document
+
+
+
+
+    //2.window
+
+            //全局变量
+//    var a = 10;
+////    console.log(a);
+//
+//    console.log('---',window.a);
+
+
+//    function test()
+//    {
+//        //局部变量
+//        var a1 = 20;
+//        console.log(a1);
+//        console.log('222222');
+//    }
+//
+//    window.test();
+//    console.log(window.a1);
+
+    //动态跳转(加上地址的全拼)
+    var a = 5;
+    setInterval(function () {
+        a--;
+        console.log(a);
+        if(a==0)
+        {
+            window.location.href = 'http://www.jd.com';
+        }
+    },800);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 360px;
+            height: 360px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            padding-top: 288px;
+            box-sizing: border-box;
+
+        }
+
+        div ul {
+            width: 360px;
+            height: 70px;
+
+        }
+
+        div ul li {
+            float: left;
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+        #box{
+          background:  url("img/computer/1big.jpg") no-repeat;
+        }
+    </style>
+</head>
+<body>
+<!--div>ul>li*5>img[src='img/computer/$.jpg']-->
+<div id="box">
+    <ul>
+        <li><img id="img1" src="img/computer/1.jpg" alt=""></li>
+        <li><img id="img2" src="img/computer/2.jpg" alt=""></li>
+        <li><img id="img3" src="img/computer/3.jpg" alt=""></li>
+        <li><img id="img4" src="img/computer/4.jpg" alt=""></li>
+        <li><img id="img5" src="img/computer/5.jpg" alt=""></li>
+    </ul>
+</div>
+
+<script>
+    function $(elID) {
+        return document.getElementById(elID);
+    }
+    var img1 = $('img1');
+    var img2 = $('img2');
+    var img3 = $('img3');
+    var img4 = $('img4');
+    var img5 = $('img5');
+
+    var box = $('box');
+
+    // 2.绑定事件
+    function choosePic(el, url) {
+        el.onmouseover = function () {
+            box.style.background = url;
+        }
+    }
+    choosePic(img1, ' url("img/computer/1big.jpg") no-repeat');
+    choosePic(img2, ' url("img/computer/2big.jpg") no-repeat');
+    choosePic(img3, ' url("img/computer/3big.jpg") no-repeat');
+    choosePic(img4, ' url("img/computer/4big.jpg") no-repeat');
+    choosePic(img5, ' url("img/computer/5big.jpg") no-repeat');
+</script>
+</body>
+</html>

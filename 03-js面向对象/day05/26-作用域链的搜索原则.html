@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+作用域链的搜索原则:
+    1.当访问变量的值的时候,先在当前的作用域中查找,如果有则返回对应的值
+    2.如果没有则到上一级作用域链中进行查找,如果有则返回对应的值
+    3.如果没有,则继续上面的步骤,直到0级作用域链,如果有则返回对应的值
+    4.如果没有,则报错
+
+注意点: 内部作用域链中的变量不会覆盖外部作用域链中的变量
+<script>
+    var a = 10;
+    function foo() {
+        var a;
+        a = 20;
+        console.log(a); // 20
+    }
+    foo();
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>texe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //1.创建函数
+    function Dog(name,age) {
+        //属性
+        this.name = name;
+        this.age = age;
+        //方法
+        this.eat = function (someThing) {
+            console.log(this.name + '吃' + someThing);
+        };
+        this.run = function (someWhere) {
+            console.log(this.name + '跑' + someWhere)
+        };
+    }
+    var aaa=new Dog('美人',16);
+    aaa.eat('饭');
+    aaa.run('起来了');
+
+<!--//    console.log(aaa);</script>-->
+</body>
+</html>

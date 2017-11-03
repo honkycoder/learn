@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .box{
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid #cccccc;
+        }
+
+        .box ul li{
+            width: 142px;
+            height: 142px;
+            float: left;
+            border: 1px solid #000000;
+            margin: 10px;
+        }
+
+        .cur{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<button>开始抽奖</button>
+<div class="box">
+    <ul>
+        <li><img src=""></li>
+        <li><img src=""></li>
+        <li><img src=""></li>
+        <li><img src=""></li>
+        <li><img src=""></li>
+        <li><img src=""></li>
+        <li><img src=""></li>
+        <li><img src=""></li>
+        <li><img src=""></li>
+    </ul>
+</div>
+
+<script>
+    $(function () {
+
+        var goods = {
+            '0':'耳机',
+            '1':'平板电脑',
+            '2':'感谢参与',
+            '3':'平板鞋',
+            '4':'平板鞋',
+            '5':'玩偶',
+            '6':'ipone手机',
+            '7':'noker手机',
+            '8':'感谢参与'
+        };
+
+        $("li:first").addClass("cur");
+
+        //01 先把图片加载进来
+        $("li").each(function (index,dom) {
+            //index :0-1-2-3..
+            //dom--当前的li标签 - this
+            if(index == 8) index = 2;
+
+            var imgPath = "image/" + (index +1) + ".png";
+            $(this).children("img").attr("src",imgPath);
+        })
+
+        //02 监听按钮的点击事件
+        $("button").click(function () {
+            //(1) 生成随机数,指定奖品的索引
+            var count = Math.floor(Math.random() * 9) + 9;
+            console.log(count);
+
+            //初始索引的值为0
+            var index = 0;
+            //(2) 开启定时器
+            var timer =  setInterval(function () {
+               count --;
+               if(count == 0)
+               {
+                   //停止定时器
+                   clearInterval(timer);
+                   alert(goods[index]);
+                   return;   //后面的代码不再执行
+               }
+               index ++;
+               if(index == 9) index = 0;
+               $("li").eq(index).addClass("cur").siblings().removeClass("cur");
+
+           },200)
+        });
+    })
+</script>
+</body>
+</html>

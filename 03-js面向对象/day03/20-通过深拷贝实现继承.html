@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+使用深拷贝实现继承(完美拷贝):
+    1.获取父构造函数的实例成员 -> 借用构造函数继承方式
+    2.获取父构造函数的原型对象属性和方法 -> 深拷贝
+
+<script>
+
+    // 处理兼容性问题:
+        // 1.Array.isArray是否是一个函数
+        // 2.如果不是动态给Array添加一个isArray方法
+    if (typeof Array.isArray != 'function') {
+        Array.isArray = function (obj) {
+            return Object.prototype.toString.call(obj) == '[object Array]';
+        }
+    }
+
+    //    var arr1 = [4,5,6];
+    //    console.log(Array.isArray(arr1));
+
+    // 1.提供一函数,这个函数有2个参数,第一个参数为需要拷贝的对象,第二个参数为被拷贝的对象
+    function deepCopy(obj, copyObj) {
+        //  2.校验处理,判断这2个参数是否是对象,如果有一个不是,就直接返回false
+        if (typeof obj != 'object' || typeof copyObj != 'object') {
+            return false;
+        }
+
+        // 3.遍历被拷贝的对象中所有的属性
+        for (var k in copyObj) {
+
+            // 4.判断是否是实例属性,这里只拷贝实例属性,不拷贝原型属性
+            if (copyObj.hasOwnProperty(k)) {
+
+                // 5.取出这个属性对应的值并判断类型
+                if (typeof copyObj[k] == 'object') {
+                    // 如果是引用类型,给需要拷贝的对象动态添加这个属性,判断这个值是否是数组,如果是数组就赋值一个空数组,如果不是就赋值一个空对象
+                    obj[k] = Array.isArray(copyObj[k]) ? [] : {};
+
+                    // 然后再调用这个方法拷贝引用类型里面的内容
+                    deepCopy(obj[k], copyObj[k])
+
+                } else { // 值类型数据
+                    // 如果是值类型,给需要拷贝的对象动态添加这个属性,并赋值
+                    obj[k] = copyObj[k];
+//                    obj['name'] = copyObj['name']
+//                    obj['age'] = copyObj['age']
+                }
+            }
+        }
+    }
+
+    function Person(name) {
+        this.name = name;
+    }
+
+    Person.prototype.des = 'des';
+
+    function Student(num, name) {
+        this.num = num;
+
+        // 借用构造函数继承 | 经典继承 | 伪对象继承
+        Person.call(this, name);
+    }
+
+    // 采用深拷贝获取父构造函数的原型成员
+    deepCopy(Student.prototype, Person.prototype);
+
+    var stu = new Student(110,'zs');
+    console.log(stu);
+
+    console.log(stu.des);
+//    Student.prototype.des = 'des-stu';
+//
+//    var p = new Person('ls');
+//    console.log(p.des); // des
+    console.log(stu.constructor);
+
+    for (var k in Person.prototype) {
+        console.log(k);
+    }
+    console.log(Person.prototype);
+</script>
+</body>
+</html>

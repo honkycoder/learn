@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 3000px;
+        }
+
+        #panel {
+            width: 100%;
+            height: 3000px;
+            /*background: red;*/
+            background: pink;
+            /*opacity是兼容火狐和谷歌以及ie9+  取值是(0-1)*/
+            opacity: 0.3;
+
+            /*在ie7 8使用*/
+            /*filter取值是(0-100)*/
+            filter: alpha(opacity:30);
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            /*初始的时候隐藏*/
+            display: none;
+        }
+
+        #login {
+            width: 400px;
+            height: 400px;
+            background: deepskyblue;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-top: -200px;
+            margin-left: -200px;
+
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn">登录</button>
+<div id="panel">
+
+</div>
+<div id="login">
+
+</div>
+<script>
+    //1.找对象
+    var btn = document.getElementById('btn');
+    var panel = document.getElementById('panel');
+    var login = document.getElementById('login');
+
+    //2.监听鼠标在btn的点击
+    btn.onclick = function () {
+        //3.让panel和login显示出来
+        panel.style.display = 'block';
+        login.style.display = 'block';
+
+        //去掉滚动条
+        //裁减掉滚动条
+        document.body.style.overflow = 'hidden';
+    };
+
+    //4.给document添加点击
+
+    //排除login自己
+    //4.1.让panel关掉
+
+    //4.2.让login关掉
+
+    document.onmousedown = function (event) {
+        var myEvent = event||window.event;
+        var target = myEvent.target?myEvent.target:myEvent.srcElement;
+        //判断是否是点击了login
+        if(target.id!='login')
+        {
+            panel.style.display = 'none';
+            login.style.display = 'none';
+
+            //打开滚动条
+            document.body.style.overflow = 'auto';
+        }
+    }
+</script>
+</body>
+</html>

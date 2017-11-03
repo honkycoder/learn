@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            list-style: none;
+        }
+
+        .box{
+            width: 320px;
+            height: 480px;
+            margin: 50px auto;
+            border: 1px solid #cccccc;
+        }
+
+        h1{
+            font-size: 18px;
+            color: #F23D7C;
+            line-height: 50px;
+            margin-left: 10px;
+        }
+
+        li{
+            border-top: 1px dashed #cccccc;
+            line-height: 30px;
+            font-size: 12px;
+            /*overflow: hidden;*/
+        }
+
+        li span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #cccccc;
+            text-align: center;
+            margin: 5px;
+            line-height: 20px;
+        }
+
+        li:nth-child(-n+3) span
+        {
+            background: #F23D7C;
+        }
+        .content img{
+            width: 80px;
+            height: 110px;
+            float: left;
+            margin: 5px;
+        }
+
+        .content p{
+            width: 210px;
+            line-height: 18px;
+            float: left;
+        }
+
+        .content{
+            display: none;
+            overflow: hidden;
+        }
+        .cur .content{
+            display: block;
+            /*height:150px ;*/
+        }
+
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            //hover方法的参数:
+            //如果传递两个参数:第一个参数为鼠标移入的回调函数第二个参数为鼠标移除事件的回调函数
+            //
+//            $("li").hover(function () {
+//                //console.log("鼠标移入");
+//                //首先要拿到当前的标签  this - 当前标签(DOM标签)
+//                $(this).addClass("cur").siblings().removeClass("cur");
+//            },function () {
+//                //console.log("鼠标移除");
+//                $(this).addClass("cur").siblings().removeClass("cur");
+//            })
+            $("li").hover(function () {
+                $(this).addClass("cur").siblings().removeClass("cur");
+                //console.log("鼠标移入|移除");
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div class="box">
+    <h1>电影排行榜</h1>
+    <div>
+        <ul>
+            <li class="cur"><span>1</span>间谍同盟
+                <div class="content">
+                    <img src="filmimage/01.jpg">
+                    <p>《间谍同盟》是由美国派拉蒙影业公司出品的动作爱情片，由罗伯特·泽米吉斯执导，布拉德·皮特、玛丽昂·歌迪亚领衔主演。《间谍同盟》以二战为故事背景，讲述了英国特工麦克斯与法国</p>
+                </div>
+            </li>
+            <li><span>2</span>神奇动物在哪里
+                <div class="content">
+                    <img src="filmimage/02.jpg">
+                    <p>《神奇动物在哪里》是由美国华纳兄弟影片公司、英国盛日影业公司联合出品的奇幻冒险电影，由英国导演大卫·叶茨执导，埃迪·雷德梅恩、凯瑟琳·沃特斯顿、艾莉森·苏朵儿、丹·福格勒、柯林·法瑞…</p>
+                </div>
+            </li>
+            <li><span>1</span>血战钢锯岭
+                <div class="content">
+                    <img src="filmimage/03.jpg">
+                    <p>《血战钢锯岭》是熙颐影业出品的一部战争历史片，由梅尔·吉布森执导，安德鲁·加菲尔德、卢克·布雷西、萨姆·沃辛顿、文斯·沃恩、泰莉莎·帕尔墨和雨果·维文主演。影片改编自二战上等兵军医戴…</p>
+                </div>
+            </li>
+            <li><span>4</span>微微一笑很倾城
+                <div class="content">
+                    <img src="filmimage/04.jpg">
+                    <p>《间谍同盟》是由美国派拉蒙影业公司出品的动作爱情片，由罗伯特·泽米吉斯执导，布拉德·皮特、玛丽昂·歌迪亚领衔主演。《间谍同盟》以二战为故事背景，讲述了英国特工麦克斯与法国</p>
+                </div>
+            </li>
+            <li><span>5</span>微微一笑很倾城
+                <div class="content">
+                    <img src="filmimage/05.jpg">
+                    <p>《间谍同盟》是由美国派拉蒙影业公司出品的动作爱情片，由罗伯特·泽米吉斯执导，布拉德·皮特、玛丽昂·歌迪亚领衔主演。《间谍同盟》以二战为故事背景，讲述了英国特工麦克斯与法国</p>
+                </div>
+            </li>
+            <li><span>6</span>微微一笑很倾城
+                <div class="content">
+                    <img src="filmimage/06.jpg">
+                    <p>《间谍同盟》是由美国派拉蒙影业公司出品的动作爱情片，由罗伯特·泽米吉斯执导，布拉德·皮特、玛丽昂·歌迪亚领衔主演。《间谍同盟》以二战为故事背景，讲述了英国特工麦克斯与法国</p>
+                </div>
+            </li>
+            <li><span>7</span>微微一笑很倾城
+                <div class="content">
+                    <img src="filmimage/01.jpg">
+                    <p>《间谍同盟》是由美国派拉蒙影业公司出品的动作爱情片，由罗伯特·泽米吉斯执导，布拉德·皮特、玛丽昂·歌迪亚领衔主演。《间谍同盟》以二战为故事背景，讲述了英国特工麦克斯与法国</p>
+                </div>
+            </li>
+            <li><span>8</span>微微一笑很倾城
+                <div class="content">
+                    <img src="filmimage/07.jpg">
+                    <p>《间谍同盟》是由美国派拉蒙影业公司出品的动作爱情片，由罗伯特·泽米吉斯执导，布拉德·皮特、玛丽昂·歌迪亚领衔主演。《间谍同盟》以二战为故事背景，讲述了英国特工麦克斯与法国</p>
+                </div>
+            </li>
+            <li><span>9</span>微微一笑很倾城
+                <div class="content">
+                    <img src="filmimage/08.jpg">
+                    <p>《间谍同盟》是由美国派拉蒙影业公司出品的动作爱情片，由罗伯特·泽米吉斯执导，布拉德·皮特、玛丽昂·歌迪亚领衔主演。《间谍同盟》以二战为故事背景，讲述了英国特工麦克斯与法国</p>
+                </div>
+            </li>
+            <li><span>10</span>微微一笑很倾城
+                <div class="content">
+                    <img src="filmimage/01.jpg">
+                    <p>《间谍同盟》是由美国派拉蒙影业公司出品的动作爱情片，由罗伯特·泽米吉斯执导，布拉德·皮特、玛丽昂·歌迪亚领衔主演。《间谍同盟》以二战为故事背景，讲述了英国特工麦克斯与法国</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

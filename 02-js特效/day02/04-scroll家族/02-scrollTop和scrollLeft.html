@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body
+        {
+            height: 3000px;
+            /*width: 3000px;*/
+        }
+    </style>
+</head>
+<body>
+<script>
+    /**
+     * 在网页中scrollTop和scrollLeft
+     *
+     *
+     * //在实际企业开发中,尽量不要出现横向滚东条,因为体验极差,所以scrollLeft也很少使用
+     *
+     * 重点掌握的scrollTop
+     * */
+
+
+    window.onscroll = function () {
+        //1.document.body.scrollTop兼容谷歌  不兼容火狐  也是不兼容ie
+//        console.log(document.body.scrollTop);
+//        console.log(document.body.scrollLeft);
+
+
+
+        //2.兼容火狐 (在谷歌中不可以   在ie7,8,9支持)
+//        console.log(document.documentElement.scrollTop);
+
+        //3.兼容谷歌 也可以兼容火狐 在ie9支持  ie8不支持 ie7不支持
+
+//        console.log(window.pageYOffset);
+
+
+
+
+    }
+
+</script>
+</body>
+</html>

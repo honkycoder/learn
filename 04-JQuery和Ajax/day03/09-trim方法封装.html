@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script>
+    var str  = "  abc ";
+    var str2  = " abc";
+    var str3  = "abc ";
+    var str4  = " abc ";
+    var str5  = " abc b";
+    console.log(str);
+
+    //trim方法的作用:清除某个指定字符串前面和后面的空格
+    //兼容性问题:ES5中推出,如果当前的环境不支持ES5那么需要自己实现
+    console.log(str.trim());
+
+    //replace
+    //第一个参数:匹配的字符
+    //第二个参数:要替换的内容
+    //注意点:只会完成一次替换
+    //console.log(str.replace(" ", ""));
+
+    function f(str) {
+        //第一个参数:使用正则表达式匹配字符串前面和后面的空格
+        /*
+        * \s 表示匹配空格
+        * \s+ 表示匹配多个空格
+        * ^   字符串开头
+        * $   字符串结尾
+        * g   连续的处理
+        * */
+        return str.replace(/^\s+|\s+$/g,"")
+    }
+
+    console.log("_____________");
+    console.log(f(str5));
+
+
+</script>
+</body>
+</html>

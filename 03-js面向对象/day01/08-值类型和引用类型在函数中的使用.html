@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+实参: 实际的参数,调用函数传入的参数
+形参: 占位用的,函数调用前没有值
+函数调用: 默认情况下把实参的值赋值给形参
+
+值类型作为函数的参数(值传递):
+    两者是独立的,互相不影响
+引用类型作为函数的参数(地址传递):
+    共享同一份数据,互相有影响
+
+<script>
+    var num = 10;
+    function f1(n) {
+//        var n = num;
+        n = 20;
+    }
+    f1(num);
+    console.log(num); // 10
+
+//    var obj = {
+//        name: 'zs'
+//    };
+
+//    function f2(obj1) {
+////        var obj1 = obj;
+//        obj1.name = 'ls';
+//    }
+//    f2(obj);
+//    console.log(obj.name); // zs | (ls)
+
+    var obj = {
+        name: 'zs'
+    };
+
+    function f2(obj1) {
+//        var obj1 = obj;
+        obj1.name = 'ls';
+        obj1 = {age: 20};
+        console.log(obj1.name); // ls | zs | (undefined)
+    }
+    f2(obj);
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+借用构造函数继承的基本写法
+        1.解决了原型链继承无法给父构造函数传参的问题
+        2.无法使用父构造函数的原型对象中的属性和方法
+<script>
+    function Person(name) {
+        this.name = name;
+    }
+
+    Person.prototype.des = 'des';
+
+    function Student(num, name) {
+        this.num = num;
+
+        // 借用构造函数继承 | 经典继承 | 伪对象继承
+        Person.call(this,name);
+    }
+
+    var stu = new Student(110,'zs');
+    var stu2 = new Student(120,'ls');
+    console.log(stu);
+    console.log(stu2);
+
+    console.log(stu.des); // des | (undefined)
+
+
+</script>
+</body>
+</html>

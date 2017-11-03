@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+自定义构造函数创建对象
+一.步骤
+    1.提供一个构造函数
+    2.通过this设置属性和方法
+    3.使用new 构造函数创建对象
+
+二.自定义构造函数的说明:
+    1.构造函数首字母大写(程序员之间的约定)
+    2.使用new 构造函数创建对象
+
+三.自定义构造函数的内部实现
+    1.使用new 构造函数,内部默认情况下会创建一个新的对象
+    2.将这个对象赋值给this
+    3.默认返回这个创建好的对象
+
+<script>
+    // 1.提供一个构造函数
+    function Person(name,age) {
+        // 创建一个新的对象
+//        var obj = new Object();
+        // 将这个创建好的对象赋值给this
+//        this = obj;
+
+        // 2.通过this设置属性和方法
+        this.name = name;
+        this.age = age;
+
+        // 默认返回这个创建好的对象
+//        return this
+    }
+
+    // 3.使用new 构造函数创建对象
+    var p = new Person('zs', 20);
+    console.log(p);
+
+</script>
+
+四.自定义构造函数和工厂函数创建对象的区别
+    1.构造函数首字符大写(程序员之间的约定)
+    2.构造函数内部默认会创建一个对象,并将这个对象赋值给this,最后返回这个创建好的对象
+    3.构造函数使用new 构造函数来创建对象
+    4.工厂函数需要手动的创建对象,需要手动返回对象
+
+五.构造函数的返回值
+    1.如果构造函数内部没有显示的返回值,默认会返回内部创建好的对象
+    2.如果构造函数内部有显示的返回值,看情况
+        1.如果返回值类型是值类型: 直接忽略
+        2.如果返回值类型是引用类型: 会覆盖创建的对象,返回该引用类型
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+//        return 'demo';
+//        return null;
+        return {};
+    }
+
+
+    var p = new Person('ls', 20);
+    console.log(p);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"><div>第一个</div>
+    <!--注释--><div id="box2">
+        <button></button>
+    </div><div>最后一个</div></div>
+
+<script>
+   //node
+    // 1. 获取元素
+    var box = document.getElementById('box');
+    // 2.获取第一个子节点
+   console.log(box.firstChild);
+   // 3.获取最后一个子节点
+   console.log(box.lastChild);
+
+//    box.onclick = fucnNmae;
+//   console.log(box.onclick);
+//
+//   function fucnNmae() {
+//
+//    }
+//
+//    setInterval(fucnNmae,100)
+
+</script>
+</body>
+</html>

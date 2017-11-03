@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 20px;
+            background: red;
+        }
+
+        .box2{
+            width: 200px;
+            height: 20px;
+            background: dodgerblue;
+        }
+    </style>
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.3.8.js"></script>
+</head>
+<body>
+<div class="box1">我是div1</div>
+<div class="box2">我是div2</div>
+<script>
+    //01 没有参数 报错
+    //02 传递字符串(属性):获取所有标签中第一个标签中该样式属性对应的值
+    //03 传递对象:遍历所有的标签把对象中所有的键值对都设置为样式
+    //04 传递两个参数
+        console.log($("div").css("width"));
+    //        $(".box1").css({
+    //            width:300,
+    //            height:50
+    //        });
+
+//    $("div").css("width",500);
+
+</script>
+</body>
+</html>

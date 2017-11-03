@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1.字符串:就是表示一些文本
+    // 格式:''单引号,双引号"",之间的所有的内容就是字符串
+    '窗前明月光';
+    "疑是地上霜";
+    var str = '举头望明月,低头思故乡!';
+    console.log(str);
+    // 你真是一个"好人"
+    //    var str2 = "你真是一个"好人"";
+    var str2 = '你真是一个"好人"';
+    // 2.转义字符 \
+    var str3 = "你真是一个\"好人\"";
+    console.log(str2);
+    console.log(str3);
+
+    //如果想打印单引号?
+    var str4 = 'I\'m liLei';
+    var str5 = "I'm liLei";
+
+    // 3.字符串拼接,神奇的+
+    // 字符串运算中,+代表拼接的意思
+    var str6 = '张三';
+    var str7 = '成绩非常优秀';
+
+    var str8 = str6+str7;  //张三成绩非常优秀
+    console.log(str8);
+
+    // +神奇2: 如果+前后有字符串,那么+会把其他的数据转换位字符串
+    var str9 = str6+666;// NaN
+//    var str9 = str6+'666';
+    console.log(str9);
+
+    // 怎么判断数据的类型typeof str9,typeof (str9)
+    console.log(typeof str9);
+
+
+</script>
+
+
+</body>
+</html>

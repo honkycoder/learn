@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 使用函数创建
+     * */
+
+    //1.创建函数
+    function dog() {
+
+        //在函数的内部去创建一个对象
+//        var arr =[];
+//        var arr = new Array();
+//        var date = new Date();
+        //创建及出来的就是一个最纯洁的对象
+
+        var obj = new Object();
+        //属性
+        obj.name = '未知';
+        obj.age = 0;
+
+        //方法
+        obj.eat = function (someThing) {
+            console.log(obj.name + '吃' + someThing);
+        };
+
+        obj.run = function (someWhere) {
+            console.log(obj.name + '跑' + someWhere)
+        };
+
+        //返回对象
+        return obj;
+    }
+
+    //2.调用dog模板创建对象出来
+    //在js中但凡是函数都可以使用new关键字 + 函数调用 来创建一个对象
+    var smallDog = new dog();
+    smallDog.name = '小花花';
+    smallDog.age = 1;
+    smallDog.eat('奶');
+    smallDog.run('家里');
+
+    console.log(smallDog);
+
+    console.log(smallDog.name);
+    console.log(smallDog.age);
+
+
+    //创建大狗
+
+    var bigDog = new dog();
+    bigDog.name = '旺财';
+    bigDog.age = 10;
+    bigDog.eat('骨头');
+    bigDog.run('公园');
+
+    console.log(bigDog);
+    console.log(bigDog.name);
+    console.log(bigDog.age);
+
+    //可以解决之前的不能量产
+
+
+    //?  必须得依赖new Object最纯洁的对象来创建一个新的对象达到量产
+</script>
+</body>
+</html>

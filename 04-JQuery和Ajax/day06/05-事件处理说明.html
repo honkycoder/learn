@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+    <script>
+        $(function () {
+            //01 给按钮标签添加点击事件
+            /*
+            $("button").click(function () {
+                //当点击了按钮的时候，就会执行这个回调函数中的代码
+                console.log("button - click");
+            })
+            */
+            //使用on方法来添加事件
+            //参数说明
+            //第一个参数：注册的事件
+            //第二个参数：事件发生后执行的回调函数
+            /*
+            $("button").on("click",function () {
+                console.log("btn - click");
+            })
+            */
+            /*
+            $("button").mouseenter(function () {
+                console.log("鼠标移入");
+            })*/
+            /*
+            $("button").on("mouseenter",function () {
+                console.log("btn - mouseenter");
+            })*/
+
+            $("button").mouseenter(function (event) {
+                console.log("按钮的点击事件");
+                //console.log(event);
+                console.log("事件的类型："+ event.type);
+                console.log("事件作用的标签："+ event.target);
+            })
+
+            $("p").click(function (event) {
+                console.log("事件的类型："+ event.type);
+                console.log("事件作用的标签："+ event.target);
+            })
+        })
+    </script>
+</head>
+<body>
+
+# 事件的两种使用方法
+    （1）$(selector).click(function(event){//........})
+    （2）$(selector).on("click|mouseenter",function(event){//....})
+
+<button>点击我</button>
+<button>快到碗里来哦</button>
+
+<p>我是个p</p>
+</body>
+</html>

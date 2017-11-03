@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+等于(==): 判断右边的内容是否等于左边
+    1.引用类型和引用类型进行判断,判断的是内存地址
+    2.引用类型和值类型进行判断,会对这个引用类型进行隐式转换取出对应的值进行判断
+    3.值类型和值类型进行判断,判断具体的值
+
+全等于(===): 除了判断值还判断类型
+
+<script>
+    var str1 = new String('demo');
+    var str2 = new String('demo');
+    var str3 = str1;
+    var str4 = 'demo';
+
+    console.log(str1 == str2); // true | (false)
+    console.log(str1 === str2); // true | (false)
+
+    console.log(str1 == str3); // (true) | false
+    console.log(str1 === str3); // false | (true)
+
+    console.log(str1 == str4); // true
+    console.log(str1 === str4); // false
+
+    // 可能有的疑惑: 为什么基本数据类型可以调用方法和访问属性?
+    // 主要是内部的实现?
+    // 1.当使用基本数据类型调用方法或者访问属性的时候,内部会创建一个与之相对应的对象
+    // 2.使用这个对象去访问这个属性或者方法
+    // 3.将结果返回后,销毁这个对象
+
+    // var tempStr = new String(str4);
+    // tempStr.length -> 4
+    // tempStr = null
+    console.log(str4.length);
+
+    // var tempStr = new String(str4);
+    // tempStr.toUpperCase() -> DEMO
+    // tempStr = null
+    console.log(str4.toUpperCase());
+
+    // var tempStr = new String(str4);
+    // tempStr.des = 'des';
+    // tempStr = null;
+    str4.des = 'des';
+
+    // var tempStr = new String(str4);
+    // temStr.des -> undefined
+    // tempStr = null;
+    console.log(str4.des); // des | (undefined)
+
+</script>
+</body>
+</html>

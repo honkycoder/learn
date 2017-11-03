@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--存放舞台的容器-->
+<div id='containerId'></div>
+
+<script src='js/konva.js'></script>
+
+<script>
+    // 1.创建舞台
+    var stage = new Konva.Stage({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        container: 'containerId'
+    });
+
+    // 2.创建层
+    var layer = new Konva.Layer();
+    // 将层添加到舞台中
+    stage.add(layer);
+
+    // 3.创建组
+    // 组里面设置的坐标, 表示组里面所有的图形的坐标原点是组里面设置的坐标
+    var group = new Konva.Group({
+        x :0,
+        y : 0
+    });
+    // 将组添加到层中
+    layer.add(group);
+
+    // 4.创建矩形
+    var rect = new Konva.Rect({
+        x : 100,
+        y : 100,
+        width: 200,
+        height: 100,
+        fill: 'red',
+        stroke: 'blue',
+        strokeWidth: 5,
+        scaleX : 2, // 缩放
+        scaleY : 2,
+        rotation : 20, // 旋转
+        dash : [7,3], // 虚实线的间隔
+        draggable : true
+    });
+    // 将矩形添加到组中
+    group.add(rect);
+
+    // 创建星星
+    var star = new Konva.Star({
+        x: 500,
+        y: 400,
+        numPoints: 5,
+        innerRadius: 30,
+        outerRadius: 70,
+        fill: 'red',
+        stroke: 'black',
+        strokeWidth: 4,
+        draggable : true
+    });
+    group.add(star);
+    // 5.绘制层
+    layer.draw();
+
+</script>
+
+</body>
+</html>

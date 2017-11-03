@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*
+        1.面向过程编程
+        2.面向对象编程
+        相同点:都是解决问题的一种思想
+        不同点:面向过程关注的是解决问题的一个一个的步骤
+              面向对象关注的是解决问题所需要的对象
+    */
+
+    /*
+        创建对象的方式
+     */
+    // 1.字面量的方式(常规的方式)
+    /*
+        缺点:不可以作为模板使用
+        可用性:数据传输 JSON数据 [] {}-->字典->数据模式
+    */
+    var arry = ["1","ls","zs"];
+    var person = {name:"zs",age:20,sex:"男"};
+    console.log(typeof arry, typeof person);
+
+    // 2.内置的构造函数
+    /*
+        缺点:不可以作为模板使用
+    */
+    var obj = new Object();
+    obj.name = "zs";
+    obj.age = 20;
+    console.log(typeof  obj);
+
+    // 特殊的场合会使用到
+//     var image = new Image();
+
+    // 3.工厂函数
+    function crearPerson(name,age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        return obj;
+    }
+
+    function crearDog(name,age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        return obj;
+    }
+
+    var p1 = crearPerson("zs",20);
+    var p2 = crearPerson("ls",18);
+    var dog1 = crearDog("wangcai",2);
+
+    console.log(typeof p1, typeof p2,typeof dog1);
+
+
+    // 4.构造函数
+    /*优点:可以作为模板使用*/
+
+     function Dog(option) {
+         this._init(option);
+     }
+
+    Dog.prototype = {
+        construct : Dog,
+
+        // 初始化的方式
+        _init : function (option) {
+            this.name = option.name;
+            this.age = option.age;
+        },
+
+        eat :  function (something) {
+            console.log(this.name + "正在大口的吃" + something);
+        }
+    };
+
+    // 实例化一个对象
+    var d1 = new Dog({name:"阿黄",age:10});
+    var d2 = new Dog({name:"旺财",age:2});
+    console.log(d1 instanceof Dog);
+    console.log(d2 instanceof Dog);
+    d1.eat("五花肉");
+    d2.eat("骨头");
+
+
+
+    // 5.面向对象->类
+    // 框架 JQ Prototype.js->中大型的项目->设计模式(MVC,MVVM,中介者设计模式)
+
+    // 6.继承
+    /*
+        1.属性拷贝(浅拷贝,深拷贝)
+        2.原型式继承
+            A Person.prototype.des = "des";
+            B Person.prototype = {};
+            C Student.prototype = Perosn.prototype ->获取原型属性
+        3.原型链继承:Student.prototype = new Person();
+        4.借用构造函数继承  call | apply -->获取实例属性
+        5.组合继承 原型式继承 + 借用构造函数继承
+    */
+
+    // 7.this问题 备份this
+    function Student() {
+        console.log(this);
+    }
+
+    Student(); // ->window
+    new Student();//->Student{}
+  /*
+    函数的调用方式不同
+    1.普通函数调用  this-->window
+    2.作为对象的方法 this->这个对象
+    3.new 构造函数调用 this->构造函数内部创建的对象
+    4.call | apply this->第一个参数
+   */
+
+    // 总结:这个函数是哪个对象的,this就指向这个对象
+</script>
+</body>
+</html>

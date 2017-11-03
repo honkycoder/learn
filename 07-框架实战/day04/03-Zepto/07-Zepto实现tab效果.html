@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            /*清除系统默认的手势事件*/
+            touch-action: none;
+
+            box-sizing: border-box;
+        }
+
+        .box{
+            position: relative;
+        }
+
+        .header{
+            width:100%;
+            height: 40px;
+            background-color: #cccccc;
+        }
+
+        .header li{
+            width:50%;
+            line-height: 40px;
+            float: left;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .header li.current{
+            color: #e9232c;
+        }
+
+        .line{
+            width:50%;
+            height: 3px;
+
+            position: absolute;
+            left:0;
+            top: 37px;
+
+            background-color: #e9232c;
+        }
+
+        .list{
+            width:200%;
+            overflow: hidden;
+        }
+
+        .list>div{
+            width:50%;
+            float: left;
+        }
+
+        .list>div ul{
+            padding: 10px;
+        }
+
+        .list>div ul li{
+            line-height: 36px;
+            border-bottom: 1px solid #666;
+        }
+
+        .more{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <!--头部-->
+    <ul class="header">
+        <li class="current">新闻</li>
+        <li>科技</li>
+    </ul>
+
+    <!--线条-->
+    <span class="line"></span>
+
+    <!--中间滚动的内容-->
+    <div class="list">
+        <div class="list1">
+            <ul>
+                <li>新闻内容新闻内容</li>
+                <li>新闻内容新闻内容</li>
+                <li>新闻内容新闻内容</li>
+                <li>新闻内容新闻内容</li>
+                <li>新闻内容新闻内容</li>
+                <li>新闻内容新闻内容</li>
+            </ul>
+            <a href="#" class="more">查看更多...</a>
+        </div>
+        <div class="list2">
+            <ul>
+                <li>科技内容科技内容</li>
+                <li>科技内容科技内容</li>
+                <li>科技内容科技内容</li>
+                <li>科技内容科技内容</li>
+                <li>科技内容科技内容</li>
+                <li>科技内容科技内容</li>
+            </ul>
+            <a href="#"  class="more">查看更多...</a>
+        </div>
+    </div>
+</div>
+
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+<script>
+    $(function () {
+        // 1. 监听头部的点击
+        $('.header li').tap(function () {
+            // 1.1 获取当前的索引
+            var index = $(this).index();
+
+            // 1.2 改变类
+            $(this).addClass('current').siblings().removeClass('current');
+
+            // 1.3 线条移动
+            $('.line').css({
+                transform: 'translateX('+ index * 100 +'%)',
+                transition: 'all 0.25s linear'
+            });
+
+            // 1.4 内容移动
+            $('.list').css({
+                transform: 'translateX('+ (-index * 50) +'%)',
+                transition: 'all 0.25s linear'
+            });
+        });
+
+
+        // 2. 监听在列表上的滑动
+        $('.list').swipeLeft(function () {
+            swipeWithIndex(1);
+        });
+
+        $('.list').swipeRight(function () {
+            swipeWithIndex(0);
+        });
+
+        /**
+         *  处理滑动的事件
+         * @param {number} index 索引
+         */
+        function swipeWithIndex(index){
+            // 1.1 改变类
+            $('.header li').eq(index).addClass('current').siblings().removeClass('current');
+
+            // 1.2 线条移动
+            $('.line').css({
+                transform: 'translateX('+ index * 100 +'%)',
+                transition: 'all 0.25s linear'
+            });
+
+            // 1.3 内容移动
+            $('.list').css({
+                transform: 'translateX('+ (-index * 50) +'%)',
+                transition: 'all 0.25s linear'
+            });
+        }
+    });
+</script>
+</body>
+</html>

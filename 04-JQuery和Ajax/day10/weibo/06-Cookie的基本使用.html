@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //01 如何获取cookie的值
+    console.log("document.cookie",document.cookie);
+
+    //02 如何存储数据
+    //uername = zhangsan
+    //document.cookie = "username=zhangsan";
+    //03 存储多个数据，那么必须单个单个的存储
+    //document.cookie = "password=123456";
+    //不能够一次性存储多个数据
+    //(X) document.cookie = "color=red;age=18";
+    //document.cookie = "color=red&age=18";
+
+    console.log("document.cookie",document.cookie);
+
+    //04 cookie数据的保存时间：默认情况下是session会话（整个浏览器关闭会话结束）
+    //可以通过expires属性来设置过期时间：只要没有超过这个时间，那么就数据一直都在
+    document.cookie = "username=wc";
+    document.cookie = "password=123456";
+    //设置过期时间为3天
+    var date = new Date();
+    date.setDate(date.getDate() + 3);
+    console.log(date);
+    document.cookie = "age=18;expires="+date;
+
+    //相同的域可以访问
+    //http://localhost:63342/www/code4/weibo/06-Cookie%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.html?_ijt=mkm61iugo9cvt54r07m7de4j2n
+    //http://localhost:63342/www/code4/weibo/demo.html?_ijt=mkm61iugo9cvt54r07m7de4j2n
+    //不同的域不可以访问
+    //http://127.0.0.1:8080/Code4/weibo/demoT.html
+</script>
+</body>
+</html>

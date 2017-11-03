@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+构造器属性(constructor): 是构造函数原型对象的属性,默认情况下指向这个构造函数
+                        构造函数实例化的对象默认情况下可以访问构造函数原型对象的属性
+<script>
+    function Person() {
+
+    }
+
+//    var Person = function () {
+//
+//    };
+
+    var p = new Person();
+
+    console.log(Person.prototype.constructor);
+
+    console.log(p.constructor);
+
+    console.log(p.constructor == Person.prototype.constructor); // true
+
+</script>
+</body>
+</html>

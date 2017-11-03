@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+全局变量-即时函数实现单例模式
+    核心步骤:
+        1.创建一个全局变量,变量名首字母大写用于说明这个是一个构造函数的变量
+        2.即时函数的创建过程
+            1.定义一个变量(instance),用于记录创建好的对象
+            2.给全局变量赋值为一个构造函数
+            3.在构造函数内判断instance是否有值,如果有则直接返回
+            4.将this赋值给instance
+            5.设置this的属性和方法
+
+<script>
+    // 1.创建一个全局变量,变量名首字母大写用于说明这个是一个构造函数的变量
+    var Person;
+
+    // 2.即时函数的创建过程
+    (function () {
+        // 1.定义一个变量(instance),用于记录创建好的对象
+        var instance;
+
+        // 2.给全局变量赋值为一个构造函数
+        Person = function () {
+            if (instance != undefined) {
+                return instance;
+            }
+
+            // 4.将this赋值给instance
+            instance = this;
+
+            // 5.设置this的属性和方法
+            this.name = 'zs';
+            this.showName = function () {
+                console.log(this.name);
+            }
+        }
+    })();
+
+    Person.prototype.des = 'des';
+    Person.demo = 'demo';
+    var p1 = new Person();
+    var p2 = new Person();
+    console.log(p1 == p2);
+    console.log(Person.prototype.des); // des
+    console.log(Person.demo); // demo
+
+</script>
+</body>
+</html>

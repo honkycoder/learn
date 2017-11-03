@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+原型链的结构:
+    1.每一个对象都是由构造函数创建出来的
+    2.每一个构造函数都有一个与之对应的原型对象
+    3.原型对象也是一个对象,意味着这个原型对象也是由构造函数创建出来的
+    4.原型对象的构造函数也有原型对象,这个原型对象也是一个对象
+    5.原型对象的构造函数的原型对象也是由构造函数创建出来的,这个构造函数也有原型对象
+
+    上面形成一种链式的结构就是原型链
+    原型链的顶端是Object.prototype
+    Object.prototype.__proto__ == null
+<script>
+
+</script>
+</body>
+</html>

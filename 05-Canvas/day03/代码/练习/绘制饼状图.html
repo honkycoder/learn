@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="vessel"></div>
+<script src="js/konva.js"></script>
+<script>
+       var stage = new Konva.Stage({
+           width:innerWidth,
+           height:innerHeight,
+           container:"#vessel"
+       })
+
+    var layer = new Konva.Layer();
+    stage.add(layer);
+//后台提供的数据
+       var dataArray = [
+           {name:'上海',color:'red',value:0.2},
+           {name:'北京',color:'blue',value:0.25},
+           {name:'广州',color:'green',value:0.15},
+           {name:'杭州',color:'pink',value:0.3},
+           {name:'苏州',color:'purple',value:0.1}
+       ];
+    layer.draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .box{
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .box ul{
+            width: 500%;
+            height: 300px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .box ul li{
+            width: 20%;
+            height: 300px;
+            float: left;
+
+        }
+
+        .box ul li img{
+            width: 100%;
+            height: 300px;
+        }
+
+        .box p{
+            width: 80%;
+            height: 100px;
+            /*background: red;*/
+            position: absolute;
+            left: 50%;
+            margin-left: -40%;
+            margin-top: 130px;
+            z-index: 2;
+        }
+
+        .box p span{
+            font-size: 100px;
+            line-height: 100px;
+            color: #ffffff;
+        }
+
+        .box p span:nth-child(2)
+        {
+            float: right;
+        }
+    </style>
+
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+</head>
+<body>
+<div class="box">
+    <p><span>&lt;</span><span>&gt;</span></p>
+    <ul>
+        <li><img src="images/01.png"></li>
+        <li><img src="images/02.png"></li>
+        <li><img src="images/03.png"></li>
+        <li><img src="images/04.png"></li>
+    </ul>
+</div>
+<script>
+    $(function () {
+        $("li:first").clone(true).appendTo($("ul"));
+        var index = 0;
+        var length = $("li").length;
+        var timer;
+
+        function autoPlay() {
+            timer = setInterval(function () {
+              play("next");
+            },1000);
+        }
+        function play(type) {
+            if(type == "back")
+            {
+                index --;
+                if(index <0)
+                {
+                    $("ul").css("left",-((length-1) * 100) + "%");
+                    index = length - 2;
+                }
+                //处理临界值(当前是第一张的情况)
+                $("ul").stop().animate({
+                    "left":-(index * 100) + "%"
+                })
+            }else if(type == "next")
+            {
+                index ++;
+                if(index == length)
+                {
+                    index = 1;
+                    $("ul").css("left",0);
+                }
+                $("ul").stop().animate({
+                    "left":-(index * 100) + "%"
+                })
+            } else {
+                alert("参数错误!");
+            }
+        }
+        autoPlay();
+
+        $("span:last").click(function () {
+            play("next");
+        });
+        $("span:first").click(function () {
+           play("back");
+        })
+        $(".box").hover(function () {
+            //清除定时器
+            clearInterval(timer);
+        },function () {
+            //重新开启定时器
+            autoPlay();
+        })
+    })
+</script>
+</body>
+</html>

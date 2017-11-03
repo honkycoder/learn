@@ -1,0 +1,184 @@
+/**********************公共样式************************/
+@font-face {
+    font-family: xmg;
+    src: url('../fonts/MiFie-Web-Font.eot') format('embedded-opentype'),
+    url('../fonts/MiFie-Web-Font.svg') format('svg'),
+    url('../fonts/MiFie-Web-Font.ttf') format('truetype'),
+    url('../fonts/MiFie-Web-Font.woff') format('woff');
+}
+
+
+body{
+    font-family: "Helvetica Neue",
+    Helvetica,
+    Microsoft Yahei,
+    Hiragino Sans GB,
+    WenQuanYi Micro Hei,
+    sans-serif;
+}
+
+a:hover, a:focus{
+    text-decoration: none;
+}
+
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /*注意上面选择器中间的空格*/
+    /*我们使用的名为xmg的字体就是上面的@font-face的方式声明的*/
+    font-family: xmg;
+    font-style: normal;
+}
+
+
+/*自定义按钮的样式*/
+.btn-register {
+    color: #ffffff;
+    background-color: #E9232C;
+    border-color: #DB3B43;
+}
+
+.btn-register:hover,
+.btn-register:focus,
+.btn-register:active,
+.btn-register.active,
+.open .dropdown-toggle.btn-register {
+    color: #ffffff;
+    background-color: #E9232C;
+    border-color: #DB3B43;
+}
+
+.btn-register:active,
+.btn-register.active,
+.open .dropdown-toggle.btn-register {
+    background-image: none;
+}
+
+.btn-register.disabled,
+.btn-register[disabled],
+fieldset[disabled] .btn-register,
+.btn-register.disabled:hover,
+.btn-register[disabled]:hover,
+fieldset[disabled] .btn-register:hover,
+.btn-register.disabled:focus,
+.btn-register[disabled]:focus,
+fieldset[disabled] .btn-register:focus,
+.btn-register.disabled:active,
+.btn-register[disabled]:active,
+fieldset[disabled] .btn-register:active,
+.btn-register.disabled.active,
+.btn-register[disabled].active,
+fieldset[disabled] .btn-register.active {
+    background-color: #E9232C;
+    border-color: #DB3B43;
+}
+
+.btn-register .badge {
+    color: #E9232C;
+    background-color: #ffffff;
+}
+
+
+
+/**********************头部区域************************/
+
+
+#wjs_header{
+
+}
+
+
+/*
+  顶部通栏
+*/
+#top_bar{
+    height: 40px;
+    line-height: 39px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+#top_bar .container .row>div + div{
+    border-left:1px solid #e0e0e0;
+}
+
+
+.icon-phone::before{
+    content: "\e908";
+    font-size: 13px;
+}
+
+.icon-tel::before{
+    content: "\e909";
+    font-size: 13px;
+}
+
+#top_bar a{
+    position: relative;
+}
+
+#top_bar a .e-coder{
+    display: none;
+
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left: -60px;
+    margin-top: 8px;
+
+    z-index: 9999;
+}
+
+#top_bar a:hover .e-coder{
+    display: block;
+}
+
+/*
+  导航条
+*/
+#wjs_header .navbar-xmg{
+    background-color: #fff;
+    margin-bottom: 0;
+}
+
+.icon-logo::before{
+    content: '\e920';
+    font-size: 50px;
+    line-height: 50px;
+    color: #E9232C;
+    vertical-align: middle;
+}
+
+.icon-wjs::before{
+    content: '\e93e';
+    font-size: 36px;
+    line-height: 50px;
+    color: #000;
+    vertical-align: middle;
+}
+
+#wjs_header .navbar-brand{
+    height: 70px;
+    padding: 10px 15px;
+}
+
+#wjs_header .navbar-nav>li>a{
+    line-height: 40px;
+}
+
+#wjs_header .navbar-nav>.active>a,
+#wjs_header .navbar-nav>li>a:hover,
+#wjs_header .navbar-nav>li>a:focus
+{
+    /*设置透明度:  rgba(0, 0, 0, 0) */
+    background-color: transparent;
+    color: #000;
+    border-bottom: 2px solid #E9232C;
+}
+
+
+#wjs_header .navbar-toggle{
+    margin-top: 19px;
+    margin-bottom: 19px;
+}
+

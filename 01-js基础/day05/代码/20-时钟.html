@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #clock{
+            width: 600px;
+            height: 600px;
+            background: url(clockImages/clock.jpg) 0 0 no-repeat;
+            margin: 100px auto;
+            position: relative;
+        }
+        #clock div{
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            /*border: 1px solid #000;*/
+
+        }
+        #hour{
+            background: url("clockImages/hour.png") 50% 0 no-repeat;
+        }
+        #minute{
+            background: url("clockImages/minute.png") 50% 0 no-repeat;
+        }
+        #second{
+            background: url("clockImages/second.png") 50% 0  no-repeat;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="clock">
+    <div id="hour"></div>
+    <div id="minute"></div>
+    <div id="second"></div>
+</div>
+
+<script>
+    // 1.获取相关的元素
+    var hour_box = document.getElementById('hour');
+    var minute_box = document.getElementById('minute');
+    var second_box = document.getElementById('second');
+    setInterval(function () {
+        // 获取当前的事件
+        var nowDate = new Date();
+        // 时,分,秒,毫秒?
+        var millS = nowDate.getMilliseconds();
+        var second = nowDate.getSeconds()+millS/1000;
+        var minute  = nowDate.getMinutes()+second/60;
+        var hour =( nowDate.getHours()+minute/60)%12; //
+
+        // 计算旋转的度数
+        // 1小时 30度 360/12
+        // 1分钟 6度  360/60
+        // 1秒钟 6度  360/60
+        var s_deg = second*6;
+        var m_deg = minute*6;
+        var h_deg = hour*30; // 0~23
+
+        // 旋转
+        hour_box.style.webkitTransform = 'rotate('+h_deg+'deg)'
+        minute_box.style.webkitTransform = 'rotate('+m_deg+'deg)'
+        second_box.style.webkitTransform = 'rotate('+s_deg+'deg)'
+
+
+    },10)
+
+
+
+</script>
+</body>
+</html>

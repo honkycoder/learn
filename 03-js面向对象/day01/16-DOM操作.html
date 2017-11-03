@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+DOM操作:
+    对界面上的元素进行操作: 增加 | 修改 | 查询 | 删除
+
+需求:
+    1.创建一个div
+    2.给这个div设置样式
+    3.把div添加到body上
+    4.获取刚刚创建的div
+    5.删除这个div
+
+<script>
+    // 1.创建一个div
+    var div = document.createElement('div');
+
+    // 2.给这个div设置样式
+    div.style.background = 'red';
+    div.style.width = '200px';
+    div.style.height = '200px';
+
+    // 3.把div添加到body上
+    document.body.appendChild(div);
+
+    // 4.获取刚刚创建的div
+    var div1 = document.getElementsByTagName('div')[0];
+
+    // 5.删除div
+    document.body.removeChild(div1);
+
+</script>
+</body>
+</html>

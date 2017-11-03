@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+使用全局变量来实现单例模式
+    核心步骤:
+        1.定义一个全局变量(instance),用于保存创建的对象
+        2.提供一个构造函数
+        3.在构造函数内部判断instance是否有值,如果有值则返回这个值
+        4.将this赋值给instance
+        5.设置this的属性和方法
+    存在的问题: 全局变量在任何地方都能访问和修改,修改之后再创建的对象就不是之前的单例对象了
+<script>
+    // 1.定义一个全局变量(instance),用于保存创建的对象
+    var instance;
+
+    // 2.提供一个构造函数
+    function Person() {
+
+        // 3.在构造函数内部判断instance是否有值,如果有值则返回这个值
+        if (instance != undefined) {
+            return instance;
+        }
+
+        // 4.将this赋值给instance
+        instance = this;
+
+        // 5.设置this的属性和方法
+        this.name = 'zs';
+        this.showName = function () {
+            console.log(this.name);
+        }
+    }
+
+    var p1 = new Person();
+    var p2 = new Person();
+    console.log(p1 == p2);
+
+    instance = 'demo';
+    var p3 = new Person();
+    console.log(p3); // demo | 对象
+    console.log(p3 == p2); // false
+
+</script>
+</body>
+</html>

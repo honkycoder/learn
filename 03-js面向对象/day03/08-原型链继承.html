@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+原型链继承: 子构造函数的原型对象等于父构造函数的实例化对象
+    步骤:
+        1.提供一个子构造函数和一个父构造函数
+        2.设置子构造函数的原型对象是父构造函数的实例化对象
+        3.修正构造器属性
+
+<script>
+    function Person() {
+        this.name = '默认';
+    }
+
+    Person.prototype.des = 'des';
+
+    function Student() {
+
+    }
+
+    // 实现原型链继承
+    Student.prototype = new Person();
+
+    // 修正构造器属性
+    Student.prototype.constructor = Student;
+
+    var stu = new Student();
+    console.log(stu.name); // undefined | (默认)
+    console.log(stu.des); // des
+
+</script>
+</body>
+</html>

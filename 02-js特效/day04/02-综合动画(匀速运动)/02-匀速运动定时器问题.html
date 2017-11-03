@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box
+        {
+            width: 200px;
+            height: 200px;
+            background: greenyellow;
+           position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始运动</button>
+<div id="box">
+    
+</div>
+<script>
+    //1.找对象
+    var btn = document.getElementById('btn');
+    var box =document.getElementById('box');
+    //2.当鼠标点击的时候,做动画
+    var timer = null;
+    var begin = 0;
+    var target = 600;
+    var speed = 7;
+    btn.onclick = function () {
+       clearInterval(timer);
+        //开启新的定时器
+        timer = setInterval(function () {
+           begin = begin+speed;
+           box.style.left = begin+'px';
+
+
+            console.log(box.style.left,target);
+
+
+            //判断定时器的停止
+            if(begin>=target)
+            {
+                clearInterval(timer);
+
+                console.log('后:'+box.style.left,target);
+            }
+        },20);
+    }
+</script>
+</body>
+</html>

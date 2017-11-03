@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+<script src="07-MyFunc.js"></script>
+<script>
+    var box = funcDic.$('box');
+    // $('box');
+    console.log(funcDic.$);
+    console.log(box);
+    box.style.width = 20+'px';
+    box.style.height = 20+'px';
+    box.style.background = 'red';
+</script>
+</body>
+</html>

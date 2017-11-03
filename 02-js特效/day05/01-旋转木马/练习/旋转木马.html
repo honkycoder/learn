@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转木马</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 900px;
+            height: 400px;
+            margin: 200px auto;
+            /*background: red;*/
+            /*position: relative;*/
+        }
+
+        #boxTop {
+        }
+
+        ul {
+            width: 640px;
+            height: 400px;
+            margin: 0 auto;
+            /*position: relative;*/
+        }
+
+        ul li {
+            width: 640px;
+            height: 400px;
+            position: absolute;
+            left: 130px;;
+            top: 200px;;
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #boxBottom {
+            width: 900px;
+            height: 400px;
+            opacity: 0;
+            position: relative;
+        }
+
+        .spa1 {
+            width: 76px;
+            height: 112px;
+            /*display: inline-block;*/
+            position: absolute;
+            left: 0;
+            top: -250px;
+            margin-top: -66px;
+            background-image: url(images/prev.png);
+            z-index: 999;
+        }
+
+        .spa2 {
+            width: 76px;
+            height: 112px;
+            position: absolute;
+            right: 0;
+            top: -250px;
+            margin-top: -66px;
+            background-image: url(images/next.png);
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="boxTop">
+        <ul id="ulTop">
+            <li><img src="images/slidepic1.jpg" alt=""></li>
+            <li><img src="images/slidepic2.jpg" alt=""></li>
+            <li><img src="images/slidepic3.jpg" alt=""></li>
+            <li><img src="images/slidepic4.jpg" alt=""></li>
+            <li><img src="images/slidepic5.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div id="boxBottom">
+        <span class="spa1"></span>
+        <span class="spa2"></span>
+    </div>
+</div>
+<script src="js/MyFunc.js"></script>
+<script>
+    var box = document.getElementById("box");
+    var boxBottom = document.getElementById("boxBottom");
+    var spnS = boxBottom.children;
+    box.onmouseover = function () {
+        buffer(boxBottom, {opacity: 1,zIndex: 999})
+    }
+    box.onmouseout = function () {
+        buffer(boxBottom, {opacity: 0,zIndex: 999})
+    }
+    var json = [
+        {
+            width: 360,
+            height: 200,
+            top: 110,
+            left: 40,
+            opacity: 0.5,
+            zIndex: 1
+        },
+        {
+            width: 450,
+            height: 300,
+            top: 160,
+            left: 0,
+            opacity: 0.8,
+            zIndex: 10
+        },
+        {
+            width: 640,
+            height: 400,
+            top: 200,
+            left: 130,
+            opacity: 1,
+            zIndex: 999
+        },
+        {
+            width: 450,
+            height: 300,
+            top: 160,
+            left: 450,
+            opacity: 0.8,
+            zIndex: 10
+        },
+        {
+            width: 360,
+            height: 200,
+            top: 110,
+            left: 500,
+            opacity: 0.5,
+            zIndex: 1
+        }
+    ];
+    var ulTop = document.getElementById('ulTop');
+    var lis = ulTop.children;
+    function fun() {
+        for (var i = 0; i < json.length; i++) {
+            var dayStyle = json[i];
+            buffer(lis[i], {
+                width: dayStyle.width,
+                height: dayStyle.height,
+                top: dayStyle.top,
+                left: dayStyle.left,
+                opacity: dayStyle.opacity,
+                zIndex: dayStyle.zIndex
+            })
+        }
+    }
+    fun();
+    spnS[0].onclick=function () {
+        console.log(json.unshift(json.pop()));
+        fun();
+    }
+    spnS[1].onclick=function () {
+        console.log(json.push(json.shift()));
+//        fun();
+    }
+</script>
+</body>
+</html>

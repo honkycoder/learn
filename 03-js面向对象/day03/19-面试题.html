@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+如果一个对象作为属性,那么默认情况下内部会调用这个对象的toString方法
+<script>
+    var a = {name: 'zs'};
+    var b = {};
+    var c = {};
+
+    c[a] = 'demo1'; // c['[object Object]'] = 'demo1';
+    c[b] = 'demo2'; // c['[object Object]'] = 'demo2';
+
+    console.log(c); // {'[object Object]': demo2}
+    console.log(c[a]); // demo2
+
+</script>
+</body>
+</html>

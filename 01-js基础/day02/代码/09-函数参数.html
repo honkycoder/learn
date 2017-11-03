@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //1. 函数的定义
+    // 在小括号中得参数,形式参数
+    //
+    function printNum(n) {
+        n++;
+        console.log(n);
+    }
+
+    printNum(23); // n=23;在函数的调用过程中,制定的参数,就做实际参数,简称实参
+
+    // 1.函数的定义
+    // 函数名的规则: 可以包含,字母,下划线,数字,$,但是数字不能开头,驼峰标志
+    // 形参,相当于是一个变量 ,形参的赋值,发生在,调用函数的时候 ,按顺序进行赋值
+    // 函数定义的时候不会马上执行,在调用的时候才会执行
+    function sum(a,b) {
+        console.log(a + b);;
+
+    }
+    // 2.函数的调用
+    sum(12, 3);
+
+
+
+
+    function printInfo(name,age,sex) {
+        console.log(name);
+        console.log(age);
+        console.log(sex);
+    }
+
+//    var name = 'zs';
+//    var age = 12;
+//    var sex = 'nan';
+    printInfo('zs',12,'nan');
+    printInfo('li',22,'nv');
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>js进阶-第四天 | JS进阶-网页特效</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="./js进阶-第五天.html" />
+    
+    
+    <link rel="prev" href="./js进阶-第三天.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="4" data-basepath="." data-revision="1496211118956">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         JS进阶-开篇
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="chapter1.html">
+            
+                
+                    <a href="./chapter1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         js进阶-第一天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="js进阶-第二天.html">
+            
+                
+                    <a href="./js进阶-第二天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         js进阶-第二天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="js进阶-第三天.html">
+            
+                
+                    <a href="./js进阶-第三天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         js进阶-第三天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="4" data-path="js进阶-第四天.html">
+            
+                
+                    <a href="./js进阶-第四天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         js进阶-第四天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="js进阶-第五天.html">
+            
+                
+                    <a href="./js进阶-第五天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         js进阶-第五天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="js进阶-第六天.html">
+            
+                
+                    <a href="./js进阶-第六天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         js进阶-第六天
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >JS进阶-网页特效</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_1195">
+                    
+                        <h1 id="js---day4">js特效 - Day4</h1>
+<h2 id="math">一、Math常用函数</h2>
+<ul>
+<li><p><strong>Math.ceil()   向上取整 天花板 </strong></p>
+<blockquote>
+<p>Math.ceil(1.11)   结果 是 2</p>
+<p>Math.ceil(1.99)   结果 是 2</p>
+<p>Math.ceil(-1.5)    结果 是 -1</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>Math.floor()  向下取整 地板 </strong></p>
+<blockquote>
+<p>Math.floor(1.11) 结果 是 1</p>
+<p>Math.floor(1.99) 结果 是 1</p>
+<p>Math.floor(-1.2) 结果 是 -2</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>Math.round()  四舍五入</strong></p>
+<blockquote>
+<p>Math.round(1.11) 结果 是 1</p>
+<p>Math.round(1.99) 结果 是 2</p>
+<p>Math.round(-1.2) 结果 是 -2</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="">二、缓动动画原理</h3>
+<ul>
+<li><p>缓动动画的原理:<strong>  盒子本身的位置 + 步长 (不断变化的，由大变小)</strong></p>
+</li>
+<li><p>步长：<strong>begin = begin + (end - begin) \/ 缓动系数  </strong></p>
+</li>
+<li><p>基本的缓动动画函数：</p>
+<pre><code>// 缓动动画
+// 谁  目标
+function buffer(obj, target) {
+    // 1. 清除定时器
+    clearInterval(obj.timer);
+    // 2. 设置定时器
+    obj.timer = setInterval(function () {
+           // 2.1 求出步长
+           var speed = (target - obj.offsetLeft) / 20;
+           console.log(speed);
+           speed = speed &gt; 0 ? Math.ceil(speed): Math.floor(speed);
+           console.log(speed);
+           // 2.2 设置动画
+           obj.style.left = obj.offsetLeft + speed + &#39;px&#39;;
+           obj.innerHTML = obj.offsetLeft;
+           // 2.3 清除定时器
+           if(obj.offsetLeft == target){
+                  clearInterval(obj.timer);
+            }
+            }, 20);
+}
+</code></pre></li>
+</ul>
+<h3 id="21---js-css-">2.1  常见的 js访问 CSS 属性</h3>
+<ul>
+<li><p>在开发中，访问得到css 属性，比较常用的有两种：</p>
+</li>
+<li><ul>
+<li><p>点语法</p>
+<p><strong>box.style.width，box.style.height，box.style.top，box.style.left</strong>
+得到带有单位的属性值，比如：200px；
+但是，点语法存在一个很致命的问题，跟在style后面的属性不能由外面传入</p>
+<pre><code>var h = &#39;height&#39;;
+box.style.h = 300 + &#39;px&#39;;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>下标语法</li>
+</ul>
+<p><strong>      利用 [] 访问属性        元素.style[“属性”]; </strong></p>
+<pre><code>  这种语法的好处就是可以动态的传递参数作为属性
+</code></pre><pre><code>     var h = &#39;height&#39;;
+     box.style[h] = 300 + &#39;px&#39;;
+</code></pre></li>
+</ul>
+<h3 id="22---jscss"><strong>2.2   JS获取CSS的样式</strong></h3>
+<blockquote>
+<p>在开发中，我们想要获得css 的样式，通常采用：box.style.top ，box.style.backgorundColor等， 但这种方式只能得到 行内样式，而平常用的最多的是页内样式或者外部样式， 那我们如何解决这样的问题？</p>
+</blockquote>
+<ul>
+<li><ul>
+<li><p>在IE和Opera浏览器</p>
+<p><strong>obj.currentStyle </strong></p>
+</li>
+<li><p>其他W3C标准浏览器</p>
+<p><strong>window.getComputedStyle(&quot;元素&quot;, &quot;伪类&quot;)   </strong> （ 注意：两个选项是必须的， 没有伪类 用 <strong>null </strong>替代 ）</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>兼容写法<pre><code>function getStyleAttr(obj, attr) {
+    if(obj.currentStyle){ // IE 和 opera
+         return obj.currentStyle[attr];
+    }else {
+         return window.getComputedStyle(obj, null)[attr];
+    }
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="23--json-">2.3  JSON 遍历</h3>
+<ul>
+<li><p>for in 关键字</p>
+<p>for ( 变量 in 对象) { 执行语句; }</p>
+<pre><code>for(var k in json){
+   console.log(k); // key
+   console.log(json[k]); // value
+}
+</code></pre></li>
+</ul>
+<h3 id="24-">2.4 回调函数</h3>
+<p>在开发中，有很多操作是链式的，下一个操作接着上一个操作执行，那么如何实现这样的行为？<strong> 回调函数。</strong></p>
+<pre><code>   回调函数什么时候调用?
+  --&gt; 动画结束的时候调用 ?
+  --&gt; 动画什么时候结束?
+  ---&gt; 定时器被清除的时候
+  --&gt; 定时器被清除时调用回调函数
+</code></pre><h3 id="25-">2.5 完整版缓动动画</h3>
+<pre><code>  /*
+   * 缓动动画
+   * obj: 要做动画的元素
+   * json: 要做动画的属性键值对
+   * fn: 回调函数
+  */
+  function Buffer(obj, json, fn) {
+      // 1. 清除定时器
+      clearInterval(obj.timer);
+      // 2. 设置定时器
+      var flag = true, begin, target;
+      obj.timer = setInterval(function () {
+          // 2.1 遍历json
+          for(var k in json){
+             // 2.1.1 获取做动画属性的初始值
+             if(&#39;opacity&#39; == k){ // 透明度
+                begin = parseInt(parseFloat(getCssStyleAttr(obj, k)) *100) || 0;
+                target = parseInt(parseFloat(json[k])*100);
+             }else { // 其他动画
+                begin = parseInt(getCssStyleAttr(obj, k));
+                target = parseInt(json[k]);
+             }
+             // 2.1.2 获取动画的步长
+             var speed = (target - begin) / 20;
+             speed = speed &gt; 0 ? Math.ceil(speed) : Math.floor(speed);
+             // 2.1.3 设置缓动动画
+             if(&#39;opacity&#39; == k ){ // 透明度
+                   obj.style.opacity = (begin + speed) / 100;
+                   obj.style.filter = &#39;alpha(opacity=&#39;+ (begin + speed) +&#39;)&#39;;
+             }else if(&#39;zIndex&#39; == k){
+                   obj.style.zIndex = json[k];
+            }else { // 其他情况
+                  obj.style[k] = begin + speed + &#39;px&#39;;
+            }
+            // 2.1.4 判断是否清除定时器
+            flag = (begin != target) ? false : true;
+           }
+           // 2.2 清除定时器
+           if(flag){
+               clearInterval(obj.timer);
+               //判断
+               if(fn){
+                   fn(); // 执行函数
+               }
+           }
+       }, 20);
+  }
+
+  function $(id) {
+      return document.getElementById(id);
+  }
+
+  function getCssStyleAttr(obj, attr) {
+      if(obj.currentStyle){
+          return obj.currentStyle[attr];
+      }else {
+          return window.getComputedStyle(obj, null)[attr];
+      }
+  }
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./js进阶-第三天.html" class="navigation navigation-prev " aria-label="Previous page: js进阶-第三天"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./js进阶-第五天.html" class="navigation navigation-next " aria-label="Next page: js进阶-第五天"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

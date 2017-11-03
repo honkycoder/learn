@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style/weibo.css" rel="stylesheet" />
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/template-web.js"></script>
+    <script type="text/html" id="demoT">
+        <p class="replyContent"><%=content%></p>
+        <p class="operation">
+            <span class="replyTime"><%=time%></span>
+            <span class="handle">
+                        <a href="javascript:;" class="top"><%=acc%></a>
+                        <a href="javascript:;" class="down_icon"><%=ref%></a>
+                        <a href="javascript:;" class="cut">删除</a>
+                    </span>
+        </p>
+    </script>
+</head>
+<body>
+<div class="xmgArea">
+    <!--留言-->
+    <div class="takeComment">
+        <textarea name="textarea" class="takeTextField" id="submitText"></textarea>
+        <div class="takeSbmComment">
+            <input id="btn_send" type="button" class="inputs" value="" />
+            <span>(可按 Enter 回复)</span>
+        </div>
+    </div>
+    <!--预留-->
+    <div class="commentOn">
+        <!--<div class="noContent">暂无留言</div>-->
+        <div id="messList" class="messList">
+            <!--<div class="reply">-->
+                <!--<p class="replyContent">123</p>-->
+                <!--<p class="operation">-->
+                    <!--<span class="replyTime">2011-09-08 16:37:60</span>-->
+                    <!--<span class="handle">-->
+                        <!--<a href="javascript:;" class="top">0</a>-->
+                        <!--<a href="javascript:;" class="down_icon">0</a>-->
+                        <!--<a href="javascript:;" class="cut">删除</a>-->
+                    <!--</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        </div>
+        <div id="page" class="page">
+        	<!--<a href="javascript:;" class="active">1</a>-->
+        	<!--<a href="javascript:;">2</a>-->
+        	<!--<a href="javascript:;">3</a>-->
+        </div>
+    </div>
+</div>
+<script>
+    //01 获取页面中指定的标签：文本输入框 + 按钮
+    //02 给按钮添加点击事件
+    //03 监听按钮的点击，当点击事件发生，获取文本输入框的内容作为参数发送请求给服务器端
+    //04 获取服务器返回的数据（请求成功）
+    //05 更新UI
+
+    //页面列表优化
+    //(1) 发布多条数据，最新发布的应该在前面prepend
+    //(2) 当点击按钮提交给服务器后，就应该吧文本框中的内容清空
+    //(3) 抽取创建标签的方法
+    //(4) 每个页面最多显示6条数据：在发布新数据之后，判断当前页面中数据的数量是否超过6条，如果超过那么就把最后一条删掉
+
+    //默认显示第一页的数据
+    //(1) 当页面加载完就发送网络请求获取第一页的数据并且显示出来
+
+    //获取页码的个数weibo.php?act=get_page_count
+    //(1) 当页面加载完毕就发送网络请求获取页码的数据，显示总页数
+
+    //模板：
+    //某一段标签在整个项目中多个地方都需要使用，那么常见的处理方式：
+    //（1）直接拷贝 重复代码太多|不方便维护
+    //（2）模板保存
+    $(function () {
+        var oText = $("#submitText");
+        var oBtn = $("#btn_send");
+        var oMsg = $("#messList");
+        oBtn.click(function () {
+            getMsg(1);
+            getPageCount();
+
+            //设置让页码标签当前显示第一页 addClass(active)
+            //$("#page>a:first").addClass("active").siblings().removeClass("active");
+
+            //(1) 获取文本输入框的内容
+            var contentText = oText.val();
+            //(2) 发送请求
+            $.ajax({
+                "url":"weibo.php?act=add&content="+ contentText,
+                "type":"GET",
+                "success":function (res) {
+                    //001 清空文本框的内容
+                    oText.val("");
+                    //002 解析服务器返回的数据，并且更新UI
+                    var resultObj = eval("(" + res+")");
+                    console.log(resultObj,"-------");
+                    var timer = dateFormatter(resultObj["time"]);
+                    //003 判断当前页面中数据的数量，如果超过那么就删掉
+                    if(oMsg.children(".reply").length >5)
+                    {
+                        oMsg.children(".reply").last().remove();
+                    }
+                    //oMsg.prepend(createEle(contentText,timer,resultObj["id"],0));
+                    resultObj["content"] = contentText;
+                    oMsg.prepend(createEle(resultObj));
+
+                }
+
+            })
+        });
+
+        function dateFormatter(timer) {
+            var date = new Date(timer * 1000);
+            console.log(date);
+            //2011-09-08 16:37:60
+            var arrM =[];
+            arrM.push(date.getFullYear()+"-");
+            arrM.push(date.getMonth() + 1+"-");
+            arrM.push(date.getDate()+" ");
+            arrM.push(date.getHours()+":");
+            arrM.push(date.getMinutes()+":");
+            arrM.push(date.getSeconds());
+            return  arrM.join("");
+        }
+        function createEle(objT) {
+            //var contentText = objT["content"];
+            objT["time"] = dateFormatter(objT["time"]);
+            objT["acc"] = objT["acc"] || 0;
+            objT["ref"] = objT["ref"] || 0;
+
+            //console.log("acc____" + acc);
+            var oTempDiv = $("<div></div>")
+
+            var html = template("demoT",objT);
+            console.log(html,"_____________");
+            oTempDiv.html(html);
+            oTempDiv.addClass("reply");
+
+            //获取点赞这个标签，添加点击事件
+            addEventWithTop(oTempDiv.find(".top"),objT["id"]);
+            //获取踩一踩这个标签，添加点击事件
+            addEventWithDown(oTempDiv.find(".down_icon"),objT["id"]);
+            //获取删除标签，给删除标签添加点击事件
+            addEventWithDel(oTempDiv.find(".cut"),objT["id"]);
+            return oTempDiv;
+        }
+        function getMsg(index) {
+
+            $.ajax({
+                "url":"weibo.php?act=get&page="+index,
+                "type":"GET",
+                "success":function (res) {
+                    //清空当前页面中所有的信息
+                    oMsg.html("");
+
+                    var resObj = eval("(" +res+")");
+                   //思路：遍历获取的json数据，没循环一次就创建一个标签添加到指定的div中
+                    $.each(resObj,function (key,objT) {
+                        console.log(objT,"++++");
+                        var acc = objT["acc"];
+                        //var temp =createEle(objT["content"],dateFormatter(objT["time"]),objT["id"],acc)
+                        var temp =createEle(objT);
+                oMsg.append(temp);
+                    })
+                }
+
+            })
+        }
+        function getPageCount() {
+
+            $.ajax({
+                "url":"weibo.php?act=get_page_count",
+                "type":"GET",
+                "success":function (res) {
+
+                    $("#page").empty();
+                    var count = eval("(" +res+")")["count"];
+                    for(var i =0 ;i<count;i++)
+                    {
+                        var oPage = $('<a href="javascript:;">'+(i + 1)+'</a>');
+                        if(i == 0) oPage.addClass("active");
+                        $("#page").append(oPage);
+
+                        //给页码标签添加点击事件
+                        addEventWithPage(oPage)
+                    }
+                }
+
+            })
+        }
+        function addEventWithPage(oPage) {
+            oPage.click(function () {
+                //获取当前是第几页 alert(1);
+                //alert($(this).text());
+                var index = $(this).text();
+                getMsg(index);
+                pageNumber = index;
+                console.log("pageNumber"+pageNumber);
+
+                //给当前的标签添加class,把兄弟节点中的class都删掉
+                $(this).addClass("active").siblings().removeClass("active");
+            })
+        }
+        function addEventWithTop(oTop,id) {
+            oTop.click(function () {
+                console.log("id:" + id);
+                //点击了点赞：(1) 发送请求给服务器端，让服务器端记录点赞操作 （2）更新点赞的数量
+                var self = this;
+                $.ajax({
+                    "url": "weibo.php?act=acc&id=" + id,
+                    "type": "GET",
+                    "success": function (res) {
+                        //console.log(res); //{error:0} 没有实际的作用
+                        $(self).text($(self).text() * 1 + 1);
+                    }
+                })
+            })
+        }
+        function addEventWithDown(oDown,id) {
+            oDown.click(function () {
+                console.log("id:" + id);
+                //点击了点赞：(1) 发送请求给服务器端，让服务器端记录点赞操作 （2）更新点赞的数量
+                var self = this;
+                $.ajax({
+                    "url": "weibo.php?act=ref&id=" + id,
+                    "type": "GET",
+                    "success": function (res) {
+                        console.log("请求成功"+res); //{error:0} 没有实际的作用
+                        $(self).text($(self).text() * 1 + 1);
+                    }
+                })
+            })
+        }
+        function addEventWithDel(oDel,id) {
+            oDel.click(function () {
+                //console.log("id:" + id);
+                //点击了删除：
+                // (1) 发送请求给服务器端，让服务器端记录删除数据的操作
+                // (2) 删除当前这一条数据 => 重新刷新页面获取第一页的数据 + 获取页码
+                var self = this;
+                $.ajax({
+                    "url": "weibo.php?act=del&id=" + id,
+                    "type": "GET",
+                    "success": function (res) {
+                        //console.log(res,"======");
+                        //console.log($(self).parents(".reply"));
+                        //$(self).parents(".reply").remove();
+                        getMsg(1);
+                        getPageCount();
+                    }
+                })
+            })
+        }
+
+        //当点击页码的时候确实得到了当前页码的值，并且赋值给了pageNumber
+        //重新加载：所有的代码都会重新执行一遍pageNumber的值丢失了
+        var pageNumber = 1;
+        getMsg(pageNumber);
+        getPageCount();
+    });
+
+</script>
+</body>
+</html>

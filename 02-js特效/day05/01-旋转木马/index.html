@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img
+        {
+            vertical-align: top;
+        }
+        #slider
+        {
+            width: 1200px;
+            height: 500px;
+            margin: 100px auto;
+        }
+        #slider_top
+        {
+
+        }
+        #slider_top li
+        {
+            position: absolute;
+            left: 200px;
+            top: 0;
+        }
+        #slider_control
+        {
+         position: relative;
+            opacity: 0;
+        }
+        .control_pre,.control_next
+        {
+            position: absolute;
+            /*left: 0;*/
+            top: 50%;
+            width: 76px;
+            height: 112px;
+            margin-top: 45px;
+        }
+        .control_pre
+        {
+            background: url("images/prev.png") no-repeat;
+            left: 5px;
+
+        }
+        .control_next
+        {
+            background: url("images/next.png") no-repeat;
+            right: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="slider">
+    <ul id="slider_top">
+        <li><img src="images/slidepic1.jpg" alt=""></li>
+        <li><img src="images/slidepic2.jpg" alt=""></li>
+        <li><img src="images/slidepic3.jpg" alt=""></li>
+        <li><img src="images/slidepic4.jpg" alt=""></li>
+        <li><img src="images/slidepic5.jpg" alt=""></li>
+    </ul>
+    <div id="slider_control">
+        <span class="control_pre"></span>
+        <span class="control_next"></span>
+    </div>
+</div>
+</body>
+</html>

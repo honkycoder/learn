@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box
+        {
+            width: 200px;
+            height: 200px;
+            background: deepskyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始动画</button>
+<button id="btn1">返回动画</button>
+<div id="box"></div>
+<script src="js/MyFuc.js"></script>
+<script>
+    //1.找对象
+    var btn = document.getElementById('btn');
+    var box =document.getElementById('box');
+
+
+    //2.点击按钮开始
+    btn.onclick = function () {
+       buffer(box,600);
+    }
+
+
+    //返回动画
+    btn1.onclick = function () {
+        buffer(box,0);
+    }
+</script>
+</body>
+</html>

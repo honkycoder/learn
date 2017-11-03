@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.4.1.js"></script>
+</head>
+<body>
+<!--
+    01 尝试使用特定的方法,查看并记录该方法的使用
+    02 总结该方法的使用情况
+        (1) 没有传递参数,返回实例对象
+        (2) 传递参数,把这个字符串切割为数组,遍历这个数组,一个一个的去判断(添加|忽略),返回实例对象
+    03 分析应该如何实现
+        (1) 先判断是否传递了字符串参数,如果传递了字符串参数,那么:
+                //demo test
+            ① 拿到传入的参数,切割成数组["demo","test"]
+            ② 遍历这个数组,每循环一次就遍历所有的标签,检查该标签中是否存在这个class
+                如果存在,那么就不处理,如果不存在,那么就添加到class的最后
+
+        (2) 如果没有传递参数或者是传递的参数不是字符串,返回实例对象
+    04 具体的代码实现
+    05 验证
+-->
+
+<div class="aa bb cc">div1</div>
+<div class="aa aabbcc xx">div2</div>
+<div>div3</div>
+
+<script>
+    //01 没有传递参数 标签没有反应,返回实例对象
+    //console.log($("div").addClass());
+
+    //02 传递参数(单个class) 批量的给所有的标签都添加class,返回实例对象
+    //console.log($("div").addClass("demo"));
+    //如果当前的标签中这个class已经存在了,那么忽略处理不会再添加,如果不存在,会添加
+    //console.log($("div").addClass("aa"));
+
+    //03 传递参数(多个class)
+    //console.log($("div").addClass("demo test"));
+    console.log($("div").addClass("aa test"));
+
+    //console.log($("div").addClass({}));
+</script>
+</body>
+</html>

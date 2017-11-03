@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+    <script src="jQuery框架/jquery-2.0.0.js"></script>
+
+</head>
+<body>
+<div>
+    <button>我是按钮1</button>
+    <button>我是按钮2</button>
+    <button>我是按钮3</button>
+</div>
+
+<a href="02-addClass方法.html">我是a</a>
+<form action="02-addClass方法.html">
+    <input type="submit">
+</form>
+
+
+<script>
+    $(function () {
+        $("button").click(function () {
+            console.log("点击了按钮");
+        })
+
+        $("div").click(function () {
+            console.log("点击了Div");
+        })
+
+        //自动触发按钮的点击事件
+        //参数:要自动触发事件
+        //$("button").trigger("click");
+        //$("button").triggerHandler("click");
+
+
+        //简单对比trigger|triggerHandler方法
+        //(1) 触发对象不一样
+        //trigger方法会作用于所有的标签,triggerHandler方法仅仅作用于所有标签中的第一个
+        //(2) 是否会阻止标签的默认事件
+        //trigger方法不会阻止默认事件,triggerHandler方法会阻止默认事件执行
+        //(3) 事件冒泡
+        //trigger不会阻止事件冒泡|triggerHandler阻止事件冒泡
+
+        $("a").on("click",function () {
+            alert("点击a");
+        })
+
+        //$("a").trigger("click");
+        //$("a").triggerHandler("click");
+
+        $("form").on("submit",function (event) {
+            alert("submit");
+            //当我们手动点击的时候,要阻止执行默认的事件
+            event.preventDefault();
+        })
+
+        //$("form").trigger("submit");
+        //$("form").triggerHandler("submit");
+
+        /*********************/
+        //$("button").trigger("click");
+        $("button").triggerHandler("click");
+    })
+</script>
+</body>
+</html>

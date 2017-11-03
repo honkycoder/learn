@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<button id="btn1">全选</button>
+<button id="btn2">反选</button>
+<button id="btn3">不选</button>
+<div><input type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name=""
+                                                                                          id=""><input type="checkbox"
+                                                                                                        name="" id=""><input
+        type="checkbox" name="" id=""><input type="checkbox" name="" id=""><input type="checkbox" name=""
+                                                                                      id=""><input type="checkbox"
+                                                                                                    name=""
+                                                                                                    id=""><input
+        type="checkbox" name="" id=""><input type="checkbox" name="" id=""></div>
+
+<script>
+    //1 三元运算符
+//    !
+//    =
+//    ?:
+    // 判断条件?条件成立返回值:条件不成立返回值;
+    var b=3;
+    var a = b==3?4:5;
+    console.log(a);
+
+    // 获取元素
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var btn3 = document.getElementById('btn3');
+    var checks = document.getElementsByTagName('input');
+    //1.全选
+    btn1.onclick = function () {
+       for (var i=0;i<checks.length;i++){
+           checks[i].checked = true;
+
+       }
+
+    }
+    //2.反选
+    btn2.onclick = function () {
+        for (var i=0;i<checks.length;i++){
+
+//            if(checks[i].checked){
+//                checks[i].checked = false;
+//            }else {
+//                checks[i].checked = true;
+//            }
+            checks[i].checked = checks[i].checked?false:true;
+
+
+
+        }
+    }
+    //3.不选
+    btn3.onclick = function () {
+        for (var i=0;i<checks.length;i++){
+            checks[i].checked = false;
+
+        }
+    }
+
+</script>
+</body>
+</html>

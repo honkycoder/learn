@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 2.常量
+    var marginXY = 10;
+    //  求出行数
+    var rows = canvas.height / marginXY;
+    //   求出列数
+    var cols = canvas.width / marginXY;
+
+    // 3.绘制横线
+    for (var i = 1; i < rows; i++) {
+        // 设置起点
+        ctx.moveTo(0,i*marginXY);
+        // 设置终点
+        ctx.lineTo(canvas.width,i*marginXY);
+    }
+
+    // 4.绘制竖线
+    for (var i = 1; i < cols; i++) {
+        // 设置起点
+        ctx.moveTo(i*marginXY,0);
+        // 设置终点
+        ctx.lineTo(i*marginXY,canvas.height);
+    }
+    // 5.绘制
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = .5;
+    ctx.stroke();
+
+    // 6.绘制坐标系
+    // 常量
+    var x0 = 100;
+    var y0 = 500;
+    var width = 500;
+    var height = 400;
+    //  开启路径
+    ctx.beginPath();
+
+    // 绘制x
+    ctx.moveTo(x0,y0);
+    ctx.lineTo(x0+width,y0);
+    ctx.lineTo(x0+width-marginXY,y0-marginXY);
+    ctx.moveTo(x0+width-marginXY,y0+marginXY);
+    ctx.lineTo(x0+width,y0);
+
+    // 绘制y
+    ctx.moveTo(x0,y0);
+    ctx.lineTo(x0,y0-height);
+    ctx.lineTo(x0-marginXY,y0-height+marginXY);
+    ctx.moveTo(x0+marginXY,y0-height+marginXY);
+    ctx.lineTo(x0,y0-height);
+
+    ctx.strokeStyle = 'blue';
+    ctx.stroke();
+
+    // 7.绘制折线
+    // 数据
+    var data = [20,10,40,50,30,80,70];
+    // 缩放比列
+    var w = width / data.length;
+    var h = height / 100; // 1:100
+    // 获取所有点的坐标
+    var pointArr = [];
+    for (var i = 0; i < data.length; i++) {
+        pointArr.push({
+                    x:x0+(i+1)*w,
+                    y:y0-data[i]*h
+                })
+    }
+
+    // 绘制
+    ctx.beginPath(); // 开启路径
+    // 设置起点
+    ctx.moveTo(x0,y0);
+    // 设置终点
+    for (var i = 0; i < pointArr.length; i++) {
+        ctx.lineTo(pointArr[i].x,pointArr[i].y);
+    }
+    ctx.strokeStyle = 'green';
+    ctx.stroke();
+</script>
+</body>
+</html>

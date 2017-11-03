@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box
+        {
+            width: 200px;
+            height: 200px;
+            background: deepskyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始动画</button>
+<button id="btn1">返回动画</button>
+<div id="box">
+
+</div>
+<script>
+    //1.找对象
+    var btn = document.getElementById('btn');
+    var box =document.getElementById('box');
+    var timer = null;
+    var target = 600;
+
+
+    //2.点击按钮开始
+    btn.onclick = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            var begin = box.offsetLeft;
+            var speed = (target-box.offsetLeft)/20;
+            speed = Math.ceil(speed);
+            box.style.left = begin+speed+'px';
+
+            //用begin值和target目标值做对比
+            if(begin==target)
+            {
+                alert(0);
+                //清除定时器
+                clearInterval(timer);
+            }
+        },20);
+    }
+
+
+
+    //返回动画
+    var timer1 = null;
+    var target1 = 0;
+    btn1.onclick = function () {
+        clearInterval(timer1);
+        timer1 = setInterval(function () {
+            var begin1 = box.offsetLeft;
+            var speed1 = (target1-box.offsetLeft)/20;
+            speed1 = Math.floor(speed1);
+            box.style.left = begin1+speed1+'px';
+
+            //用begin值和target目标值做对比
+            if(begin1==target1)
+            {
+                alert(0);
+                //清除定时器
+                clearInterval(timer1);
+            }
+        },20);
+    }
+
+
+
+
+
+
+
+
+
+    function buffer(obj,target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var begin = obj.offsetLeft;
+            var speed = (target-obj.offsetLeft)/20;
+            speed = target>obj.offsetLeft?Math.ceil(speed):Math.floor(speed);
+            obj.style.left = begin+speed+'px';
+
+            //用begin值和target目标值做对比
+            if(begin==target)
+            {
+                alert(0);
+                //清除定时器
+                clearInterval(obj.timer);
+            }
+        },20);
+    }
+
+</script>
+</body>
+</html>

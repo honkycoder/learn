@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+__proto__:
+        每个对象都有__proto__这个属性,这个属性指向的是构造函数原型对象的属性
+
+注意点:
+    这个__proto__属性并不是ECMAScript规定的,是由各大浏览器厂商为了方便程序员调试而增加的这个属性,建议就调试使用,正式开发的时候不要用(ie不支持)
+
+<script>
+    function Person() {
+
+    }
+
+    var p = new Person();
+
+    console.log(p.__proto__ == Person.prototype); // true
+
+    console.log(p.__proto__);
+
+</script>
+</body>
+</html>

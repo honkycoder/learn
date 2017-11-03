@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+闭包的作用:
+    1.可以访问内部作用域中私有的数据
+    2.必须通过固定的接口来访问和设置值
+    3.设置数据的时候,可以对这个数据做校验处理
+    4.延长了变量生命周期
+
+<script>
+    function fn() {
+        var age = 20;
+        return {
+            getAge: function () {
+                return age;
+            },
+            setAge: function (newAge) {
+                if (newAge == undefined) {
+                    return;
+                }
+
+                // 校验处理 | 容错处理 | 抛出异常
+                if (newAge < 0) {
+                    age = 0;
+                } else {
+                    age = newAge;
+                }
+
+            }
+        }
+    }
+
+    var obj = fn();
+    console.log(obj.getAge());
+    obj.setAge(-1);
+    console.log(obj.getAge());
+
+</script>
+</body>
+</html>

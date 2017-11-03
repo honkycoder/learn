@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    h1{
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+<button id="btn1">开始点名</button>
+<button id="btn2">停止点名</button>
+<h1 id="title">Luck</h1>
+<script>
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var title = document.getElementById('title');
+    var names = ['张三','李四','王五','赵六','王八','路飞','鸣人','孙悟空','曹老师'];
+    // 绑定事件
+    var index = 0;
+    btn1.onclick = function () {
+        // 从数组中取值
+        var name = names[parseInt(Math.random()*9)] ;
+        title.innerHTML = name;
+        index++;
+    }
+
+    btn2.onclick = function () {
+
+    }
+</script>
+</body>
+</html>

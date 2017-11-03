@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<script src="jQuery框架/jquery-2.0.0.js"></script>-->
+    <script src="XMGQuery框架/XMGQuery.1.4.2.js"></script>
+</head>
+<body>
+<!--
+    01 尝试使用特定的方法,查看并记录该方法的使用
+    02 总结该方法的使用情况
+        (1) 没有传参:把所有的标签的class都清空,返回实例对象
+        (2) 传递参数:把参数切割成数组,然后遍历所有的标签,如果该标签中存在那么就删除,返回实例对象
+    03 分析应该如何实现
+        (1) 先判断没有参数的情况,清空所有标签的class|遍历实例对象 设置className = ""
+        (2) 如果传递了参数(判断是字符串)
+             001 切割传入的参数,数组 ["aa","bb"];
+             002 遍历数组(for),每循环一次就拿到当前的元素去判断,一个一个的检查div
+                 如果存在,那么就删掉该class (replace方法)
+    04 具体的代码实现
+    05 验证
+-->
+
+<div class="bbcc aa bb cc">div1</div>
+<div class="aa bb aabbcc xx">div2</div>
+<div>div3</div>
+
+<script>
+    //01 没有传递参数 批量的把所有标签的class清空
+    //console.log($("div").removeClass());
+
+    //02 如果传递了参数(单个clss) 遍历所有的标签,如果该标签中存在该特定的class就删除
+    //console.log($("div").removeClass("aa"));
+    //console.log($("div").removeClass("aabbcc"));
+
+    //03 传递了多个class 把所有标签中含有指定class的全都都删掉
+    console.log($("div").removeClass("aa bb"));
+    //console.log($("div").removeClass("aa cc"));
+
+    //console.log($("div").removeClass(1223344));
+
+    //replace方法
+    //    var oDiv = document.querySelector("div");
+    //    var classNameStr = oDiv.className;
+    //    //console.log(oDiv.getAttribute("class"));;
+    //    console.log(classNameStr);
+    //    //bbcc aa bb cc
+    //    //需求:先匹配,先查看当前标签中是否存在bb,如果存在那么就删掉
+    //    if(classNameStr.indexOf(" bb ") !=-1)
+    //    {
+    //        console.log("拥有该class");
+    //        console.log(classNameStr.replace(" bb ", " "));
+    //    }
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body
+        {
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*
+     *
+     * 封装兼容的scrollTop\
+     *
+     * Document.compatMode:
+
+     BackCompat：标准兼容模式关闭
+
+     浏览器宽度:document.body.clientWidth
+     CSS1Compat：标准兼容模式开启
+
+     浏览器宽度:document.documentElement.clientWidth
+     BackCompat 对应 quirks mode(怪异模式) , CSS1Compat 对应 strict mode (严格模式) ：
+
+
+
+     //1.document.body.scrollTop兼容谷歌  不兼容火狐  也是不兼容i
+
+
+
+     //2.兼容火狐 (在谷歌中不可以   在ie7,8,9支持)
+     //        console.log(document.documentElement.scrollTop);
+
+     //3.最新浏览器 (兼容谷歌 也可以兼容火狐 在ie9支持  ie8不支持 ie7不支持)
+     //        console.log(window.pageYOffset);
+
+
+     * **/
+
+
+    function scroll() {
+        //1.先判断是否是最新浏览器
+        if (window.pageYOffset!= null)
+        {
+            return {
+                top: window.pageYOffset,
+                left: window.pageXOffset
+            }
+        }
+        //2.标准浏览器模式开启
+        else if (document.compatMode == 'CSS1Compat') {
+            return {
+                top: document.documentElement.scrollTop,
+                left: document.documentElement.scrollLeft
+            }
+        }
+        //3.只剩下谷歌浏览器(标准浏览器模式关闭)
+        else {
+            return {
+                top: document.body.scrollTop,
+                left: document.body.scrollLeft
+            }
+        }
+    }
+
+    //测试
+    window.onscroll = function () {
+        console.log(scroll().top);
+    }
+</script>
+</body>
+</html>

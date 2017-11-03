@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    // 1.数组的格式: 数组是一些数据的集合
+    // 用[],来表示数组,中括号里面的数据,就是数组包含的元素
+    // 元素之间,用逗号,分割
+    // js中数组可以包含不同类型的数据
+    var arr = [1,2,3];
+    var arr1 = [2,'bull',true,NaN,undefined];
+    // 2.如何获取数组中的元素
+    // 数组会给里面的元素每一个分配一个下标,序号,
+    // 数组的下标是从0开始的
+    // 如果要获取数组中的元素,就可以通过下标来获取:数组名[下标]-->数组中第下标对应的那个元素
+    var first = arr1[0];
+    var a = arr1[1];
+    //3. 改变数组中的元素
+    arr1[0] = 12;
+    console.log(arr1);
+    //4.获取数组的长度
+    var arrLength = arr1.length;
+    console.log(arrLength);
+
+
+</script>
+</body>
+</html>

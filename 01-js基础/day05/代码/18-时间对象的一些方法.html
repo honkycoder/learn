@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    var nowDate = new  Date();
+    //1.获取年,
+    var year = nowDate.getFullYear();
+    console.log(year);
+    // 2.获取月,0~11
+    var month = nowDate.getMonth();
+    console.log(month);
+    // 3.获取日 1~31
+    var day = nowDate.getDate();
+    console.log(day);
+    // 4.获取星期几,0~6
+    var weeek = nowDate.getDay();
+    console.log(weeek);
+    // 5.获取小时 0~23
+    var hour = nowDate.getHours();
+    console.log(hour);
+    //6.获取分钟 0~59
+    var minute = nowDate.getMinutes();
+    console.log(minute);
+    //7.获取秒 0~59
+    var second = nowDate.getSeconds();
+    console.log(second);
+    //8.获取毫秒 0~999
+    var millinSecond = nowDate.getMilliseconds();
+    console.log(millinSecond);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">插入</button>
+<button id="btn2">删除</button>
+<div id="box"></div>
+
+<script>
+    // 1.获取元素
+    var addBtn = document.getElementById('btn1');
+    var removeBtn = document.getElementById('btn2');
+    var box = document.getElementById('box');
+    // 3.定义一个下标用来记录点击的次数
+    var count = 0;
+    // 4.多次利用到的数字,魔法数字,尽可能的通过变量进行管理
+    var cols = 3;
+    // 5.间距
+    var marginValue = 10;
+    // 2. 绑定事件
+    addBtn.onclick = function () {
+        // 创建元素节点,添加到box中取
+        // 2.1  创建元素节点
+        var newElement = document.createElement('div');
+        // 2.1.1 设置新元素的样式
+        newElement.style.background = 'red';
+        newElement.style.height = '40px';
+        newElement.style.width = '40px';
+        newElement.style.position = 'absolute';
+        newElement.style.borderRadius = '100%';
+        // 2.1.2 更改新元素的位置
+        var col = count % cols;
+        var row = parseInt(count / cols);
+
+        var leftValue = col * (40 + marginValue)+marginValue;
+        var topValue = row * (40 + marginValue)+marginValue;
+
+        newElement.style.left = leftValue + 'px';
+        newElement.style.top = topValue + 'px';
+
+
+        // 2.2 添加元素节点到box中取
+        box.appendChild(newElement);
+        count++;
+    }
+    // childElementCount 就是子元素的个数
+    removeBtn.onclick = function () {
+//        var oldElement = box.children[count-1]
+        var oldElement = box.lastElementChild;
+        box.removeChild(oldElement);
+        count--;
+        if(count<0){
+            count=0;
+        }
+    }
+</script>
+</body>
+</html>

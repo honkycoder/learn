@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+# 01 请给出下面代码的输出
+<script>
+    var a = {}, b = Object.prototype;
+    console.log([a.prototype === b, Object.getPrototypeOf(a) === b]);
+
+    //A [false true]
+    //B [false false]
+    //C [true  true]
+    //D [true false]
+
+</script>
+
+#02 请给出下面代码的输出结果
+<script>
+
+    function f() {}
+    var a = f.prototype;
+    var b = Object.getPrototypeOf(f);
+    console.log(a === b);   // false | true
+
+
+    console.log((b == f)); // false | true
+
+</script>
+
+#03 请给出输出结果
+<script>
+
+    function foo() { }
+    var oldName = foo.name;
+    foo.name = "bar";
+
+    console.log(oldName);
+    console.log(foo.name);
+
+    console.log(oldName === foo.name);
+    console.log([oldName, foo.name]);
+</script>
+
+#04 请给出输出结果
+<script>
+
+    function f() {}
+    var parent = Object.getPrototypeOf(f);
+
+    console.log(f.name);                    // ?
+    console.log(parent.name);               // ?
+
+    //A "f", "Empty"
+    //B "f", undefined
+</script>
+</body>
+</html>

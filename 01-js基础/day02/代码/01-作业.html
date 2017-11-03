@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1.判断下面的变量名是否正确
+var _;
+var a;
+var $;
+var a12;
+var 2a;
+var o2;
+var 02;
+2.判断下面的说法是否正确
+由‘’或“”括起来的表示字符串
+var a = ''; 变量a的值是一个字符串
+字符串中不可以出现‘或者“
+关系运算符可以连写，逻辑运算符不可以连写，算数运算符可以连写
+3.++ 练习
+var result = 3; //4*4-->result==5-->result = 4*4;
+var result= ++result*result++;
+result = ++result;
+4.练习 --
+var result1 = 2;
+result1 = (result1--)+(++result1);
+result1--;
+
+5.关系运算符练习
+var result3 = 2>5>6;
+var result4 = 2>6+2<6+4!=4;
+6.逻辑运算符练习
+var result5 = 3>6||'dog'+12-22%3&&0==''; //3>6||'dog'+12-1&&0==''
+7.综合
+var result=10;
+var a = 2;
+var b = 3;
+result6 *= a*b/12-a>b+a;
+result6 *= a*b/12-a>b+a;
+8.逻辑与&&有什么特点？结果是布尔值吗？运算结果有谁来决定（分第一个值为真值和假值两种情况阐述）
+9.逻辑或||有什么特点？结果是布尔值吗？运算结果有谁来决定（分第一个值为真值和假值两种情况阐述）
+10.假值包括那些值？这些值转化为布尔值为？
+11.NaN是什么类型？他有什么特殊？
+12.关系运算符中等于==时怎么比较两个值的？===呢？
+14.如果想判断 变量a大于变量b，并且变量b大于变量c，能不能使用a>b>c?,如果不能，该怎么写？
+15.if语句中的判定条件如果不是布尔值，能不能进行判断？为什么？
+16.分别计算下列表达式：
+var a1 = true && '0';
+var a2 = undefined && true ;
+var a3 = NaN && 'Cat' ;
+var a4 = 12 && true ;
+var a5 = false || true ;
+var a6 = false || undefined ;
+var a7 = 'Dog' || 'false' ;
+var a8 = 'false' || false  ;
+
+17.使用if语句 计算梯度电价
+商业用电,200度以内 1.5元,超出200度,超出的部分2.0元
+居民用电,200度以内 0.7元,超出200度,超出部分1.0元
+提示：使用isBusiness表示是否时商业用电，求出所有可能情况下的总点价
+
+</body>
+</html>

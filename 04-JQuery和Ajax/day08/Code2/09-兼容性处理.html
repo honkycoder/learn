@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //01 创建请求对象(兼容性)
+    var xhr;
+    if(window.XMLHttpRequest)
+    {
+        xhr = new XMLHttpRequest();
+    }else
+    {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    var url = "php_server/05-ajax_get.php?username=zhangsan&password=123456&type=json";
+    //参数：username：zhangsan|password:123456 | type:json
+    //02 设置请求路径和方法
+    xhr.open("get",url,true);
+
+    //03 发送请求
+    xhr.send();
+
+    //04 监听网络状态
+    xhr.onreadystatechange = function () {
+        //判断是否完成
+        if(xhr.readyState == 4)
+        {
+            //虽然接收到服务器的响应，但是不知道是请求成功还是请求失败
+            //05 解析服务器返回的数据|
+            console.log(xhr.status);
+            if(xhr.status == 200)
+            {
+                console.log("请求成功：",xhr.responseText);
+            }else
+            {
+                console.log("请求失败！请检查参数！");
+            }
+
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>js进阶-第二天 | JS进阶-网页特效</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="./js进阶-第三天.html" />
+    
+    
+    <link rel="prev" href="./chapter1.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="2" data-basepath="." data-revision="1496211118956">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         JS进阶-开篇
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="chapter1.html">
+            
+                
+                    <a href="./chapter1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         js进阶-第一天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="2" data-path="js进阶-第二天.html">
+            
+                
+                    <a href="./js进阶-第二天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         js进阶-第二天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="js进阶-第三天.html">
+            
+                
+                    <a href="./js进阶-第三天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         js进阶-第三天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="js进阶-第四天.html">
+            
+                
+                    <a href="./js进阶-第四天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         js进阶-第四天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="js进阶-第五天.html">
+            
+                
+                    <a href="./js进阶-第五天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         js进阶-第五天
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="js进阶-第六天.html">
+            
+                
+                    <a href="./js进阶-第六天.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         js进阶-第六天
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >JS进阶-网页特效</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_1192">
+                    
+                        <h1 id="js---day2">js特效 - Day2</h1>
+<h2 id="--">一、水平滚动条 和 垂直滚动条</h2>
+<p><img src="images/Snip20161124_1.png" alt=""></p>
+<h3 id="11-">1.1 核心技术点</h3>
+<ul>
+<li><p>1）求滚动条的长度？   2）拖动滚动条，求内容要走多少？</p>
+</li>
+<li><p>滚动条的长度取决于滚动内容（<strong>滚动内容越长，滚动条越短</strong>）；</p>
+</li>
+<li><p>内容滚动的距离和滚动条走的距离是成<strong>倍数</strong>关系。</p>
+</li>
+</ul>
+<h3 id="12--">1.2  换算公式</h3>
+<ul>
+<li><p>获取滚动条的长度：</p>
+<ul>
+<li><p><strong>滚动条的长度  \/   盒子的长度  =   盒子的长度  \/ 内容的长度 </strong></p>
+</li>
+<li><p><strong>滚动条长度 =  ( 盒子的宽度 \/ 内容的宽度) *  盒子的宽度</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>拖动滚动条，求内容走的长度：</p>
+<ul>
+<li><strong>内容走的距离 \/  滚动条走的距离 =（内容的长度 - 盒子的长度） \/  (盒子长度 - 滚动条的长度) </strong></li>
+<li><strong>内容走的距离 = （内容的长度 - 盒子的长度） \/ (盒子长度 - 滚动条的长度) * 滚动条走的距离</strong></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>课后作业：仿写垂直滚动效果</li>
+</ul>
+<h2 id="document">二、内置对象document</h2>
+<ul>
+<li><p>Document 对象是 Window 对象的一部分，可通过 window.document 属性对其进行访问</p>
+</li>
+<li><p>Document 对象使我们可以从脚本中对 HTML 页面中的所有元素进行访问:</p>
+<p><strong> document.head（获取头部）       </strong></p>
+<p><strong> document.body（获取身体）       </strong></p>
+<p><strong> document.title （获取标题） </strong></p>
+<p><strong> document.documentElement（获取整个html)</strong></p>
+</li>
+</ul>
+<ul>
+<li><p>Document.compatMode:</p>
+<p><strong> BackCompat：标准兼容模式关闭</strong></p>
+<ul>
+<li>浏览器宽度:document.body.clientWidth</li>
+</ul>
+</li>
+</ul>
+<p><strong>        CSS1Compat：标准兼容模式开启 </strong></p>
+<ul>
+<li><ul>
+<li>浏览器宽度:document.documentElement.clientWidth</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>BackCompat 对应 quirks mode(怪异模式) , CSS1Compat 对应 strict mode (严格模式) ：</p>
+<blockquote>
+<p><strong>早期的浏览器Netscape 4和Explorer 4对css进行解析时，并未遵守W3C标准，这时的解析方式就被我们称之为quirks mode(怪异模式)，但随着W3C的标准越来越重要，众多的浏览器开始依照W3C标准解析CSS，仿照W3C标准解析CSS的模式我们叫做strict mode(严格模式) 。</strong></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="scroll">三、scroll家族</h2>
+<h3 id="31-">3.1 基本概念</h3>
+<ul>
+<li><p>网页正文全文宽： document.body.scrollWidth;</p>
+</li>
+<li><p>网页正文全文高： document.body.scrollHeight;</p>
+</li>
+<li><p>网页被卷去的高： document.body.scrollTop;</p>
+</li>
+<li><p>网页被卷去的左： document.body.scrollLeft;</p>
+</li>
+</ul>
+<p>在实际开发中使用比较多的就是<strong>scrollTop，</strong>如下图：
+<img src="images/Snip20161124_3.png" alt=""></p>
+<h3 id="32-scroll">3.2 处理scroll家族浏览器适配问题</h3>
+<ul>
+<li><strong>ie9+ 和 最新浏览器 </strong></li>
+</ul>
+<pre><code>    window.pageXOffset; （scrollLeft）
+
+    window.pageYOffset; （scrollTop）
+</code></pre><ul>
+<li><p><strong>Firefox浏览器 和 其他浏览器 </strong></p>
+<p>document.documentElement.scrollTop;</p>
+</li>
+<li><p><strong>Chrome浏览器 和 没有声明 DTD &lt;DOCTYPE &gt; </strong></p>
+<p>document.body.scrollTop;</p>
+</li>
+<li><p><strong>兼容写法</strong>
+ var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+ var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;</p>
+</li>
+</ul>
+<h3 id="33--scrolltoxy">3.3  scrollTo(x,y)</h3>
+<ul>
+<li><p>把内容滚动到指定的坐标</p>
+</li>
+<li><p>格式：scrollTo(xpos,ypos)</p>
+<ul>
+<li><p>xpos 必需；要在窗口文档显示区左上角显示的文档的 x 坐标；</p>
+</li>
+<li><p>ypos 必需；要在窗口文档显示区左上角显示的文档的 y 坐标 。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>网页大部分都没有水平滚动条，所以，这个x 不太常用。</li>
+</ul>
+<h2 id="json">四、什么是Json?</h2>
+<ul>
+<li><p><a href="http://baike.baidu.com/view/136475.htm" target="_blank">JSON</a>(<a href="http://baike.baidu.com/view/16168.htm" target="_blank">JavaScript</a> Object Notation) 是一种轻量级的数据交换格式。它基于<a href="http://baike.baidu.com/view/810176.htm" target="_blank">ECMAScript</a>的一个子集。相比于XML，json易于人阅读和编写，同时也易于机器解析和生成，目前数据传递基本上都使用json。</p>
+</li>
+<li><p>JSON有两种结构：对象 和 数组，两种结构相互组合从而形成各种复杂的数据结构。</p>
+</li>
+<li><ul>
+<li>数据在键值对中</li>
+</ul>
+</li>
+<li><ul>
+<li>数据由逗号分隔</li>
+</ul>
+</li>
+<li><ul>
+<li>花括号保存对象</li>
+</ul>
+</li>
+<li><ul>
+<li><p>方括号保存数组</p>
+<p>{
+   id: &#39;100000&#39;,
+   text: &#39;廊坊银行总行&#39;,
+   children: [</p>
+<pre><code>  {
+     id: &#39;110000&#39;,
+    text: &#39;廊坊分行&#39;,
+    children: \[
+                      {
+                           id: &#39;113000&#39;,
+                           text: &#39;廊坊银行开发区支行&#39;,
+                           leaf: true
+                      },
+                      {
+                           id: &#39;112000&#39;,
+                           text: &#39;廊坊银行解放道支行&#39;,
+                           children: \[
+                               {
+                                     id: &#39;112200&#39;,
+                                     text: &#39;廊坊银行三大街支行&#39;,
+                                     leaf: true
+                                },
+                                {
+                                     id: &#39;112100&#39;,
+                                     text: &#39;廊坊银行广阳道支行&#39;,
+                                     leaf: true
+                                }
+                          \]
+                       },
+                      {
+                              id: &#39;111000&#39;,
+                             text: &#39;廊坊银行金光道支行&#39;,
+                             leaf: true
+                       }
+      \]
+}
+</code></pre><p>   ]
+}</p>
+</li>
+<li><p>http:\/\/c.m.163.com\/nc\/article\/BVEGO8UT05299OU6\/full.html</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="">五、实现瀑布流滚动</h2>
+<p><img src="images/Snip20161124_5.png" alt=""></p>
+<h2 id="">六、作业</h2>
+<p>6.1 实现垂直滚动效果.html</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./chapter1.html" class="navigation navigation-prev " aria-label="Previous page: js进阶-第一天"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./js进阶-第三天.html" class="navigation navigation-next " aria-label="Next page: js进阶-第三天"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

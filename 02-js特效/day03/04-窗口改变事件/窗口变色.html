@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<script src="js/MyFunc.js"></script>
+<script>
+    /**
+     *
+     * 应用：当屏幕的宽度>=960时，页面的背景颜色为红色；当屏幕的宽度>=640时，页面的背景颜色为蓝色；当屏幕的宽度<640时，页面的背景颜色为绿色？
+     */
+
+    window.onresize = function () {
+//       //求出当前屏幕的宽度
+//        if(client().width>=960)
+//        {
+//           //设置body的背景颜色
+//            document.body.style.backgroundColor = 'red';
+//        }
+//        else if(client().width>=640)
+//        {
+//            document.body.style.backgroundColor ='blue';
+//        }
+//        else
+//        {
+//            document.body.style.backgroundColor = 'green';
+//        }
+
+
+
+
+//        //求出当前屏幕的宽度
+//        var bgColor;
+//        if(client().width>=960)
+//        {
+//            //设置body的背景颜色
+//            bgColor = 'red';
+//        }
+//        else if(client().width>=640)
+//        {
+//            bgColor ='blue';
+//        }
+//        else
+//        {
+//            bgColor = 'green';
+//        }
+//
+//        document.body.style.backgroundColor = bgColor;
+    }
+
+
+
+    //第三次的代码
+    window.onload = function () {
+
+        //当网页加载完毕后,先执行以下代码
+      changeBgColor();
+
+        window.onresize = changeBgColor;
+    };
+
+    function changeBgColor() {
+        //求出当前屏幕的宽度
+        var bgColor;
+        if(client().width>=960)
+        {
+            //设置body的背景颜色
+            bgColor = 'red';
+        }
+        else if(client().width>=640)
+        {
+            bgColor ='blue';
+        }
+        else
+        {
+            bgColor = 'green';
+        }
+
+        document.body.style.backgroundColor = bgColor;
+    }
+</script>
+</body>
+</html>

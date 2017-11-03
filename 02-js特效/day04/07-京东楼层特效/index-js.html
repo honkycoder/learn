@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ol
+        {
+            width: 90px;
+            background: #cccccc;
+            position: fixed;
+            left: 50px;
+            top: 100px;
+
+        }
+        ol li
+        {
+            line-height: 30px;
+            border-bottom:1px solid #ffffff;
+            text-align: center;
+        }
+        ul li
+        {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        ul,body,html
+        {
+            width: 100%;
+            height: 100%;
+        }
+        #olTag .current
+        {
+            background: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+<!--左边gps导航-->
+<ol id="olTag">
+    <li class="current">第一层</li>
+    <li>第二层</li>
+    <li>第三层</li>
+    <li>第四层</li>
+    <li>第五层</li>
+</ol>
+<!--右边滚动内容-->
+<ul id="ulTag">
+    <li>第一层内容</li>
+    <li>第二层内容</li>
+    <li>第三层内容</li>
+    <li>第四层内容</li>
+    <li>第五层内容</li>
+</ul>
+<script src="js/MyFunc1.js"></script>
+<script>
+    //1.找对象
+    var olTag = document.getElementById('olTag');
+    var oLis = olTag.children;
+    var ulTag = document.getElementById('ulTag');
+    var ulLis = ulTag.children;
+    //2.给右边的区域上色
+    var colorArr =['red','green','blue','purple','yellow'];
+
+
+    //6.定义一个变量用来标记,是否被点击了(区分和onscroll的冲突)
+    var isClick = false;
+    //3.遍历所有的ul中的li
+    for(var i=0;i<ulLis.length;i++)
+    {
+       ulLis[i].style.backgroundColor = colorArr[i];
+    }
+    //4.监听鼠标在ol中的每一个li的点击
+    for(var i=0;i<oLis.length;i++)
+    {
+        //4.1.取出每一个li
+        var li = oLis[i];
+        //4.6.给每一个li绑定一个索引
+        li.index = i;
+        //4.2.监听点击
+        li.onmousedown = function () {
+
+            //7.告诉系统我已经点击了
+            isClick = true;
+//            alert(this.index);
+            for(var i=0;i<oLis.length;i++)
+            {
+                //4.4.让其他的干掉
+                oLis[i].className = '';
+            }
+            //4.3.让当前变色
+            this.className = 'current';
+
+            //4.5.让右边内容滚动起来
+//            document.body.scrollTop = this.index*client().height;
+            buffer(document.body,{'scrollTop':this.index*client().height},function () {
+                //8.将isClick设置为false,告诉程序我们已经将点击中的动画做完了后面该干嘛干嘛
+                isClick = false;
+            });
+        };
+    }
+    
+    //5.监听当前屏幕的滚动
+    window.onscroll = function () {
+        if(!isClick)
+        {
+            //5.1取出页面滚动的偏移高度
+            var myScrollTop = scroll().top;
+//        console.log(myScrollTop);
+            //5.2.取出每一个ul中的li的offsetTop
+            for(var i=0;i<ulLis.length;i++)
+            {
+                var myTop = ulLis[i].offsetTop;
+
+                //5.3.用myScrollTop和myTop判断
+                if(myScrollTop>=myTop)
+                {
+                    //排他思想让其他ol中的li的颜色干掉
+                    for(var j=0;j<oLis.length;j++)
+                    {
+                        oLis[j].className = '';
+                    }
+                    oLis[i].className ='current';
+                }
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .all {
+            width: 320px;
+            height: 250px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+        }
+
+        .left {
+            width: 50px;
+            float: left;
+        }
+
+        .center {
+            float: left;
+            width: 200px;
+
+        }
+
+        .right {
+            float: right;
+            width: 50px;
+        }
+        img{
+            display: none;
+        }
+        li {
+            list-style: none;
+            height: 27px;
+            line-height: 27px;
+            border: 1px solid #ccc;
+            /*border-left:none;*/
+        }
+        .current{
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="all">
+    <ul class="left">
+        <li class="current"><a href="#">雪地靴</a></li>
+        <li><a href="#">雪地靴</a></li>
+        <li><a href="#">冬裙</a></li>
+        <li><a href="#">呢大衣</a></li>
+        <li><a href="#">毛衣</a></li>
+        <li><a href="#">棉服</a></li>
+        <li><a href="#">女裤</a></li>
+        <li><a href="#">羽绒服</a></li>
+        <li><a href="#">牛仔裤</a></li>
+    </ul>
+    <div class="center">
+        <a href="#"><img src="taobao/女靴.jpg" width="200" height="250" style="display: block"></a>
+        <a href="#"><img src="taobao/雪地靴.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/冬裙.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/呢大衣.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/毛衣.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/棉服.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/女裤.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/羽绒服.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/牛仔裤.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/女包.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/男包.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/登山鞋.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/皮带.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/围巾.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/皮衣.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/男毛衣.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/男棉服.jpg" width="200" height="250"></a>
+        <a href="#"><img src="taobao/男靴.jpg" width="200" height="250"></a>
+
+    </div>
+    <ul class="right">
+        <li><a href="#">女包</a></li>
+        <li><a href="#">男包</a></li>
+        <li><a href="#">登山鞋</a></li>
+        <li><a href="#">皮带</a></li>
+        <li><a href="#">围巾</a></li>
+        <li><a href="#">皮衣</a></li>
+        <li><a href="#">男毛衣</a></li>
+        <li><a href="#">男棉服</a></li>
+        <li><a href="#">男靴</a></li>
+    </ul>
+
+</div>
+
+
+<script>
+    // 1.获取元素
+    var lis = document.getElementsByTagName('li');
+    var imgs = document.getElementsByTagName('img');
+    // 2.记录索引
+    var count = 0;
+    // 3.绑定索引
+    for(var j=0;j<lis.length;j++){
+        lis[j].index_z = j;
+    }
+    setInterval(function () {
+        count++;
+        if (count>17){
+            count =0;
+        }
+        // 1.排他
+        for(var i=0;i<lis.length;i++){
+            lis[i].className = '';
+        }
+
+        // 给当前的按钮改变颜色
+        lis[count].className = 'current';
+        for(var k=0;k<lis.length;k++){
+
+            imgs[k].style.display = 'none';
+        }
+        // 切换图片
+        imgs[lis[count].index_z].style.display = 'block';
+    }, 1000)
+
+</script>
+</body>
+</html>

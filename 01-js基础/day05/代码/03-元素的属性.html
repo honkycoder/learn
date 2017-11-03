@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box" style="height: 350px"></div>
+
+<script>
+    var box = document.getElementById('box');
+    // 行内式>页内式>外链式
+    //2.通过style进行设置的属性,直接个标签设置行内的样式
+        box.style.height = 300 + 'px';
+
+    // 1.怎么获取高度
+    // 3.通过元素的style属性获取到的一些属性值,只能是在行内设置的属性值
+        console.log(box.style.height);
+    // 4. 除非在标签内设置 了元素的属性或者通过代码直接在元素设置属性,否则,不要直接使用style获取元素的某个属性值,取不到
+    console.log(box.style);
+</script>
+</body>
+</html>

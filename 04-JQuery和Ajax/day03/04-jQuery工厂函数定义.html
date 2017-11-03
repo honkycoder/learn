@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*第一种写法
+    //01 声明构造函数
+    function Person() {
+        //02 通过this指针来设置属性和方法
+        this.name = "wc";
+        this.age = 18;
+    }
+
+    //03 设置构造函数的原型对象
+    Person.prototype = {
+        constructor:Person,
+        showName:function () {
+            console.log(this.name);
+        },
+        showAge:function () {
+            console.log(this.age);
+        }
+    }
+
+    //04 创建对象
+    var p1 = new Person();
+    p1.showName();
+    p1.showAge();
+     */
+
+    /*第二种写法*/
+    /*
+     //01 声明构造函数
+     function Person() {}
+
+     //03 设置构造函数的原型对象
+     Person.prototype = {
+         constructor:Person,
+         showName:function () {
+            console.log(this.name);
+         },
+         showAge:function () {
+            console.log(this.age);
+         },
+         init:function () {
+             //02 通过this指针来设置属性和方法
+             this.name = "wc";
+             this.age = 18;
+         }
+     }
+
+     //04 创建对象
+     var p1 = new Person();
+     p1.init();
+     p1.showName();
+     p1.showAge();
+
+    var p2 = new Person();
+    p2.init();
+    p2.showName();
+    //每次在创建对象之后都需要来调用init初始化方法,很繁琐而且遗忘
+    */
+
+
+    //01 把Person作为工厂函数来使用,把init方法作为构造函数来使用
+    function Person() {
+        return new Person.prototype.init();
+    }
+
+    //03 设置构造函数的原型对象
+    Person.prototype = {
+        constructor:Person,
+        showName:function () {
+            console.log(this.name);
+        },
+        showAge:function () {
+            console.log(this.age);
+        },
+        init:function () {
+            //02 通过this指针来设置属性和方法
+            this.name = "wc";
+            this.age = 18;
+        }
+    }
+
+    Person.prototype.init.prototype = Person.prototype;
+    //jQuery.prototype.init.prototype = jQuery.prototype;
+
+    //04 创建对象
+    var p1 = Person();
+    p1.showName();
+    p1.showAge();
+
+    //! jQuery框架中并没有创建实例对象
+    // 因为我们在使用框架的时候:jQuery | $   ==> 工厂函数
+    // jQuery本身是一个闭包,而我们在外部可以直接使用$|jQuery,为什么可以使用?
+    // 在函数外部要访问函数内部的私有数据
+    // (1) 闭包 返回函数,在函数中间接的访问私有数据
+    // (2) 把函数中的私有数据绑定给全局的对象 window
+    //window.$ = jQuery;
+
+
+
+</script>
+</body>
+</html>

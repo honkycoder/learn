@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+toString: 返回对象的描述信息(返回值类型是字符串)
+    object对象进行使用 -> [object Object]
+    数组 | 函数 -> 对应内容(类型是字符串)
+    Number -> 可以传进制,默认是十进制(类型是字符串)
+
+<script>
+    var obj = {name: 'zs'};
+    console.log(obj.toString()); // [object Object]
+    console.log(typeof obj.toString()); // string
+
+    var arr = [1,2,3];
+    console.log(arr.toString()); // 1,2,3
+    console.log(typeof arr.toString()); // string
+
+    function fn() {}
+    console.log(fn.toString()); //  function fn() {}
+    console.log(typeof fn.toString()); // string
+
+    var num = new Number(10);
+    console.log(num.toString()); // 10
+    console.log(typeof num.toString()); // string
+    console.log(num.toString(10)); // 10
+    console.log(num.toString(2)); // 1010 -> 1 * 2 ^ 3 + 1 * 2 ^ 1 = 8 + 2 = 10
+    console.log(num.toString(8)); // 12 -> 1 * 8 ^ 1 + 2 * 8 ^ 0 = 8 + 2 = 10
+    console.log(num.toString(16)); // a
+
+</script>
+toLocalString: 主要是用于日期对象,来获取本地的当前时间
+<script>
+    var date = new Date();
+    console.log(date.toString()); // Sun Jun 11 2017 10:18:07 GMT+0800 (中国标准时间)
+    console.log(date.toLocaleString()); // 2017/6/11 上午10:18:35
+</script>
+
+valueOf:
+        基本包装类型 -> 返回基本数据类型的值,返回值类型是基本数据类型
+        对象 | 函数 -> 对象或函数本身
+        日期对象 -> 时间戳(毫秒): 距离1970年1月1日0分0秒的时间
+<script>
+    var str = new String('demo');
+    console.log(str.valueOf()); // demo
+    console.log(typeof str.valueOf()); // string
+
+    var num = new Number(10);
+    console.log(num.valueOf()); // 10
+    console.log(typeof num.valueOf()); // number
+
+    var bool = new Boolean(true);
+    console.log(bool.valueOf()); // true
+    console.log(typeof bool.valueOf()); // boolean
+
+    var obj = {name: 'zs'};
+    console.log(obj.valueOf()); // Object {name: "zs"}
+    console.log(typeof obj.valueOf()); // object
+
+    function fn() {}
+    console.log(fn.valueOf()); // function fn() {}
+    console.log(typeof fn.valueOf()); // function
+
+    var date = new Date();
+    console.log(date.valueOf()); // 1497147807678
+    console.log(typeof date.valueOf()); // number
+
+</script>
+</body>
+</html>

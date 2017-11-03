@@ -1,0 +1,87 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .box{
+                width: 500px;
+                height: 500px;
+                border: 1px solid #000;
+                box-sizing: border-box;
+                margin: 50px auto;
+            }
+            h3, h4{
+                text-align: center;
+            }
+            img{
+                display: block;
+                margin: 0 auto;
+                width: 300px;
+                height: 300px;
+                background-size: cover;
+            }
+            .box>div{
+                margin-top: 20px;
+                text-align: center;
+            }
+        </style>
+        <script src="js/AjaxDemo.js"></script>
+        <script src="js/jquery-3.1.1.js"></script>
+    </head>
+    <body>
+    <div class="box">
+        <h3>类别名称</h3>
+        <h4>描述信息</h4>
+        <img src="images/0.jpg" alt="">
+        <div>
+            <button name="nz">女装</button>
+            <button name="bb">包包</button>
+            <button name="xz">鞋子</button>
+        </div>
+    </div>
+    <div id="demo"></div>
+    <!--
+        01 获取页面中所有的按钮，给按钮添加点击事件
+        02 点击按钮之后发送网络请求获取对应的数据
+        03 解析服务器返回的数据，并且更新UI
+        JSON在线格式化：http://tool.oschina.net/codeformat/json
+    -->
+
+    <script>
+        //01 获取按钮添加点击事件
+        $("button").click(function () {
+            var nameStr = this.getAttribute("name");
+            //02 发送网络请求
+            ajax({
+                "url":"server/05-demo_xmlData.php",
+                "type":"get",
+                "data":{"name":nameStr},
+                "successCallBack":function (xhr) {
+                    console.log(xhr.responseXML);
+                    //01 解析服务器返回的XML数据
+                    //document.querySelector("#demo");
+                    //（1）获取当前按钮对应的XML片段
+                    var oProduct = xhr.responseXML.querySelector("#"+nameStr);
+                    //console.log(oProduct);
+
+                    //(2) 获取指定的数据
+                    var title = oProduct.querySelector("title").innerHTML;
+                    var des = oProduct.querySelector("des").innerHTML;
+                    var img = oProduct.querySelector("img").innerHTML;
+
+                    //(3) 更新UI
+                    $("h3").text(title);
+                    $("h4").text(des);
+                    $("img").attr("src",img);
+
+                }
+            })
+        })
+    </script>
+    </body>
+    </html>

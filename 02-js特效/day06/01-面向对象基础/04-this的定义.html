@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">点击</button>
+<script>
+//    一般情况:
+//            this:在函数中,表示当前的函数属于哪个对象
+//
+//    1.哪个对象调用函数
+//
+//    2.通过哪个函数来创建对象
+
+
+//    function test() {
+//        console.log(this);
+//    }
+////    test();
+////    window.test();
+//
+//
+////在js中但凡是函数都可以使用new关键字 + 函数调用 来创建一个对象
+//    new test();
+
+
+
+//    var btn = document.getElementById('btn');
+//    btn.onclick = function () {
+//       console.log(this);
+//    };
+
+    //4.this在定时器中
+
+
+//在定时器中this的指向就是window
+    setInterval(function () {
+         console.log(this);
+    },20);
+
+</script>
+</body>
+</html>

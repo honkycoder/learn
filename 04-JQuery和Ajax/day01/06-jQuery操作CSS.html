@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+
+        //设置CSS的几种方法
+        //(1) 对象.css("属性"，"属性值")
+        //(2) 对象.css("属性1"，"属性值1").css("属性2"，"属性值2")
+        $(function () {
+            //01 获取指定的标签对象 设置样式:宽度|高度|背景\
+            /*
+            $("div").css("width","300px");
+            $("div").css("height","100px");
+            $("div").css("background","red");
+            */
+
+            //02 链式编程的方法进行设置
+            //jQuery在调用方法的时候都会有一个返回值，返回的是操作的对象
+            //console.log($("div"));
+            //console.log($("div").css("width", "300px"));
+            //console.log($("div") == $("div").css("width", "300px"));
+            //$("div").css("width", "300px").css("height","100px").css("background","green");
+
+
+            //03 传递对象（key-value）
+
+            $("div").eq(0).css({
+                "width":100,
+                "height":200,
+                "color":"red",
+                "background":"yellow"
+            })
+
+
+            $("div").eq(1).css({
+                "width":50,
+                "height":200,
+                "color":"red",
+                "background":"yellow"
+            });
+
+            //需求：获取div的宽度
+            //如果传递的是一个参数，那么表示获取这个样式属性对应的值
+            //console.log($("div").css("width"));
+            //console.log($("div").css("background"));
+
+            //width方法：
+            //传递一个参数：表示设置这个属性值
+            //不传递参数：获取对应的属性值
+            //console.log($("div").width("400px"));
+            console.log($("div").width());
+        })
+    </script>
+</head>
+<body>
+<div>我是最牛的div</div>
+<div>我是最牛的div</div>
+</body>
+</html>

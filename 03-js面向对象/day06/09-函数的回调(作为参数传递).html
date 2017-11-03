@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+函数的回调
+    函数可以作为函数参数
+
+<script>
+    function foo(func) {
+        func();
+    }
+    foo(function () {
+        console.log('demo');
+    });
+</script>
+
+#对象的方法作为函数的参数
+<script>
+    var obj = {
+        name: 'zs',
+        showName: function () {
+            console.log(this);
+        }
+    };
+
+//    obj.showName(); // this -> obj
+
+/*    function foo(func) {
+        func(); // this -> window
+    }*/
+
+    function foo(showName, obj) {
+        showName.call(obj); // this -> obj
+    }
+
+//    foo(obj.showName, obj);
+//    foo('showName',obj);
+
+</script>
+
+#让函数支持传入字符串和方法
+<script>
+    function foo(showName, obj) {
+        // 判断是否在字符串
+        if (typeof showName == 'string') {
+            showName = obj[showName];
+        }
+        // 判断是否是方法
+        if (typeof showName == 'function') {
+            showName.call(obj);
+        }
+    }
+
+    var obj = {
+        name: 'zs',
+        showName: function () {
+            console.log(this.name);
+        }
+    };
+
+//    foo(obj.showName,obj);
+    foo('showName', obj);
+</script>
+</body>
+</html>

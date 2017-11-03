@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+在JS中有2种数据类型:
+    1.基本(简单)数据类型
+        string 字符串
+        number 数值(整数,小数)
+        boolean 布尔类型(true | false)
+        undefined 未定义
+        null 空
+
+    2.复杂(复合)数据类型
+        Object 对象类型
+        Date 日期类型
+        Math 数学对象类型
+        Array 数组类型
+        Function 函数类型
+        String 字符串对象类型
+        Number 数值对象类型
+        Boolean 布尔对象类型
+
+如何判断某个数据的数据类型
+    使用关键字: typeof
+    语法: typeof 数据(变量)
+    返回值: 字符串类型
+
+<script>
+    var str = 'demoStr';
+    console.log(typeof str); // string
+
+    var num = 10;
+    console.log(typeof num); // number
+
+    var bool = true;
+    console.log(typeof bool); // boolean
+
+    var a;
+    console.log(typeof a); // undefined
+
+    console.log(typeof null); // object, 本身就是定义的一个错误,被默认的错误
+    console.log(null instanceof Object); // false
+
+    var obj = {};
+    console.log(typeof obj); // object
+
+    var arr = [1,2,3];
+    console.log(typeof arr); // object
+
+    // 总结: 复杂数据类型用typeof判断都是object类型,但是函数除外
+
+    function fn() {
+
+    }
+    console.log(typeof fn); // function
+
+    // 补充: 如何判断一个对象是一个数组
+    console.log(Array.isArray(arr)); // true
+
+</script>
+<script>
+
+</script>
+</body>
+</html>

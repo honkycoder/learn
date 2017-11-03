@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+
+
+<script>
+/***
+ * ie9及其以上的版本、最新浏览器
+
+ window.innerWidth, window.innerHeight
+
+
+ 标准模式浏览器
+
+ document.documentElement.clientWidth, document.documentElement.clientHeight
+
+
+
+ 怪异模式(非标准模式)
+
+ document.body.clientWidth, document.body.clientHeight
+ * */
+
+
+    function client() {
+      //1.判断是否是最新浏览器
+       if(window.innerWidth!=null)
+       {
+           return{
+               width:window.innerWidth,
+               height:window.innerHeight
+           }
+       }
+               //标准浏览器支持  w3c标准
+       else if(document.compatMode=='CSS1Compat')
+       {
+           return{
+               width:document.documentElement.clientWidth,
+               height:document.documentElement.clientHeight
+           }
+       }
+               //非标准模式浏览器
+     else
+       {
+           return{
+               width:document.body.clientWidth,
+               height:document.body.clientHeight
+           }
+       }
+
+    }
+
+
+</script>
+</body>
+</html>

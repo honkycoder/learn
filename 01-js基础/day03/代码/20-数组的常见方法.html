@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    //1.concat();把数组元素拼接在一个数组中 方法参数可以多个数组,按照参数顺序拼接在调用者后-->返回一个新的数组
+    var arr1 = [ 100,5,10,7,89,9];
+    var arr2 = ['tame', 'cat'];
+    //   var result = arr1.concat(arr2);
+
+    //   console.log(arr1);
+    //   console.log(result);
+
+    //unshift('g');在数组头部添加元素-->返回添加元素后的数组长度
+    //   var length = arr1.unshift('dog');
+    //   console.log(arr1);
+    //   console.log(length);
+    //shift();在数组头部删除元素-->返回被移除的元素
+    //  var result = arr1.shift();
+    //   console.log(result);
+    //   console.log(arr1);
+
+    //push('g');在数组尾部添加元素-->返回数组长度
+//    var length = arr1.push('zs');
+//    console.log(arr1);
+//    console.log(length);
+    //pop();在数组尾部删除元素-->返回被删除的元素
+//      var result = arr1.pop();
+//       console.log(result);
+//       console.log(arr1);
+
+    //splice(startIndex,deleteCount,insertValue,...);删除指定位置的元素-->返回包含被删除元素的数组
+//    var result = arr1.splice(1,2,'uuu');
+//    console.log(result);
+//    console.log(arr1);
+
+    //join(),join(separatorStr);把数组元素用某个字符串串成一个字符串-->返回拼接后的字符串，对原数组没有影响,没有参数默认为逗号
+//    var result = arr1.join('-');
+//    var result = arr1.join('');
+//    console.log(result);
+
+    // sort();数组中的元素按照ASCII码表中的顺序进行排序,先转为字符串,再进行比较
+
+//   var resut = arr1.sort();
+//    console.log(resut);
+//    console.log(arr1);
+
+    //arr.sort(function (a,b) { return a-b; }); 从小到大排列
+    arr1.sort(function (a,b) {
+        console.log('----');
+        // 如果返回值是负数,认为a<b ,不交换顺序
+        // 如果返回值是整数,认为a>b 交换顺序
+        return b-a;
+    })
+    console.log(arr1);
+    //    function sum(a,b) {
+//        a();
+//    }
+//    sum(function () {
+//        console.log('---');
+//    },2)
+</script>
+</body>
+</html>

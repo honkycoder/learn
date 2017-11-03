@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--存放舞台的容器-->
+<div id = 'container'></div>
+<script src = 'js/konva.js'></script>
+<script src = 'js/PieChart.js'></script>
+
+<script>
+    // 1.创建舞台
+    var stage = new Konva.Stage({
+        width : window.innerWidth,
+        height : window.innerHeight,
+        container : 'container'
+    });
+
+    // 2.创建层
+    var layer = new Konva.Layer();
+    stage.add(layer);
+
+    // 3.造假数据
+    var dataArray = [
+        {name : '上海',value :0.2,color : 'red'},
+        {name : '北京',value :0.3,color : 'blue'},
+        {name : '广州',value :0.15,color : 'yellow'},
+        {name : '苏州',value :0.25,color : 'pink'},
+        {name : '成都',value :0.1,color : 'green'}
+    ];
+
+    // 4.实例化饼状图
+    // 使用的量
+    var x0 = stage.width() * 0.5;
+    var y0 = stage.height() * 0.5;
+    var innerRadius = 160;
+    var outerRadius = 180;
+    var pieChart = new PieChart({
+        x : x0,
+        y : y0,
+        innerRadius : innerRadius,
+        outerRadius : outerRadius,
+        outerColor : 'lightgray',
+        outerWidth: 6,
+        dataArray : dataArray
+    });
+    pieChart.render(layer);
+
+    // 5.绘制层
+    layer.draw();
+
+</script>
+
+</body>
+</html>

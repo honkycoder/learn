@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style/weibo.css" rel="stylesheet" />
+    <script src="js/jquery-3.1.1.js"></script>
+</head>
+<body>
+<div class="xmgArea">
+    <!--留言-->
+    <div class="takeComment">
+        <textarea name="textarea" class="takeTextField" id="submitText"></textarea>
+        <div class="takeSbmComment">
+            <input id="btn_send" type="button" class="inputs" value="" />
+            <span>(可按 Enter 回复)</span>
+        </div>
+    </div>
+    <!--预留-->
+    <div class="commentOn">
+        <!--<div class="noContent">暂无留言</div>-->
+        <div id="messList" class="messList">
+            <!--<div class="reply">-->
+                <!--<p class="replyContent">123</p>-->
+                <!--<p class="operation">-->
+                    <!--<span class="replyTime">2011-09-08 16:37:60</span>-->
+                    <!--<span class="handle">-->
+                        <!--<a href="javascript:;" class="top">0</a>-->
+                        <!--<a href="javascript:;" class="down_icon">0</a>-->
+                        <!--<a href="javascript:;" class="cut">删除</a>-->
+                    <!--</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        </div>
+        <div id="page" class="page">
+
+        	<a href="javascript:;" class="active">1</a>
+        	<a href="javascript:;">2</a>
+        	<a href="javascript:;">3</a>
+
+        </div>
+    </div>
+</div>
+<script>
+    //01 获取页面中指定的标签：文本输入框 + 按钮
+    //02 给按钮添加点击事件
+    //03 监听按钮的点击，当点击事件发生，获取文本输入框的内容作为参数发送请求给服务器端
+    //04 获取服务器返回的数据（请求成功）
+    //05 更新UI
+
+    //页面列表优化
+    //(1) 发布多条数据，最新发布的应该在前面prepend
+    //(2) 当点击按钮提交给服务器后，就应该吧文本框中的内容清空
+    //(3) 抽取创建标签的方法
+    //(4) 每个页面最多显示6条数据：在发布新数据之后，判断当前页面中数据的数量是否超过6条，如果超过那么就把最后一条删掉
+
+    var oText = $("#submitText");
+    var oBtn = $("#btn_send");
+    oBtn.click(function () {
+        //(1) 获取文本输入框的内容
+        var contentText = oText.val();
+
+        //(2) 发送请求
+        $.ajax({
+            "url":"weibo.php?act=add&content="+ contentText,
+            "type":"GET",
+            "success":function (res) {
+                //001 清空文本框的内容
+                oText.val("");
+                //002 解析服务器返回的数据，并且更新UI
+                var resultObj = eval("(" + res+")");
+                var timer = dateFormatter(resultObj["time"]);
+                //003 判断当前页面中数据的数量，如果超过那么就删掉
+                if($("#messList").children(".reply").length >5)
+                {
+                    $("#messList").children(".reply").last().remove();
+                }
+                $("#messList").prepend(createEle(contentText,timer));
+
+            }
+
+        })
+
+        function dateFormatter(timer) {
+            var date = new Date(timer * 1000);
+            console.log(date);
+            //2011-09-08 16:37:60
+            var arrM =[];
+            arrM.push(date.getFullYear()+"-");
+            arrM.push(date.getMonth() + 1+"-");
+            arrM.push(date.getDate()+" ");
+            arrM.push(date.getHours()+":");
+            arrM.push(date.getMinutes()+":");
+            arrM.push(date.getSeconds());
+            return  arrM.join("");
+        }
+        function createEle(contentText,timer) {
+            var oTempDiv = $("<div></div>")
+            var html = '<p class="replyContent">'+contentText+'</p>'+
+                '<p class="operation">'+
+                '<span class="replyTime">'+timer+'</span>'+
+                '<span class="handle">'+
+                '<a href="javascript:;" class="top">'+0+'</a>'+
+                '<a href="javascript:;" class="down_icon">'+0+'</a>'+
+                '<a href="javascript:;" class="cut">'+"删除"+'</a>'+
+                '</span>'+
+                ' </p>';
+
+            oTempDiv.html(html);
+            oTempDiv.addClass("reply");
+            return oTempDiv;
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box">你真帅</div>
+
+<script>
+        // document 对象,有一些方法,可以获取页面内的元素
+//        var a;
+
+//    document.getElementById() 通过一个id字符串,来获取页面内的的元素(id一样的)
+    var box = document.getElementById('box');
+    // 改变元素的样式 .就代表调用
+    box.style.background = 'yellow';
+    box.style.width = '300px';
+    box.style.margin = '200px'
+
+
+</script>
+</body>
+</html>

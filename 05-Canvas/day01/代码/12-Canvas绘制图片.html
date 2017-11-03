@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<!--<img id='icon'src="images/img_01.jpg" alt="小狗">-->
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+     /*
+     // 2.绘制图片第一种方式
+    // 获取图片的dom对象
+    var image = document.getElementById('icon');
+    // 绘制图片一定要等图片加载完毕(重点)
+     image.onload = function () {
+         var w = 200;
+         var h = w * image.height / image.width; // 等比
+         // image.h / image.w = h / w
+         ctx.drawImage(image,200,200,w,h);
+     }
+    */
+
+    /*
+    // 3.直接创建图片的 dom 对象（绘制图片第二种方式）
+    var image = new Image();
+    image.src = 'images/img_02.jpg';
+    // 绘制图片一定要等图片加载完毕(重点)
+    image.addEventListener('load',function () {
+        var w = 300;
+        var h = w * image.height / image.width; // 等比
+        // image.h / image.w = h / w
+        ctx.drawImage(image,200,200,w,h);
+    })
+    */
+
+    var image = new Image();
+    image.src = 'images/img_01.jpg';
+    image.onload = function () {
+        // 图片的dom对象-> image
+        // 裁剪的 x,y,w,h->,50,50,120,120
+        // 显示到画布的x,y,w,h->200,200,120,120
+        ctx.drawImage(image,50,50,120,120,200,200,120,120);
+    }
+
+</script>
+</body>
+</html>

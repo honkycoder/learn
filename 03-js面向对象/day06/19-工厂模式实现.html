@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+工厂模式作用: 大批量的生产同一类型的产品
+
+需求: 生产手机
+
+步骤:
+    1.提供一个父构造函数
+    2.给这个父构造函数设置原型对象方法(为了给父构造函数创建出来的对象或者子构造函数创建出来的对象来共享这个方法)
+    3.给父构造函数提供多个静态方法,用于方定制合作伙伴(有哪些型号的手机可以生产)
+    4.给父构造函数提供一个静态工厂方法(用于生产出产品),接收手机型号名
+        4.1.接收型号名
+        4.2.判断是否支持生产(使用手机型号名作为父构造函数的方法名进行判断是否有这个方法,如果没有则抛出异常)
+        4.3.通过方法名获取静态方法(子构造函数),设置这个静态方法的原型对象为父构造函数的实例化对象(实现原型链继承)
+        4.4.使用子构造函数创建对象
+        4.5.返回创建好的对象
+    5.使用父构造函数提供的静态工厂方法生产不同型号的手机
+
+<script>
+    // 1.提供一个父构造函数
+    function PhoneMake() {
+
+    }
+
+    // 2.给这个父构造函数设置原型对象方法(为了给父构造函数创建出来的对象或者子构造函数创建出来的对象来共享这个方法)
+    PhoneMake.prototype.logDes = function () {
+        console.log('我们的口号是:' + this.des);
+    };
+
+    // 3.给父构造函数提供多个静态方法,用于方定制合作伙伴(有哪些型号的手机可以生产)
+    PhoneMake.vivo = function () {
+        this.des = '照亮你的美,你到底美不美';
+    };
+    PhoneMake.iPhone = function () {
+        this.des = "最安全,最稳定的系统";
+    };
+    PhoneMake.oppo = function () {
+        this.des = '充电2小时,通话5分钟';
+    };
+    PhoneMake.meizu = function () {
+        this.des = '无魅友不魅族,轻易不说完美';
+    };
+
+    // 4.给父构造函数提供一个静态工厂方法(用于生产出产品),接收手机型号名
+    PhoneMake.factory = function (str) {
+
+        // 4.1接收型号名
+        var shopStr = str;
+
+        // 4.2.判断是否支持生产(使用手机型号名作为父构造函数的方法名进行判断是否有这个方法,如果没有则抛出异常)
+        if (typeof PhoneMake[shopStr] != 'function') {
+            throw '不支持生产';
+        }
+
+        // 4.3.通过方法名获取静态方法(子构造函数),设置这个静态方法的原型对象为父构造函数的实例化对象(实现原型链继承)
+        PhoneMake[shopStr].prototype = new PhoneMake();
+
+        // 4.4.使用子构造函数创建对象
+        var newShop = new PhoneMake[shopStr]();
+
+        // 4.5.返回创建好的对象
+        return newShop;
+    };
+
+    // 使用父构造函数提供的静态工厂方法生产不同型号的手机
+    var vivo = PhoneMake.factory('vivo');
+    var iPhone = PhoneMake.factory('iPhone');
+    var oppo = PhoneMake.factory('oppo');
+    var meizu = PhoneMake.factory('meizu');
+
+    vivo.logDes();
+    iPhone.logDes();
+    oppo.logDes();
+    meizu.logDes();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 使用函数创建
+     * */
+
+    //1.创建函数
+    function Dog(name,age) {
+
+
+        //使用构造函数来创建对象
+
+
+        //使用构造函数来创建对象,最好对象的一些属性通过函数的参数传递进来
+        //属性
+        this.name = name;
+        this.age = age;
+
+        //方法
+        this.eat = function (someThing) {
+            console.log(this.name + '吃' + someThing);
+        };
+
+        this.run = function (someWhere) {
+            console.log(this.name + '跑' + someWhere)
+        };
+    }
+
+    //2.调用dog模板创建对象出来
+    //在js中但凡是函数都可以使用new关键字 + 函数调用 来创建一个对象
+    var smallDog = new Dog('小花花',1);
+
+    smallDog.eat('奶');
+    console.log(smallDog);
+
+    console.log(smallDog.name);
+    console.log(smallDog.age);
+
+
+    //创建大狗
+
+
+
+    var bigDog = new Dog('大花花',20);
+
+
+    bigDog.eat('五花肉');
+    console.log(bigDog);
+
+
+    alert(smallDog.eat==bigDog.eat);
+
+
+
+    //可以解决之前的不能量产
+
+
+    //?  必须得依赖new Object最纯洁的对象来创建一个新的对象达到量产
+
+
+    //?两个对象是允许不一样的,因为每一个对象天生都不一样,但是不管是小狗还是大狗都要吃
+
+
+    //想办法解决?  小狗和大狗的eat吃法都用一个
+
+    //在内存中,尽量保持多个对象共用一个方法 非常非常耗费内存
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 800px;
+            height: 240px;
+            border: 1px solid #dddddd;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #box_top {
+            width: 800px;
+            height: 200px;
+            position: relative;
+        }
+
+        #ulTag {
+            width: 2600px;
+            position: absolute;
+            left: 0;
+            top: 20px;
+        }
+
+        #ulTag li {
+            float: left;
+        }
+
+        #box_bottom {
+            width: 100%;
+            height: 25px;
+            background: #dddddd;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        #mask {
+            width: 150px;
+            height: 25px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: orangered;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <!--上面的商品滚动内容-->
+    <div id="box_top">
+        <ul id="ulTag">
+            <li><img src="images/img1.jpg" alt=""></li>
+            <li><img src="images/img2.jpg" alt=""></li>
+            <li><img src="images/img3.jpg" alt=""></li>
+            <li><img src="images/img4.jpg" alt=""></li>
+            <li><img src="images/img5.jpg" alt=""></li>
+            <li><img src="images/img6.jpg" alt=""></li>
+            <li><img src="images/img7.jpg" alt=""></li>
+            <li><img src="images/img8.jpg" alt=""></li>
+            <li><img src="images/img7.jpg" alt=""></li>
+            <li><img src="images/img8.jpg" alt=""></li>
+            <li><img src="images/img1.jpg" alt=""></li>
+            <li><img src="images/img2.jpg" alt=""></li>
+            <li><img src="images/img3.jpg" alt=""></li>
+            <li><img src="images/img4.jpg" alt=""></li>
+            <li><img src="images/img5.jpg" alt=""></li>
+            <li><img src="images/img6.jpg" alt=""></li>
+            <li><img src="images/img7.jpg" alt=""></li>
+            <li><img src="images/img8.jpg" alt=""></li>
+            <li><img src="images/img7.jpg" alt=""></li>
+            <li><img src="images/img8.jpg" alt=""></li>
+        </ul>
+    </div>
+    <!--下面的盒子-->
+    <div id="box_bottom">
+        <span id="mask"></span>
+    </div>
+</div>
+<script>
+    /**
+     * 1.求出滚动条的长度(动态计算出来的)
+     *
+     *
+     * 2.拖动mask让它走起来
+     *
+     *
+     * 3.求出上面内容滚动的距离
+     * **/
+
+
+    //1.找对象
+    var box = document.getElementById('box');
+    var mask = document.getElementById('mask');
+    var ulTag = document.getElementById('ulTag');
+
+    var box_bottom = document.getElementById('box_bottom');
+    //换算公式 滚动条长度 = ( 盒子的宽度 \/ 内容的宽度) * 盒子的宽度
+
+    //2.求出mask的长度
+
+    var mask_length = (box.offsetWidth / ulTag.offsetWidth) * box.offsetWidth;
+
+    //3.赋值给mask
+    mask.style.width = mask_length + 'px';
+
+
+    //4.让mask走起来
+    //4.1.监测鼠标在mask上的按下事件
+    mask.onmousedown = function (event) {
+        //获取兼容的事件对象
+        var myEvent = event || window.event;
+        //4.2.获取鼠标按下的起始位置
+        var beginX = myEvent.clientX - this.offsetLeft;
+
+
+        //4.3.当鼠标拖动
+        document.onmousemove = function (event) {
+            //获取兼容的事件对象
+            var myEvent = event || window.event;
+
+            //4.4.获取最新的位置
+            var endX = myEvent.clientX - beginX;
+
+            //5.判断mask左边和右边的范围
+            if (endX < 0) {
+                endX = 0;
+            }
+            else if (endX >= box_bottom.offsetWidth - mask.offsetWidth) {
+                endX = box_bottom.offsetWidth - mask.offsetWidth;
+            }
+            //4.5.将endX赋值给mask
+            mask.style.left = endX + 'px';
+
+
+            //内容走的距离 = （内容的长度 - 盒子的长度） \/ (盒子长度 - 滚动条的长度) * 滚动条走的距离
+            //7.求出内容的走的距离
+            var content_length = (ulTag.offsetWidth - box.offsetWidth) / (box.offsetWidth - mask.offsetWidth) * endX;
+
+            //8.赋值
+            ulTag.style.left = -content_length + 'px';
+
+
+            return false;
+        }
+
+        //6.当鼠标抬起的时候,清空拖动事件和按下事件
+        document.onmouseup = function () {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+        return false;
+
+    }
+
+
+    /**
+     * return false在js事件中是阻止默认事件的触发以及后续事件的触发
+     * */
+
+</script>
+</body>
+</html>

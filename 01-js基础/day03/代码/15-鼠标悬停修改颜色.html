@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+    <li>你好,很高兴见到你</li>
+</ul>
+
+<script>
+    // 1.获取li的数组
+    var lis = document.getElementsByTagName('li');
+    // 2.
+    //    lis[0];
+    //    lis[1];
+    for (var i=0;i<lis.length;i++){
+        // 第一个后面每隔一个颜色一样
+        // 0,1,2,3,4,5,6,7
+        if (i%2==0){
+            lis[i].style.background = 'red';
+        }else {
+            lis[i].style.background = 'blue';
+        }
+
+        // 给每一个li绑定事件
+        lis[i].onmouseover = function () {
+            // 取消上一个黄色,变为原来的颜色
+//            lis[0].style.background = 'red';
+            for (var j=0;j<lis.length;j++){
+                if (j%2==0){
+                    lis[j].style.background = 'red';
+                }else {
+                    lis[j].style.background = 'blue';
+                }
+
+            }
+
+           this.style.background = 'yellow';
+
+        }
+
+
+    }
+//    lis[0].onclick = function () {
+//
+//    }
+//    lis[1].onclick = function () {
+//
+//    }
+//    lis[2].onclick = function () {
+//
+//    }
+</script>
+</body>
+</html>

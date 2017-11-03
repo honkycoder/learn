@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+ <canvas id="canvas" width="900" height="600" style="border: 1px solid #000;">
+ </canvas>
+ <p></p>
+ <button dir=2>上</button>
+ <button dir=6>下</button>
+ <button dir=0>左</button>
+ <button dir=4>右</button>
+ <script src="js/Girl.js"></script>
+ <script>
+     var canvas = document.querySelector("canvas");
+     var context = canvas.getContext('2d');
+     var girl = new Girl({
+         imgSrc:"girl.png",
+         x0:256,
+         y0:256,
+         widthX:256,
+         heightY:256,
+         x:canvas.width*0.5-200,
+         y:canvas.height*0.5-100,
+         width:256,
+         height:256,
+         date:100,
+         dir:0
+     });
+     girl.render(context);
+     var but = document.querySelectorAll("button");
+     for (var i = 0; i < but.length; i++) {
+         but[i].onclick = function () {
+           dir=  this.getAttribute("dir");
+             girl.dirT(dir);
+         }
+
+     }
+ </script>
+</body>
+</html>

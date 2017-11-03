@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+Number的使用注意点:
+    1.可以使用变量去调用
+    2.可以使用表达式调用
+    3.不能只用用值去调用
+
+<script>
+    Number.prototype.sum = function () {
+        return this + 2;
+    };
+
+    var num1 = new Number(10);
+    console.log(num1.sum()); // 12
+
+    var num2 = 9;
+    console.log(num2.sum()); // 11
+
+//    12.sum(); 错误写法
+    console.log((12).sum()); // 14
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 400px;
+            background: #660e7a;
+        }
+
+    </style>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            $("#down").click(function () {
+                $("div").slideDown(1000,function () {
+                    console.log("展开动画执行完毕之后调用");
+                });
+            })
+
+            $("#up").click(function () {
+                $("div").slideUp(1000,function () {
+                    console.log("收起动画执行完毕之后调用");
+                });
+            })
+
+            $(".togT").click(function () {
+                $("div").slideToggle(1000,function () {
+                    console.log("切换动画执行完毕之后调用");
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+<div>
+</div>
+
+<button id="down">展开</button>
+<button id="up">收起</button>
+<button class="togT">切换</button>
+</body>
+</html>

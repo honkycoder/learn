@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+赋值(=): 把右边存储的信息复制一份给左边
+值类型赋值: 把右边存储的信息(具体的数据)复制一份给左边
+    特点: 仅仅是复制具体的数据
+引用类型赋值: 把右边存储的信息(指向具体的数据的内存地址)复制一份给左边
+    特点: 复制的是指向具体数据的内存地址,共享同一份数据,修改其中一个对象的属性,会影响另外一个对象
+<script>
+    var a = 10;
+    var b = a;
+    b = 8;
+    console.log(a); // 10
+
+//    var obj = {
+//        name: 'zs'
+//    };
+//    var obj1 = obj;
+//    obj1.name = 'ls';
+//    console.log(obj.name); // zs | (ls)
+
+//    var obj = {
+//        name: 'zs'
+//    };
+//    var obj1 = obj;
+//    obj1 = {age: 20};
+//    obj1.name = 'ls';
+//    console.log(obj.name); // (zs) | ls
+
+    var obj = {
+        name: 'zs'
+    };
+    var obj1 = obj;
+    obj1.name = 'ls';
+    obj1 = {age: 20};
+    console.log(obj.name); // ls
+</script>
+</body>
+</html>

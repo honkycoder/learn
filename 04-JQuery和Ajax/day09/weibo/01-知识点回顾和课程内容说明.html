@@ -1,0 +1,41 @@
+知识点回顾
+01-基本概念：请求|响应|URL|HTTP|协议
+02-表单发送请求
+    001 GET请求  action设置请求路径|method设置请求方法(get)|设置name属性作为对应的key|$_GET
+    002 POST请求 action设置请求路径|method设置请求方法(post)|设置name属性作为对应的key|$_POST
+    003 文件上传
+        (1) 发送POST请求
+        (2) 设置enctype属性
+        (3) $_FILES
+        (4) 默认把上传的文件保存在临时的路径，需要我们自己保存（move_uploaded_file）
+        (5) 大文件上传（配置）
+    GET|POST请求
+        （1）GET请求参数跟在URL后面，POST请求参数放在请求体
+        （2）GET请求对参数大小有限制，POST请求对参数大小没有限制
+        （3）GET请求参数直接暴露在请求路径中，所有安全性较差
+
+03-Ajax发送请求
+    001 Ajax:异步发送网络请求|局部刷新
+    002 Ajax发送GET请求
+        （1）创建请求对象XMLHTTPRequest(兼容性问题)
+        （2）设置请求路径和请求方法 open("get","url",true)
+        （3）发送请求  send
+        （4）监听请求完成 onreadystatechange (readyState==4)
+        （5）解析服务器返回的数据（status == 200）
+    002 Ajax发送POST请求
+        （1）创建请求对象XMLHTTPRequest(兼容性问题)
+        （2）设置请求路径和请求方法 open("post","url",true)
+         (+) 设置请求头 setHeaderRequest(...)
+        （3）发送请求   send(参数)
+        （4）监听请求完成 onreadystatechange (readyState==4)
+        （5）解析服务器返回的数据（status == 200）
+    003 请求的封装和注意点
+        （1）请求超时 设置定时器
+        （2）缓存处理 设置添加参数（随机数）
+        （3）参数中有中文 EncodeURI
+        （4）参数处理：固定格式
+
+课程内容：
+    （1）jQuery的网络请求
+    （2）解析服务器返回的数据（XML|JSON）
+    （3）综合案例

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /*border: 1px solid #ccc;*/
+        }
+        /*div{*/
+            /*width: 100px;*/
+            /*height: 100px;*/
+            /*background: red;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+
+
+<script>
+
+    // 服务器数据 ,数组里面有多少个字典,就创建出多少个盒子
+    var dataArr = [{width:'200px',height:'200px',background:'red',border: '1px solid #ccc'},{width:'200px',height:'200px',background:'yellow',border: '1px solid #ccc'},{width:'200px',height:'200px',background:'green',border: '1px solid #ccc'},{width:'200px',height:'200px',background:'blue',border: '1px solid #ccc'},{width:'200px',height:'200px',background:'red',border: '1px solid #ccc'}];
+
+  for(var i = 0;i<dataArr.length;i++){
+        // 1.创建一个盒子
+      var newBox = document.createElement('div');
+      // 2.设置样式
+      var cssStyle = dataArr[i];
+      for(var key in cssStyle){
+          newBox.style[key] = cssStyle[key];
+      }
+        // 3. 添加盒子到父盒子中
+      document.body.appendChild(newBox);
+
+  }
+
+
+</script>
+</body>
+</html>

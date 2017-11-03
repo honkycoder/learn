@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script>
+
+    // 1.最简单的字典
+    var dic = {name: 'zs', age: 12}
+    // 2.
+    var dic2 = [{name: 'zs', age: 12}, {name: 'zs', height: 12}]
+    //3.
+    var dic3 = [{name: 'zs', age: 12}, {name: 'zs', height: 12}, {
+        students: [{
+            snumber: '20170405',
+            count: 5,
+            classes: ['math', 'chinese']
+        }, {snumber: '20170406', count: 6}]
+    }]
+    // 4
+    var dic4 =
+            [
+                {name: 'zs', age: 12},
+                {name: 'zs', height: 12},
+                {
+                    students: [{
+                        snumber: '20170405',
+                        count: 5,
+                        classes: ['math', 'chinese'],
+                        study: function () {
+
+                            console.log('我正在学习,你不要打扰我');
+                        }
+                    }, {snumber: '20170406', count: 6}]
+                }
+            ]
+
+    // 让第一个学生学习
+    var student1 = dic4[2].students[0].study();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            //01 数组
+            var arr = ["ABC","DEMO","MOMO","QQ"];
+            $.each(arr,function (index,value) {
+                console.log(index, value);
+                //console.log(this);
+                if(value == "DEMO") return false;
+            })
+
+            console.log("__________");
+
+            var res = $.map(arr,function (value,index) {
+                console.log(index, value);
+               // console.log(this);
+                // if(value == "DEMO") return false;  没有效果
+                return value + "T";
+            });
+            console.log(res);
+        })
+    </script>
+</head>
+<body>
+<!--
+
+区别：
+    (1)函数回调中的第一个参数是value,第二个参数是key
+    (2)map方法的回调函数中this指向的是window,没有经过特殊处理、
+    (3)map方法不能够终止循环，但是可以收集每次回调函数执行得到的返回值
+-->
+
+</body>
+</html>

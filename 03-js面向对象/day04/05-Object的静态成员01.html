@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+1.Object.assign: 属性拷贝
+<script>
+    var obj1 = {name: 'zs'};
+    var obj2 = {age: 20};
+    var obj3 = {friends: ['小明']};
+    var o = {};
+
+    Object.assign(o,obj1,obj2,obj3);
+    console.log(o);
+    o.friends.push('小红');
+    console.log(obj3);
+</script>
+
+2.Object.create: 创建对象并设置原型对象
+<script>
+    var obj = {name: 'zs'};
+    var o = Object.create(obj);
+    console.log(obj.isPrototypeOf(o)); // true
+</script>
+
+3.Object.constructor: 构造器属性,这个是构造函数原型对象的属性,默认指向这个构造函数,构造函数创建出来的对象默认可以使用这个构造函数原型对象的属性和方法
+<script>
+    function Person() {
+
+    }
+    var p = new Person();
+    console.log(p.constructor); // Person
+</script>
+
+4.Object.getOwnPropertyDescriptor: 获取自己的属性的描述信息
+    参数:
+        参数1: 对象
+        参数2: 对象的属性名
+
+configurable:true 是否可配置,是否可以删除,如果设置为false,就不能够删除,也不能够再设置为true
+enumerable:true 是否可变量
+value:"zs"
+writable:true 是否可更改
+<script>
+    var obj = {name: 'zs'};
+    console.log(Object.getOwnPropertyDescriptor(obj, 'name'));
+</script>
+
+5.Object.defineProperty: 设置对象的某个属性的描述信息
+    参数:
+        参数1: 对象
+        参数2: 属性名
+        参数3: 是一个对象,内部是这个属性名的描述信息
+
+<script>
+    var obj = {
+        name: 'zs',
+        age: 20
+    };
+
+    Object.defineProperty(obj,'name',{
+        configurable: false,
+        enumerable: false,
+        writable: false
+    });
+
+    // 删除 -> 删除失败,因为name属性的描述信息: configurable: false
+    console.log(delete obj.name);
+    console.log(obj);
+
+    // 遍历对象中的所有属性 -> 无法遍历出name,因为name属性的描述信息: enumerable: false
+    for (var k in obj) {
+        console.log(k);
+    }
+
+    // 修改 -> 修改失败, 因为name属性的描述信息:writable: false
+    obj.name = 'ls';
+    console.log(obj);
+
+    obj.des = 'des';
+    console.log(obj);
+
+</script>
+
+6.Object.getOwnPropertyNames: 获取这个对象的所有属性名和方法名,返回一个数组,获取的是实例成员,无法获取原型成员,如果这个属性描述信息不支持遍历,也能够在数组中获取
+<script>
+    function Person() {
+        this.name = '默认';
+        this.showName = function () {
+            console.log(this.name);
+        }
+    }
+
+    Person.prototype.des = 'des';
+    Person.prototype.logDes = function () {
+        console.log(this.des);
+    };
+
+    var p = new Person();
+
+    Object.defineProperty(p,'name',{
+       enumerable: false
+    });
+
+    console.log(Object.getOwnPropertyNames(p));
+
+//    for (var k in p) {
+//        console.log(k);
+//    }
+
+</script>
+
+7.Object.keys: 获取对象中所有的属性名和方法名,返回一个数组,只能获取实例成员,无法获取原型成员,如果这个属性的描述信息不可遍历,那么就无法通过这种方式获取
+<script>
+    function Person() {
+        this.name = '默认';
+        this.showName = function () {
+            console.log(this.name);
+        }
+    }
+
+    Person.prototype.des = 'des';
+    Person.prototype.logDes = function () {
+        console.log(this.des);
+    };
+
+    var p = new Person();
+
+    Object.defineProperty(p,'name',{
+        enumerable: false
+    });
+    console.log(Object.keys(p)); // [showName]
+</script>
+</body>
+</html>

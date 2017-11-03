@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+    // 事件源
+    // 事件的属性
+    // 事件的指令
+    // 事件对象
+    var box = document.getElementById('box');
+    box.onclick = function (event) {
+        // event 在谷歌浏览器有,在ie8以前没有
+//        console.log(event);
+        // 浏览器兼容问题
+        // 如果event没有作为函数的参数传递过来,你可以使用window的event属性
+//        console.log(window.event);
+//        if(event){
+//        }else{
+//            event = window.event;
+//        }
+        // 使用逻辑或
+        event = event||window.event;
+
+        console.log(event);
+
+    }
+
+
+//    function click() {
+//        console.log();
+//    }
+//    click(event);
+</script>
+</body>
+</html>

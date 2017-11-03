@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+函数的创建方式:
+    1.函数声明
+    2.函数表达式
+    3.Function构造函数
+
+<script>
+    // 1.函数声明
+//    function 函数名() {
+//        // 函数体
+//    }
+    
+    // 2.函数表达式
+    // 匿名函数表达式
+    var sum = function () {
+        
+    };
+    
+    // 命名函数表达式
+    var add = function fun() {
+        
+    };
+    
+    // 3.Function构造函数,参数是字符串
+//    var func = new Function(); // var func = function () {}
+
+//    var func = new Function('console.log(\'demo\')');
+    var func = new Function("console.log('demo')");
+    func();
+    
+</script>
+
+对象的创建方式:
+    1.字面量
+    2.构造函数
+
+<script>
+    // 1.字面量方式
+    var obj = {
+        name: 'zs',
+        age: 20
+    };
+
+    // 2.构造函数方式
+    var obj1 = new Object(); // var obj1 = {};
+    obj1.name = 'ls';
+    console.log(obj1);
+
+    // 3.如果是创建的Date,那么表示的是当前时间
+    var date = new Date();
+    console.log(date);
+
+    // GMT: 格林尼治时间
+
+</script>
+</body>
+</html>

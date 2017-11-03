@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+深拷贝和浅拷贝
+
+#浅拷贝(地址拷贝): 将父对象的所有内容拷贝一份给子对象,如果父对象中的某个属性的值是一个引用类型,那么拷贝过来是一个地址,子对象修改这个属性的值会影响父对象的这个属性的值
+
+<script>
+    var obj = {
+        name: 'zs',
+        age: 20,
+        car: {
+            type: '飞船'
+        }
+    };
+
+//    var o = {};
+//
+//    for (var k in obj) {
+//        o[k] = obj[k];
+//    }
+//
+//    console.log(o);
+//
+//    o.car.type = '火箭';
+//
+//    console.log(obj.car);
+
+</script>
+
+#深拷贝(内容拷贝): 只拷贝内部,不拷贝地址
+    步骤:
+        1.提供一函数,这个函数有2个参数,第一个参数为需要拷贝的对象,第二个参数为被拷贝的对象
+        2.校验处理,判断这2个参数是否是对象,如果有一个不是,就直接返回false
+        3.遍历被拷贝的对象中所有的属性
+        4.判断是否是实例属性,这里只拷贝实例属性,不拷贝原型属性
+        5.取出这个属性对应的值并判断类型
+            1.如果是值类型,给需要拷贝的对象动态添加这个属性,并赋值
+            2.如果是引用类型,给需要拷贝的对象动态添加这个属性,并赋值为一个空对象,然后再调用这个方法拷贝引用类型里面的内容
+
+<script>
+    // 1.提供一函数,这个函数有2个参数,第一个参数为需要拷贝的对象,第二个参数为被拷贝的对象
+    function deepCopy(obj, copyObj) {
+        //  2.校验处理,判断这2个参数是否是对象,如果有一个不是,就直接返回false
+        if (typeof obj != 'object' || typeof copyObj != 'object') {
+            return false;
+        }
+
+        // 3.遍历被拷贝的对象中所有的属性
+        for (var k in copyObj) {
+
+            // 4.判断是否是实例属性,这里只拷贝实例属性,不拷贝原型属性
+            if (copyObj.hasOwnProperty(k)) {
+
+                // 5.取出这个属性对应的值并判断类型
+                if (typeof copyObj[k] == 'object') {
+                   // 如果是引用类型,给需要拷贝的对象动态添加这个属性,判断这个值是否是数组,如果是数组就赋值一个空数组,如果不是就赋值一个空对象
+                    obj[k] = Array.isArray(copyObj[k]) ? [] : {};
+
+                    // 然后再调用这个方法拷贝引用类型里面的内容
+                    deepCopy(obj[k], copyObj[k])
+
+                } else { // 值类型数据
+                    // 如果是值类型,给需要拷贝的对象动态添加这个属性,并赋值
+                    obj[k] = copyObj[k];
+//                    obj['name'] = copyObj['name']
+//                    obj['age'] = copyObj['age']
+                }
+            }
+        }
+    }
+
+    var obj = {
+        name: 'zs',
+        age: 20,
+        car: {
+            type: '飞船'
+        },
+        friends: ['小明']
+    };
+
+    var o = {};
+
+    deepCopy(o, obj);
+
+    console.log(o);
+    o.friends.push('小红');
+
+    console.log(o);
+    //    o.car.type = '火箭';
+//    console.log(obj.car);
+
+</script>
+</body>
+</html>

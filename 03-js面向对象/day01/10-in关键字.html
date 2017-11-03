@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+in: 关键字
+    1.for..in遍历对象(key-value键值对)中的属性
+    2.判断对象中是否有指定的属性
+        语法: 属性 in 对象
+        注意点: 属性是字符串
+        返回值: 布尔类型
+
+break: 终止循环,后面的代码不执行
+continue: 跳出循环,后面的代码不执行,但是会执行下一个循环
+<script>
+    // for..in遍历
+    var obj = {
+        name: 'zs',
+        age: 20
+    };
+
+    for (var k in obj) {
+        console.log(k, obj[k]);
+//        console.log(k, obj.k); // 错误写法
+    }
+
+</script>
+
+<script>
+    // 判断对象中是否有指定的属性
+    var obj = {
+        name: 'zs'
+    };
+    console.log('name' in obj); // true
+
+    // 注意点: 使用in操作数组的使用操作的是数组的下标,不是操作数组中的元素
+    var arr = [1,5,7,4,6];
+    console.log(1 in arr); // true
+    console.log(7 in arr); // false
+
+    // 补充: 判断数组中是否有某个元素
+    // 方式一: 遍历整个数组,取出每一个元素进行判断
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == 4) {
+            console.log(arr);
+            break;
+        }
+    }
+
+    // 方式二: 使用数组的一个方法 indexOf, 返回是元素的下标,如果没有这个元素返回-1
+    console.log(arr.indexOf(7)); // 2
+    console.log(arr.indexOf(8)); // -1
+
+</script>
+</body>
+</html>

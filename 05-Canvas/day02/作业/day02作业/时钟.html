@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<!--
+translate(300, 300) 方法转换画布的用户坐标系统。
+让坐标系的原点，进行了位置改变。向右移动了300，向下移动了300
+
+ctx.save() 保存当前上下文
+进行translate前，save一下，然后restore
+
+-->
+
+<body style="padding: 100px;">
+    <canvas id="canvas" width="900" height="600" style="border: 1px solid #000;"></canvas>
+
+    <script>
+        //1.获取标签
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        //2.绘制背景
+        function drawBackground() {
+            //2.1绘制边框
+            //绘制圆边框
+            ctx.beginPath();
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = 'pink';
+            ctx.arc(300, 300, 250, 0, 2*Math.PI);
+            ctx.stroke();
+
+            //2.2.绘制刻度
+
+            // 时刻度
+            for (var i=0; i < 12; i++){
+                ctx.save();
+                ctx.beginPath();
+                ctx.lineWidth = 8;
+                ctx.strokeStyle = 'black';
+                // 移动坐标系的原点
+                ctx.translate(300, 300);
+                // 旋转(360 / 12 = 30)
+                ctx.rotate(i * 30 * Math.PI / 180);
+                // 半径250 ,250-190 = 60 与你60的间距
+                ctx.moveTo(0,-170);
+                ctx.lineTo(0,-190);
+                ctx.stroke();
+                ctx.restore();
+
+            }
+
+            // 分刻度
+            for (var i=0; i < 60; i++){
+                ctx.save();
+                ctx.beginPath();
+                ctx.lineWidth = 5;
+                ctx.strokeStyle = 'black';
+                // 移动坐标系的原点
+                ctx.translate(300, 300);
+                // 旋转(360 / 60 = 6)
+                ctx.rotate(i * 6 * Math.PI / 180);
+                // 半径250 ,250-190 = 60 与你60的间距
+                ctx.moveTo(0,-180);
+                ctx.lineTo(0,-190);
+                ctx.stroke();
+                ctx.restore();
+            }
+        };
+
+        //3.绘制
+        function drawClock() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 绘制背景
+            drawBackground();
+
+            //1.获取当前时间
+            var date = new Date();
+            //秒
+            var seconds = date.getSeconds();
+            //分
+            var mins = date.getMinutes();
+            //小时
+            var hours = date.getHours();
+
+            // 时针偏移
+            hours = hours + mins/60;
+
+            //24进制判断
+            hours = hours>12 ? hours - 12 : hours;
+
+            //2.根据当前时间,绘制时针
+            //时针
+            ctx.save();
+            ctx.lineWidth = 15;
+            ctx.strokeStyle = 'black';
+            ctx.translate(300, 300);
+            ctx.rotate(hours * 30 *Math.PI/180);
+            ctx.beginPath();
+            ctx.moveTo(0, -160);
+            ctx.lineTo(0, 10);
+            ctx.stroke();
+            ctx.restore();
+
+            //分针
+            ctx.save();
+            ctx.lineWidth = 7;
+            ctx.strokeStyle = 'black';
+            ctx.translate(300, 300);
+            ctx.rotate(mins * 6 *Math.PI/180);
+            ctx.beginPath();
+            ctx.moveTo(0, -160);
+            ctx.lineTo(0, 15);
+            ctx.stroke();
+            ctx.restore();
+
+            //秒针
+            ctx.save();
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = 'red';
+            ctx.translate(300, 300);
+            ctx.rotate(seconds * 6 *Math.PI/180);
+            ctx.beginPath();
+            ctx.moveTo(0, -180);
+            ctx.lineTo(0, 20);
+            ctx.stroke();
+            ctx.restore();
+
+        };
+
+        //调用函数
+        drawClock();
+
+        //开启定时器
+        setInterval(drawClock, 1000);
+
+
+    </script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body
+        {
+            width: 100%;
+            height: 100%;
+        }
+        #main
+        {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<div id="main">
+
+</div>
+<body>
+<script>
+    //1.创建一个构造函数
+    function Rect(option) {
+        this._init(option);
+
+    }
+
+
+    Rect.prototype =
+    {
+        _init:function (option) {
+            var option = option||{};
+
+            //设置父标签
+            this.parendId = option.parendId;
+
+            //设置矩形的一些属性
+            this.position = option.position;
+            this.width = option.width||100;
+            this.height = option.height||100;
+            this.left = option.left||10;
+            this.top = option.top||20;
+            this.background = option.background||'blue';
+            this.border = option.border||0;
+            this.borderRadius = option.borderRadius;
+
+
+        },
+        render:function () {
+            var parentNode = document.getElementById(this.parendId);
+            var childNode = document.createElement('div');
+            parentNode.style.position = 'relative';
+            childNode.style.position ='absolute';
+
+            childNode.style.width = this.width+'px';
+            childNode.style.height = this.height+'px';
+            childNode.style.left = this.left +'px';
+            childNode.style.top = this.top+'px';
+            childNode.style.background = this.background;
+            childNode.style.border = this.border;
+            childNode.style.borderRadius = this.borderRadius+'50%';
+
+            //拼接
+            parentNode.appendChild(childNode);
+
+
+        }
+    }
+
+
+    //调用rect创建矩形
+
+
+//     this.parendId = option.parendId;
+//
+//    //设置矩形的一些属性
+//    this.position = option.position;
+//    this.width = option.width||100;
+//    this.height = option.height||100;
+//    this.left = option.left||10;
+//    this.top = option.top||20;
+//    this.background = option.background||'blue';
+//    this.border = option.border||0;
+//    this.borderRadius = option.borderRadius;
+    var myRect = new Rect({parendId:'main',width:10,height:500,left:20,top:220,background:'red',border:'100px solid green'});
+    myRect.render();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 2.常量
+    var marginXY = 10;
+    //  求出行数
+    var rows = canvas.height / marginXY;
+    //   求出列数
+    var cols = canvas.width / marginXY;
+
+    // 3.绘制横线
+    for (var i = 1; i < rows; i++) {
+        // 设置起点
+        ctx.moveTo(0,i*marginXY);
+        // 设置终点
+        ctx.lineTo(canvas.width,i*marginXY);
+    }
+
+    // 4.绘制竖线
+    for (var i = 1; i < cols; i++) {
+        // 设置起点
+        ctx.moveTo(i*marginXY,0);
+        // 设置终点
+        ctx.lineTo(i*marginXY,canvas.height);
+    }
+    // 5.绘制
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = .5;
+    ctx.stroke();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+需求: 创建一个图书管理系统,实现增删改查功能
+    图书管理操作1:
+        存在的问题: 重复代码过多,冗余度高,无法复用
+    图书管理操作(函数封装01):
+        存在的问题: 重复代码过多,冗余度高
+    图书管理操作(函数封装02):
+        存在的问题: 函数写在外面会成为全局函数,会造成全局变量污染
+    图书管理操作(面向对象):
+        步骤:
+            1.提供一个图书管理的构造函数
+            2.设置属性和方法
+                属性设置为实例属性
+                方法设置为原型方法
+        优点： 封装性好，维护性好，结构性好，隐蔽性好，解决了全局变量污染问题
+<script>
+
+    // 1.提供一个图书管理的构造函数
+    function BookManager() {
+        this.bookList = [
+            {
+                name: '西游记',
+                author: '吴承恩'
+            },
+            {
+                name: '三国演义',
+                author: '罗贯中'
+            },
+            {
+                name: '水浒传',
+                author: '施耐庵'
+            },
+            {
+                name: '红楼梦',
+                author: '曹雪芹'
+            }
+        ];
+    }
+
+    // 2.设置图书管理构造函数的原型对象
+    BookManager.prototype = {
+        // 查询
+        getBookByName: function (bookName) {
+            for (var i = 0; i < this.bookList.length; i++) {
+                var obj = this.bookList[i];
+                if (obj.name == bookName) {
+                    return obj;
+                }
+            }
+        },
+        // 增加
+        addBook: function (book) {
+            this.bookList.push(book);
+        },
+        // 修改
+        setBook: function (bookName, bookAuthor) {
+
+            // 先查询
+            var obj = this.getBookByName(bookName);
+
+            // 再修改
+            obj.author = bookAuthor;
+        },
+        // 删除
+        removeBook: function (bookName) {
+
+        // 先查询
+        var obj = this.getBookByName(bookName);
+
+        // 获取这个对象数组中的下标
+        var index = this.bookList.indexOf(obj);
+
+        // 再删除
+        if (index != -1) {
+                this.bookList.splice(index,1);
+            }
+        }
+
+    };
+
+    // 1.创建一个图书管理对象
+    var bookManager = new BookManager();
+
+    // 2.查询
+    console.log(bookManager.getBookByName('三国演义'));
+
+    // 3.添加
+    bookManager.addBook({
+        name: '封神榜',
+        author: '姜子牙'
+    });
+    console.log(bookManager);
+
+    // 4.修改
+    bookManager.setBook('封神榜', '匿名');
+    console.log(bookManager);
+
+    // 5.删除
+    bookManager.removeBook('封神榜');
+    console.log(bookManager);
+</script>
+</body>
+</html>

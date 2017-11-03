@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+简单工厂函数封装对象的创建过程
+
+<script>
+    // 1.提供一个函数(工厂函数)用于封装对象的创建过程
+    function createPerson() {
+        // 1.创建一个空的对象
+        var stu = new Object();
+
+        // 2.利用对象的动态特性添加属性和方法
+        stu.name = '张学友';
+        stu.age = 50;
+        stu.className = '暴雨梨花针班';
+        stu.study = function () {
+            console.log('学习');
+        };
+
+        // 3.返回创建好的对象
+        return stu;
+    }
+
+    var stu1 = createPerson();
+    console.log(stu1);
+
+    var stu2 = createPerson();
+    console.log(stu2);
+
+</script>
+
+对函数封装优化: 相同代码放到函数内,不同的代码作为函数的参数
+<script>
+    // 1.提供一个函数(工厂函数)用于封装对象的创建过程
+    function createPerson(name, age, className) {
+        // 1.创建一个空的对象
+        var stu = new Object();
+
+        // 2.利用对象的动态特性添加属性和方法
+        stu.name = name;
+        stu.age = age;
+        stu.className = className;
+        stu.study = function () {
+            console.log('学习');
+        };
+
+        // 3.返回创建好的对象
+        return stu;
+    }
+
+    var stu1 = createPerson('zs',20,'葵花宝典班');
+    var stu2 = createPerson('ls',19,'暴雨梨花针班');
+    console.log(stu1);
+    console.log(stu2);
+
+
+</script>
+
+工厂函数方式存在的问题: 创建不同类型的对象,无法分辨
+
+<script>
+    function createPerson(name, age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        return obj;
+    }
+
+    function createDog(name, age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        return obj;
+    }
+
+    var p = createPerson('zs', 20);
+    var d = createDog('旺财', 6);
+
+    console.log(typeof p); // object
+    console.log(typeof d); // object
+
+</script>
+
+工厂函数?
+    类似于工厂生产产品的过程,大批量的生产同类型的产品
+<script>
+    function createPerson(name, age) {
+        // 原料: name + age + obj
+        var obj = new Object();
+
+        // 加工产品
+        obj.name = name;
+        obj.age = age;
+
+        // 返厂
+        return obj;
+    }
+</script>
+</body>
+</html>

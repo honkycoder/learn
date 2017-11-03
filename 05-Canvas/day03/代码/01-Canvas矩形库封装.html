@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style='padding: 100px;'>
+<canvas id='canvas' width='900' height='600' style='border: 1px solid #000;'>
+</canvas>
+
+<script src='js/XMGRect.js'></script>
+<script>
+    // 1.获取标签和上下文
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 2.实例化矩形对象
+//    var rect = new XMGRect({
+//        x : 100,
+//        y : 100,
+//        width : 200,
+//        height : 200,
+//        strokeColor : 'red',
+//        strokeWidth : 5,
+//        fillColor : 'blue'
+//    });
+//    //  绘制
+//    rect.renderStroke(ctx);
+
+    var rect = new XMGRect({
+        x : 100,
+        y : 100,
+        width : 200,
+        height : 200,
+        strokeColor : 'red',
+        strokeWidth : 5,
+        fillColor : 'blue',
+        scaleX : 1.5,
+        scaleY : 1.5,
+        translateX : 100,
+        translateY : 100,
+        angle : 20
+    });
+    //  绘制
+    rect.renderFill(ctx);
+
+
+//    var rect = new XMGRect({
+//        x : 0,
+//        y : 0
+//    });
+//    //  绘制
+//    rect.renderFill(ctx);
+</script>
+</body>
+</html>

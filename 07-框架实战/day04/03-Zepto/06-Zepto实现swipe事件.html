@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <style>
+        *{
+            /*先清除系统默认的事件*/
+            touch-action: none;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            position: absolute;
+            left: 10px;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/fx.js"></script>
+<script>
+    $(function () {
+        /*
+        $('.box').swipe(function () {
+            console.log('滑动了')
+        });
+        */
+
+        /*
+        $('.box').swipeLeft(function () {
+            console.log('左滑动了')
+        });
+
+        $('.box').swipeRight(function () {
+            console.log('右滑动了')
+        });
+
+        $('.box').swipeUp(function () {
+            console.log('上滑动了')
+        });
+
+        $('.box').swipeDown(function () {
+            console.log('下滑动了')
+        });
+        */
+
+
+        $('.box').swipeLeft(function () {
+            $(this).animate({
+                left: 0
+            })
+        });
+
+        $('.box').swipeRight(function () {
+            $(this).animate({
+                left: '200px'
+            })
+        });
+
+        $('.box').swipeUp(function () {
+            $(this).animate({
+                top: '0px'
+            })
+        });
+
+        $('.box').swipeDown(function () {
+            $(this).animate({
+                top: '300px'
+            })
+        });
+    });
+    
+
+</script>
+</body>
+</html>

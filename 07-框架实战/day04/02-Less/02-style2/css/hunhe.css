@@ -1,0 +1,14 @@
+div {
+  width: 200px;
+  height: 100px;
+  background-color: #0000ff;
+  border-radius: 30px;
+  border: 10px solid #ff0000;
+}
+p {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  border-radius: 50%;
+  border: 2px solid #ff0000;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box
+        {
+            width: 200px;
+            height: 200px;
+            background: deepskyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">变宽</button>
+<button id="btn1">变高</button>
+<div id="box">
+
+</div>
+<script>
+    //1.找对象
+    var btn = document.getElementById('btn');
+    var btn1 = document.getElementById('btn1');
+    var box =document.getElementById('box');
+    var timer = null;
+    var target = 600;
+    //2.点击按钮开始
+    btn.onclick = function () {
+      buffer(box,800,'width');
+    }
+
+    btn1.onclick = function () {
+       buffer(box,400,'height');
+    }
+
+
+    //{'width':800,'height':900,'left':100,'top':200}
+    function buffer(obj,target,attr) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var begin = parseInt(getCSSAttr(obj,attr));
+            var speed = (target-begin)/20;
+            speed = target>obj.offsetLeft?Math.ceil(speed):Math.floor(speed);
+            obj.style[attr] = begin+speed+'px';
+
+            //用begin值和target目标值做对比
+            if(begin==target)
+            {
+                alert(0);
+                //清除定时器
+                clearInterval(obj.timer);
+            }
+        },20);
+    }
+    //封装一个获取css样式的函数
+    function getCSSAttr(obj,attr)
+    {
+        if(obj.currentStyle)
+        {
+            return obj.currentStyle[attr];
+        }
+        //火狐和谷歌以及ie高版本
+        else
+        {
+            return  getComputedStyle(obj,null)[attr];
+        }
+    }
+
+</script>
+</body>
+</html>

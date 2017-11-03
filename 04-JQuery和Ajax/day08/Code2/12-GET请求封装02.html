@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/GET02.js"></script>
+</head>
+<body>
+
+<button id="btn1">GET1</button>
+<button id="btn2">GET2</button>
+<script>
+
+    //01 获取指定按钮添加点击事件
+    var oBtn1 = document.getElementById("btn1");
+    oBtn1.onclick = function () {
+        GET("php_server/08-ajax-btn1.php",
+            {"username":"zhangsan","password":"123456"},
+            function () {
+            console.log("成功：");
+        },
+            function () {
+            console.log("失败");
+        })
+    }
+
+    var oBtn2 = document.getElementById("btn2");
+    oBtn2.onclick = function () {
+        //alert(1);
+//        GET("php_server/08-ajax-btn3.php",
+//            {"type":"dog","color":"green","age":12},
+//            function (responseText) {
+//
+//                //在请求成功的回调中解析服务器返回的数据
+//                console.log("成功：" + responseText);
+//            },
+//            function (errorCode) {
+//                console.log("失败:" + errorCode);
+//            });
+
+        GET({"type":"dog","color":"green","age":12},
+            "php_server/08-ajax-btn2.php",
+            function (responseText) {
+
+                //在请求成功的回调中解析服务器返回的数据
+                console.log("成功：" + responseText);
+            },
+            function (errorCode) {
+                console.log("失败:" + errorCode);
+            });
+    }
+</script>
+</body>
+</html>

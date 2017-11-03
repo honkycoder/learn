@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box
+        {
+            width: 200px;
+            height: 200px;
+            background: greenyellow;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始运动</button>
+<button id="btn1">返回动画</button>
+<div id="box">
+
+</div>
+<script>
+    //1.找对象
+    var btn = document.getElementById('btn');
+    var btn1 = document.getElementById('btn1');
+    var box =document.getElementById('box');
+    //2.当鼠标点击的时候,做动画
+    var timer = null;
+    btn.onclick = function () {
+        constant(box,7,600);
+    };
+
+    //返回动画
+
+    var timer1 = null;
+    var target1 = 0;
+    var speed1 = 7;
+    btn1.onclick = function () {
+        constant(box,7,0);
+    };
+
+
+    //封装匀速动画框架
+    function constant(obj,speed,target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var speed1 = target>obj.offsetLeft?speed:-speed;
+                obj.style.left = obj.offsetLeft+ speed1+'px';
+                if(Math.abs(target-obj.offsetLeft)<Math.abs(speed1))
+                {
+                    clearInterval(obj.timer);
+                    obj.style.left = target+'px';
+            }
+
+        },20);
+    }
+</script>
+</body>
+</html>

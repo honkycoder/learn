@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+delete关键字
+    1.删除对象中的属性
+    2.删除未使用var声明的变量
+
+注意点:
+    1.这个操作是有返回值的,返回值类型是布尔类型,true代表删除成功,false删除失败
+    2.不能删除使用var声明的变量
+    3.可以删除直接定义在window上的属性
+<script>
+    // 删除对象中的属性
+    var obj = {name: '老王'};
+    console.log(delete obj.name); // true
+    console.log(obj);
+
+    // 删除未使用var声明的变量,删除成功
+//    a = 10;
+//    console.log(delete a); // true
+////    console.log(a);
+//    console.log(window.a); // undefined
+//
+    // 删除使用var声明的变量,删除失败
+//    var b = 20;
+////    console.log(delete b); // false
+//    console.log(delete window.b); // false
+//    console.log(b);
+
+    // 删除直接在window上面添加的属性
+    window.b = 30;
+//    console.log(delete window.b); // true
+    console.log(delete b); // true
+    console.log(window.b);
+
+</script>
+</body>
+</html>
